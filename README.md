@@ -270,3 +270,39 @@ To run alongside an older server:
     python3 src/server.py --port 8093
 
 Browser: http://127.0.0.1:8093/section_recommendations.html
+
+
+## v0.3 pilot — original ECHA PDF verification and information readiness
+
+The original 137-page **ECHA Guidance on the compilation of safety data sheets
+Version 4.0 (December 2020)** has now been checked against the original
+Markdown extraction: the **SHA-256 matches** and all **16 section chapter
+start-page anchors match**. This does **not** verify every extracted word,
+table, footnote or legal obligation.
+
+The \`feature/phase3-echa-guidance-verified-evidence-pilot\` branch introduces
+**27 guidance-based information prompts for Sections 4, 7 and 8**. Each prompt
+records source page, REACH Annex II clause for legal review, a question,
+possible evidence, and cross-section dependencies. Answers are either
+information provided, unavailable, claimed not applicable, or unknown.
+Unavailability/non-applicability require an explanation and remain under
+review. **No output declares an SDS section compliant or a phrase legally
+mandatory.** These prompts are separate from the 105 existing phrase choices.
+
+Local setup (from your existing checkout):
+
+    cd /mnt/holochain/Regulatory/SDS_Phrases
+    git fetch origin
+    git switch --track origin/feature/phase3-echa-guidance-verified-evidence-pilot
+    python3 -m unittest discover -s tests -v
+    # Optional original-PDF validation using your own source files:
+    python3 src/guidance_pdf_verification.py ~/Downloads/sds_guidance.pdf --archive ~/Downloads/CLP_A_I-main.zip
+    # If you have imported guidance ZIP as data/echa_guidance_2020.sqlite:
+    python3 src/guidance_pdf_verification.py ~/Downloads/sds_guidance.pdf --archive ~/Downloads/CLP_A_I-main.zip --db data/echa_guidance_2020.sqlite
+    python3 src/server.py --port 8095
+
+Open **http://127.0.0.1:8095/readiness.html**.
+
+The original PDF, complete excerpts and Markdown ZIP **remain local** and
+are not added to GitHub. See
+[guidance verification and pilot design](docs/echa_pdf_guidance_readiness_v03.md).

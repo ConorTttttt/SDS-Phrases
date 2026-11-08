@@ -15,6 +15,7 @@ from guidance_sources import search as guidance_search, summary as guidance_summ
 from reach_annex2_source import search as reach_search, summary as reach_summary, ReachSourceError
 from reach_annex2_audit import audit_structure, load_structure, ReachAuditError
 from section_recommendations import load_candidates, evaluate_sections, RecommendationError
+from sds_readiness import load_prompts, evaluate_readiness, ReadinessError
 
 ROOT = Path(__file__).resolve().parent.parent
 REVIEWS = ROOT / "data" / "catalogue_reviews.sqlite"
@@ -31,7 +32,9 @@ STATIC = {"/": "index.html", "/index.html": "index.html", "/app.js": "app.js", "
           "/reach.html": "reach.html", "/reach.js": "reach.js",
           "/section_recommendations.html": "section_recommendations.html",
           "/section_recommendations.js": "section_recommendations.js",
-          "/section_recommendations.css": "section_recommendations.css"}
+          "/section_recommendations.css": "section_recommendations.css",
+          "/readiness.html": "readiness.html", "/readiness.js": "readiness.js",
+          "/readiness.css": "readiness.css"}
 
 def load_rules():
     return json.loads(RULES.read_text(encoding="utf-8"))
@@ -89,6 +92,8 @@ def create_handler(db_path):
             url = urlparse(self.path)
             if url.path.startswith("/api/"):
                 try:
+                    if url.path == "/api/readiness/prompts":
+                        return self.json_reply(200, load_prompts())
                     if url.path == "/api/section-recommendations/config":
                         pack = load_candidates()
                         pack["sections"] = [{"section": int(s["code"]), "heading": s["heading"]}
@@ -148,7 +153,7 @@ def create_handler(db_path):
                             db_path, one("query", ""), one("jurisdiction", "EU"),
                             one("section", ""), one("collection", "Core"), one("limit", "40")))
                     return self.json_reply(404, {"error": "Unknown API endpoint."})
-                except (SelectionError, RecommendationError) as exc:
+                except (SelectionError, RecommendationError, ReadinessError) as exc:
                     return self.json_reply(400, {"error": str(exc)})
                 except (FileNotFoundError, sqlite3.Error) as exc:
                     return self.json_reply(503, {"error": "Catalogue unavailable: " + str(exc)})
@@ -172,6 +177,17 @@ def create_handler(db_path):
             self.wfile.write(data)
 
         def do_POST(self):
+            if urlparse(self.path).path == "/api/readiness/evaluate":
+                try:
+                    if not self.headers.get("Content-Type","").startswith("application/json"):
+                        return self.json_reply(415, {"error":"JSON content type required"})
+                    size=int(self.headers.get("Content-Length","0"))
+                    if not 0<size<=100000:
+                        return self.json_reply(413, {"error":"Invalid request size"})
+                    data=json.loads(self.rfile.read(size))
+                    return self.json_reply(200,evaluate_readiness(data))
+                except (ReadinessError,ValueError,TypeError,json.JSONDecodeError) as exc:
+                    return self.json_reply(400, {"error":str(exc)})
             if urlparse(self.path).path == "/api/section-recommendations/evaluate":
                 try:
                     if not self.headers.get("Content-Type", "").startswith("application/json"):
