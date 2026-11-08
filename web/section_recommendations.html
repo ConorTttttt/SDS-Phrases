@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark"><title>Section-by-Section Phrase Recommendations — SDS</title>
+<link rel="stylesheet" href="/catalogue.css"><link rel="stylesheet" href="/section_recommendations.css">
+<script defer src="/section_recommendations.js"></script></head>
+<body><main class="shell">
+<header class="top"><div><div class="eyebrow">PHASE 2 / EVIDENCE-GATED SDS AUTHORING</div><h1>Phrase <span>recommendations</span></h1>
+<p>Document product evidence, then inspect exact catalogue candidates for every SDS section.</p></div>
+<div class="links"><a href="/" class="back">Phrase engine</a><a href="/catalogue.html" class="back">Phrase library</a><a href="/reach.html" class="back">REACH requirements</a></div></header>
+<div class="notice"><strong>Unverified drafting candidates — not legal recommendations or finished SDS text.</strong> Selecting a fact only means you supplied evidence for a curated authoring trigger; it does not independently confirm that the phrase is correct, mandatory, sufficient or up to date. Specialised SDS assessments, composition, CLP label elements and expert review are still required.</div>
+<section class="panel" id="inputPanel">
+<div class="heading"><h2>1. Product profile</h2><span>PRODUCT-SPECIFIC EVIDENCE REQUIRED</span></div>
+<form id="form">
+<div class="filters global-input">
+<label>Regulatory format<select id="jurisdiction"><option value="EU">EU / REACH Annex II — pilot</option><option value="GB">GB — not curated yet</option><option value="US">USA — not curated yet</option></select></label>
+<label>SDS assessment date<input type="date" id="asOf" required></label>
+<label>Product type<select id="type"><option value="">Unknown</option><option value="mixture">Mixture</option><option value="substance">Substance</option></select></label>
+<label>Type evidence<input id="typeEvidence" placeholder="Approved formulation / identity source"></label>
+<label>Hazard statements<input id="hazards" placeholder="H315, H319"></label>
+<label>Classification complete?<select id="complete"><option value="unknown">Unknown</option><option value="yes">Yes</option><option value="no">No</option></select></label>
+<label class="wide">Classification evidence<input id="completeEvidence" placeholder="Document reference / reviewer / revision"></label>
+</div>
+<div class="heading" style="margin-top:28px"><h2>2. Section-specific facts</h2><span>YES / NO / UNKNOWN + EVIDENCE</span></div>
+<p class="meta">Choose <b>Yes</b> only for statements verified for this product. <b>No</b> also requires evidence. Unknown or unevidenced answers never qualify a phrase.</p>
+<div id="factGroups" class="fact-groups" aria-live="polite"><div class="empty">Loading draft authoring conditions…</div></div>
+<div class="actions">
+<button class="primary" type="submit">Recommend phrases across 16 sections →</button>
+<button type="button" class="back" id="demo">Load fictional test profile</button>
+<button type="button" class="back" id="clear">Clear inputs</button>
+</div></form></section>
+<section id="resultsPanel" class="panel results-panel">
+<div class="heading"><h2>3. Recommendations by SDS section</h2><span>EXACT eSDScom 5.5 WORDING</span></div>
+<div id="status" class="stats" aria-live="polite"><div class="empty">Enter evidence and evaluate to see section-by-section results.</div></div>
+<div id="sections" class="sections" aria-live="polite"><div class="empty">The engine will show all 16 sections, including gaps with no eligible candidate.</div></div>
+</section>
+<footer>ORIGINAL CATALOGUE TEXT REMAINS LOCAL · NO LEGAL PHRASE AUTOMATION · ALL PHRASES REQUIRE HUMAN REVIEW</footer>
+</main></body></html>
