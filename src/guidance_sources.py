@@ -24,7 +24,7 @@ SECTION_RE = re.compile(r"(?:^|/)SDS_Section_(\d{2})\.md$")
 ANCHOR_RE = re.compile(r'<a id="echa-sds-(\d{1,2})-(\d{1,2})"></a>')
 HEADING_RE = re.compile(r"(?m)^#{2,5}\s+(\d{1,2})\.(\d{1,2})\.?\s+(.+?)\s*$")
 PAGE_RE = re.compile(r"\*\*ECHA printed page (\d+)\*\*")
-META_RE = re.compile(r'^([a-z_]+):\s*"([^"\r\n]*)"\s*$', re.M)
+META_RE = re.compile(r'^([a-z0-9_]+):\s*"([^"\r\n]*)"\s*$', re.M)
 MAX_UNCOMPRESSED = 6_000_000
 
 
