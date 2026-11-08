@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark"><title>Product Profile → SDS Phrase Recommendations</title>
+<link rel="stylesheet" href="/catalogue.css"><link rel="stylesheet" href="/profile_recommendations.css">
+<script src="/profile_recommendations.js" defer></script></head>
+<body><main class="shell profile-shell">
+<header class="top">
+<div><div class="eyebrow">SDS AUTHORING · PRODUCT-BASED ORIGINAL PHRASES</div>
+<h1>Your product → <span>suggested phrases</span></h1>
+<p>Enter existing hazard classifications and physical properties. Get exact local eSDScom wording grouped by SDS section.</p></div>
+<nav class="quicklinks"><a class="back" href="/">Home</a>
+<a class="back" href="/phrase_finder.html">Browse all phrases &amp; draft</a>
+<a class="back" href="/section_recommendations.html">Detailed candidate rules</a></nav>
+</header>
+<div class="notice"><b>Draft recommendations — not an automated SDS or CLP classification.</b>
+Hazard codes must come from your own completed classification. Physical-property cues help find potentially relevant wording; they do not establish hazards, legal applicability or safe first-aid/PPE/storage instructions. All results require human review before SDS publication.</div>
+<section class="panel">
+<div class="heading"><h2>1 · Product classification</h2><span>EU SOURCE CATALOGUE · ENGLISH</span></div>
+<form id="profileForm">
+<div class="grid-input">
+<label>Market<select id="jurisdiction"><option value="EU">EU / REACH Annex II pilot</option></select></label>
+<label>Assessment date<input type="date" id="asOf" required></label>
+<label>Substance or mixture<select id="productType">
+<option value="unknown">Not specified</option>
+<option value="mixture">Mixture</option><option value="substance">Substance</option></select></label>
+<label class="wide">H-statements from your existing classification
+<textarea id="hazards" placeholder="H315, H319, H411" rows="2" spellcheck="false"></textarea></label>
+</div>
+<div class="common-hazards" id="commonHazards">
+<span>Quick add:</span>
+<button type="button" data-h="H225">Flam. Liq. 2 · H225</button>
+<button type="button" data-h="H226">Flam. Liq. 3 · H226</button>
+<button type="button" data-h="H314">Skin Corr. 1 · H314</button>
+<button type="button" data-h="H315">Skin Irrit. 2 · H315</button>
+<button type="button" data-h="H317">Skin Sens. 1 · H317</button>
+<button type="button" data-h="H318">Eye Dam. 1 · H318</button>
+<button type="button" data-h="H319">Eye Irrit. 2 · H319</button>
+<button type="button" data-h="H335">STOT SE 3 · H335</button>
+<button type="button" data-h="H400">Aquatic Acute 1 · H400</button>
+<button type="button" data-h="H410">Aquatic Chronic 1 · H410</button>
+<button type="button" data-h="H411">Aquatic Chronic 2 · H411</button>
+</div>
+<label class="detail-label">Classification source (optional)
+<input id="classificationRef" maxlength="400" placeholder="e.g. approved formulation review / version / date"></label>
+<div class="heading gap-top"><h2>2 · Physical properties</h2><span>UNKNOWN IS ALLOWED</span></div>
+<div class="grid-input">
+<label>Physical state<select id="physicalState">
+<option value="unknown">Unknown</option><option value="liquid">Liquid</option>
+<option value="solid">Solid</option><option value="gas">Gas</option></select></label>
+<label>Physical form<select id="physicalForm">
+<option value="unknown">Unknown</option><option value="powder">Powder</option>
+<option value="granules">Granules</option><option value="other">Other</option></select></label>
+<label>Colour<select id="colour">
+<option value="unknown">Unknown</option><option value="colourless">Colourless</option>
+<option value="coloured">Coloured</option></select></label>
+<label>pH (if measured)<input id="ph" type="number" step="any" min="-2" max="16" placeholder="e.g. 3.5"></label>
+<label>Flash point °C (if measured)<input id="flashPoint" type="number" step="any" min="-200" max="500" placeholder="e.g. 25"></label>
+<label>Generates dust?<select id="dustGenerating"><option value="unknown">Unknown</option>
+<option value="yes">Yes</option><option value="no">No</option></select></label>
+<label>Volatile under use conditions?<select id="volatile"><option value="unknown">Unknown</option>
+<option value="yes">Yes</option><option value="no">No</option></select></label>
+<label>Heat sensitive?<select id="heatSensitive"><option value="unknown">Unknown</option>
+<option value="yes">Yes</option><option value="no">No</option></select></label>
+<label>Sunlight sensitive?<select id="sunlightSensitive"><option value="unknown">Unknown</option>
+<option value="yes">Yes</option><option value="no">No</option></select></label>
+<label>Heating can increase pressure?<select id="heatPressure"><option value="unknown">Unknown</option>
+<option value="yes">Yes</option><option value="no">No</option></select></label>
+<label>Professional use only?<select id="professionalUse"><option value="unknown">Unknown</option>
+<option value="yes">Yes</option><option value="no">No</option></select></label>
+</div>
+<p class="small-note">A numeric pH or flash point is used as a screening cue only. It is not enough to assign a CLP hazard class, protective equipment specification or recommended medical treatment.</p>
+<div class="form-actions">
+<button class="primary" type="submit">Get recommended SDS phrases →</button>
+<button type="button" class="back action" id="demo">Example: H315/H319 liquid</button>
+<button type="button" class="back action" id="reset">Clear profile</button>
+</div>
+</form>
+</section>
+<section class="panel result-panel" id="resultsPanel">
+<div class="heading"><h2>3 · Recommendations by SDS section</h2><span>ORIGINAL PHRASES · EXPERT REVIEW REQUIRED</span></div>
+<div id="status" class="stats"><div class="empty">Enter a hazard classification or physical properties above, then get recommendations.</div></div>
+<div id="conflicts" aria-live="polite"></div>
+<div id="sections" class="sections" aria-live="polite"><div class="empty">All 16 SDS sections will appear here, including sections for which no safe phrase can be inferred.</div></div>
+</section>
+<footer>NO GENERATIVE PHRASE TEXT · NO NEGATIVE CLASSIFICATION INFERENCES · SHARED WITH YOUR LOCAL DRAFT BOARD</footer>
+</main></body></html>

@@ -18,6 +18,7 @@ from reach_annex2_audit import audit_structure, load_structure, ReachAuditError
 from section_recommendations import load_candidates, evaluate_sections, RecommendationError
 from sds_readiness import load_prompts, evaluate_readiness, ReadinessError
 from phrase_finder import find_phrases, finder_sections, validate_draft, PhraseFinderError
+from profile_phrase_engine import recommend_profile, ProfileRecommendationError
 
 ROOT = Path(__file__).resolve().parent.parent
 REVIEWS = ROOT / "data" / "catalogue_reviews.sqlite"
@@ -38,7 +39,10 @@ STATIC = {"/": "index.html", "/index.html": "index.html", "/app.js": "app.js", "
           "/readiness.html": "readiness.html", "/readiness.js": "readiness.js",
           "/readiness.css": "readiness.css",
           "/phrase_finder.html": "phrase_finder.html", "/phrase_finder.js": "phrase_finder.js",
-          "/phrase_finder.css": "phrase_finder.css"}
+          "/phrase_finder.css": "phrase_finder.css",
+          "/profile_recommendations.html": "profile_recommendations.html",
+          "/profile_recommendations.js": "profile_recommendations.js",
+          "/profile_recommendations.css": "profile_recommendations.css"}
 
 def load_rules():
     return json.loads(RULES.read_text(encoding="utf-8"))
@@ -192,6 +196,19 @@ def create_handler(db_path):
             self.wfile.write(data)
 
         def do_POST(self):
+            if urlparse(self.path).path == "/api/profile-recommendations/evaluate":
+                try:
+                    if not self.headers.get("Content-Type","").startswith("application/json"):
+                        return self.json_reply(415, {"error":"JSON content type required"})
+                    size=int(self.headers.get("Content-Length","0"))
+                    if not 0<size<=100000:
+                        return self.json_reply(413, {"error":"Invalid profile request size"})
+                    data=json.loads(self.rfile.read(size))
+                    return self.json_reply(200,recommend_profile(db_path,data))
+                except (ProfileRecommendationError,ValueError,TypeError,json.JSONDecodeError) as exc:
+                    return self.json_reply(400, {"error":str(exc)})
+                except (FileNotFoundError,sqlite3.Error) as exc:
+                    return self.json_reply(503, {"error":str(exc)})
             if urlparse(self.path).path == "/api/phrase-finder/validate-draft":
                 try:
                     if not self.headers.get("Content-Type","").startswith("application/json"):
