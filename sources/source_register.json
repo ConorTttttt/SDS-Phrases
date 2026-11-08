@@ -1,0 +1,42 @@
+{
+  "schema": "sds-source-register/v0.1",
+  "status": "descriptive_references_not_approved_rules",
+  "sources": [
+    {
+      "id": "ECHA-SDS-2020-V4",
+      "type": "secondary_nonbinding_guidance",
+      "jurisdiction": "EU",
+      "title": "ECHA Guidance on the compilation of safety data sheets v4.0",
+      "issued": "2020-12",
+      "reference": "ECHA-20-H-25-EN",
+      "doi": "10.2823/77155",
+      "url": "https://echa.europa.eu/-/guidance-on-the-compilation-of-safety-data-sheets",
+      "local_import": "data/echa_guidance_2020.sqlite",
+      "verification_status": "historical_source_not_verified_against_pdf",
+      "legal_authority": false
+    },
+    {
+      "id": "EU-REACH-ANNEX-II-2020-878",
+      "type": "primary_legislation",
+      "jurisdiction": "EU",
+      "title": "REACH Annex II as replaced by Regulation (EU) 2020/878",
+      "reference": "Commission Regulation (EU) 2020/878",
+      "url": "https://eur-lex.europa.eu/eli/reg/2020/878/oj",
+      "verification_status": "independent_rule_extraction_pending",
+      "legal_authority": true,
+      "application_date_noted": "2021-01-01",
+      "transition_end_noted": "2022-12-31",
+      "caution": "Current consolidated law, amendments, transitional provisions and applicability remain to be reviewed before encoding rules."
+    },
+    {
+      "id": "EU-CLP-ANNEX-IV",
+      "type": "primary_legislation",
+      "jurisdiction": "EU",
+      "title": "CLP Annex IV Parts 1 and 2",
+      "reference": "Regulation (EC) No 1272/2008",
+      "url": "https://eur-lex.europa.eu/eli/reg/2008/1272/oj",
+      "verification_status": "source_package_not_in_this_upload; independently reviewed rules pending",
+      "legal_authority": true
+    }
+  ]
+}

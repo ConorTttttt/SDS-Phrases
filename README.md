@@ -152,3 +152,26 @@ coverage and subsequent regulatory validation requirements.
 and Part 2 English wording with regulation citations and amendment/effective
 dates, then model EU REACH Annex II SDS information requirements separately.
 Do not infer mandatory phrases from catalogue membership.
+
+
+## Supporting ECHA SDS guidance import (Stage B source intake)
+
+The uploaded \`CLP_A_I-main.zip\` is **ECHA SDS Compilation Guidance v4.0 (2020)**,
+not CLP Annex I or CLP Annex IV. Import it strictly as a *historical, nonbinding
+secondary reference*:
+
+    cd /mnt/holochain/Regulatory/SDS_Phrases
+    python3 src/guidance_sources.py ~/Downloads/CLP_A_I-main.zip
+    python3 src/server.py
+
+Browse **http://127.0.0.1:8092/guidance.html**.
+The original Markdown remains in a local database at
+\`data/echa_guidance_2020.sqlite\` (excluded from Git). Its excerpt/page navigation
+does not create rules and cannot establish legal SDS requirements. The original
+PDF and its page images are missing from the uploaded lightweight package, so
+layout-sensitive text and the claimed original PDF hash remain unverified.
+
+See [source intake and limitations](docs/echa_guidance_source_intake.md)
+and [typed source register](sources/source_register.json).
+Binding EU SDS-content requirements must be verified against REACH Annex II as
+applicable on the SDS date; CLP Annex IV selection requires its separate legal text.

@@ -11,15 +11,18 @@ from engine import SelectionError, JURISDICTION_PREFIX, evaluate
 from catalogue_browser import search as catalogue_search, summary as catalogue_summary, CatalogueQueryError
 from catalogue_reviews import lookup as review_lookup, set_review, ReviewError
 from regulatory_engine import RegulatoryError, evaluate_regulations
+from guidance_sources import search as guidance_search, summary as guidance_summary, GuidanceError
 
 ROOT = Path(__file__).resolve().parent.parent
 REVIEWS = ROOT / "data" / "catalogue_reviews.sqlite"
 WEB = ROOT / "web"
 RULES = ROOT / "rules" / "pilot-eu-gb-v1.json"
 REGULATORY_PACK = ROOT / "rules" / "regulatory-demo-v0.2.json"
+GUIDANCE_DB = ROOT / "data" / "echa_guidance_2020.sqlite"
 STATIC = {"/": "index.html", "/index.html": "index.html", "/app.js": "app.js", "/styles.css": "styles.css",
           "/catalogue.html": "catalogue.html", "/catalogue.js": "catalogue.js", "/catalogue.css": "catalogue.css",
-          "/regulatory.html": "regulatory.html", "/regulatory.js": "regulatory.js"}
+          "/regulatory.html": "regulatory.html", "/regulatory.js": "regulatory.js",
+          "/guidance.html": "guidance.html", "/guidance.js": "guidance.js"}
 
 def load_rules():
     return json.loads(RULES.read_text(encoding="utf-8"))
@@ -77,6 +80,14 @@ def create_handler(db_path):
             url = urlparse(self.path)
             if url.path.startswith("/api/"):
                 try:
+                    if url.path == "/api/guidance/summary":
+                        return self.json_reply(200, guidance_summary(GUIDANCE_DB))
+                    if url.path == "/api/guidance/search":
+                        args = parse_qs(url.query, keep_blank_values=True)
+                        one = lambda key, default: args.get(key, [default])[0]
+                        return self.json_reply(200, guidance_search(GUIDANCE_DB,
+                            query=one("query",""), section=one("section",""),
+                            limit=one("limit","30"),offset=one("offset","0")))
                     if url.path == "/api/regulatory/pack":
                         return self.json_reply(200, load_regulatory_pack())
                     if url.path == "/api/catalogue/summary":
