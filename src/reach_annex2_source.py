@@ -11,6 +11,7 @@ import json
 import re
 import shutil
 import sqlite3
+from contextlib import closing
 import subprocess
 import tempfile
 from pathlib import Path
@@ -55,7 +56,7 @@ def import_pdf(path, db):
     db.parent.mkdir(parents=True,exist_ok=True)
     with tempfile.TemporaryDirectory(dir=db.parent) as folder:
         tmp=Path(folder)/"reach.sqlite"
-        with sqlite3.connect(tmp) as conn:
+        with closing(sqlite3.connect(tmp)) as conn, conn:
             conn.execute("""CREATE TABLE reference_pages(
                 pdf_page INTEGER PRIMARY KEY, printed_page INTEGER NOT NULL,
                 text TEXT NOT NULL, text_sha256 TEXT NOT NULL
@@ -93,7 +94,7 @@ def _connect(db):
     return conn
 
 def summary(db):
-    with _connect(db) as conn:
+    with closing(_connect(db)) as conn:
         metadata=dict(conn.execute("SELECT name,value FROM source_metadata"))
         return {"metadata":metadata,"page_count":conn.execute("SELECT COUNT(*) FROM reference_pages").fetchone()[0],
             "warning":"Reference content only; no regulatory requirement has been legally verified by source ingestion."}
@@ -112,7 +113,7 @@ def search(db, *, query="", page="", limit=12, offset=0):
         text=query.strip().lower().replace("\\","\\\\").replace("%","\\%").replace("_","\\_")
         clauses.append("LOWER(text) LIKE ? ESCAPE '\\'");params.append("%"+text+"%")
     where=" WHERE "+" AND ".join(clauses) if clauses else ""
-    with _connect(db) as conn:
+    with closing(_connect(db)) as conn:
         count=conn.execute("SELECT COUNT(*) FROM reference_pages"+where,params).fetchone()[0]
         rows=conn.execute("SELECT pdf_page,printed_page,text_sha256,text FROM reference_pages"+where+
                           " ORDER BY pdf_page LIMIT ? OFFSET ?",params+[limit,offset]).fetchall()

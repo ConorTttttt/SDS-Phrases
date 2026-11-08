@@ -1,4 +1,5 @@
 import tempfile
+from contextlib import closing
 import unittest
 import zipfile
 from pathlib import Path
@@ -37,7 +38,7 @@ class CatalogueImportTests(unittest.TestCase):
             self.assertEqual(report["total_rows"], 2)
             self.assertEqual(report["english_entries"], 2)
             import sqlite3
-            with sqlite3.connect(target) as conn:
+            with closing(sqlite3.connect(target)) as conn:
                 result = conn.execute("SELECT entry_key, english, sds_section, jurisdiction_structure FROM entries WHERE collection='Core'").fetchone()
                 self.assertEqual(result, ("esdscom55-Core-r000002", "Keep container tightly closed.", 7, "EU"))
                 self.assertEqual(conn.execute("SELECT COUNT(*) FROM entries").fetchone()[0], 2)

@@ -9,6 +9,7 @@ import collections
 import json
 import re
 import sqlite3
+from contextlib import closing
 import tempfile
 import zipfile
 from pathlib import Path
@@ -89,70 +90,69 @@ def import_catalogue(source, destination):
     # Build a temporary database: never overwrite working data after a partial failure.
     with tempfile.TemporaryDirectory(dir=destination.parent) as temporary:
         tmp = Path(temporary) / "catalogue.sqlite"
-        conn = sqlite3.connect(tmp)
-        conn.execute("""CREATE TABLE entries (
-            entry_key TEXT PRIMARY KEY, catalogue_version TEXT NOT NULL,
-            collection TEXT NOT NULL, source_file TEXT NOT NULL, excel_row INTEGER NOT NULL,
-            structurecode TEXT NOT NULL, esdscom_structure_id TEXT, esdscom_phrase_id TEXT,
-            esdscom_path_full TEXT, region TEXT, jurisdiction_structure TEXT,
-            sds_section INTEGER, structure_info TEXT, grammar TEXT, original_code TEXT,
-            english TEXT, revision_date_raw TEXT, phrase_owner TEXT, source TEXT,
-            info TEXT, qualifier TEXT, value TEXT, unit TEXT
-        )""")
-        conn.execute("CREATE INDEX idx_section_region ON entries (jurisdiction_structure, sds_section)")
-        conn.execute("CREATE INDEX idx_structure ON entries (structurecode)")
-        counts = collections.Counter()
-        insert = "INSERT INTO entries (" + ",".join(TABLE_FIELDS) + ") VALUES (" + ",".join("?" for _ in TABLE_FIELDS) + ")"
-        for kind, source_name, data in source_workbooks(source):
-            from io import BytesIO
-            iterator = workbook_rows(BytesIO(data))
-            header_row, header = next(iterator)
-            if header_row != 1 or header.get("I", "").lower() != "english":
-                raise ValueError("Unexpected workbook columns; refusing to guess mappings for " + source_name)
-            batch = []
-            for excel_row, cells in iterator:
-                raw = dict(zip(RAW_COLUMNS, (cells.get(c, "") for c in "ABCDEFGHIJKLMNOPQ")))
-                code = raw["structurecode"]
-                parts = code.split(".")
-                prefix = parts[0] if parts else ""
-                section = (int(parts[1]) if prefix in PREFIXES and
-                           len(parts) > 1 and parts[1].isdigit() and
-                           1 <= int(parts[1]) <= 16 else None)
-                row = {
-                    "entry_key": f"esdscom55-{kind}-r{excel_row:06d}",
-                    "catalogue_version": "5.5", "collection": kind,
-                    "source_file": source_name, "excel_row": excel_row,
-                    "jurisdiction_structure": PREFIXES.get(prefix, ""),
-                    "sds_section": section,
-                }
-                for k in TABLE_FIELDS:
-                    if k in raw:
-                        row[k] = raw[k]
-                batch.append(tuple(row.get(k) for k in TABLE_FIELDS))
-                counts[kind + "_rows"] += 1
-                if raw["english"]:
-                    counts["english_entries"] += 1
-                else:
-                    counts["blank_english"] += 1
-                if len(batch) >= 1000:
+        with closing(sqlite3.connect(tmp)) as conn:
+            conn.execute("""CREATE TABLE entries (
+                entry_key TEXT PRIMARY KEY, catalogue_version TEXT NOT NULL,
+                collection TEXT NOT NULL, source_file TEXT NOT NULL, excel_row INTEGER NOT NULL,
+                structurecode TEXT NOT NULL, esdscom_structure_id TEXT, esdscom_phrase_id TEXT,
+                esdscom_path_full TEXT, region TEXT, jurisdiction_structure TEXT,
+                sds_section INTEGER, structure_info TEXT, grammar TEXT, original_code TEXT,
+                english TEXT, revision_date_raw TEXT, phrase_owner TEXT, source TEXT,
+                info TEXT, qualifier TEXT, value TEXT, unit TEXT
+            )""")
+            conn.execute("CREATE INDEX idx_section_region ON entries (jurisdiction_structure, sds_section)")
+            conn.execute("CREATE INDEX idx_structure ON entries (structurecode)")
+            counts = collections.Counter()
+            insert = "INSERT INTO entries (" + ",".join(TABLE_FIELDS) + ") VALUES (" + ",".join("?" for _ in TABLE_FIELDS) + ")"
+            for kind, source_name, data in source_workbooks(source):
+                from io import BytesIO
+                iterator = workbook_rows(BytesIO(data))
+                header_row, header = next(iterator)
+                if header_row != 1 or header.get("I", "").lower() != "english":
+                    raise ValueError("Unexpected workbook columns; refusing to guess mappings for " + source_name)
+                batch = []
+                for excel_row, cells in iterator:
+                    raw = dict(zip(RAW_COLUMNS, (cells.get(c, "") for c in "ABCDEFGHIJKLMNOPQ")))
+                    code = raw["structurecode"]
+                    parts = code.split(".")
+                    prefix = parts[0] if parts else ""
+                    section = (int(parts[1]) if prefix in PREFIXES and
+                               len(parts) > 1 and parts[1].isdigit() and
+                               1 <= int(parts[1]) <= 16 else None)
+                    row = {
+                        "entry_key": f"esdscom55-{kind}-r{excel_row:06d}",
+                        "catalogue_version": "5.5", "collection": kind,
+                        "source_file": source_name, "excel_row": excel_row,
+                        "jurisdiction_structure": PREFIXES.get(prefix, ""),
+                        "sds_section": section,
+                    }
+                    for k in TABLE_FIELDS:
+                        if k in raw:
+                            row[k] = raw[k]
+                    batch.append(tuple(row.get(k) for k in TABLE_FIELDS))
+                    counts[kind + "_rows"] += 1
+                    if raw["english"]:
+                        counts["english_entries"] += 1
+                    else:
+                        counts["blank_english"] += 1
+                    if len(batch) >= 1000:
+                        conn.executemany(insert, batch)
+                        batch = []
+                if batch:
                     conn.executemany(insert, batch)
-                    batch = []
-            if batch:
-                conn.executemany(insert, batch)
-        try:
-            conn.execute("CREATE VIRTUAL TABLE entries_fts USING fts5(english, original_code, structurecode, content='entries', content_rowid='rowid')")
-            conn.execute("INSERT INTO entries_fts(entries_fts) VALUES('rebuild')")
-            counts["fts5"] = True
-        except sqlite3.OperationalError:
-            counts["fts5"] = False
-        conn.commit()
-        if source.is_file():
-            sha = hashlib.sha256(source.read_bytes()).hexdigest()
-        else:
-            sha = "directory_input_no_archive_digest"
-        counts.update(build_index(conn, source_sha256=sha))
-        counts["total_rows"] = sum(counts[k] for k in ("Core_rows", "ExpoScenario_rows"))
-        conn.close()
+            try:
+                conn.execute("CREATE VIRTUAL TABLE entries_fts USING fts5(english, original_code, structurecode, content='entries', content_rowid='rowid')")
+                conn.execute("INSERT INTO entries_fts(entries_fts) VALUES('rebuild')")
+                counts["fts5"] = True
+            except sqlite3.OperationalError:
+                counts["fts5"] = False
+            conn.commit()
+            if source.is_file():
+                sha = hashlib.sha256(source.read_bytes()).hexdigest()
+            else:
+                sha = "directory_input_no_archive_digest"
+            counts.update(build_index(conn, source_sha256=sha))
+            counts["total_rows"] = sum(counts[k] for k in ("Core_rows", "ExpoScenario_rows"))
         tmp.replace(destination)
     return dict(counts)
 

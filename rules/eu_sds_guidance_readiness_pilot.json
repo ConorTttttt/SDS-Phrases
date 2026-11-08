@@ -1,0 +1,669 @@
+{
+  "schema": "sds-information-readiness-prompts/v0.1",
+  "id": "eu-sds-echa-2020-guidance-pilot",
+  "jurisdiction": "EU",
+  "edition_context": "2026-06-22 REACH Annex II excerpt; guidance 2020-12",
+  "status": "nonbinding_guidance_crosswalk_draft_not_legally_verified",
+  "guidance": {
+    "title": "ECHA Guidance on the compilation of safety data sheets",
+    "version": "4.0",
+    "publication_date": "2020-12",
+    "reference": "ECHA-20-H-25-EN",
+    "original_pdf_sha256": "2a4ac00f87544ebc6397e208e13da331a5ebabd6c5ceb5f149e84cb138501c28",
+    "pages": 137,
+    "review_note": "Source fingerprint and 16 chapter/page anchors checked; no complete paragraph-by-paragraph or table/footnote audit."
+  },
+  "primary_legislation_context": {
+    "title": "REACH Annex II",
+    "reference": "Regulation (EC) No 1907/2006, Annex II Part A as amended",
+    "sds_pdf_context": "CELEX:02006R1907-20260622",
+    "status": "clause_crosswalk_needs_independent_legal_review"
+  },
+  "disclaimer": "Every prompt identifies evidence for SDS authoring review; no answer establishes a legally applicable requirement, its satisfaction, or recommended phrase legal approval.",
+  "sections": [
+    4,
+    7,
+    8
+  ],
+  "prompts": [
+    {
+      "id": "ECHA2020-S04-01",
+      "section": 4,
+      "subsection": "4.1",
+      "topic": "First-aid instructions by inhalation",
+      "question": "Have product-appropriate inhalation first-aid measures been assessed?",
+      "source": {
+        "guidance_chapter": "3.4",
+        "guidance_pages": [
+          57,
+          58
+        ],
+        "reach_annex2_part_a_clause_for_review": "4.1.1"
+      },
+      "potential_evidence": "assessment record, inhalation exposure scenario, approved responder instructions",
+      "applicability_review_class": "assess_relevant_routes",
+      "cross_section_consistency_checks": [
+        "4.1"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S04-02",
+      "section": 4,
+      "subsection": "4.1",
+      "topic": "First-aid instructions for skin contact",
+      "question": "Have product-appropriate skin-contact first-aid measures been assessed?",
+      "source": {
+        "guidance_chapter": "3.4",
+        "guidance_pages": [
+          57,
+          58
+        ],
+        "reach_annex2_part_a_clause_for_review": "4.1.1"
+      },
+      "potential_evidence": "skin exposure assessment, approved first-aid measures",
+      "applicability_review_class": "assess_relevant_routes",
+      "cross_section_consistency_checks": [
+        "4.1"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S04-03",
+      "section": 4,
+      "subsection": "4.1",
+      "topic": "First-aid instructions for eye contact",
+      "question": "Have product-appropriate eye-contact first-aid measures been assessed?",
+      "source": {
+        "guidance_chapter": "3.4",
+        "guidance_pages": [
+          57,
+          58
+        ],
+        "reach_annex2_part_a_clause_for_review": "4.1.1"
+      },
+      "potential_evidence": "eye exposure assessment, approved rinsing/medical directions",
+      "applicability_review_class": "assess_relevant_routes",
+      "cross_section_consistency_checks": [
+        "4.1"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S04-04",
+      "section": 4,
+      "subsection": "4.1",
+      "topic": "First-aid instructions after ingestion",
+      "question": "Have ingestion first-aid measures and potential limitations been assessed?",
+      "source": {
+        "guidance_chapter": "3.4",
+        "guidance_pages": [
+          57,
+          58
+        ],
+        "reach_annex2_part_a_clause_for_review": "4.1.1"
+      },
+      "potential_evidence": "oral exposure assessment, medical guidance where indicated",
+      "applicability_review_class": "assess_relevant_routes",
+      "cross_section_consistency_checks": [
+        "4.1"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S04-05",
+      "section": 4,
+      "subsection": "4.1",
+      "topic": "Urgent medical attention and delayed effects",
+      "question": "Has the need and urgency of medical attention, including delayed effects, been assessed?",
+      "source": {
+        "guidance_chapter": "3.4",
+        "guidance_pages": [
+          57,
+          58
+        ],
+        "reach_annex2_part_a_clause_for_review": "4.1.2(a)"
+      },
+      "potential_evidence": "medical review and delay/urgency basis",
+      "applicability_review_class": "always_review",
+      "cross_section_consistency_checks": [
+        "4.1"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S04-06",
+      "section": 4,
+      "subsection": "4.1",
+      "topic": "Responder protection and contaminated clothing",
+      "question": "Have first-responder protection and removal/handling of contaminated clothing been considered?",
+      "source": {
+        "guidance_chapter": "3.4",
+        "guidance_pages": [
+          57,
+          58
+        ],
+        "reach_annex2_part_a_clause_for_review": "4.1.2(c)-(d)"
+      },
+      "potential_evidence": "responder PPE assessment, clothing handling instructions",
+      "applicability_review_class": "always_review",
+      "cross_section_consistency_checks": [
+        "4.1"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S04-07",
+      "section": 4,
+      "subsection": "4.2",
+      "topic": "Acute and delayed symptoms and effects",
+      "question": "Are the important acute and delayed symptoms/effects documented and consistent with toxicology?",
+      "source": {
+        "guidance_chapter": "3.4",
+        "guidance_pages": [
+          58,
+          59
+        ],
+        "reach_annex2_part_a_clause_for_review": "4.2"
+      },
+      "potential_evidence": "toxicology assessment or documented data gap",
+      "applicability_review_class": "always_review",
+      "cross_section_consistency_checks": [
+        "11.1"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S04-08",
+      "section": 4,
+      "subsection": "4.3",
+      "topic": "Special treatment and medical monitoring",
+      "question": "Is immediate/special treatment, monitoring, antidote or contraindication information assessed where appropriate?",
+      "source": {
+        "guidance_chapter": "3.4",
+        "guidance_pages": [
+          58,
+          59
+        ],
+        "reach_annex2_part_a_clause_for_review": "4.3"
+      },
+      "potential_evidence": "medical/clinical review, justification if not appropriate",
+      "applicability_review_class": "assess_if_applicable",
+      "cross_section_consistency_checks": [
+        "11.1"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S07-09",
+      "section": 7,
+      "subsection": "7.1",
+      "topic": "Safe handling measures matched to identified uses",
+      "question": "Are handling instructions matched to identified uses and product properties?",
+      "source": {
+        "guidance_chapter": "3.7",
+        "guidance_pages": [
+          64,
+          65
+        ],
+        "reach_annex2_part_a_clause_for_review": "7.1.1"
+      },
+      "potential_evidence": "approved uses, process conditions and handling assessment",
+      "applicability_review_class": "always_review",
+      "cross_section_consistency_checks": [
+        "1.2",
+        "9.1"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S07-10",
+      "section": 7,
+      "subsection": "7.1",
+      "topic": "Incompatible handling and new-risk operations",
+      "question": "Have incompatible materials and operations creating new risks been assessed?",
+      "source": {
+        "guidance_chapter": "3.7",
+        "guidance_pages": [
+          64,
+          65
+        ],
+        "reach_annex2_part_a_clause_for_review": "7.1.1(b)-(c)"
+      },
+      "potential_evidence": "reactivity study, incompatible substances, processing conditions",
+      "applicability_review_class": "always_review",
+      "cross_section_consistency_checks": [
+        "10.3",
+        "10.5"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S07-11",
+      "section": 7,
+      "subsection": "7.1",
+      "topic": "Aerosol/dust, fire and containment controls",
+      "question": "Have containment, fire prevention and dust/aerosol generation controls been assessed?",
+      "source": {
+        "guidance_chapter": "3.7",
+        "guidance_pages": [
+          64,
+          65
+        ],
+        "reach_annex2_part_a_clause_for_review": "7.1.1(a)"
+      },
+      "potential_evidence": "hazard classification, physical form and use assessment",
+      "applicability_review_class": "assess_if_applicable",
+      "cross_section_consistency_checks": [
+        "2.1",
+        "9.1",
+        "10.4"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S07-12",
+      "section": 7,
+      "subsection": "7.1",
+      "topic": "Environmental protection and workplace hygiene",
+      "question": "Have handling-related environmental protection and occupational hygiene instructions been assessed?",
+      "source": {
+        "guidance_chapter": "3.7",
+        "guidance_pages": [
+          64,
+          65
+        ],
+        "reach_annex2_part_a_clause_for_review": "7.1.1(d);7.1.2"
+      },
+      "potential_evidence": "exposure assessment, spillage controls, hygiene review",
+      "applicability_review_class": "always_review",
+      "cross_section_consistency_checks": [
+        "6.2",
+        "8.2"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S07-13",
+      "section": 7,
+      "subsection": "7.2",
+      "topic": "Storage compatibility and reaction risks",
+      "question": "Have incompatible substances, flammability, corrosion and other relevant storage hazards been assessed?",
+      "source": {
+        "guidance_chapter": "3.7",
+        "guidance_pages": [
+          65,
+          66
+        ],
+        "reach_annex2_part_a_clause_for_review": "7.2(a)"
+      },
+      "potential_evidence": "incompatibility list, stability and flammability assessment",
+      "applicability_review_class": "always_review",
+      "cross_section_consistency_checks": [
+        "9.1",
+        "10.3",
+        "10.5"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S07-14",
+      "section": 7,
+      "subsection": "7.2",
+      "topic": "Environmental storage conditions",
+      "question": "Have temperature, sunlight, moisture, pressure and vibration constraints been assessed?",
+      "source": {
+        "guidance_chapter": "3.7",
+        "guidance_pages": [
+          65,
+          66
+        ],
+        "reach_annex2_part_a_clause_for_review": "7.2(b)"
+      },
+      "potential_evidence": "stability specification and storage qualification",
+      "applicability_review_class": "assess_if_applicable",
+      "cross_section_consistency_checks": [
+        "9.1",
+        "10.4"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S07-15",
+      "section": 7,
+      "subsection": "7.2",
+      "topic": "Packaging, ventilation, quantities and controls",
+      "question": "Are appropriate packaging compatibility, ventilation, vessel design and quantity limits assessed?",
+      "source": {
+        "guidance_chapter": "3.7",
+        "guidance_pages": [
+          65,
+          66
+        ],
+        "reach_annex2_part_a_clause_for_review": "7.2(d)"
+      },
+      "potential_evidence": "packaging validation, storage layout and quantity assessment",
+      "applicability_review_class": "assess_if_applicable",
+      "cross_section_consistency_checks": [
+        "8.2",
+        "10.5"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S07-16",
+      "section": 7,
+      "subsection": "7.3",
+      "topic": "Specific end uses and exposure scenarios",
+      "question": "Are any specific end uses and relevant exposure scenario directions reflected appropriately?",
+      "source": {
+        "guidance_chapter": "3.7",
+        "guidance_pages": [
+          67,
+          67
+        ],
+        "reach_annex2_part_a_clause_for_review": "7.3"
+      },
+      "potential_evidence": "identified uses, supplier exposure scenarios and use conditions",
+      "applicability_review_class": "assess_if_applicable",
+      "cross_section_consistency_checks": [
+        "1.2",
+        "8.2"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S08-17",
+      "section": 8,
+      "subsection": "8.1",
+      "topic": "Occupational exposure limits by destination Member State",
+      "question": "Were relevant exposure limits and legal bases checked for destination market(s)?",
+      "source": {
+        "guidance_chapter": "3.8",
+        "guidance_pages": [
+          68,
+          70
+        ],
+        "reach_annex2_part_a_clause_for_review": "8.1.1"
+      },
+      "potential_evidence": "Member State OEL list, substance identities and check date",
+      "applicability_review_class": "always_review",
+      "cross_section_consistency_checks": [
+        "3.2"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S08-18",
+      "section": 8,
+      "subsection": "8.1",
+      "topic": "Biological exposure values and monitoring",
+      "question": "Have relevant biological limits and suitable monitoring methods been considered where available?",
+      "source": {
+        "guidance_chapter": "3.8",
+        "guidance_pages": [
+          68,
+          70
+        ],
+        "reach_annex2_part_a_clause_for_review": "8.1.1;8.1.2"
+      },
+      "potential_evidence": "national biological limit and monitoring method assessment",
+      "applicability_review_class": "assess_if_available",
+      "cross_section_consistency_checks": [
+        "3.2"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S08-19",
+      "section": 8,
+      "subsection": "8.1",
+      "topic": "Air contaminants formed during intended use",
+      "question": "Have relevant use-generated air contaminants and their applicable limits been considered?",
+      "source": {
+        "guidance_chapter": "3.8",
+        "guidance_pages": [
+          69,
+          70
+        ],
+        "reach_annex2_part_a_clause_for_review": "8.1.3"
+      },
+      "potential_evidence": "process/exposure scenario and thermal decomposition data",
+      "applicability_review_class": "assess_if_applicable",
+      "cross_section_consistency_checks": [
+        "7.1",
+        "10.6"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S08-20",
+      "section": 8,
+      "subsection": "8.1",
+      "topic": "DNELs, PNECs and control banding",
+      "question": "Where applicable, have DNELs/PNECs or control-banding assumptions and limits been assessed?",
+      "source": {
+        "guidance_chapter": "3.8",
+        "guidance_pages": [
+          69,
+          73
+        ],
+        "reach_annex2_part_a_clause_for_review": "8.1.4;8.1.5"
+      },
+      "potential_evidence": "CSR/ES, DNEL/PNEC data, control-banding rationale",
+      "applicability_review_class": "assess_if_applicable",
+      "cross_section_consistency_checks": [
+        "1.2",
+        "12"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S08-21",
+      "section": 8,
+      "subsection": "8.2",
+      "topic": "Engineering exposure controls",
+      "question": "Are adequate engineering and organisational measures linked to identified uses?",
+      "source": {
+        "guidance_chapter": "3.8",
+        "guidance_pages": [
+          73,
+          75
+        ],
+        "reach_annex2_part_a_clause_for_review": "8.2.1"
+      },
+      "potential_evidence": "risk assessment, ventilation and process controls",
+      "applicability_review_class": "always_review",
+      "cross_section_consistency_checks": [
+        "1.2",
+        "7.1"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S08-22",
+      "section": 8,
+      "subsection": "8.2",
+      "topic": "Eye and face protective equipment specification",
+      "question": "Is eye/face protection specified for credible exposure and hazards where needed?",
+      "source": {
+        "guidance_chapter": "3.8",
+        "guidance_pages": [
+          74,
+          76
+        ],
+        "reach_annex2_part_a_clause_for_review": "8.2.2.2(a)"
+      },
+      "potential_evidence": "contact risk and eye/face PPE suitability review",
+      "applicability_review_class": "assess_if_applicable",
+      "cross_section_consistency_checks": [
+        "2.1",
+        "4.1"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S08-23",
+      "section": 8,
+      "subsection": "8.2",
+      "topic": "Glove material, thickness and breakthrough",
+      "question": "If hand protection is needed, are compatible glove type/material, thickness and breakthrough times supported?",
+      "source": {
+        "guidance_chapter": "3.8",
+        "guidance_pages": [
+          74,
+          76
+        ],
+        "reach_annex2_part_a_clause_for_review": "8.2.2.2(b)(i)"
+      },
+      "potential_evidence": "glove test data, task duration, concentration and EN performance criteria",
+      "applicability_review_class": "assess_if_applicable",
+      "cross_section_consistency_checks": [
+        "2.1",
+        "7.1"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S08-24",
+      "section": 8,
+      "subsection": "8.2",
+      "topic": "Other skin and body protective equipment",
+      "question": "Is protective clothing/other skin PPE specified where required for exposure?",
+      "source": {
+        "guidance_chapter": "3.8",
+        "guidance_pages": [
+          74,
+          76
+        ],
+        "reach_annex2_part_a_clause_for_review": "8.2.2.2(b)(ii)"
+      },
+      "potential_evidence": "body contact/exposure risk and PPE standards",
+      "applicability_review_class": "assess_if_applicable",
+      "cross_section_consistency_checks": [
+        "7.1"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S08-25",
+      "section": 8,
+      "subsection": "8.2",
+      "topic": "Respiratory protection for gas, vapour, mist or dust",
+      "question": "Is respiratory PPE type and filter/cartridge properly specified where needed?",
+      "source": {
+        "guidance_chapter": "3.8",
+        "guidance_pages": [
+          74,
+          76
+        ],
+        "reach_annex2_part_a_clause_for_review": "8.2.2.2(c)"
+      },
+      "potential_evidence": "exposure level, equipment type, filter and fit assessment",
+      "applicability_review_class": "assess_if_applicable",
+      "cross_section_consistency_checks": [
+        "7.1",
+        "9.1"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S08-26",
+      "section": 8,
+      "subsection": "8.2",
+      "topic": "Thermal hazard protection",
+      "question": "Have thermal hazard PPE requirements been assessed where relevant?",
+      "source": {
+        "guidance_chapter": "3.8",
+        "guidance_pages": [
+          74,
+          76
+        ],
+        "reach_annex2_part_a_clause_for_review": "8.2.2.2(d)"
+      },
+      "potential_evidence": "thermal hazard and clothing/equipment compatibility assessment",
+      "applicability_review_class": "assess_if_applicable",
+      "cross_section_consistency_checks": [
+        "9.1",
+        "10.4"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    },
+    {
+      "id": "ECHA2020-S08-27",
+      "section": 8,
+      "subsection": "8.2",
+      "topic": "Environmental exposure controls",
+      "question": "Are the relevant environmental risk management measures and any exposure-scenario links documented?",
+      "source": {
+        "guidance_chapter": "3.8",
+        "guidance_pages": [
+          74,
+          75
+        ],
+        "reach_annex2_part_a_clause_for_review": "8.2.3"
+      },
+      "potential_evidence": "environmental controls, CSR and exposure scenario",
+      "applicability_review_class": "assess_if_applicable",
+      "cross_section_consistency_checks": [
+        "6.2",
+        "12"
+      ],
+      "legal_status": "not_verified",
+      "source_kind": "guidance_explanation_and_quoted_2020_legislation",
+      "automation_status": "evidence_request_only_not_regulatory_decision"
+    }
+  ]
+}

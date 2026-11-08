@@ -1,6 +1,7 @@
 """Local catalogue metadata notes. No regulatory approval is granted by a status."""
 from __future__ import annotations
 import sqlite3
+from contextlib import closing
 from datetime import datetime,timezone
 from pathlib import Path
 
@@ -17,7 +18,7 @@ def lookup(path,records):
         item["review_stale"]=False
     if not records or not Path(path).exists():
         return records
-    with sqlite3.connect(path) as conn:
+    with closing(sqlite3.connect(path)) as conn, conn:
         keys=[item["entry_key"] for item in records]
         sql="SELECT entry_key,wording_hash,status,note FROM reviews WHERE entry_key IN ("+",".join("?" for _ in keys)+")"
         prior={x[0]:x for x in conn.execute(sql,keys)}
@@ -50,7 +51,7 @@ def set_review(catalogue,path,*,entry_key,wording_hash,status,note=""):
         raise ReviewError("Phrase changed or entry not found. Reload before reviewing.")
     path=Path(path)
     path.parent.mkdir(parents=True,exist_ok=True)
-    with sqlite3.connect(path) as conn:
+    with closing(sqlite3.connect(path)) as conn, conn:
         conn.execute("""CREATE TABLE IF NOT EXISTS reviews (
             entry_key TEXT PRIMARY KEY,wording_hash TEXT NOT NULL,
             status TEXT NOT NULL,note TEXT NOT NULL,reviewed_at_utc TEXT NOT NULL

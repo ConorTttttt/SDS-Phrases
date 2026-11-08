@@ -12,8 +12,14 @@
       "doi": "10.2823/77155",
       "url": "https://echa.europa.eu/-/guidance-on-the-compilation-of-safety-data-sheets",
       "local_import": "data/echa_guidance_2020.sqlite",
-      "verification_status": "historical_source_not_verified_against_pdf",
-      "legal_authority": false
+      "verification_status": "original_pdf_sha256_and_16_chapter_page_anchors_verified; full_text_and_tables_pending",
+      "legal_authority": false,
+      "original_pdf_sha256": "2a4ac00f87544ebc6397e208e13da331a5ebabd6c5ceb5f149e84cb138501c28",
+      "original_pdf_page_count": 137,
+      "original_pdf_fingerprint_verified": true,
+      "source_chapter_page_anchors_verified": 16,
+      "local_pdf_filename": "sds_guidance.pdf",
+      "caution": "The original PDF matches the declared archive hash and 16 chapter start pages. Full extracted Markdown fidelity, joined tables, footnotes and current legal applicability remain unverified. 2020 ECHA guidance is not binding legislation."
     },
     {
       "id": "EU-REACH-ANNEX-II-2020-878",
