@@ -1,0 +1,18 @@
+# Locally imported third-party datasets, including originals and derived databases
+data/*
+!data/.gitkeep
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.db
+*.xlsx
+*.xls
+*.zip
+*.tar.gz
+*.csv
+*.jsonl
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.DS_Store

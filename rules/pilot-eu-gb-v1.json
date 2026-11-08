@@ -1,0 +1,83 @@
+{
+  "id": "sds-pilot-eu-gb-v1",
+  "version": "0.1.0",
+  "catalogue_version": "5.5",
+  "review_status": "draft_not_regulator_verified",
+  "description": "Illustrative evidence-gated authoring suggestions; not CLP Annex IV selection logic and not a compliant SDS generator.",
+  "rules": [
+    {
+      "id": "FIRST_AID_INHALATION",
+      "jurisdictions": ["EU", "GB"],
+      "section": 4,
+      "hazards_any": ["H330", "H331", "H332", "H335"],
+      "facts_all": ["inhalation_first_aid_reviewed"],
+      "structure_suffix": "04.01.02.9000.",
+      "expected_english": "Provide fresh air.",
+      "rationale": "Flag a possible inhalation first-aid phrase where the exposure route and response have been verified. Additional urgent measures may be necessary.",
+      "reference": "Internal pilot authoring rule; requires toxicological review"
+    },
+    {
+      "id": "FIRST_AID_EYE",
+      "jurisdictions": ["EU", "GB"],
+      "section": 4,
+      "hazards_any": ["H318", "H319"],
+      "facts_all": ["eye_first_aid_reviewed"],
+      "structure_suffix": "04.01.04.6000.",
+      "expected_english": "Rinse immediately carefully and thoroughly with eye-bath or water.",
+      "rationale": "Candidate eye-exposure wording. Do not treat this as the complete first-aid instruction.",
+      "reference": "Internal pilot authoring rule; requires medical and regulatory review"
+    },
+    {
+      "id": "FIRST_AID_SKIN",
+      "jurisdictions": ["EU", "GB"],
+      "section": 4,
+      "hazards_any": ["H315"],
+      "facts_all": ["skin_first_aid_reviewed"],
+      "structure_suffix": "04.01.03.18000.",
+      "expected_english": "After contact with skin, wash immediately with plenty of water and soap.",
+      "rationale": "Candidate skin-irritation advice only when soap and water have been confirmed suitable for this formulation.",
+      "reference": "Internal pilot authoring rule; requires medical and regulatory review"
+    },
+    {
+      "id": "SPILL_DRAIN_PREVENTION",
+      "jurisdictions": ["EU", "GB"],
+      "section": 6,
+      "facts_all": ["drain_protection_verified"],
+      "structure_suffix": "06.02.4000.",
+      "expected_english": "Do not allow to enter into surface water or drains.",
+      "rationale": "Select only after verifying environmental release controls and applicable waste-water obligations.",
+      "reference": "Internal pilot authoring rule; site-specific environmental review required"
+    },
+    {
+      "id": "STORAGE_CONTAINER_CLOSED",
+      "jurisdictions": ["EU", "GB"],
+      "section": 7,
+      "facts_all": ["sealed_storage_verified"],
+      "structure_suffix": "07.02.02.13000.",
+      "expected_english": "Keep container tightly closed.",
+      "rationale": "Storage instruction must be compatible with packaging, venting and pressure hazards.",
+      "reference": "Internal pilot authoring rule; packaging compatibility review required"
+    },
+    {
+      "id": "GLOVE_MATERIAL_ASSESSMENT",
+      "jurisdictions": ["EU", "GB", "US"],
+      "section": 8,
+      "facts_all": ["glove_requirements_reviewed"],
+      "structure_suffix": "08.02.02.02.01.06.5000.",
+      "expected_english": "The quality of the protective gloves resistant to chemicals must be chosen as a function of the specific working place concentration and quantity of hazardous substances.",
+      "rationale": "General guidance only; glove material, thickness, breakthrough time and relevant standards must be determined separately.",
+      "reference": "Internal pilot authoring rule; PPE selection and local jurisdiction review required"
+    },
+    {
+      "id": "IGNITION_PREVENTION",
+      "jurisdictions": ["EU", "GB"],
+      "section": 10,
+      "hazards_any": ["H224", "H225", "H226", "H228"],
+      "facts_all": ["ignition_controls_reviewed"],
+      "structure_suffix": "10.04.00.3000.",
+      "expected_english": "Keep away from heat, hot surfaces, sparks, open flames and other ignition sources. No smoking.",
+      "rationale": "A Section 10 phrasing option for verified ignition hazards. P-statement selection for Section 2 remains a separate regulatory task.",
+      "reference": "Internal pilot authoring rule; CLP P-statement selection not implemented"
+    }
+  ]
+}
