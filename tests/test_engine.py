@@ -1,5 +1,6 @@
 import json
 import sqlite3
+from contextlib import closing
 import tempfile
 import unittest
 from pathlib import Path
@@ -13,7 +14,7 @@ class EngineTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.db = Path(self.temp.name) / "fixture.sqlite"
-        with sqlite3.connect(self.db) as conn:
+        with closing(sqlite3.connect(self.db)) as conn, conn:
             conn.execute("""CREATE TABLE entries (
                 entry_key TEXT, collection TEXT, structurecode TEXT, esdscom_phrase_id TEXT,
                 original_code TEXT, english TEXT, sds_section INTEGER, region TEXT,
@@ -61,7 +62,7 @@ class EngineTests(unittest.TestCase):
         self.assertEqual(result["selected"], [])
 
     def test_changed_wording_blocks_instead_of_replacing(self):
-        with sqlite3.connect(self.db) as conn:
+        with closing(sqlite3.connect(self.db)) as conn, conn:
             conn.execute("UPDATE entries SET english='ALTERNATE' WHERE entry_key='test-EU-skin'")
         result = evaluate(self.db, RULES, {"jurisdiction": "EU", "hazards": ["H315"],
                                           "facts": {"skin_first_aid_reviewed": True}})
@@ -69,7 +70,7 @@ class EngineTests(unittest.TestCase):
         self.assertEqual(result["blocked_matches"][0]["rule_id"], "FIRST_AID_SKIN")
 
     def test_other_catalogue_version_blocks(self):
-        with sqlite3.connect(self.db) as conn:
+        with closing(sqlite3.connect(self.db)) as conn, conn:
             conn.execute("UPDATE entries SET catalogue_version='5.4' WHERE entry_key='test-EU-skin'")
         result = evaluate(self.db, RULES, {"jurisdiction": "EU", "hazards": ["H315"],
                                           "facts": {"skin_first_aid_reviewed": True}})

@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import sqlite3
+from contextlib import closing
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
@@ -71,7 +72,7 @@ def search_catalogue(db_path, query="", jurisdiction="EU", section="", collectio
                     phrase_owner, grammar, revision_date_raw
              FROM entries WHERE """ + " AND ".join(where) + " ORDER BY excel_row LIMIT ?"
     args.append(limit)
-    with sqlite3.connect(str(db_path)) as conn:
+    with closing(sqlite3.connect(str(db_path))) as conn:
         conn.row_factory = sqlite3.Row
         rows = [dict(x) for x in conn.execute(sql, args).fetchall()]
     return {"results": rows, "limit": limit}
@@ -140,7 +141,7 @@ def create_handler(db_path):
                                 "supported_jurisdictions": list(JURISDICTION_PREFIX),
                                 "phrase_catalogue_version": "5.5"}
                         if info["catalogue_installed"]:
-                            with sqlite3.connect(str(db_path)) as conn:
+                            with closing(sqlite3.connect(str(db_path))) as conn:
                                 info["entries"] = conn.execute("SELECT COUNT(*) FROM entries").fetchone()[0]
                                 info["english_entries"] = conn.execute("SELECT COUNT(*) FROM entries WHERE english<>''").fetchone()[0]
                         return self.json_reply(200, info)

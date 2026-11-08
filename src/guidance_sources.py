@@ -145,7 +145,7 @@ def import_guidance(source_archive, destination):
     destination.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(dir=destination.parent) as work:
         tempdb = Path(work) / "guidance.sqlite"
-        with sqlite3.connect(tempdb) as conn:
+        with closing(sqlite3.connect(tempdb)) as conn, conn:
             conn.executescript("""
                 CREATE TABLE guidance_sections (
                     section INTEGER PRIMARY KEY,
@@ -235,7 +235,7 @@ def search(db, query="", section="", limit=30, offset=0):
         conditions.append("(LOWER(title) LIKE ? ESCAPE '\\' OR LOWER(markdown) LIKE ? ESCAPE '\\' OR LOWER(source_key) LIKE ? ESCAPE '\\')")
         params.extend(["%" + q + "%"] * 3)
     where = " WHERE " + " AND ".join(conditions) if conditions else ""
-    with _connect(db) as conn:
+    with closing(_connect(db)) as conn:
         count = conn.execute("SELECT COUNT(*) FROM guidance_passages" + where, params).fetchone()[0]
         rows = conn.execute("""SELECT source_key,section,title,source_page,markdown
             FROM guidance_passages""" + where + " ORDER BY section,id LIMIT ? OFFSET ?", params + [limit,offset])

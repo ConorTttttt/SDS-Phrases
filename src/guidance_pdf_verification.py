@@ -11,6 +11,7 @@ import hashlib
 import json
 import re
 import sqlite3
+from contextlib import closing
 import subprocess
 import zipfile
 from pathlib import Path
@@ -122,7 +123,7 @@ def verify_original(pdf_path, archive_path=None, db_path=None):
         _check(len(chapters)==16,"Database update requires verified ZIP/page crosscheck")
         db=Path(db_path)
         _check(db.is_file(),"Imported guidance.sqlite missing. Import Markdown ZIP first.")
-        with sqlite3.connect(db) as conn:
+        with closing(sqlite3.connect(db)) as conn, conn:
             expected=dict(conn.execute("SELECT name,value FROM guidance_metadata"))
             _check(expected.get("declared_original_pdf_sha256")==digest,
                    "Local guidance index declares a different original PDF")

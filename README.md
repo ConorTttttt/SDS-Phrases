@@ -306,3 +306,18 @@ Open **http://127.0.0.1:8095/readiness.html**.
 The original PDF, complete excerpts and Markdown ZIP **remain local** and
 are not added to GitHub. See
 [guidance verification and pilot design](docs/echa_pdf_guidance_readiness_v03.md).
+
+
+### Python 3.14 SQLite connection warnings
+
+Use the resource-checking suite (rather than relying on the normal unittest
+exit status alone):
+
+    python3 scripts/run_tests_checked.py
+
+It executes the same tests and checks for unclosed SQLite handles.
+Python's \`with sqlite3.connect(...)\` commits or rolls back transactions but
+does **not** close the connection. Read-only accesses now use
+\`contextlib.closing(...)\`; writes use \`with closing(...) as conn, conn:\`
+to commit/rollback before closing. GitHub CI runs the checked suite on
+Python 3.12 and 3.14, including the version on the local Ubuntu desktop.
