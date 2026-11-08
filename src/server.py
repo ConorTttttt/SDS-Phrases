@@ -8,11 +8,15 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 from engine import SelectionError, JURISDICTION_PREFIX, evaluate
+from catalogue_browser import search as catalogue_search, summary as catalogue_summary, CatalogueQueryError
+from catalogue_reviews import lookup as review_lookup, set_review, ReviewError
 
 ROOT = Path(__file__).resolve().parent.parent
+REVIEWS = ROOT / "data" / "catalogue_reviews.sqlite"
 WEB = ROOT / "web"
 RULES = ROOT / "rules" / "pilot-eu-gb-v1.json"
-STATIC = {"/": "index.html", "/index.html": "index.html", "/app.js": "app.js", "/styles.css": "styles.css"}
+STATIC = {"/": "index.html", "/index.html": "index.html", "/app.js": "app.js", "/styles.css": "styles.css",
+          "/catalogue.html": "catalogue.html", "/catalogue.js": "catalogue.js", "/catalogue.css": "catalogue.css"}
 
 def load_rules():
     return json.loads(RULES.read_text(encoding="utf-8"))
@@ -67,6 +71,18 @@ def create_handler(db_path):
             url = urlparse(self.path)
             if url.path.startswith("/api/"):
                 try:
+                    if url.path == "/api/catalogue/summary":
+                        return self.json_reply(200, catalogue_summary(db_path))
+                    if url.path == "/api/catalogue/search":
+                        args = parse_qs(url.query, keep_blank_values=True)
+                        one = lambda key, default: args.get(key, [default])[0]
+                        result = catalogue_search(db_path, query=one("query",""), jurisdiction=one("jurisdiction","EU"),
+                            collection=one("collection","Core"),section=one("section",""),
+                            subsection=one("subsection",""),kind=one("kind","ALL"),
+                            duplicates=one("duplicates","all"),quality=one("quality","all"),
+                            limit=one("limit","40"),offset=one("offset","0"))
+                        review_lookup(REVIEWS, result["results"])
+                        return self.json_reply(200, result)
                     if url.path == "/api/info":
                         rules = load_rules()
                         info = {"catalogue_installed": Path(db_path).is_file(),
@@ -111,6 +127,28 @@ def create_handler(db_path):
             self.wfile.write(data)
 
         def do_POST(self):
+            if urlparse(self.path).path == "/api/catalogue/review":
+                if (self.client_address[0] not in ("127.0.0.1","::1") or
+                    self.server.server_address[0] not in ("127.0.0.1","::1") or
+                    self.headers.get("X-SDS-Local-Review") != "1" or
+                    not self.headers.get("Content-Type","").startswith("application/json")):
+                    return self.json_reply(403, {"error":"Metadata writes require local loopback and JSON."})
+                try:
+                    size = int(self.headers.get("Content-Length","0"))
+                    if not 0 < size <= 12000:
+                        return self.json_reply(413, {"error":"Invalid review request size."})
+                    body = json.loads(self.rfile.read(size))
+                    if not isinstance(body,dict):
+                        raise ReviewError("Review request must be an object.")
+                    if any(key not in ("entry_key","wording_hash","status","note") for key in body):
+                        raise ReviewError("Unexpected review field.")
+                    result = set_review(db_path, REVIEWS, entry_key=body.get("entry_key"),
+                        wording_hash=body.get("wording_hash"),status=body.get("status"),note=body.get("note",""))
+                    return self.json_reply(200,result)
+                except (ReviewError,CatalogueQueryError,ValueError,TypeError) as exc:
+                    return self.json_reply(400,{"error":str(exc)})
+                except (FileNotFoundError,sqlite3.Error) as exc:
+                    return self.json_reply(503,{"error":"Catalogue unavailable: "+str(exc)})
             if urlparse(self.path).path != "/api/evaluate":
                 return self.json_reply(404, {"error": "Unknown API endpoint."})
             try:

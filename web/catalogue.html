@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SDS Phrases — Catalogue QA</title><link rel="stylesheet" href="/catalogue.css"><script src="/catalogue.js" defer></script></head>
+<body><main class="shell">
+<header class="top"><div><div class="eyebrow">REGULATORY WORKSPACE / CATALOGUE QA</div><h1>SDS phrase <span>catalogue</span></h1><p>Traceable English eSDScom 5.5 records, subsection mapping and local metadata review.</p></div><a href="/" class="back">← Rule engine</a></header>
+<div class="notice"><b>Catalogue review ≠ regulatory approval.</b> Subsection names are inferred from source structure paths and are for navigation only. Quality flags and duplicates are informational. Every phrase still requires product- and jurisdiction-specific review.</div>
+<section id="summary" class="stats" aria-live="polite"><div>Loading catalogue profile…</div></section>
+<section class="panel"><div class="heading"><h2>Explore phrases</h2><span>ORIGINAL WORDING · READ-ONLY SOURCE</span></div>
+<form id="filters" class="filters">
+<label>Search wording / IDs<input id="q" placeholder="e.g. rinse, H315, 01.04.01…"></label>
+<label>Structure<select id="j"><option value="EU">EU</option><option value="GB">GB</option><option value="US">US</option><option value="UN">UN</option><option value="MX">Mexico</option><option value="AR">Argentina</option><option value="BR">Brazil</option><option value="CN">China</option><option value="ALL">All</option></select></label>
+<label>Collection<select id="c"><option value="Core">Core SDS</option><option value="ExpoScenario">Exposure scenarios</option><option value="ALL">Both</option></select></label>
+<label>Section<select id="s"><option value="">All sections</option></select></label>
+<label>Subsection<input id="sub" placeholder="e.g. 4.1" title="Inferred subsection, e.g. 4.1"></label>
+<label>Phrase type<select id="kind"><option value="ALL">All types</option><option value="sentence">Sentence</option><option value="list_item">List item</option><option value="list_start">List start</option><option value="heading">Heading</option><option value="data">Data</option><option value="other">Other</option></select></label>
+<label>Duplicates<select id="dupes"><option value="all">All wordings</option><option value="repeated">Repeated wording</option><option value="unique">Unique wording</option></select></label>
+<label>Quality flags<select id="quality"><option value="all">All records</option><option value="flagged">With indicators</option><option value="clear">No indicators</option></select></label>
+<button class="primary" type="submit">Search catalogue →</button>
+</form><div class="toolrow"><div id="resultCount" aria-live="polite">—</div><div><button id="prev" type="button" disabled>← Previous</button> <button id="next" type="button" disabled>Next →</button></div></div>
+<div class="records" id="records" aria-live="polite"></div>
+</section><footer>Original catalogue entries remain unchanged. Notes are stored locally in data/catalogue_reviews.sqlite. Never treat metadata review as legal phrase selection.</footer>
+</main></body></html>
