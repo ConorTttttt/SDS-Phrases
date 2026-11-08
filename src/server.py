@@ -10,16 +10,22 @@ from urllib.parse import parse_qs, urlparse
 from engine import SelectionError, JURISDICTION_PREFIX, evaluate
 from catalogue_browser import search as catalogue_search, summary as catalogue_summary, CatalogueQueryError
 from catalogue_reviews import lookup as review_lookup, set_review, ReviewError
+from regulatory_engine import RegulatoryError, evaluate_regulations
 
 ROOT = Path(__file__).resolve().parent.parent
 REVIEWS = ROOT / "data" / "catalogue_reviews.sqlite"
 WEB = ROOT / "web"
 RULES = ROOT / "rules" / "pilot-eu-gb-v1.json"
+REGULATORY_PACK = ROOT / "rules" / "regulatory-demo-v0.2.json"
 STATIC = {"/": "index.html", "/index.html": "index.html", "/app.js": "app.js", "/styles.css": "styles.css",
-          "/catalogue.html": "catalogue.html", "/catalogue.js": "catalogue.js", "/catalogue.css": "catalogue.css"}
+          "/catalogue.html": "catalogue.html", "/catalogue.js": "catalogue.js", "/catalogue.css": "catalogue.css",
+          "/regulatory.html": "regulatory.html", "/regulatory.js": "regulatory.js"}
 
 def load_rules():
     return json.loads(RULES.read_text(encoding="utf-8"))
+
+def load_regulatory_pack():
+    return json.loads(REGULATORY_PACK.read_text(encoding="utf-8"))
 
 def search_catalogue(db_path, query="", jurisdiction="EU", section="", collection="Core", limit=40):
     if not Path(db_path).is_file():
@@ -71,6 +77,8 @@ def create_handler(db_path):
             url = urlparse(self.path)
             if url.path.startswith("/api/"):
                 try:
+                    if url.path == "/api/regulatory/pack":
+                        return self.json_reply(200, load_regulatory_pack())
                     if url.path == "/api/catalogue/summary":
                         return self.json_reply(200, catalogue_summary(db_path))
                     if url.path == "/api/catalogue/search":
@@ -127,6 +135,18 @@ def create_handler(db_path):
             self.wfile.write(data)
 
         def do_POST(self):
+            if urlparse(self.path).path == "/api/regulatory/evaluate":
+                try:
+                    if not self.headers.get("Content-Type", "").startswith("application/json"):
+                        return self.json_reply(415, {"error": "JSON content type required"})
+                    length = int(self.headers.get("Content-Length", "0"))
+                    if not 0 < length <= 100000:
+                        return self.json_reply(413, {"error": "Invalid request size"})
+                    payload = json.loads(self.rfile.read(length))
+                    output = evaluate_regulations(load_regulatory_pack(), payload)
+                    return self.json_reply(200, output)
+                except (RegulatoryError, ValueError, TypeError, json.JSONDecodeError) as exc:
+                    return self.json_reply(400, {"error": str(exc)})
             if urlparse(self.path).path == "/api/catalogue/review":
                 if (self.client_address[0] not in ("127.0.0.1","::1") or
                     self.server.server_address[0] not in ("127.0.0.1","::1") or

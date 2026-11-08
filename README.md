@@ -115,3 +115,40 @@ Open http://127.0.0.1:8092/catalogue.html for the new catalogue-quality browser;
 - POST /api/catalogue/review — loopback-only metadata review note (entry_key, wording_hash, status, note).
 
 Both the original phrase ZIP and any generated SQLite databases remain outside the repository under the existing .gitignore.
+
+
+## Phase 2 / Stage A — Regulatory decision foundation (v0.2)
+
+A new **independent regulatory condition evaluator** is implemented on
+\`feature/phase2-regulatory-engine-foundation\` (before its PR is merged).
+It does not use or mutate the phrase catalogue. A synthetic, explicitly unverified
+demo rule pack shows what a future verified legal requirement looks like.
+
+After checking out the branch:
+
+    cd /mnt/holochain/Regulatory/SDS_Phrases
+    git fetch origin
+    git switch --track origin/feature/phase2-regulatory-engine-foundation
+    python3 -m unittest discover -s tests -v
+    python3 src/server.py
+
+Open **http://127.0.0.1:8092/regulatory.html**. Use “Load fictional test inputs”
+to explore H315/H319 data-completeness prompts and the full decision trace.
+
+**This is not yet a CLP/REACH/HazCom/WHMIS legal rule set.**
+No legal requirement has been verified as part of Stage A. The demonstration
+cannot label a phrase mandatory, supply legally prescribed wording, or
+declare any SDS section compliant. Every outcome contains the source
+identity, version, date scope, evidence and missing facts. Missing data
+is unknown, never an assumed negative.
+
+The local service also offers \`GET /api/regulatory/pack\` and
+\`POST /api/regulatory/evaluate\`; no original eSDScom database is required
+for these new endpoints. See [Stage A technical documentation](docs/regulatory_engine_stage_a.md)
+for the input schema, tri-valued rule conditions, legal review gates, test
+coverage and subsequent regulatory validation requirements.
+
+**Next:** Import independently reviewed EU CLP Annex IV Part 1 selection rules
+and Part 2 English wording with regulation citations and amendment/effective
+dates, then model EU REACH Annex II SDS information requirements separately.
+Do not infer mandatory phrases from catalogue membership.

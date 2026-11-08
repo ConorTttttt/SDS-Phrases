@@ -1,0 +1,99 @@
+{
+  "schema": "sds-regulatory-rules/v0.2",
+  "id": "authoring-workflow-demo",
+  "version": "0.2.0",
+  "description": "Non-binding illustrative data-completeness prompts; not an interpretation of CLP or REACH.",
+  "rules": [
+    {
+      "id": "DEMO_H315_SKIN_REVIEW",
+      "jurisdiction": "EU",
+      "section": "4.1",
+      "title": "Review first-aid information for potential skin exposure",
+      "intended_effect": "applicable",
+      "review_status": "unverified",
+      "source": {
+        "instrument": "internal_draft",
+        "document_version": "0.2.0",
+        "reference": "Demo workflow prompt — not a legal citation"
+      },
+      "effective_from": "2020-01-01",
+      "effective_until": null,
+      "when": {
+        "all": [
+          {
+            "hazard_any": [
+              "H315"
+            ]
+          },
+          {
+            "fact_equals": {
+              "key": "skin_contact_possible",
+              "value": "yes"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEMO_H319_EYE_REVIEW",
+      "jurisdiction": "EU",
+      "section": "4.1",
+      "title": "Review eye-contact first-aid information",
+      "intended_effect": "applicable",
+      "review_status": "unverified",
+      "source": {
+        "instrument": "internal_draft",
+        "document_version": "0.2.0",
+        "reference": "Demo workflow prompt — not a legal citation"
+      },
+      "effective_from": "2020-01-01",
+      "effective_until": null,
+      "when": {
+        "all": [
+          {
+            "hazard_any": [
+              "H319"
+            ]
+          },
+          {
+            "fact_equals": {
+              "key": "eye_contact_possible",
+              "value": "yes"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEMO_LIQUID_STORAGE_REVIEW",
+      "jurisdiction": "EU",
+      "section": "7.2",
+      "title": "Review compatibility of liquid-product storage controls",
+      "intended_effect": "applicable",
+      "review_status": "unverified",
+      "source": {
+        "instrument": "internal_draft",
+        "document_version": "0.2.0",
+        "reference": "Demo workflow prompt — not a legal citation"
+      },
+      "effective_from": "2020-01-01",
+      "effective_until": null,
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "physical_form",
+              "value": "liquid"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "storage_information_assessed",
+              "value": "yes"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
