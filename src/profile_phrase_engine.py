@@ -17,6 +17,7 @@ from pathlib import Path
 from catalogue_browser import connect
 from catalogue_index import SECTIONS
 from section_recommendations import load_candidates
+from chemical_families import load_family_pack, validate_family_inputs, family_candidates, ChemicalFamilyError
 
 ROOT=Path(__file__).resolve().parents[1]
 PACK_PATH=ROOT/"rules"/"eu_profile_phrase_relevance_v01.json"
@@ -35,7 +36,8 @@ ALLOWED_FIELDS={
     "professional_use":{"unknown","yes","no"},
 }
 ALLOWED_KEYS=set(ALLOWED_FIELDS)|{
-    "hazards","jurisdiction","as_of","ph","flash_point_c","classification_reference"
+    "hazards","jurisdiction","as_of","ph","flash_point_c","classification_reference",
+    "chemical_families","family_assessments"
 }
 KIND_PRIORITY={
     "reported_property":0,
@@ -44,6 +46,10 @@ KIND_PRIORITY={
     "property_related":2,
     "conditional_safety":3,
     "layout_fragment":4,
+    "family_label_review":2,
+    "family_safety_review":4,
+    "family_process_review":4,
+    "family_fragment":5,
 }
 REVIEW_NOTICE=(
     "All phrases are exact local eSDScom source text only. Input-based "
@@ -85,9 +91,19 @@ def validate_profile(data):
     reference=data.get("classification_reference","")
     check(isinstance(reference,str) and len(reference)<=400,
           "Classification reference must be text (up to 400 characters).")
+    try:
+        validate_family_inputs(
+            data.get("chemical_families",[]),
+            data.get("family_assessments",{}),
+            load_family_pack()
+        )
+    except ChemicalFamilyError as exc:
+        raise ProfileRecommendationError(str(exc)) from exc
     return {**{key:"unknown" for key in ALLOWED_FIELDS},
             **{key:None for key in ("ph","flash_point_c")},
-            "classification_reference":"",**data}
+            "classification_reference":"",
+            "chemical_families":[],"family_assessments":{},
+            **data}
 
 
 def _condition(node,profile):
@@ -192,6 +208,11 @@ def _conflicts(p):
         conflicts.append("Powder physical form conflicts with reported non-solid physical state.")
     if {"H318","H319"}<=h:
         conflicts.append("H318 and H319 indicate different eye-hazard categories. Check that both should be present.")
+    if ("water_reactive_substances" in p["chemical_families"] and
+        p["family_assessments"].get("water_dilution_approved")=="yes"):
+        conflicts.append(
+            "Water-reactive family and approved water dilution were both supplied. "
+            "Review this potentially incompatible process before generating handling instructions.")
     return conflicts
 
 
@@ -230,9 +251,7 @@ def recommend_profile(db_path,product,pack=None,source_pack=None,family_pack=Non
         matched,evidence=_condition(item["trigger"],p)
         if matched:
             relevant.append((item,source_pack[item["rule_id"]],list(dict.fromkeys(evidence))))
-    if not relevant:
-        return _response(p,output,[],blocked=False)
-    originals=_source_rows(db_path,[r for _,r,_ in relevant])
+    originals=_source_rows(db_path,[r for _,r,_ in relevant]) if relevant else {}
     for item,ref,evidence in relevant:
         matches=originals.get(ref["structurecode"],[])
         row=matches[0] if len(matches)==1 else None
@@ -267,6 +286,28 @@ def recommend_profile(db_path,product,pack=None,source_pack=None,family_pack=Non
             "review_status":"draft_unreviewed",
         }
         output[section].append(candidate)
+    if p["chemical_families"]:
+        # Chemical-family matches come from independently pinned original source
+        # codes and SHA-256s. Never use family membership to classify a product.
+        for family_candidate in family_candidates(db_path,p,pack=family_pack):
+            section=family_candidate["section"]
+            code=family_candidate["source"]["structurecode"] if family_candidate["source"] else None
+            existing=next((
+                item for item in output[section]
+                if code is not None and item["source"] is not None and
+                item["source"]["structurecode"]==code
+            ),None)
+            if existing is not None:
+                existing["family_ids"]=family_candidate["family_ids"]
+                existing["family_labels"]=family_candidate["family_labels"]
+                existing["family_related"]=True
+                existing["matched_inputs"]=list(dict.fromkeys(
+                    existing["matched_inputs"]+family_candidate["matched_inputs"]))
+                existing["confirmation_required"]=list(dict.fromkeys(
+                    existing["confirmation_required"]+
+                    family_candidate["confirmation_required"]))
+            else:
+                output[section].append(family_candidate)
     return _response(p,output,[],blocked=False)
 
 
@@ -290,6 +331,7 @@ def _response(profile,grouped,conflicts,blocked):
     return {
         "schema":SCHEMA,"jurisdiction":"EU",
         "as_of":profile["as_of"],"hazards":profile["hazards"],
+        "selected_chemical_families":profile["chemical_families"],
         "profile_conflicts":conflicts,"blocked_due_to_profile_conflict":blocked,
         "sections":sections,
         "total_recommended_source_phrases":sum(s["source_matches"] for s in sections),
@@ -302,5 +344,7 @@ def _response(profile,grouped,conflicts,blocked):
             "No negative claims (non-hazardous, non-DG, no data, no CSA) are inferred from absent H codes.",
             "First aid, PPE, fire and storage wording is only a review candidate.",
             "No automatic legal P-statement selection is performed.",
+            "Chemical-family tags are user-declared and cannot establish composition, concentrations, storage compatibility, medical treatment, PPE or supplemental labelling.",
+            "Chemical-family source fragments and label texts need independent case-specific approval.",
         ],
     }

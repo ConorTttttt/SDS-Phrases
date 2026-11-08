@@ -126,7 +126,7 @@ class FamilySourceTests(unittest.TestCase):
                 if row["assessment"] if "assessment" in row else False:
                     filtered.append(row)
                 continue
-            if key in found and row["family"] not in ("isocyanates","acid_reactive_gas_releasers","water_reactive_substances"):
+            if key in found and row["family"] not in ("isocyanates","acid_reactive_gas_releasers","water_reactive_substances","acids"):
                 continue
             filtered.append(row);found.add(key)
         self.pack["rules"]=filtered
@@ -177,8 +177,9 @@ class FamilySourceTests(unittest.TestCase):
     def test_isocyanates_and_epoxy_are_label_candidates_not_approved(self):
         result=self.recs(product(chemical_families=["isocyanates","epoxy_resins"]))
         self.assertEqual(len(result),3)
-        self.assertTrue(all(x["section"]==2 and x["kind"]=="family_label_review"
-                            for x in result))
+        self.assertTrue(all(x["section"]==2 for x in result))
+        self.assertEqual(sum(x["kind"]=="family_label_review" for x in result),2)
+        self.assertEqual(sum(x["kind"]=="family_safety_review" for x in result),1)
         self.assertTrue(all(x["phrase"] for x in result))
         self.assertTrue(all(x["approved_for_sds"] is False for x in result))
 
