@@ -17,6 +17,7 @@ from reach_annex2_source import search as reach_search, summary as reach_summary
 from reach_annex2_audit import audit_structure, load_structure, ReachAuditError
 from section_recommendations import load_candidates, evaluate_sections, RecommendationError
 from sds_readiness import load_prompts, evaluate_readiness, ReadinessError
+from phrase_finder import find_phrases, finder_sections, validate_draft, PhraseFinderError
 
 ROOT = Path(__file__).resolve().parent.parent
 REVIEWS = ROOT / "data" / "catalogue_reviews.sqlite"
@@ -35,7 +36,9 @@ STATIC = {"/": "index.html", "/index.html": "index.html", "/app.js": "app.js", "
           "/section_recommendations.js": "section_recommendations.js",
           "/section_recommendations.css": "section_recommendations.css",
           "/readiness.html": "readiness.html", "/readiness.js": "readiness.js",
-          "/readiness.css": "readiness.css"}
+          "/readiness.css": "readiness.css",
+          "/phrase_finder.html": "phrase_finder.html", "/phrase_finder.js": "phrase_finder.js",
+          "/phrase_finder.css": "phrase_finder.css"}
 
 def load_rules():
     return json.loads(RULES.read_text(encoding="utf-8"))
@@ -93,6 +96,17 @@ def create_handler(db_path):
             url = urlparse(self.path)
             if url.path.startswith("/api/"):
                 try:
+                    if url.path == "/api/phrase-finder/sections":
+                        return self.json_reply(200, finder_sections(db_path))
+                    if url.path == "/api/phrase-finder/search":
+                        args = parse_qs(url.query, keep_blank_values=True)
+                        one = lambda key, default: args.get(key, [default])[0]
+                        return self.json_reply(200, find_phrases(
+                            db_path, jurisdiction=one("jurisdiction", "EU"),
+                            section=one("section", "4"),subsection=one("subsection", ""),
+                            query=one("query", ""),mode=one("mode", "curated"),
+                            kind=one("kind", "ALL"),include_flagged=one("include_flagged", "0"),
+                            limit=one("limit", "30"),offset=one("offset", "0")))
                     if url.path == "/api/readiness/prompts":
                         return self.json_reply(200, load_prompts())
                     if url.path == "/api/section-recommendations/config":
@@ -154,7 +168,7 @@ def create_handler(db_path):
                             db_path, one("query", ""), one("jurisdiction", "EU"),
                             one("section", ""), one("collection", "Core"), one("limit", "40")))
                     return self.json_reply(404, {"error": "Unknown API endpoint."})
-                except (SelectionError, RecommendationError, ReadinessError) as exc:
+                except (SelectionError, RecommendationError, ReadinessError, PhraseFinderError, CatalogueQueryError) as exc:
                     return self.json_reply(400, {"error": str(exc)})
                 except (FileNotFoundError, sqlite3.Error) as exc:
                     return self.json_reply(503, {"error": "Catalogue unavailable: " + str(exc)})
@@ -178,6 +192,19 @@ def create_handler(db_path):
             self.wfile.write(data)
 
         def do_POST(self):
+            if urlparse(self.path).path == "/api/phrase-finder/validate-draft":
+                try:
+                    if not self.headers.get("Content-Type","").startswith("application/json"):
+                        return self.json_reply(415, {"error":"JSON content type required"})
+                    size=int(self.headers.get("Content-Length","0"))
+                    if not 0 < size <= 100000:
+                        return self.json_reply(413, {"error":"Invalid draft validation request size"})
+                    data=json.loads(self.rfile.read(size))
+                    return self.json_reply(200,validate_draft(db_path,data))
+                except (PhraseFinderError,ValueError,TypeError,json.JSONDecodeError) as exc:
+                    return self.json_reply(400, {"error":str(exc)})
+                except (FileNotFoundError,sqlite3.Error) as exc:
+                    return self.json_reply(503, {"error":str(exc)})
             if urlparse(self.path).path == "/api/readiness/evaluate":
                 try:
                     if not self.headers.get("Content-Type","").startswith("application/json"):
