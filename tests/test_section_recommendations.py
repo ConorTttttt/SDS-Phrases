@@ -10,6 +10,7 @@ import hashlib
 import http.client
 import json
 import sqlite3
+from contextlib import closing
 import sys
 import tempfile
 import threading
@@ -64,7 +65,7 @@ class SectionRecommendationsTests(unittest.TestCase):
         self.temp.cleanup()
 
     def install_fake_catalogue(self, *, wrong_text=False, wrong_version=False, wrong_section=False, duplicate=False):
-        with sqlite3.connect(self.db) as conn:
+        with closing(sqlite3.connect(self.db)) as conn, conn:
             conn.executescript("""CREATE TABLE entries (
                 entry_key TEXT UNIQUE, catalogue_version TEXT, collection TEXT, source_file TEXT,
                 excel_row INTEGER, structurecode TEXT, esdscom_phrase_id TEXT, original_code TEXT,
@@ -232,7 +233,7 @@ class SectionRecommendationsTests(unittest.TestCase):
         candidate = next(r for r in pack["rules"] if r["id"] == "EXP_S03_01")
         fragment = "Synthetic source heading"
         candidate["expected_english_sha256"] = hashlib.sha256(fragment.encode()).hexdigest()
-        with sqlite3.connect(self.db) as conn:
+        with closing(sqlite3.connect(self.db)) as conn, conn:
             conn.executescript("""CREATE TABLE entries (
                 entry_key TEXT UNIQUE,catalogue_version TEXT,collection TEXT,source_file TEXT,
                 excel_row INTEGER,structurecode TEXT,esdscom_phrase_id TEXT,original_code TEXT,
