@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><title>SDS Phrase Engine</title><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script></head>
+<body><div class="shell">
+<header class="topbar"><div class="brand"><div class="logo">S<span>·</span></div><div><strong>SDS Phrase Engine</strong><small>eSDScom 5.5 · evidence-based drafting</small></div></div><div class="pill" id="databaseStatus">Checking local catalogue…</div></header>
+<main>
+<section class="intro"><div class="eyebrow">REGULATORY AUTHORING WORKSPACE / V0.1</div>
+<h1>From classifications to <em>traceable</em> SDS wording.</h1>
+<p>Match verified formulation facts to versioned phrase-catalogue records. Every candidate includes the rule, conditions and exact source code for human review.</p>
+<div class="warning"><strong>Draft guidance, not compliance approval.</strong> The pilot mapping is not an independently verified CLP precautionary-statement selection engine. Do not publish phrases without expert product and jurisdiction review.</div></section>
+<nav class="tabs" aria-label="Workspace"><button class="tab active" data-target="select" type="button">Rule-based selection</button><button class="tab" data-target="library" type="button">Phrase library</button><button class="tab" data-target="method" type="button">Scope &amp; limitations</button></nav>
+<section id="select" class="view active"><div class="split">
+<form id="selectionForm" class="panel"><div class="panel-head"><h2>Product inputs</h2><span class="step">01 / INPUT</span></div>
+<label for="jurisdiction">SDS jurisdiction</label><select id="jurisdiction"><option value="EU">European Union — REACH Annex II</option><option value="GB">Great Britain — UK REACH</option><option value="US">United States — OSHA HazCom</option></select>
+<label for="hazards">Hazard statement codes</label><input id="hazards" type="text" placeholder="e.g. H315, H319, H226" autocomplete="off"><p class="hint">Enter classifications established by a separate classification assessment. Comma or space separated.</p>
+<div class="subhead"><h3>Verified product facts</h3><span>Positive confirmation required</span></div><div id="factList" class="fact-list"></div>
+<div class="form-actions"><button type="submit" class="primary">Evaluate phrase rules →</button><button type="button" class="secondary" id="clearInputs">Clear</button></div></form>
+<div class="panel results"><div class="panel-head"><h2>Selection results</h2><span class="step">02 / EVIDENCE</span></div><div id="evaluationStats" class="stats"><span>Enter classifications and confirm facts to begin.</span></div><div id="evaluationResults" aria-live="polite" class="results-list"><div class="empty">No phrases selected yet. A blank result is never evidence that an SDS is compliant.</div></div></div>
+</div></section>
+<section id="library" class="view"><div class="panel"><div class="panel-head"><h2>Search the catalogue</h2><span class="step">READ-ONLY / SOURCE WORDING</span></div>
+<form id="searchForm" class="filters"><input id="searchQuery" placeholder="Phrase wording, original P code, structure code…" aria-label="Phrase search"><select id="searchJurisdiction" aria-label="Jurisdiction"><option value="EU">EU</option><option value="GB">GB</option><option value="US">US</option><option value="ALL">All structures</option></select><select id="searchSection" aria-label="SDS section"><option value="">All SDS sections</option></select><select id="searchCollection" aria-label="Collection"><option value="Core">Core SDS</option><option value="ExpoScenario">Exposure scenarios</option><option value="ALL">Both</option></select><button type="submit" class="primary">Search</button></form><div id="searchResults" class="results-list" aria-live="polite"></div></div></section>
+<section id="method" class="view"><div class="panel prose">
+<h2>What this version does</h2><p>The selection engine uses two independent resources: the original English wording imported locally from the eSDScom 5.5 workbooks, and a draft pilot rule pack containing conditions, affected SDS sections and exact catalogue references.</p>
+<h3>Safety-critical limitations</h3><p>Rules are <strong>not</strong> validated against every provision of CLP Annex IV, REACH Annex II, GB legislation or OSHA HazCom 2024. The catalogue itself is not a legal applicability database. No suggestion is marked mandatory or approved. A rule fails closed if its expected wording or structure code is not found exactly.</p><p>Classification inputs are taken as supplied and not calculated. Product-specific first aid, exposure controls, waste disposal, PPE and transport classifications must be independently assessed. Missing phrases and zero matches cannot be treated as evidence of safety.</p>
+<h3>Versioning and provenance</h3><p>Original phrase text and identifiers are preserved. Core workbooks lack populated official eSDScom phrase IDs, so internal row keys and structure codes must not be presented as official phrase IDs. Rule and source-catalogue versions are tracked separately.</p>
+<h3>Data privacy and licensing</h3><p>All processing stays on your computer. No catalogue or formulation data is uploaded to an external service. Original workbooks and generated databases are excluded from GitHub; review the eSDScom licence before redistributing derived datasets.</p></div></section>
+</main><footer>ENGINE V0.1 · ENGLISH ONLY · HUMAN REVIEW REQUIRED · <a href="https://github.com/ConorTttttt/SDS-Phrases" target="_blank" rel="noopener">SOURCE REPOSITORY</a></footer>
+</div></body></html>
