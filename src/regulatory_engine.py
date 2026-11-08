@@ -198,6 +198,17 @@ def _flatten(trace):
     return nodes
 
 
+def evaluate_evidence_condition(condition, product):
+    """Public, evidence-gated condition check for non-legal authoring workflows.
+
+    Returns a three-valued trace (yes/no/unknown). It does not certify
+    conditions as legally sufficient, and never selects an SDS phrase.
+    """
+    validate_product(product)
+    _check_condition(condition)
+    return _condition(condition, product)
+
+
 def evaluate_regulations(pack, product):
     """Evaluate every rule, including skipped rules, with a complete decision trace.
 

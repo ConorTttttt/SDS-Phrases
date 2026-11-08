@@ -207,3 +207,66 @@ Open **http://127.0.0.1:8092/reach.html**.
 
 **No current legal requirements have been marked independently verified;
 heading completeness is not legal SDS compliance.**
+
+
+## Phrase recommendations for all 16 SDS sections (draft pilot)
+
+The \`feature/phase2-section-phrase-recommendations\` branch adds a new
+**section-by-section recommendation workspace** with 21 curated, documented
+authoring conditions across all 16 EU SDS sections. The original 52,676 English
+source entries remain local and unmodified; the Git repository stores
+original phrase structure codes and exact wording SHA-256 fingerprints, not
+source catalogue wording.
+
+Set product type, H statements, classification evidence and section-specific
+facts. The new engine explains: matching **draft candidates**, absent evidence,
+non-triggering conditions, and source/version mismatches. Every section is
+displayed, including where no eligible text exists. No output is legally
+mandatory or approved.
+
+\`\`\`bash
+cd /mnt/holochain/Regulatory/SDS_Phrases
+git fetch origin
+git switch --track origin/feature/phase2-section-phrase-recommendations
+# Import original phrase ZIP once, if data/catalogue.sqlite is missing:
+python3 src/import_catalogue.py ~/Downloads/eSDScom_V5-5_20231131.zip
+python3 scripts/verify_section_phrase_sources.py
+python3 -m unittest discover -s tests -v
+python3 src/server.py --port 8093
+\`\`\`
+
+Open **http://127.0.0.1:8093/section_recommendations.html**.
+See [technical design and regulatory limitations](docs/section_phrase_recommendations.md).
+
+**Important:** This release is a supported drafting workflow, not a
+legally verified SDS compliance generator. REACH Annex II determines
+information requirements, CLP Annex IV determines P-statement selection,
+and eSDScom provides optional phrase candidates. Those layers are still
+separate and their detailed crosswalk awaits independent verification.
+
+
+### Expanded section phrase recommendations (v0.2)
+
+The same \`feature/phase2-section-phrase-recommendations\` branch now includes
+**105 original source-checked candidate paths** (84 additional mappings).
+The browser supports focused 16-section inputs, collapsible fact groups,
+source-fragment labels and decision filters. The candidate pack includes
+strict source SHA-256 and grammar checks, three-valued product evidence
+requirements and conflict detection (CLP classification, physical state,
+noncombustibility).
+
+Only the *draft phrasing* options have expanded; this does **not** establish
+regulatory completeness, legal P-statement selection or permitted SDS content.
+Re-import of the original licensed dataset is not necessary if your local
+\`data/catalogue.sqlite\` already exists.
+
+Local validation:
+
+    python3 scripts/verify_section_phrase_sources.py
+    python3 -m unittest discover -s tests -v
+
+To run alongside an older server:
+
+    python3 src/server.py --port 8093
+
+Browser: http://127.0.0.1:8093/section_recommendations.html

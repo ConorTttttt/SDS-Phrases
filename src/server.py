@@ -14,6 +14,7 @@ from regulatory_engine import RegulatoryError, evaluate_regulations
 from guidance_sources import search as guidance_search, summary as guidance_summary, GuidanceError
 from reach_annex2_source import search as reach_search, summary as reach_summary, ReachSourceError
 from reach_annex2_audit import audit_structure, load_structure, ReachAuditError
+from section_recommendations import load_candidates, evaluate_sections, RecommendationError
 
 ROOT = Path(__file__).resolve().parent.parent
 REVIEWS = ROOT / "data" / "catalogue_reviews.sqlite"
@@ -27,7 +28,10 @@ STATIC = {"/": "index.html", "/index.html": "index.html", "/app.js": "app.js", "
           "/catalogue.html": "catalogue.html", "/catalogue.js": "catalogue.js", "/catalogue.css": "catalogue.css",
           "/regulatory.html": "regulatory.html", "/regulatory.js": "regulatory.js",
           "/guidance.html": "guidance.html", "/guidance.js": "guidance.js",
-          "/reach.html": "reach.html", "/reach.js": "reach.js"}
+          "/reach.html": "reach.html", "/reach.js": "reach.js",
+          "/section_recommendations.html": "section_recommendations.html",
+          "/section_recommendations.js": "section_recommendations.js",
+          "/section_recommendations.css": "section_recommendations.css"}
 
 def load_rules():
     return json.loads(RULES.read_text(encoding="utf-8"))
@@ -85,6 +89,11 @@ def create_handler(db_path):
             url = urlparse(self.path)
             if url.path.startswith("/api/"):
                 try:
+                    if url.path == "/api/section-recommendations/config":
+                        pack = load_candidates()
+                        pack["sections"] = [{"section": int(s["code"]), "heading": s["heading"]}
+                                            for s in load_structure()["sections"]]
+                        return self.json_reply(200, pack)
                     if url.path == "/api/reach/structure":
                         return self.json_reply(200, load_structure())
                     if url.path == "/api/reach/content-inventory":
@@ -139,7 +148,7 @@ def create_handler(db_path):
                             db_path, one("query", ""), one("jurisdiction", "EU"),
                             one("section", ""), one("collection", "Core"), one("limit", "40")))
                     return self.json_reply(404, {"error": "Unknown API endpoint."})
-                except SelectionError as exc:
+                except (SelectionError, RecommendationError) as exc:
                     return self.json_reply(400, {"error": str(exc)})
                 except (FileNotFoundError, sqlite3.Error) as exc:
                     return self.json_reply(503, {"error": "Catalogue unavailable: " + str(exc)})
@@ -163,6 +172,19 @@ def create_handler(db_path):
             self.wfile.write(data)
 
         def do_POST(self):
+            if urlparse(self.path).path == "/api/section-recommendations/evaluate":
+                try:
+                    if not self.headers.get("Content-Type", "").startswith("application/json"):
+                        return self.json_reply(415, {"error": "JSON content type required"})
+                    length = int(self.headers.get("Content-Length", "0"))
+                    if not 0 < length <= 100000:
+                        return self.json_reply(413, {"error": "Invalid request size"})
+                    payload = json.loads(self.rfile.read(length))
+                    return self.json_reply(200, evaluate_sections(db_path, payload))
+                except (RecommendationError, RegulatoryError, ValueError, TypeError, json.JSONDecodeError) as exc:
+                    return self.json_reply(400, {"error": str(exc)})
+                except (FileNotFoundError, sqlite3.Error) as exc:
+                    return self.json_reply(503, {"error": str(exc)})
             if urlparse(self.path).path == "/api/reach/audit":
                 try:
                     if not self.headers.get("Content-Type", "").startswith("application/json"):

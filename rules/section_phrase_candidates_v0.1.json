@@ -1,0 +1,2760 @@
+{
+  "schema": "sds-section-phrase-recommendations/v0.1",
+  "id": "esdscom55-eu-section-candidates-v2",
+  "version": "0.2.0",
+  "catalogue_version": "5.5",
+  "jurisdiction": "EU",
+  "status": "draft_unverified_recommendations_not_regulatory_rules",
+  "rules": [
+    {
+      "id": "R01_PROFESSIONAL_USE",
+      "section": 1,
+      "topic": "Target audience",
+      "collection": "Core",
+      "structurecode": "01.01.04.00.8000.",
+      "when": {
+        "fact_equals": {
+          "key": "professional_use_confirmed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Confirm the use restriction reflects the actual marketed product and recipients.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 1.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "16844e4407d9e10ad533f9a66e25659a5690a3d1ce60794811562addc44db61b"
+    },
+    {
+      "id": "R02_CLP_HAZARDOUS_MIXTURE",
+      "section": 2,
+      "topic": "CLP hazard classification",
+      "collection": "Core",
+      "structurecode": "01.02.01.01.04.4000.",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "product_type",
+              "value": "mixture"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "eu_clp_hazardous_mixture_confirmed",
+              "value": "yes"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "classification_assessment_approved",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Verify the classified mixture and its complete CLP label elements independently. Exact catalogue text may require editorial review.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 2.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "8dc956fd2b44f6ea1553c3568b43c92edda786bd98084f18cc8b2fec021e1678"
+    },
+    {
+      "id": "R03_IONIC_MIXTURE",
+      "section": 3,
+      "topic": "Mixture identity",
+      "collection": "Core",
+      "structurecode": "01.03.02.01.1000.",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "product_type",
+              "value": "mixture"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "ionic_mixture_identity_confirmed",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Descriptive fragment only; does not replace ingredient identifiers or disclosure thresholds.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 3.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "869f84e85be343680123c2996b4e80dbf05acce5e086fee1ecfa60c392a8a77c"
+    },
+    {
+      "id": "R04_SKIN_FIRST_AID",
+      "section": 4,
+      "topic": "First aid — skin",
+      "collection": "Core",
+      "structurecode": "01.04.01.03.18000.",
+      "when": {
+        "all": [
+          {
+            "hazard_any": [
+              "H315"
+            ]
+          },
+          {
+            "fact_equals": {
+              "key": "soap_water_skin_first_aid_assessed",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Only where a competent assessment confirms soap-and-water first aid for this formulation.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 4.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "d7296f72813a68eada255d38c4fb2a37ae37c7f08c410b238bd7010253420378"
+    },
+    {
+      "id": "R04_EYE_FIRST_AID",
+      "section": 4,
+      "topic": "First aid — eyes",
+      "collection": "Core",
+      "structurecode": "01.04.01.04.6000.",
+      "when": {
+        "all": [
+          {
+            "hazard_any": [
+              "H318",
+              "H319"
+            ]
+          },
+          {
+            "fact_equals": {
+              "key": "eye_rinsing_first_aid_assessed",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "A phrase candidate, never a complete eye-damage emergency procedure; check urgency and medical attention.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 4.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "69e5facbd498da38b1cc89e8c4e5ffe6d444b561c780a35b0d6e2fcbd7091900"
+    },
+    {
+      "id": "R04_INHALATION_FIRST_AID",
+      "section": 4,
+      "topic": "First aid — inhalation",
+      "collection": "Core",
+      "structurecode": "01.04.01.02.9000.",
+      "when": {
+        "all": [
+          {
+            "hazard_any": [
+              "H330",
+              "H331",
+              "H332",
+              "H335"
+            ]
+          },
+          {
+            "fact_equals": {
+              "key": "fresh_air_first_aid_assessed",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "May need additional urgent medical intervention. Do not treat as a complete inhalation instruction.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 4.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "598b41115e3add960d0a02abfaa3a8b42f1a18625a5e8506dd3667eee788d248"
+    },
+    {
+      "id": "R05_DRY_POWDER",
+      "section": 5,
+      "topic": "Firefighting — extinguishing media",
+      "collection": "Core",
+      "structurecode": "01.05.02.01.1006.",
+      "when": {
+        "fact_equals": {
+          "key": "dry_powder_confirmed_suitable",
+          "value": "yes"
+        }
+      },
+      "review_note": "List fragment naming a medium. Check other suitable and unsuitable extinguishing media.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 5.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "6be332cf7687519c95ac0472bb40cfcb7efbcdfaf48a6727f05f5cd59c8018a6"
+    },
+    {
+      "id": "R05_SCBA",
+      "section": 5,
+      "topic": "Firefighting — respiratory protection",
+      "collection": "Core",
+      "structurecode": "01.05.04.01.6000.",
+      "when": {
+        "fact_equals": {
+          "key": "scba_for_firefighters_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Firefighter PPE must be based on a fire and exposure assessment, not phrase presence.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 5.3",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "1d546931dff3f098c603f0e79f6447d1569189cd25ba3a18042f98486d750bd9"
+    },
+    {
+      "id": "R06_DUST_RELEASE",
+      "section": 6,
+      "topic": "Spill response — dust",
+      "collection": "Core",
+      "structurecode": "01.06.01.01.01.1000.",
+      "when": {
+        "fact_equals": {
+          "key": "dust_generation_during_spill_confirmed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Use only when dust generation is credible for the supplied product.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 6.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "d8c8e328275b048b8ae316cc412637377ab57f026ab55eed960b45f93b4d7865"
+    },
+    {
+      "id": "R06_SPILL_COLLECTION",
+      "section": 6,
+      "topic": "Spill response — containment",
+      "collection": "Core",
+      "structurecode": "01.06.03.02.3000.23000.",
+      "when": {
+        "fact_equals": {
+          "key": "spill_containers_verified_suitable",
+          "value": "yes"
+        }
+      },
+      "review_note": "Verify physical compatibility of collection containers and the waste route.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 6.3",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "ca110651f63ced54d864dc4b36bb12d44151666c1db997dc44b2b54188d0d53d"
+    },
+    {
+      "id": "R07_SEALED_STORAGE",
+      "section": 7,
+      "topic": "Storage — container integrity",
+      "collection": "Core",
+      "structurecode": "01.07.02.02.13000.",
+      "when": {
+        "fact_equals": {
+          "key": "tightly_closed_storage_confirmed_safe",
+          "value": "yes"
+        }
+      },
+      "review_note": "Do not use for vented, pressure-generating or incompatible storage conditions.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 7.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "331dbfb5c4a11e376aa0fce3f984dc062b8c78b2858ff598d1b4b3c6d86af673"
+    },
+    {
+      "id": "R08_GLOVE_GUIDANCE",
+      "section": 8,
+      "topic": "PPE — hand protection",
+      "collection": "Core",
+      "structurecode": "01.08.02.02.02.01.06.5000.",
+      "when": {
+        "fact_equals": {
+          "key": "chemical_glove_requirements_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Not a substitute for required glove material, thickness, breakthrough time and PPE standards.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 8.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "2c15aace6266a14d88c050f67b5afbdccf0981c15850c826dceec75009fe7ab9"
+    },
+    {
+      "id": "R09_COLOURLESS",
+      "section": 9,
+      "topic": "Physical properties — colour",
+      "collection": "Core",
+      "structurecode": "01.09.01.01.1000.1004.",
+      "when": {
+        "fact_equals": {
+          "key": "colour_colourless_observed",
+          "value": "yes"
+        }
+      },
+      "review_note": "List element, not a standalone sentence; verify the observation concerns the marketed product.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 9.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "ff863277324d55589a5f206eb846b38ddaa9aeabe47518db5c64114659371242"
+    },
+    {
+      "id": "R10_AVOID_HEAT",
+      "section": 10,
+      "topic": "Stability — conditions to avoid",
+      "collection": "Core",
+      "structurecode": "01.10.04.00.5000.",
+      "when": {
+        "fact_equals": {
+          "key": "heat_and_sunlight_to_avoid_confirmed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Only where this specific condition is relevant and substantiated by stability data.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 10.4",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "90baa5e0fe25aa3ee1269167306484e6cb6bbc7f40c3fe2c51e916bce347b542"
+    },
+    {
+      "id": "R11_NO_MIXTURE_TOX_DATA",
+      "section": 11,
+      "topic": "Toxicology — data availability",
+      "collection": "Core",
+      "structurecode": "01.11.01.01.01.01.06.3000.",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "product_type",
+              "value": "mixture"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "no_whole_mixture_toxicology_data_verified",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Must be strictly established; does not remove obligation to discuss relevant ingredient data or hazards.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 11.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "dbc2a3c164a23f4b5c462cdef6ef7fcc31eb9632fd4f1d8db7d85fc7421cffd3"
+    },
+    {
+      "id": "R12_NO_MIXTURE_ECO_DATA",
+      "section": 12,
+      "topic": "Ecology — data availability",
+      "collection": "Core",
+      "structurecode": "01.12.01.08.12.22000.",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "product_type",
+              "value": "mixture"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "no_whole_mixture_ecology_data_verified",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Only with documented evidence; still assess available ingredient and environmental evidence.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 12.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "dbc2a3c164a23f4b5c462cdef6ef7fcc31eb9632fd4f1d8db7d85fc7421cffd3"
+    },
+    {
+      "id": "R13_UNCLEANABLE_PACKAGING",
+      "section": 13,
+      "topic": "Disposal — contaminated packaging",
+      "collection": "Core",
+      "structurecode": "01.13.01.01.03.02.5000.",
+      "when": {
+        "fact_equals": {
+          "key": "packaging_cannot_be_cleaned_confirmed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Validate against product-specific packaging, waste law and safe disposal method.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 13.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "7d22a94bd5a370605767d8b247e7296ba8463b954359b83240a967c46e20c87b"
+    },
+    {
+      "id": "R14_NOT_DANGEROUS_GOODS",
+      "section": 14,
+      "topic": "Transport — classification",
+      "collection": "Core",
+      "structurecode": "01.14.08.01.1000.",
+      "when": {
+        "fact_equals": {
+          "key": "not_dg_all_relevant_modes_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "High-consequence claim. Requires independent ADR/RID/ADN/IMDG/ICAO classification for all relevant modes; never infer from CLP classifications.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 14",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "8dc659e27b8238788a357190feefb4f10af08794219517207c3defaa000de4aa"
+    },
+    {
+      "id": "R15_CSA_CARRIED_OUT",
+      "section": 15,
+      "topic": "Regulatory — chemical safety assessment",
+      "collection": "Core",
+      "structurecode": "01.15.02.2000.",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "product_type",
+              "value": "substance"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "substance_csa_performed_verified",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Do not assert a chemical safety assessment without source records.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 15.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "fa7445f195040441c8b879f2d4a44d0b72d948462cdb0a7e3a1dde620625f8a5"
+    },
+    {
+      "id": "R15_CSA_NOT_CARRIED_OUT",
+      "section": 15,
+      "topic": "Regulatory — chemical safety assessment",
+      "collection": "Core",
+      "structurecode": "01.15.02.3000.",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "product_type",
+              "value": "substance"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "substance_csa_not_performed_verified",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Mutually exclusive with the positive CSA assertion; verify supplier records before choosing.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 15.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "6fad8b4e7b2ef545b964ba743cdd4602703030ab8193bd9723195917f3d08657"
+    },
+    {
+      "id": "R16_REVISION_MARKER",
+      "section": 16,
+      "topic": "Revision notes — changed data",
+      "collection": "Core",
+      "structurecode": "01.16.01.1000.",
+      "when": {
+        "fact_equals": {
+          "key": "revised_sds_changes_marked_with_asterisk",
+          "value": "yes"
+        }
+      },
+      "review_note": "Only appropriate where the SDS actually uses '*' markers to identify amended data.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 16",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "expected_english_sha256": "75f287bf04dcfc20bf721e1360c824cd32522b675728a3680055ab1006375f26"
+    },
+    {
+      "id": "EXP_S01_01",
+      "section": 1,
+      "topic": "Uses advised against",
+      "collection": "Core",
+      "structurecode": "01.01.03.00.9000.",
+      "expected_english_sha256": "7f9e091bd8b41f292db4a084fc5f276840c70181223f5799487d48019ce683ce",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "1.2",
+      "when": {
+        "fact_equals": {
+          "key": "household_use_advised_against_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Check product uses, restrictions, label consistency, supplier and exposure-scenario evidence.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 1.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S01_02",
+      "section": 1,
+      "topic": "Uses advised against",
+      "collection": "Core",
+      "structurecode": "01.01.03.00.5000.",
+      "expected_english_sha256": "5ad7fae8cbdccaa5ba9b77f7c8ca97c862adcc3233cf79105e089f6b5b2cda05",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "1.2",
+      "when": {
+        "fact_equals": {
+          "key": "medical_clinical_use_advised_against_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Check product uses, restrictions, label consistency, supplier and exposure-scenario evidence.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 1.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S01_03",
+      "section": 1,
+      "topic": "Uses advised against",
+      "collection": "Core",
+      "structurecode": "01.01.03.00.7000.",
+      "expected_english_sha256": "88454fd1d3d834dc24297c4510859ce4e09b223d6be382a0109ec9097e21ab57",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "1.2",
+      "when": {
+        "fact_equals": {
+          "key": "food_contact_use_advised_against_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Check product uses, restrictions, label consistency, supplier and exposure-scenario evidence.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 1.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S01_04",
+      "section": 1,
+      "topic": "Product use notes",
+      "collection": "Core",
+      "structurecode": "01.01.04.00.6000.",
+      "expected_english_sha256": "475c4ae828ffa31e30e7ff007f8705c754d72eabd07dd8d5f529773bb4043f3f",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "1.2",
+      "when": {
+        "fact_equals": {
+          "key": "product_is_multicomponent_kit_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Check product uses, restrictions, label consistency, supplier and exposure-scenario evidence.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 1.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S01_05",
+      "section": 1,
+      "topic": "Exposure scenarios",
+      "collection": "Core",
+      "structurecode": "01.01.04.00.3000.",
+      "expected_english_sha256": "8839e95522f789ee5b9decfc9885d69024fa7c96b0530aef7824e70ed699d12f",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "1.2",
+      "when": {
+        "fact_equals": {
+          "key": "comprehensive_exposure_scenario_annex_confirmed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Check product uses, restrictions, label consistency, supplier and exposure-scenario evidence.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 1.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S02_01",
+      "section": 2,
+      "topic": "Mixture classification status",
+      "collection": "Core",
+      "structurecode": "01.02.01.01.04.3000.",
+      "expected_english_sha256": "92a46ff864f190fc6f65b74bf8e0df7a7aab96b5dac1e3a39ac6b10ebcd16a86",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "2.1",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "product_type",
+              "value": "mixture"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "classification_assessment_approved",
+              "value": "yes"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "mixture_not_classified_under_clp_reviewed",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "CLP label/classification requires independent category, wording and current legal version review; this is an unverified drafting candidate.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 2.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S02_02",
+      "section": 2,
+      "topic": "Substance classification status",
+      "collection": "Core",
+      "structurecode": "01.02.01.01.04.2000.",
+      "expected_english_sha256": "13245a7a56e631215d152a4d8b25c0d9825dd3fecfebbf72b6a4239c9584c8a8",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "2.1",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "product_type",
+              "value": "substance"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "classification_assessment_approved",
+              "value": "yes"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "substance_not_classified_under_clp_reviewed",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "CLP label/classification requires independent category, wording and current legal version review; this is an unverified drafting candidate.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 2.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S02_03",
+      "section": 2,
+      "topic": "H315 hazard wording",
+      "collection": "Core",
+      "structurecode": "01.02.01.01.01.02.02.9000.",
+      "expected_english_sha256": "bbece3c0594be1744e7e63b7055585104e8f3f978ecf41fa97122812eef08cc4",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "2.2",
+      "when": {
+        "all": [
+          {
+            "hazard_any": [
+              "H315"
+            ]
+          },
+          {
+            "fact_equals": {
+              "key": "classification_assessment_approved",
+              "value": "yes"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "h315_label_wording_confirmed",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "CLP label/classification requires independent category, wording and current legal version review; this is an unverified drafting candidate.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 2.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S02_04",
+      "section": 2,
+      "topic": "H319 hazard wording",
+      "collection": "Core",
+      "structurecode": "01.02.01.01.01.02.02.12000.",
+      "expected_english_sha256": "ac671d750e49d72200c6069fceef9bb8da1a04cab4fbee4c5dc1bef8ef2b9548",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "2.2",
+      "when": {
+        "all": [
+          {
+            "hazard_any": [
+              "H319"
+            ]
+          },
+          {
+            "fact_equals": {
+              "key": "classification_assessment_approved",
+              "value": "yes"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "h319_label_wording_confirmed",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "CLP label/classification requires independent category, wording and current legal version review; this is an unverified drafting candidate.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 2.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S02_05",
+      "section": 2,
+      "topic": "H318 hazard wording",
+      "collection": "Core",
+      "structurecode": "01.02.01.01.01.02.02.11000.",
+      "expected_english_sha256": "a7aa8a56c1ba4189bc802ed6c8bb5dce3fc5f3b402ce5c87470defc65ada39a5",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "2.2",
+      "when": {
+        "all": [
+          {
+            "hazard_any": [
+              "H318"
+            ]
+          },
+          {
+            "fact_equals": {
+              "key": "classification_assessment_approved",
+              "value": "yes"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "h318_label_wording_confirmed",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "CLP label/classification requires independent category, wording and current legal version review; this is an unverified drafting candidate.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 2.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S02_06",
+      "section": 2,
+      "topic": "Use restriction label",
+      "collection": "Core",
+      "structurecode": "01.02.02.02.02.9000.",
+      "expected_english_sha256": "d95736fdbcae1d64730acbe9f9f06fe5e50f3666927a8258d31cb7923c16fafb",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "2.2",
+      "when": {
+        "fact_equals": {
+          "key": "industrial_installations_only_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "CLP label/classification requires independent category, wording and current legal version review; this is an unverified drafting candidate.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 2.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S03_01",
+      "section": 3,
+      "topic": "Ingredient name column",
+      "collection": "Core",
+      "structurecode": "01.03.02.02.01.",
+      "expected_english_sha256": "93cf366dffb25d617fde67d0c61220d8b35a2884d12ba0e65699d8c5e26ceb7b",
+      "expected_grammar": "Header",
+      "subsection_hint": "3.2",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "product_type",
+              "value": "mixture"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "mixture_ingredient_identity_table_prepared",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Table headings and list fragments are not complete Section 3 ingredient disclosure: apply all applicable mixture-threshold and identity rules.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 3.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S03_02",
+      "section": 3,
+      "topic": "CAS identifier column",
+      "collection": "Core",
+      "structurecode": "01.03.02.02.02.01.",
+      "expected_english_sha256": "dad4fdb16ca47172fd8e376ec207e460c28aa4cf70d57955f82fc649cc87fb6d",
+      "expected_grammar": "Header",
+      "subsection_hint": "3.2",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "product_type",
+              "value": "mixture"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "mixture_cas_identifiers_table_prepared",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Table headings and list fragments are not complete Section 3 ingredient disclosure: apply all applicable mixture-threshold and identity rules.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 3.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S03_03",
+      "section": 3,
+      "topic": "Ingredient weight percentage unit",
+      "collection": "Core",
+      "structurecode": "01.03.02.02.03.2000.",
+      "expected_english_sha256": "bc968e9dc2a6f913dd1b883a2e2d4d082ea1649fb31620822bc7993aabd52275",
+      "expected_grammar": "List-Start",
+      "subsection_hint": "3.2",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "product_type",
+              "value": "mixture"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "mixture_weight_percentages_verified",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Table headings and list fragments are not complete Section 3 ingredient disclosure: apply all applicable mixture-threshold and identity rules.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 3.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S03_04",
+      "section": 3,
+      "topic": "Ingredient registration column",
+      "collection": "Core",
+      "structurecode": "01.03.02.02.02.04.",
+      "expected_english_sha256": "15ade705846528eab8538227b2c87c8d64568c97efdb9071bb0ff24630a576c2",
+      "expected_grammar": "Header",
+      "subsection_hint": "3.2",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "product_type",
+              "value": "mixture"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "mixture_reach_registration_numbers_applicable",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Table headings and list fragments are not complete Section 3 ingredient disclosure: apply all applicable mixture-threshold and identity rules.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 3.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S03_05",
+      "section": 3,
+      "topic": "Substance EC identifier column",
+      "collection": "Core",
+      "structurecode": "01.03.01.02.03.",
+      "expected_english_sha256": "1dc37ad587c3a9789cb3756d01963e8a76a6942212069b9d7694e7d3abe133f1",
+      "expected_grammar": "Header",
+      "subsection_hint": "3.1",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "product_type",
+              "value": "substance"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "substance_ec_number_present_verified",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Table headings and list fragments are not complete Section 3 ingredient disclosure: apply all applicable mixture-threshold and identity rules.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 3.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S04_01",
+      "section": 4,
+      "topic": "General first aid measures",
+      "collection": "Core",
+      "structurecode": "01.04.01.01.15000.",
+      "expected_english_sha256": "b34f15b1ab583821d1d07f3843038733b0852549a1c168c546f5e26648d9912e",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "4.1",
+      "when": {
+        "fact_equals": {
+          "key": "contaminated_clothing_change_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Only use after product-specific first-aid/medical assessment; check urgency, exposure routes and any needed professional care.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 4.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S04_02",
+      "section": 4,
+      "topic": "General first aid measures",
+      "collection": "Core",
+      "structurecode": "01.04.01.01.9000.",
+      "expected_english_sha256": "a4cea67b7f6ac58a41c1d26da0d7fb0ee2c60ae71a9ff77eb0eed530d404bd7e",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "4.1",
+      "when": {
+        "fact_equals": {
+          "key": "evacuation_to_safe_area_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Only use after product-specific first-aid/medical assessment; check urgency, exposure routes and any needed professional care.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 4.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S04_03",
+      "section": 4,
+      "topic": "Ingestion first aid",
+      "collection": "Core",
+      "structurecode": "01.04.01.05.11000.",
+      "expected_english_sha256": "a10365dbbb2ec84620beca4bc1b38028a3633e940e2e5a09f38d88946ec60f32",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "4.1",
+      "when": {
+        "fact_equals": {
+          "key": "mouth_rinsing_after_ingestion_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Only use after product-specific first-aid/medical assessment; check urgency, exposure routes and any needed professional care.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 4.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S04_04",
+      "section": 4,
+      "topic": "Molten product first aid",
+      "collection": "Core",
+      "structurecode": "01.04.01.03.12000.",
+      "expected_english_sha256": "6f97eb8fbebb8589e6a25d112e3da8e06d759c26228731b1af5ab9025100d0ae",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "4.1",
+      "when": {
+        "fact_equals": {
+          "key": "molten_product_skin_cooling_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Only use after product-specific first-aid/medical assessment; check urgency, exposure routes and any needed professional care.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 4.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S04_05",
+      "section": 4,
+      "topic": "Medical treatment",
+      "collection": "Core",
+      "structurecode": "01.04.03.01.15000.",
+      "expected_english_sha256": "d34c46c30dd269552b7ac9d064b705351f2ac5575d1c1da652215d2b6e375f68",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "4.3",
+      "when": {
+        "fact_equals": {
+          "key": "symptomatic_medical_treatment_approved",
+          "value": "yes"
+        }
+      },
+      "review_note": "Only use after product-specific first-aid/medical assessment; check urgency, exposure routes and any needed professional care.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 4.3",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S04_06",
+      "section": 4,
+      "topic": "Inhalation first aid",
+      "collection": "Core",
+      "structurecode": "01.04.01.02.4000.",
+      "expected_english_sha256": "3e9ea786c8a32c06190aa1f2511b7644ed4e619fd70b3c750553e316ec3c7a8e",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "4.1",
+      "when": {
+        "fact_equals": {
+          "key": "inhaled_decomposition_products_first_aid_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Only use after product-specific first-aid/medical assessment; check urgency, exposure routes and any needed professional care.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 4.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S05_01",
+      "section": 5,
+      "topic": "Firefighting precautions",
+      "collection": "Core",
+      "structurecode": "01.05.05.00.4000.",
+      "expected_english_sha256": "b1fb9fb880ffe1001beaf07473621b840abd98119898262574754f6d37d92f2e",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "5.3",
+      "when": {
+        "fact_equals": {
+          "key": "fire_water_spray_cooling_approved",
+          "value": "yes"
+        }
+      },
+      "review_note": "Firefighting recommendations must be compatible with fire behaviour, storage and firefighter safety; do not infer from generic phrases.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 5.3",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S05_02",
+      "section": 5,
+      "topic": "Environmental firefighting controls",
+      "collection": "Core",
+      "structurecode": "01.05.05.00.7000.",
+      "expected_english_sha256": "ab209c696119073fda98bdadca16f32e812c04df57d365f98b4f54f8c98f3491",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "5.3",
+      "when": {
+        "fact_equals": {
+          "key": "firefighting_runoff_prevention_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Firefighting recommendations must be compatible with fire behaviour, storage and firefighter safety; do not infer from generic phrases.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 5.3",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S05_03",
+      "section": 5,
+      "topic": "Product combustion properties",
+      "collection": "Core",
+      "structurecode": "01.05.05.00.11000.",
+      "expected_english_sha256": "cc843742debc7af3e441002c33a4713a8a2acb5e3de78a298249ae647aaeab34",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "5.2",
+      "when": {
+        "fact_equals": {
+          "key": "product_non_combustible_confirmed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Firefighting recommendations must be compatible with fire behaviour, storage and firefighter safety; do not infer from generic phrases.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 5.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S05_04",
+      "section": 5,
+      "topic": "Container precautions",
+      "collection": "Core",
+      "structurecode": "01.05.05.00.16000.",
+      "expected_english_sha256": "92a589064996c2be02ac8b0aef3715dac908cc4091658f0a3b7519239000e0d6",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "5.3",
+      "when": {
+        "fact_equals": {
+          "key": "fire_safe_container_removal_approved",
+          "value": "yes"
+        }
+      },
+      "review_note": "Firefighting recommendations must be compatible with fire behaviour, storage and firefighter safety; do not infer from generic phrases.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 5.3",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S05_05",
+      "section": 5,
+      "topic": "Confined-space CO2 safety",
+      "collection": "Core",
+      "structurecode": "01.05.05.00.17000.",
+      "expected_english_sha256": "729ebc15d8af1bc883ff1a0f269776aee52e30747719b6e11d3ca4b8f2f089bf",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "5.3",
+      "when": {
+        "fact_equals": {
+          "key": "co2_extinguishing_confined_space_risk_reviewed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Firefighting recommendations must be compatible with fire behaviour, storage and firefighter safety; do not infer from generic phrases.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 5.3",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S06_01",
+      "section": 6,
+      "topic": "Emergency ignition controls",
+      "collection": "Core",
+      "structurecode": "01.06.01.01.03.1000.",
+      "expected_english_sha256": "ac1abaebb900bd5eff1d5fb8de1461fc7135ddbfe638bcbd494bb830ad0fd0fd",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "6.1",
+      "when": {
+        "fact_equals": {
+          "key": "spills_require_ignition_source_removal",
+          "value": "yes"
+        }
+      },
+      "review_note": "Spill and drain precautions must be validated against actual material properties, safe recovery, responder exposure and environmental hazards.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 6.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S06_02",
+      "section": 6,
+      "topic": "Ventilation during spills",
+      "collection": "Core",
+      "structurecode": "01.06.01.01.03.3000.",
+      "expected_english_sha256": "58e1a0c09b4bfd1b607a2aeb87c538052b6f107263b35ca7d02d7fb10d8ec498",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "6.1",
+      "when": {
+        "fact_equals": {
+          "key": "spills_require_ventilation_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Spill and drain precautions must be validated against actual material properties, safe recovery, responder exposure and environmental hazards.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 6.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S06_03",
+      "section": 6,
+      "topic": "Drain protection",
+      "collection": "Core",
+      "structurecode": "01.06.02.1000.",
+      "expected_english_sha256": "f4954d9af9196f2fa2372f045daf620ea797f2b52d477bdc3904d3841c199289",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "6.2",
+      "when": {
+        "fact_equals": {
+          "key": "drain_covering_in_spill_plan_confirmed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Spill and drain precautions must be validated against actual material properties, safe recovery, responder exposure and environmental hazards.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 6.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S06_04",
+      "section": 6,
+      "topic": "Environmental precautions",
+      "collection": "Core",
+      "structurecode": "01.06.02.4000.",
+      "expected_english_sha256": "d8aafd509276a07c0c2206d8da6b1ac952165bd431dc74435e42763468670222",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "6.2",
+      "when": {
+        "fact_equals": {
+          "key": "surface_water_drain_release_prevention_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Spill and drain precautions must be validated against actual material properties, safe recovery, responder exposure and environmental hazards.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 6.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S06_05",
+      "section": 6,
+      "topic": "Absorbent cleanup material",
+      "collection": "Core",
+      "structurecode": "01.06.03.02.3000.18000.",
+      "expected_english_sha256": "37b5d3b4fac2f45d4e0678468fc22297cdda2d9347e6f000a61fc5080745d81a",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "6.3",
+      "when": {
+        "fact_equals": {
+          "key": "liquid_absorbent_compatibility_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Spill and drain precautions must be validated against actual material properties, safe recovery, responder exposure and environmental hazards.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 6.3",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S06_06",
+      "section": 6,
+      "topic": "Dust safe cleanup",
+      "collection": "Core",
+      "structurecode": "01.06.03.02.3000.28000.",
+      "expected_english_sha256": "6230a4ee3bff0842f6418ae2569f5ef71932b4b5279e2c9b4bb6f385fb8cfca8",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "6.3",
+      "when": {
+        "fact_equals": {
+          "key": "dry_brushing_prohibited_spill_plan",
+          "value": "yes"
+        }
+      },
+      "review_note": "Spill and drain precautions must be validated against actual material properties, safe recovery, responder exposure and environmental hazards.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 6.3",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S06_07",
+      "section": 6,
+      "topic": "Recovered product handling",
+      "collection": "Core",
+      "structurecode": "01.06.03.02.3000.14000.",
+      "expected_english_sha256": "d1544f1c9e32514d769fbe7c81e4a9fa729e4b2e52a794070c9e672f7de97ff2",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "6.3",
+      "when": {
+        "fact_equals": {
+          "key": "spill_reuse_prohibited_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Spill and drain precautions must be validated against actual material properties, safe recovery, responder exposure and environmental hazards.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 6.3",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S06_08",
+      "section": 6,
+      "topic": "Cross-reference to safe handling",
+      "collection": "Core",
+      "structurecode": "01.06.04.4000.1000.",
+      "expected_english_sha256": "54140c9dbefc9ac66f62892039f5e648290cd08816eedc2222169c85092a84ff",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "6.4",
+      "when": {
+        "fact_equals": {
+          "key": "handling_precautions_section7_present",
+          "value": "yes"
+        }
+      },
+      "review_note": "Spill and drain precautions must be validated against actual material properties, safe recovery, responder exposure and environmental hazards.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 6.4",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S07_01",
+      "section": 7,
+      "topic": "Handling ventilation",
+      "collection": "Core",
+      "structurecode": "01.07.01.01.01.00.20000.",
+      "expected_english_sha256": "075b46454151437efbbc9047394e4c7e7f4822539e4b6273170941342be1e01c",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "7.1",
+      "when": {
+        "fact_equals": {
+          "key": "outdoor_or_well_ventilated_handling_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Verify handling/storage controls against chemical incompatibilities, pressures, ventilation and use conditions.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 7.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S07_02",
+      "section": 7,
+      "topic": "Local ventilation controls",
+      "collection": "Core",
+      "structurecode": "01.07.01.01.03.01.4000.",
+      "expected_english_sha256": "cd55509cce9fa53a0d9c0047a2734a5d55b1b13f7918687075ae4832c4ccdbb0",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "7.1",
+      "when": {
+        "fact_equals": {
+          "key": "fume_cupboard_required_confirmed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Verify handling/storage controls against chemical incompatibilities, pressures, ventilation and use conditions.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 7.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S07_03",
+      "section": 7,
+      "topic": "Ignition source controls",
+      "collection": "Core",
+      "structurecode": "01.07.01.01.02.00.25000.",
+      "expected_english_sha256": "9fabbf64b5da998afdcff91e2efadaf9efe677094eac0f1f6a8c09ce3201c11d",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "7.1",
+      "when": {
+        "fact_equals": {
+          "key": "explosion_proof_equipment_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Verify handling/storage controls against chemical incompatibilities, pressures, ventilation and use conditions.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 7.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S07_04",
+      "section": 7,
+      "topic": "Storage ventilation",
+      "collection": "Core",
+      "structurecode": "01.07.02.01.2000.",
+      "expected_english_sha256": "480e2c35a899399ba12d73510d486e6823d46fbf8a3a105c63d02d63aec23cb0",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "7.2",
+      "when": {
+        "fact_equals": {
+          "key": "storage_area_ventilation_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Verify handling/storage controls against chemical incompatibilities, pressures, ventilation and use conditions.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 7.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S07_05",
+      "section": 7,
+      "topic": "Storage packaging compatibility",
+      "collection": "Core",
+      "structurecode": "01.07.02.02.12000.",
+      "expected_english_sha256": "ff04caac4e047c314d17688e6b6954e245d32b77e97f2364ab0d32742087dc73",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "7.2",
+      "when": {
+        "fact_equals": {
+          "key": "original_container_storage_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Verify handling/storage controls against chemical incompatibilities, pressures, ventilation and use conditions.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 7.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S07_06",
+      "section": 7,
+      "topic": "Storage container integrity",
+      "collection": "Core",
+      "structurecode": "01.07.02.02.21000.",
+      "expected_english_sha256": "378f1bb3d827e6e62806497b58307ecf3127d11a8c2a0fa2bb4802d058617d4a",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "7.2",
+      "when": {
+        "fact_equals": {
+          "key": "container_damage_prevention_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Verify handling/storage controls against chemical incompatibilities, pressures, ventilation and use conditions.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 7.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S07_07",
+      "section": 7,
+      "topic": "Storage access restrictions",
+      "collection": "Core",
+      "structurecode": "01.07.02.01.1000.",
+      "expected_english_sha256": "b23ce78914b48bccfe2003377dc0fbbda7243a09a17ce17565c2c0a096e79ffe",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "7.2",
+      "when": {
+        "fact_equals": {
+          "key": "authorised_access_storage_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Verify handling/storage controls against chemical incompatibilities, pressures, ventilation and use conditions.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 7.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S08_01",
+      "section": 8,
+      "topic": "Eye protection — goggles",
+      "collection": "Core",
+      "structurecode": "01.08.02.02.01.01.3000.",
+      "expected_english_sha256": "e64d625f0b4fb3314d13d471bfa14955b84056e9d26ce4cacac6cc8e1892b221",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "8.2",
+      "when": {
+        "fact_equals": {
+          "key": "chemical_splash_goggles_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "PPE details remain product- and task-specific; confirm material, EN standards, suitability, breakthrough, exposure and engineering controls.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 8.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S08_02",
+      "section": 8,
+      "topic": "Eye/face protection — shield",
+      "collection": "Core",
+      "structurecode": "01.08.02.02.01.01.5000.",
+      "expected_english_sha256": "bc39002c25bae93aa29bcc268616033dffe9c56c92627b43e07dbfd5ce3f2cb0",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "8.2",
+      "when": {
+        "fact_equals": {
+          "key": "face_shield_ppe_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "PPE details remain product- and task-specific; confirm material, EN standards, suitability, breakthrough, exposure and engineering controls.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 8.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S08_03",
+      "section": 8,
+      "topic": "Glove performance assessment",
+      "collection": "Core",
+      "structurecode": "01.08.02.02.02.01.06.2000.",
+      "expected_english_sha256": "2595f6ca6f07883cbfe0016fc961ba7fe53ee49f9585e7c619d3d30533103ce9",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "8.2",
+      "when": {
+        "fact_equals": {
+          "key": "glove_breakthrough_swelling_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "PPE details remain product- and task-specific; confirm material, EN standards, suitability, breakthrough, exposure and engineering controls.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 8.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S08_04",
+      "section": 8,
+      "topic": "Glove integrity checks",
+      "collection": "Core",
+      "structurecode": "01.08.02.02.02.01.05.1000.",
+      "expected_english_sha256": "b91aaeeb5879e67e8ee61e4fa1cf2ef33e2ca2a66efe942bf764da11f2fc411c",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "8.2",
+      "when": {
+        "fact_equals": {
+          "key": "glove_integrity_testing_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "PPE details remain product- and task-specific; confirm material, EN standards, suitability, breakthrough, exposure and engineering controls.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 8.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S08_05",
+      "section": 8,
+      "topic": "Respiratory protection controls",
+      "collection": "Core",
+      "structurecode": "01.08.02.02.03.6000.7000.",
+      "expected_english_sha256": "49fb926bd488b0057ce83019463cb16ab77ebca371ee1efa96785e5558401edd",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "8.2",
+      "when": {
+        "fact_equals": {
+          "key": "respirator_when_ventilation_inadequate_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "PPE details remain product- and task-specific; confirm material, EN standards, suitability, breakthrough, exposure and engineering controls.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 8.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S08_06",
+      "section": 8,
+      "topic": "Body protection",
+      "collection": "Core",
+      "structurecode": "01.08.02.02.05.2000.",
+      "expected_english_sha256": "88cecf7b17fdd7be8bca89fc87a63fc4e97568e80aace3e535f50f8cd66baf44",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "8.2",
+      "when": {
+        "fact_equals": {
+          "key": "body_protective_clothing_required_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "PPE details remain product- and task-specific; confirm material, EN standards, suitability, breakthrough, exposure and engineering controls.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 8.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S08_07",
+      "section": 8,
+      "topic": "Nanomaterial source extraction",
+      "collection": "Core",
+      "structurecode": "01.08.02.01.06.5000.",
+      "expected_english_sha256": "4010637799903052b58707379bdc96c25d1c6c2ed657d5e8da3de4f33a606320",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "8.2",
+      "when": {
+        "fact_equals": {
+          "key": "nanoparticle_hepa_h14_extraction_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "PPE details remain product- and task-specific; confirm material, EN standards, suitability, breakthrough, exposure and engineering controls.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 8.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S09_01",
+      "section": 9,
+      "topic": "Physical state — liquid",
+      "collection": "Core",
+      "structurecode": "01.09.01.01.01.00.1002.",
+      "expected_english_sha256": "42110162e06395fd53647c77db6814026e22e26a10c24b98431ff20dc5eafbc3",
+      "expected_grammar": "List-Element",
+      "subsection_hint": "9.1",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "physical_form",
+              "value": "liquid"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "physical_state_liquid_verified",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Catalogue values or fragments need an explicit property, measured basis and suitable units; they are not complete sentences.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 9.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S09_02",
+      "section": 9,
+      "topic": "Physical state — solid",
+      "collection": "Core",
+      "structurecode": "01.09.01.01.01.00.1003.",
+      "expected_english_sha256": "4b3d4a0dd732f791ca897e95488b5d63caf128d8691b6f5bbc54f866b9b97054",
+      "expected_grammar": "List-Element",
+      "subsection_hint": "9.1",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "physical_form",
+              "value": "solid"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "physical_state_solid_verified",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Catalogue values or fragments need an explicit property, measured basis and suitable units; they are not complete sentences.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 9.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S09_03",
+      "section": 9,
+      "topic": "Physical state — gas",
+      "collection": "Core",
+      "structurecode": "01.09.01.01.01.00.1001.",
+      "expected_english_sha256": "2fe840e13244a9d748883574c1f1b7b1d7020eb39d0735b8f91ef5cf6f35173e",
+      "expected_grammar": "List-Element",
+      "subsection_hint": "9.1",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "physical_form",
+              "value": "gas"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "physical_state_gas_verified",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Catalogue values or fragments need an explicit property, measured basis and suitable units; they are not complete sentences.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 9.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S09_04",
+      "section": 9,
+      "topic": "Solid form — powder",
+      "collection": "Core",
+      "structurecode": "01.09.01.01.01.01.3000.1002.",
+      "expected_english_sha256": "e8eb8741d3daa5579df543903d9312e47f5b15a66af1c25a14f817c82763787a",
+      "expected_grammar": "List-Element",
+      "subsection_hint": "9.1",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "physical_form",
+              "value": "solid"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "solid_powder_form_verified",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Catalogue values or fragments need an explicit property, measured basis and suitable units; they are not complete sentences.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 9.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S09_05",
+      "section": 9,
+      "topic": "Odour threshold remark",
+      "collection": "Core",
+      "structurecode": "01.09.01.03.02.00.1002.",
+      "expected_english_sha256": "4510ba7131d06e1883ddd1eea3fd2824b5462a25e562c118a8d7223ca81b7f65",
+      "expected_grammar": "List-Element",
+      "subsection_hint": "9.1",
+      "when": {
+        "fact_equals": {
+          "key": "odour_threshold_not_determined_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Catalogue values or fragments need an explicit property, measured basis and suitable units; they are not complete sentences.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 9.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S10_01",
+      "section": 10,
+      "topic": "Chemical stability",
+      "collection": "Core",
+      "structurecode": "01.10.02.01.2000.",
+      "expected_english_sha256": "4e5e6e0673aa2be6a7b25e6062e09b73a7c53a7c943ca49ab925b68ff6c7ea22",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "10.2",
+      "when": {
+        "fact_equals": {
+          "key": "no_hazardous_reactions_normal_conditions_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Reactivity and stability assertions require suitable test or technical evidence and cannot be inferred from hazard classification alone.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 10.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S10_02",
+      "section": 10,
+      "topic": "Reactivity data availability",
+      "collection": "Core",
+      "structurecode": "01.10.01.01.1000.",
+      "expected_english_sha256": "b935d30b4bf47f7da5a3e201828cbeea8804e3b58f2176e5901a9b68beddfbc5",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "10.1",
+      "when": {
+        "fact_equals": {
+          "key": "reactivity_test_data_absence_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Reactivity and stability assertions require suitable test or technical evidence and cannot be inferred from hazard classification alone.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 10.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S10_03",
+      "section": 10,
+      "topic": "Hazardous reaction and pressure risk",
+      "collection": "Core",
+      "structurecode": "01.10.03.00.7000.",
+      "expected_english_sha256": "7884a3f83f990f0ece32602d2cc938d0f86847dd726ec32ab438cd1ed863ecd7",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "10.3",
+      "when": {
+        "fact_equals": {
+          "key": "heat_pressure_burst_risk_confirmed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Reactivity and stability assertions require suitable test or technical evidence and cannot be inferred from hazard classification alone.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 10.3",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S10_04",
+      "section": 10,
+      "topic": "Material interaction warning",
+      "collection": "Core",
+      "structurecode": "01.10.05.00.1000.",
+      "expected_english_sha256": "4a3d28b6ec5f7363891fd2c4691dc7824e6397f58037280b0e4870348fbaad3b",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "10.5",
+      "when": {
+        "fact_equals": {
+          "key": "hygroscopic_property_confirmed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Reactivity and stability assertions require suitable test or technical evidence and cannot be inferred from hazard classification alone.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 10.5",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S10_05",
+      "section": 10,
+      "topic": "Storage cross-reference",
+      "collection": "Core",
+      "structurecode": "01.10.05.01.2000.",
+      "expected_english_sha256": "c3a6362cb17f3f8de74d4a1dc194a2d0218d89359af53c8e491d7d5e12556f98",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "10.5",
+      "when": {
+        "fact_equals": {
+          "key": "storage_incompatibilities_section7_2_present",
+          "value": "yes"
+        }
+      },
+      "review_note": "Reactivity and stability assertions require suitable test or technical evidence and cannot be inferred from hazard classification alone.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 10.5",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S11_01",
+      "section": 11,
+      "topic": "Specific state toxicity distinction",
+      "collection": "Core",
+      "structurecode": "01.11.01.01.03.03.06.00.4000.",
+      "expected_english_sha256": "f14f173938c817b85461dada999469bd2db62141eca6fd1f9681709395af3a49",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "11.1",
+      "when": {
+        "fact_equals": {
+          "key": "wet_form_only_corrosive_confirmed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Toxicological study and negative assertions need traceable test/evidence; they cannot substitute for hazard-class coverage.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 11.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S11_02",
+      "section": 11,
+      "topic": "Sensitisation study information",
+      "collection": "Core",
+      "structurecode": "01.11.01.01.05.02.03.3000.",
+      "expected_english_sha256": "9854f01e6c39e8d9e0657f2e6291b5201d3d7d22ac5172491aec7d45c23a0c9e",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "11.1",
+      "when": {
+        "fact_equals": {
+          "key": "positive_patch_test_data_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Toxicological study and negative assertions need traceable test/evidence; they cannot substitute for hazard-class coverage.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 11.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S11_03",
+      "section": 11,
+      "topic": "Toxicological evidence source",
+      "collection": "Core",
+      "structurecode": "01.11.01.01.02.02.03.02.08.00.6000.",
+      "expected_english_sha256": "3fd955b9b26443eb76b33fda3eb8f018bffbc414aecdaea0c634e3f89abe3b76",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "11.1",
+      "when": {
+        "fact_equals": {
+          "key": "qsar_read_across_evidence_approved",
+          "value": "yes"
+        }
+      },
+      "review_note": "Toxicological study and negative assertions need traceable test/evidence; they cannot substitute for hazard-class coverage.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 11.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S12_01",
+      "section": 12,
+      "topic": "Mixture ecological data rationale",
+      "collection": "Core",
+      "structurecode": "01.12.01.08.12.4000.",
+      "expected_english_sha256": "91804d05093b5409ed3b8cdbef62ebf365cfef4961c83239e2015a05a796af0f",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "12.1",
+      "when": {
+        "fact_equals": {
+          "key": "ecological_conclusion_derived_from_ingredients_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Ecotoxicity, fate and missing-data assertions require studies and component-specific caveats; no-data does not prove no hazard.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 12.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S12_02",
+      "section": 12,
+      "topic": "Bioaccumulative potential",
+      "collection": "Core",
+      "structurecode": "01.12.02.03.02.6000.",
+      "expected_english_sha256": "257fe1335b9bd169a468d69f3bffe81e3a312f261c9344f8ef387c5caadcceb2",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "12.3",
+      "when": {
+        "fact_equals": {
+          "key": "no_bioaccumulation_indications_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Ecotoxicity, fate and missing-data assertions require studies and component-specific caveats; no-data does not prove no hazard.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 12.3",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S12_03",
+      "section": 12,
+      "topic": "Degradability of inorganic substances",
+      "collection": "Core",
+      "structurecode": "01.12.02.02.01.09.00.22000.",
+      "expected_english_sha256": "c9b4f9ecd0a5c33f0e6e25f0f712b15f1a980f3a1ae16cc854a36543abe4b3e5",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "12.2",
+      "when": {
+        "fact_equals": {
+          "key": "inorganic_not_biodegradable_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Ecotoxicity, fate and missing-data assertions require studies and component-specific caveats; no-data does not prove no hazard.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 12.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S12_04",
+      "section": 12,
+      "topic": "Mobility/soil adsorption",
+      "collection": "Core",
+      "structurecode": "01.12.01.04.09.2000.",
+      "expected_english_sha256": "69c9297240c6e1987ec07b33904677bb9050e6fb522470df30e973d188c547ba",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "12.4",
+      "when": {
+        "fact_equals": {
+          "key": "no_soil_adsorption_expected_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Ecotoxicity, fate and missing-data assertions require studies and component-specific caveats; no-data does not prove no hazard.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 12.4",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S12_05",
+      "section": 12,
+      "topic": "Ecotoxicity test condition",
+      "collection": "Core",
+      "structurecode": "01.12.01.01.01.01.07.00.1000.",
+      "expected_english_sha256": "7691241921f83a53a6e4ba5553630094d564e4ef93a039d0ead376148cd38a24",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "12.1",
+      "when": {
+        "fact_equals": {
+          "key": "ecotox_aqueous_dispersion_test_confirmed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Ecotoxicity, fate and missing-data assertions require studies and component-specific caveats; no-data does not prove no hazard.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 12.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S13_01",
+      "section": 13,
+      "topic": "Incineration recommendations",
+      "collection": "Core",
+      "structurecode": "01.13.01.01.03.01.2000.",
+      "expected_english_sha256": "a2eb0d05db267ba965e29c8079d5d1fa903fe6e23ae4dcbd9b29b2794271aae8",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "13.1",
+      "when": {
+        "fact_equals": {
+          "key": "high_temperature_incineration_route_approved",
+          "value": "yes"
+        }
+      },
+      "review_note": "Check waste classification, local/national law, packaging conditions and approved treatment route before adopting a disposal statement.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 13.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S13_02",
+      "section": 13,
+      "topic": "Reusable contaminated packaging",
+      "collection": "Core",
+      "structurecode": "01.13.01.01.03.02.4000.",
+      "expected_english_sha256": "89cd3cf01c9195b5b3b2550e3f4329724ee8e18b083dfc66abc4abe3ef02fff4",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "13.1",
+      "when": {
+        "fact_equals": {
+          "key": "packaging_cleaning_reuse_validated",
+          "value": "yes"
+        }
+      },
+      "review_note": "Check waste classification, local/national law, packaging conditions and approved treatment route before adopting a disposal statement.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 13.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S13_03",
+      "section": 13,
+      "topic": "Bulk packaging return scheme",
+      "collection": "Core",
+      "structurecode": "01.13.01.01.03.02.8000.",
+      "expected_english_sha256": "86deeab24508af00a504861f68cac02f2c5e4fed1c0df2a77698a539591e5921",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "13.1",
+      "when": {
+        "fact_equals": {
+          "key": "ibc_supplier_return_programme_confirmed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Check waste classification, local/national law, packaging conditions and approved treatment route before adopting a disposal statement.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 13.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S13_04",
+      "section": 13,
+      "topic": "Disposal authority consultation",
+      "collection": "Core",
+      "structurecode": "01.13.01.01.03.03.31000.",
+      "expected_english_sha256": "cfd4bfc5db8e9fd6410a67b9b74f1284d1de4ee071be439e65048cb043fe5128",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "13.1",
+      "when": {
+        "fact_equals": {
+          "key": "waste_disposal_authority_consultation_required",
+          "value": "yes"
+        }
+      },
+      "review_note": "Check waste classification, local/national law, packaging conditions and approved treatment route before adopting a disposal statement.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 13.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S13_05",
+      "section": 13,
+      "topic": "Disposal documentation",
+      "collection": "Core",
+      "structurecode": "01.13.01.01.03.03.24000.",
+      "expected_english_sha256": "5321f9c186f1d8cbde5e169e1e6db32f841eb41a501b8eb91efdcc6ab938e570",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "13.1",
+      "when": {
+        "fact_equals": {
+          "key": "disposal_documentation_required_assessed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Check waste classification, local/national law, packaging conditions and approved treatment route before adopting a disposal statement.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 13.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S14_01",
+      "section": 14,
+      "topic": "Maritime bulk transport scope",
+      "collection": "Core",
+      "structurecode": "01.14.07.00.1000.",
+      "expected_english_sha256": "ffa62580e208f394c4ffa23078e52f5e7ef2ad9377836ded294e79880408c0a2",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "14.7",
+      "when": {
+        "fact_equals": {
+          "key": "not_maritime_bulk_transport_confirmed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Transport statements require mode-specific ADR/RID/ADN/IMDG/ICAO verification; CLP classification alone cannot determine DG status.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 14.7",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S14_02",
+      "section": 14,
+      "topic": "Transport vehicle precautions",
+      "collection": "Core",
+      "structurecode": "01.14.08.02.08.6000.",
+      "expected_english_sha256": "7a55711358b5416bb9257dd0ccf17918b39b5038f1cb35165fd39add97cef226",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "14.6",
+      "when": {
+        "fact_equals": {
+          "key": "separate_freight_cab_transport_requirement_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Transport statements require mode-specific ADR/RID/ADN/IMDG/ICAO verification; CLP classification alone cannot determine DG status.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 14.6",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S14_03",
+      "section": 14,
+      "topic": "ADN mode-specific DG status",
+      "collection": "Core",
+      "structurecode": "01.14.08.03.06.9000.",
+      "expected_english_sha256": "d9ac410e5e572e0d2e69a41f35134ee14e4c073167f889f1ce420c399c40e441",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "14.3",
+      "when": {
+        "fact_equals": {
+          "key": "adn_not_dangerous_goods_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Transport statements require mode-specific ADR/RID/ADN/IMDG/ICAO verification; CLP classification alone cannot determine DG status.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 14.3",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S15_01",
+      "section": 15,
+      "topic": "CSA not-required determination",
+      "collection": "Core",
+      "structurecode": "01.15.02.1000.",
+      "expected_english_sha256": "1395d2c64ba6a97376b231c74350818203beb3e3ec2f42ca4dd488951802bcb0",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "15.2",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "product_type",
+              "value": "substance"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "substance_csa_not_required_by_reach_assessed",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Legal statuses, VOC/Seveso/CSA findings need authoritative current checks and evidence for the exact substance or mixture.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 15.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S15_02",
+      "section": 15,
+      "topic": "Mixture component CSA status",
+      "collection": "Core",
+      "structurecode": "01.15.02.4000.",
+      "expected_english_sha256": "a96e9fea29c45905271ac8acfafc039fee1fd561ab42c96dd002faf757a5f1d2",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "15.2",
+      "when": {
+        "all": [
+          {
+            "attribute_equals": {
+              "key": "product_type",
+              "value": "mixture"
+            }
+          },
+          {
+            "fact_equals": {
+              "key": "mixture_component_csa_absence_verified",
+              "value": "yes"
+            }
+          }
+        ]
+      },
+      "review_note": "Legal statuses, VOC/Seveso/CSA findings need authoritative current checks and evidence for the exact substance or mixture.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 15.2",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S15_03",
+      "section": 15,
+      "topic": "Industrial Emissions Directive VOC assessment",
+      "collection": "Core",
+      "structurecode": "01.15.01.01.02.2000.03.03.1000.",
+      "expected_english_sha256": "d8caefa781f7b5cc28e6e7e954a83607b6e03391b38f27caeea1c2fb094e3a0b",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "15.1",
+      "when": {
+        "fact_equals": {
+          "key": "no_vocs_under_ied_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Legal statuses, VOC/Seveso/CSA findings need authoritative current checks and evidence for the exact substance or mixture.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 15.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S15_04",
+      "section": 15,
+      "topic": "Seveso III scope determination",
+      "collection": "Core",
+      "structurecode": "01.15.01.01.02.7000.3000.1000.",
+      "expected_english_sha256": "e5c47abee1a7f2c975ff36c5957ac60cdf8e583d2948e77ea2d49ee60f42d230",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "15.1",
+      "when": {
+        "fact_equals": {
+          "key": "seveso_iii_product_exclusion_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Legal statuses, VOC/Seveso/CSA findings need authoritative current checks and evidence for the exact substance or mixture.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 15.1",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S16_01",
+      "section": 16,
+      "topic": "Worker first-aid training",
+      "collection": "Core",
+      "structurecode": "01.16.06.3000.",
+      "expected_english_sha256": "101c6faa46281f56e8e04813c48d2a0c7dbd9ea429a0408f1d091b6843481e31",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "16",
+      "when": {
+        "fact_equals": {
+          "key": "special_first_aid_training_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Confirm the statement accurately reflects SDS source documentation, worker training and relevant label/use context.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 16",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S16_02",
+      "section": 16,
+      "topic": "Data provenance — literature",
+      "collection": "Core",
+      "structurecode": "01.16.07.10000.1000.",
+      "expected_english_sha256": "b0a5d04db1b9df344c422f7957ffe6c1a993b299546d89ec0f3028eb39653a87",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "16",
+      "when": {
+        "fact_equals": {
+          "key": "information_source_literature_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Confirm the statement accurately reflects SDS source documentation, worker training and relevant label/use context.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 16",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S16_03",
+      "section": 16,
+      "topic": "Data provenance — experience",
+      "collection": "Core",
+      "structurecode": "01.16.07.10000.2000.",
+      "expected_english_sha256": "15e9b7d1ae43c60267164f1516178ca35a7b4f926bc3dbfb955c75fa0407ef17",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "16",
+      "when": {
+        "fact_equals": {
+          "key": "information_source_practical_experience_verified",
+          "value": "yes"
+        }
+      },
+      "review_note": "Confirm the statement accurately reflects SDS source documentation, worker training and relevant label/use context.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 16",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S16_04",
+      "section": 16,
+      "topic": "Mixture preparation training",
+      "collection": "Core",
+      "structurecode": "01.16.07.3000.",
+      "expected_english_sha256": "7e894b51b187fd68d1041f42d1a9e5ea1db89d8ab2e63ea439bb1e44d5ac8ee3",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "16",
+      "when": {
+        "fact_equals": {
+          "key": "mixing_requires_component_sds_review_confirmed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Confirm the statement accurately reflects SDS source documentation, worker training and relevant label/use context.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 16",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    },
+    {
+      "id": "EXP_S16_05",
+      "section": 16,
+      "topic": "Label cross-reference",
+      "collection": "Core",
+      "structurecode": "01.16.07.9000.",
+      "expected_english_sha256": "3267f4c52e42385ba6c334970fe2fbceeebb49ebc5630aa04263cfa5da1d80ce",
+      "expected_grammar": "Sentence",
+      "subsection_hint": "16",
+      "when": {
+        "fact_equals": {
+          "key": "safe_use_instructions_on_label_confirmed",
+          "value": "yes"
+        }
+      },
+      "review_note": "Confirm the statement accurately reflects SDS source documentation, worker training and relevant label/use context.",
+      "reference": {
+        "catalogue": "eSDScom 5.5",
+        "sds_content_context": "REACH Annex II Part A 16",
+        "selection_basis": "human-curated draft; source wording exact match; no regulatory applicability approval"
+      },
+      "review_status": "draft_nonbinding_human_review_required",
+      "source_review": "english_sha256_checked_against_user_supplied_original_5_5_sqlite"
+    }
+  ],
+  "display_note": "105 English eSDScom 5.5 source candidates across 16 EU SDS sections, each requiring evidence. This pack supplies draft authoring suggestions, not verified legal rules, P-statement selections or SDS completeness.",
+  "expansion_metadata": {
+    "original_v1_rules": 21,
+    "additional_v2_rules": 84,
+    "total_curated_rules": 105,
+    "selection_status": "draft_unverified",
+    "source_basis": "User-supplied original eSDScom 5.5 catalogues: exact source_code+english_sha256",
+    "warnings": "Some entries are headings/list fragments, or specific negative/medical/transport assertions requiring especially careful validation."
+  }
+}
