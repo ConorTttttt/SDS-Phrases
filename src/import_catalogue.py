@@ -13,6 +13,8 @@ import tempfile
 import zipfile
 from pathlib import Path
 from xml.etree import ElementTree as ET
+import hashlib
+from catalogue_index import build_index
 
 NS = "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}"
 RAW_COLUMNS = [
@@ -144,6 +146,11 @@ def import_catalogue(source, destination):
         except sqlite3.OperationalError:
             counts["fts5"] = False
         conn.commit()
+        if source.is_file():
+            sha = hashlib.sha256(source.read_bytes()).hexdigest()
+        else:
+            sha = "directory_input_no_archive_digest"
+        counts.update(build_index(conn, source_sha256=sha))
         counts["total_rows"] = sum(counts[k] for k in ("Core_rows", "ExpoScenario_rows"))
         conn.close()
         tmp.replace(destination)
