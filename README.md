@@ -348,3 +348,26 @@ This is a source wording selection tool, NOT SDS legal compliance approval.
 Open: **http://127.0.0.1:8096/phrase_finder.html**.
 
 See [detailed phrase finder design and limitations](docs/phrase_finder_v1.md).
+
+
+## v0.5 — Product-profile SDS phrase recommendations
+
+The **\`/profile_recommendations.html\`** page accepts classified H-statement
+codes and physical properties and returns **original local eSDScom 5.5
+phrases** grouped by SDS section. Its first 38 explicit source-checked
+relevance mappings span Sections 1–10; all 16 sections are shown, including
+sections without safely inferable text. The source wording remains entirely
+local. Numeric pH/flashpoint are heuristic cues only, never CLP hazard
+classifications or legal suitability certificates.
+
+You can add reviewed-looking candidates to the **same draft board** used by
+the v0.4 full-catalogue phrase finder. No wording is automatically approved.
+
+    cd /mnt/holochain/Regulatory/SDS_Phrases
+    git fetch origin
+    git switch --track origin/feature/profile-driven-section-phrase-engine
+    python3 scripts/run_tests_checked.py
+    python3 src/server.py --port 8097
+
+Open **http://127.0.0.1:8097/profile_recommendations.html**.
+See [design and safeguards](docs/profile_driven_phrase_recommendations.md).
