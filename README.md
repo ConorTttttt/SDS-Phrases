@@ -175,3 +175,35 @@ See [source intake and limitations](docs/echa_guidance_source_intake.md)
 and [typed source register](sources/source_register.json).
 Binding EU SDS-content requirements must be verified against REACH Annex II as
 applicable on the SDS date; CLP Annex IV selection requires its separate legal text.
+
+
+## REACH Annex II (EU) — Phase 2 source & structural checker
+
+A 36-page PDF from the **22 June 2026 EU REACH consolidation**, Annex II
+only, has been assessed (original SHA-256 pinned). The PDF has layered
+headers from an earlier version in its text layer; source metadata and
+verification cautions are documented in
+[REACH Annex II source intake](docs/reach_annex2_source_intake.md).
+
+New functionality on \`feature/phase2-reach-annex-ii-source-structure\`:
+
+- **16 sections + 51 subsection headings**, with the conditional 3.1/3.2 choice;
+- evidence-aware draft structural audit (missing/unknown/blank);
+- **28 traceable but unverified content requirement records**, not
+  executable law or comprehensive SDS rules;
+- optional local PDF index/search of all 36 original pages (no PDF in GitHub);
+- separate REACH source, ECHA guidance, CLP and eSDScom wording layers.
+
+Test locally:
+
+    cd /mnt/holochain/Regulatory/SDS_Phrases
+    git fetch origin
+    git switch --track origin/feature/phase2-reach-annex-ii-source-structure
+    python3 -m unittest discover -s tests -v
+    python3 src/reach_annex2_source.py ~/Downloads/'Full REACH_removed.pdf'
+    python3 src/server.py
+
+Open **http://127.0.0.1:8092/reach.html**.
+
+**No current legal requirements have been marked independently verified;
+heading completeness is not legal SDS compliance.**

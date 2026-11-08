@@ -16,3 +16,6 @@ __pycache__/
 .venv/
 .env
 .DS_Store
+
+# Keep local law/guidance source PDFs private unless deliberately published
+*.pdf
