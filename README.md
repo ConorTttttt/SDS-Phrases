@@ -243,3 +243,30 @@ legally verified SDS compliance generator. REACH Annex II determines
 information requirements, CLP Annex IV determines P-statement selection,
 and eSDScom provides optional phrase candidates. Those layers are still
 separate and their detailed crosswalk awaits independent verification.
+
+
+### Expanded section phrase recommendations (v0.2)
+
+The same \`feature/phase2-section-phrase-recommendations\` branch now includes
+**105 original source-checked candidate paths** (84 additional mappings).
+The browser supports focused 16-section inputs, collapsible fact groups,
+source-fragment labels and decision filters. The candidate pack includes
+strict source SHA-256 and grammar checks, three-valued product evidence
+requirements and conflict detection (CLP classification, physical state,
+noncombustibility).
+
+Only the *draft phrasing* options have expanded; this does **not** establish
+regulatory completeness, legal P-statement selection or permitted SDS content.
+Re-import of the original licensed dataset is not necessary if your local
+\`data/catalogue.sqlite\` already exists.
+
+Local validation:
+
+    python3 scripts/verify_section_phrase_sources.py
+    python3 -m unittest discover -s tests -v
+
+To run alongside an older server:
+
+    python3 src/server.py --port 8093
+
+Browser: http://127.0.0.1:8093/section_recommendations.html

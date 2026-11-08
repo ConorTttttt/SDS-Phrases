@@ -81,11 +81,6 @@ async function search(){
 async function start(){
  try{summary(await api("/api/catalogue/summary"));}
  catch(error){$("summary").replaceChildren(make("div","empty",error.message));}
- const deeplink=new URLSearchParams(window.location.search);
- const section=deeplink.get("section");
- const jurisdiction=deeplink.get("jurisdiction");
- if(section && /^(?:[1-9]|1[0-6])$/.test(section)) $("s").value=section;
- if(jurisdiction && ["EU","GB","US","UN","MX","AR","BR","CN","ALL"].includes(jurisdiction)) $("j").value=jurisdiction;
  $("filters").addEventListener("submit",e=>{e.preventDefault();offset=0;search();});
  $("prev").addEventListener("click",()=>{offset=Math.max(0,offset-limit);search();});
  $("next").addEventListener("click",()=>{if(offset+limit<total){offset+=limit;search();}});

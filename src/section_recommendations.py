@@ -92,6 +92,15 @@ def validate_candidates(pack, structure):
         fingerprint = rule.get("expected_english_sha256")
         if not isinstance(fingerprint, str) or not re.fullmatch(r"[0-9a-f]{64}", fingerprint):
             raise RecommendationError(rid + ": missing source wording SHA-256")
+        grammar = rule.get("expected_grammar")
+        if grammar is not None and grammar not in ("Sentence", "List-Element", "List-Start", "Header", "Other"):
+            raise RecommendationError(rid + ": invalid catalogue grammar")
+        subsection = rule.get("subsection_hint")
+        if subsection is not None and (
+            not isinstance(subsection, str) or
+            not re.fullmatch(re.escape(str(section)) + r"(?:\.[1-9][0-9]?)?", subsection)
+        ):
+            raise RecommendationError(rid + ": invalid subsection hint")
         if not isinstance(rule.get("review_note"), str) or not rule["review_note"].strip():
             raise RecommendationError(rid + ": missing reviewer warning")
         if rule.get("review_status") != "draft_nonbinding_human_review_required":
@@ -137,7 +146,8 @@ def _matching_catalogue_record(conn, rule):
     if (row["catalogue_version"] != EXPECTED_VERSION or
         not row["english"] or
         hashlib.sha256(row["english"].encode("utf-8")).hexdigest() != rule["expected_english_sha256"] or
-        row["sds_section"] != rule["section"]):
+        row["sds_section"] != rule["section"] or
+        (rule.get("expected_grammar") is not None and row["grammar"] != rule["expected_grammar"])):
         return None, "Catalogue wording, version or SDS section does not match the curated reference."
     return row, None
 
@@ -155,12 +165,36 @@ def evaluate_sections(catalogue_path, product, pack=None, structure=None):
             conn = sqlite3.connect(str(catalogue_path))
         except sqlite3.Error:
             conn = None
+    def affirmed(key):
+        record = product.get("facts", {}).get(key, {})
+        return (record.get("value") == "yes" and
+                isinstance(record.get("evidence"), str) and
+                bool(record["evidence"].strip()))
+
     conflict_names = ("substance_csa_performed_verified", "substance_csa_not_performed_verified")
-    contradictory = all(
-        product.get("facts", {}).get(key, {}).get("value") == "yes" and
-        bool(product.get("facts", {}).get(key, {}).get("evidence", "").strip())
-        for key in conflict_names
-    )
+    contradictory = all(affirmed(key) for key in conflict_names)
+    contradictory_keys = set(conflict_names) if contradictory else set()
+    state_keys = {
+        "physical_state_liquid_verified", "physical_state_solid_verified",
+        "physical_state_gas_verified"
+    }
+    if sum(affirmed(key) for key in state_keys) > 1:
+        contradictory_keys.update(state_keys)
+    if affirmed("mixture_not_classified_under_clp_reviewed") and (
+        affirmed("eu_clp_hazardous_mixture_confirmed") or
+        any(h.startswith("H") for h in product["hazards"])
+    ):
+        contradictory_keys.add("mixture_not_classified_under_clp_reviewed")
+        contradictory_keys.add("eu_clp_hazardous_mixture_confirmed")
+    if affirmed("substance_not_classified_under_clp_reviewed") and any(
+        h.startswith("H") for h in product["hazards"]
+    ):
+        contradictory_keys.add("substance_not_classified_under_clp_reviewed")
+    if affirmed("product_non_combustible_confirmed") and any(
+        h in {"H220", "H221", "H222", "H223", "H224", "H225", "H226", "H228"}
+        for h in product["hazards"]
+    ):
+        contradictory_keys.add("product_non_combustible_confirmed")
     decisions = []
     try:
         for rule in pack["rules"]:
@@ -168,6 +202,8 @@ def evaluate_sections(catalogue_path, product, pack=None, structure=None):
                 "rule_id": rule["id"],
                 "section": rule["section"],
                 "topic": rule["topic"],
+                "subsection_hint": rule.get("subsection_hint", ""),
+                "expected_grammar": rule.get("expected_grammar", "not_pinned"),
                 "source_structurecode": rule["structurecode"],
                 "source_collection": rule["collection"],
                 "review_note": rule["review_note"],
@@ -186,9 +222,10 @@ def evaluate_sections(catalogue_path, product, pack=None, structure=None):
             if product["jurisdiction"] != pack["jurisdiction"]:
                 base["decision"] = "outside_jurisdiction"
                 base["explanation"] = "Only EU-format catalogue suggestions were curated in this pack."
-            elif contradictory and rule["id"] in ("R15_CSA_CARRIED_OUT", "R15_CSA_NOT_CARRIED_OUT"):
+            elif _rule_facts(rule["when"]) & contradictory_keys:
                 base["decision"] = "blocked_conflicting_evidence"
-                base["explanation"] = "The supplied CSA facts simultaneously assert performed and not performed."
+                base["explanation"] = ("Conflicting evidenced product facts or an incompatible hazard "
+                                       "classification were supplied. Reconcile before suggesting text.")
             else:
                 trace = evaluate_evidence_condition(rule["when"], product)
                 base["trace"] = trace

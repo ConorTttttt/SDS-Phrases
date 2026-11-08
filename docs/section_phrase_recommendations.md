@@ -23,8 +23,8 @@ automatically insert a catalogue phrase. For example:
 ## Curation and provenance
 
 The non-executable curated authoring pack at
-\`rules/section_phrase_candidates_v0.1.json\` identifies 21 first-pass
-**context-dependent** source candidates across all 16 sections. Each rule
+\`rules/section_phrase_candidates_v0.1.json\` identifies 105 first-pass
+**context-dependent** source candidates across all 16 sections (21 original + 84 expanded). Each rule
 has a stable ID, a section, original eSDScom Core structure code, **SHA-256 of
 the exact English source wording**, a three-valued condition, a regulatory
 *topic* locator, and explicit warnings. It contains no eSDScom wording.
@@ -91,7 +91,7 @@ In the interface:
 - \`POST /api/section-recommendations/evaluate\` — product input in the same
   evidence-aware shape as Phase 2 Stage A; returns section-grouped decisions.
 - \`scripts/verify_section_phrase_sources.py\` — local integrity check for all
-  21 curated source mappings, independent of product facts.
+  105 curated source mappings, independent of product facts.
 
 The input follows the Phase 2 product contract. Example fragment:
 
@@ -148,3 +148,43 @@ applicability has not been verified**; \`date_applicability_reviewed: false\`.
 committed to GitHub. The source is eSDScom 5.5 and remains subject to its
 stated licensing conditions. The curated pack contains identifiers and
 wording fingerprints, not the source English phrases themselves.
+
+
+## Expansion v0.2 (105 candidates)
+
+This update adds 84 source-checked catalogue mappings, including options for
+identified uses, Section 2 hazard wording and unclassified status (strict
+evidence checks), Section 3 ingredient **table headings** (not contents),
+first aid, fire, spill response, handling/storage, multiple forms of PPE,
+Section 9 physical-state values, stability, toxicology/ecology study notes,
+disposal, modal transport, chemical-safety-assessment status and Section 16
+training/provenance. Many are intrinsically situational.
+
+**Critical safeguards added**
+- A mixture cannot simultaneously be described as classified and unclassified
+  on the same evidence. A statement that a substance/mixture is not classified
+  is also blocked if hazardous H codes are supplied.
+- Multiple independently claimed physical states (gas/liquid/solid) block
+  those source candidates rather than choosing arbitrarily.
+- A claim that the product does not burn is blocked when H220/H221/H222/H223/
+  H224/H225/H226/H228 is supplied.
+- Source grammar is checked for the 84 new entries. A \`Header\`,
+  \`List-Start\`, or \`List-Element\` is a **fragment**, not complete SDS
+  narrative; the browser labels it.
+- The workbench now provides collapsible fact panels, a per-section focus
+  control and a filter for draft candidates, unknowns, blocked mappings and
+  non-triggered rules.
+
+**Legal review is still open.** Source fingerprint validation establishes
+that the suggested text is *from* the eSDScom catalogue; it cannot establish
+that a regulation requires or even permits use of that phrase for a specific
+product. No phrase is automatically approved. This remains a limited pilot,
+not a complete inventory of the 52,676 English source entries.
+
+A high-impact release criterion is full local validation:
+
+    python3 scripts/verify_section_phrase_sources.py
+
+All 105 source code/hash/section/grammar matches should pass against the
+original eSDScom 5.5 imported database. The script reports identifiers and
+failures only; it does not redistribute original wording.

@@ -83,7 +83,7 @@ class SectionRecommendationsTests(unittest.TestCase):
                     "fake-v55-core-r2", *base[1:]))
 
     def test_all_sections_have_at_least_one_curated_candidate(self):
-        self.assertEqual(len(PACK["rules"]), 21)
+        self.assertEqual(len(PACK["rules"]), 105)
         self.assertEqual({rule["section"] for rule in PACK["rules"]}, set(range(1, 17)))
         out = evaluate_sections(self.db, profile(), pack=PACK, structure=STRUCTURE)
         self.assertEqual(len(out["sections"]), 16)
@@ -181,6 +181,71 @@ class SectionRecommendationsTests(unittest.TestCase):
         self.assertTrue(all(x["decision"] == "outside_jurisdiction"
                             for s in out["sections"] for x in s["recommendations"]))
 
+    def test_84_additional_rules_are_scoped_and_source_hash_pinned(self):
+        expanded = [x for x in PACK["rules"] if x["id"].startswith("EXP_")]
+        self.assertEqual(len(expanded), 84)
+        self.assertEqual({x["section"] for x in expanded}, set(range(1, 17)))
+        self.assertTrue(all(x.get("expected_grammar") in ("Sentence", "Header", "List-Start", "List-Element") for x in expanded))
+        self.assertTrue(all(x.get("subsection_hint") for x in expanded))
+        self.assertTrue(all(x.get("source_review") == "english_sha256_checked_against_user_supplied_original_5_5_sqlite" for x in expanded))
+
+    def test_clp_unclassified_mixture_cannot_conflict_with_hazard_codes(self):
+        data = profile(facts={
+            "mixture_not_classified_under_clp_reviewed": fact(),
+            "classification_assessment_approved": fact(),
+        })
+        result = evaluate_sections(self.db, data, pack=PACK, structure=STRUCTURE)
+        self.assertEqual(rule(result, "EXP_S02_01")["decision"], "blocked_conflicting_evidence")
+        self.assertFalse(result["sds_compliant"])
+
+    def test_clp_hazardous_vs_nonhazardous_assertions_block_both(self):
+        data = profile(hazards=[],facts={
+            "mixture_not_classified_under_clp_reviewed": fact(),
+            "eu_clp_hazardous_mixture_confirmed": fact(),
+            "classification_assessment_approved": fact(),
+        })
+        result = evaluate_sections(self.db, data, pack=PACK, structure=STRUCTURE)
+        self.assertEqual(rule(result, "EXP_S02_01")["decision"], "blocked_conflicting_evidence")
+        self.assertEqual(rule(result, "R02_CLP_HAZARDOUS_MIXTURE")["decision"], "blocked_conflicting_evidence")
+
+    def test_multiple_conflicting_physical_states_block_all_physical_state_candidates(self):
+        data = profile(
+            attributes={
+                "product_type": {"value":"mixture","evidence":"Synthetic product"},
+                "physical_form": {"value":"liquid","evidence":"Synthetic physical data"}
+            },
+            facts={
+                "physical_state_liquid_verified": fact(),
+                "physical_state_solid_verified": fact(),
+            })
+        result = evaluate_sections(self.db, data, pack=PACK, structure=STRUCTURE)
+        self.assertEqual(rule(result, "EXP_S09_01")["decision"], "blocked_conflicting_evidence")
+        self.assertEqual(rule(result, "EXP_S09_02")["decision"], "blocked_conflicting_evidence")
+
+    def test_noncombustibility_claim_conflicts_with_flammability_hazard(self):
+        data = profile(hazards=["H225"],facts={"product_non_combustible_confirmed": fact()})
+        result = evaluate_sections(self.db,data,pack=PACK,structure=STRUCTURE)
+        self.assertEqual(rule(result,"EXP_S05_03")["decision"],"blocked_conflicting_evidence")
+
+    def test_fragment_grammar_mismatch_blocks_even_when_wording_hash_matches(self):
+        pack = copy.deepcopy(self.pack)
+        candidate = next(r for r in pack["rules"] if r["id"] == "EXP_S03_01")
+        fragment = "Synthetic source heading"
+        candidate["expected_english_sha256"] = hashlib.sha256(fragment.encode()).hexdigest()
+        with sqlite3.connect(self.db) as conn:
+            conn.executescript("""CREATE TABLE entries (
+                entry_key TEXT UNIQUE,catalogue_version TEXT,collection TEXT,source_file TEXT,
+                excel_row INTEGER,structurecode TEXT,esdscom_phrase_id TEXT,original_code TEXT,
+                english TEXT,sds_section INTEGER,region TEXT,phrase_owner TEXT,source TEXT,
+                info TEXT,grammar TEXT
+            );""")
+            conn.execute("INSERT INTO entries VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                ("h1","5.5","Core","fake.xlsx",9,candidate["structurecode"],"","",
+                 fragment,3,"EU","synthetic","","","Sentence"))
+        data = profile(facts={"mixture_ingredient_identity_table_prepared":fact()})
+        result = evaluate_sections(self.db,data,pack=pack,structure=STRUCTURE)
+        self.assertEqual(rule(result,"EXP_S03_01")["decision"],"blocked_catalogue_mismatch")
+
     def test_pack_rejects_missing_section_and_forged_regulatory_review(self):
         changed = copy.deepcopy(PACK)
         changed["rules"] = [x for x in changed["rules"] if x["section"] != 16]
@@ -229,7 +294,7 @@ class SectionRecommendationsAPITests(unittest.TestCase):
         code, config = self.req("GET", "/api/section-recommendations/config")
         self.assertEqual(code, 200)
         self.assertEqual(len(config["sections"]), 16)
-        self.assertEqual(len(config["rules"]), 21)
+        self.assertEqual(len(config["rules"]), 105)
         code, html = self.req("GET", "/section_recommendations.html")
         self.assertEqual(code, 200)
         self.assertIn("Phrase", html)
