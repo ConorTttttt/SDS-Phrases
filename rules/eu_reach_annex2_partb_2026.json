@@ -1,0 +1,392 @@
+{
+  "schema": "reach-annex2-part-b-structure/v0.1",
+  "source": {
+    "instrument": "Regulation (EC) No 1907/2006 (REACH)",
+    "legal_location": "Annex II, Part B",
+    "consolidated_edition": "2026-06-22",
+    "consolidation_marker": "02006R1907 — EN — 22.06.2026 — 069.001",
+    "celex": "02006R1907-20260622",
+    "official_reference_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX%3A02006R1907-20260622",
+    "local_pdf_name": "Full REACH_removed.pdf",
+    "uploaded_pdf_sha256": "3e6304eb92c7ffb0b82fc7d634ac825f0bc8849195c81ac5d7efa4b16ead66fb",
+    "pdf_pages": 36,
+    "printed_page_first": 117,
+    "printed_page_last": 152,
+    "source_status": "source_transcribed_pending_independent_legal_review",
+    "extraction_warning": "Uploaded PDF displays 2026-06-22 / 069.001, but underlying extracted text includes overlapping earlier 2026-05-11 / 068.001 headers. Use visible document plus EUR-Lex reference; do not assign legal effective dates from extraction headers."
+  },
+  "constraints": {
+    "all_main_section_headings": true,
+    "no_blank_subsections": "REACH Annex II, Part A 0.4; depends on actual SDS content and not simply listed headings.",
+    "section_3": "For substances use 3.1; for mixtures use 3.2, as appropriate. Source: Annex II Part B.",
+    "note": "Structural checks do not establish SDS completeness, content quality, national language requirements or legal compliance."
+  },
+  "sections": [
+    {
+      "code": "1",
+      "heading": "Identification of the substance/mixture and of the company/undertaking",
+      "source_page": 150,
+      "subsections": [
+        {
+          "code": "1.1",
+          "heading": "Product identifier",
+          "source_page": 150
+        },
+        {
+          "code": "1.2",
+          "heading": "Relevant identified uses of the substance or mixture and uses advised against",
+          "source_page": 150
+        },
+        {
+          "code": "1.3",
+          "heading": "Details of the supplier of the safety data sheet",
+          "source_page": 150
+        },
+        {
+          "code": "1.4",
+          "heading": "Emergency telephone number",
+          "source_page": 150
+        }
+      ]
+    },
+    {
+      "code": "2",
+      "heading": "Hazards identification",
+      "source_page": 150,
+      "subsections": [
+        {
+          "code": "2.1",
+          "heading": "Classification of the substance or mixture",
+          "source_page": 150
+        },
+        {
+          "code": "2.2",
+          "heading": "Label elements",
+          "source_page": 150
+        },
+        {
+          "code": "2.3",
+          "heading": "Other hazards",
+          "source_page": 150
+        }
+      ]
+    },
+    {
+      "code": "3",
+      "heading": "Composition/information on ingredients",
+      "source_page": 150,
+      "subsections": [
+        {
+          "code": "3.1",
+          "heading": "Substances",
+          "source_page": 150
+        },
+        {
+          "code": "3.2",
+          "heading": "Mixtures",
+          "source_page": 150
+        }
+      ]
+    },
+    {
+      "code": "4",
+      "heading": "First aid measures",
+      "source_page": 150,
+      "subsections": [
+        {
+          "code": "4.1",
+          "heading": "Description of first aid measures",
+          "source_page": 150
+        },
+        {
+          "code": "4.2",
+          "heading": "Most important symptoms and effects, both acute and delayed",
+          "source_page": 150
+        },
+        {
+          "code": "4.3",
+          "heading": "Indication of any immediate medical attention and special treatment needed",
+          "source_page": 150
+        }
+      ]
+    },
+    {
+      "code": "5",
+      "heading": "Firefighting measures",
+      "source_page": 151,
+      "subsections": [
+        {
+          "code": "5.1",
+          "heading": "Extinguishing media",
+          "source_page": 151
+        },
+        {
+          "code": "5.2",
+          "heading": "Special hazards arising from the substance or mixture",
+          "source_page": 151
+        },
+        {
+          "code": "5.3",
+          "heading": "Advice for firefighters",
+          "source_page": 151
+        }
+      ]
+    },
+    {
+      "code": "6",
+      "heading": "Accidental release measures",
+      "source_page": 151,
+      "subsections": [
+        {
+          "code": "6.1",
+          "heading": "Personal precautions, protective equipment and emergency procedures",
+          "source_page": 151
+        },
+        {
+          "code": "6.2",
+          "heading": "Environmental precautions",
+          "source_page": 151
+        },
+        {
+          "code": "6.3",
+          "heading": "Methods and material for containment and cleaning up",
+          "source_page": 151
+        },
+        {
+          "code": "6.4",
+          "heading": "Reference to other sections",
+          "source_page": 151
+        }
+      ]
+    },
+    {
+      "code": "7",
+      "heading": "Handling and storage",
+      "source_page": 151,
+      "subsections": [
+        {
+          "code": "7.1",
+          "heading": "Precautions for safe handling",
+          "source_page": 151
+        },
+        {
+          "code": "7.2",
+          "heading": "Conditions for safe storage, including any incompatibilities",
+          "source_page": 151
+        },
+        {
+          "code": "7.3",
+          "heading": "Specific end use(s)",
+          "source_page": 151
+        }
+      ]
+    },
+    {
+      "code": "8",
+      "heading": "Exposure controls/personal protection",
+      "source_page": 151,
+      "subsections": [
+        {
+          "code": "8.1",
+          "heading": "Control parameters",
+          "source_page": 151
+        },
+        {
+          "code": "8.2",
+          "heading": "Exposure controls",
+          "source_page": 151
+        }
+      ]
+    },
+    {
+      "code": "9",
+      "heading": "Physical and chemical properties",
+      "source_page": 151,
+      "subsections": [
+        {
+          "code": "9.1",
+          "heading": "Information on basic physical and chemical properties",
+          "source_page": 151
+        },
+        {
+          "code": "9.2",
+          "heading": "Other information",
+          "source_page": 151
+        }
+      ]
+    },
+    {
+      "code": "10",
+      "heading": "Stability and reactivity",
+      "source_page": 151,
+      "subsections": [
+        {
+          "code": "10.1",
+          "heading": "Reactivity",
+          "source_page": 151
+        },
+        {
+          "code": "10.2",
+          "heading": "Chemical stability",
+          "source_page": 151
+        },
+        {
+          "code": "10.3",
+          "heading": "Possibility of hazardous reactions",
+          "source_page": 151
+        },
+        {
+          "code": "10.4",
+          "heading": "Conditions to avoid",
+          "source_page": 151
+        },
+        {
+          "code": "10.5",
+          "heading": "Incompatible materials",
+          "source_page": 151
+        },
+        {
+          "code": "10.6",
+          "heading": "Hazardous decomposition products",
+          "source_page": 151
+        }
+      ]
+    },
+    {
+      "code": "11",
+      "heading": "Toxicological information",
+      "source_page": 151,
+      "subsections": [
+        {
+          "code": "11.1",
+          "heading": "Information on hazard classes as defined in Regulation (EC) No 1272/2008",
+          "source_page": 151
+        },
+        {
+          "code": "11.2",
+          "heading": "Information on other hazards",
+          "source_page": 151
+        }
+      ]
+    },
+    {
+      "code": "12",
+      "heading": "Ecological information",
+      "source_page": 151,
+      "subsections": [
+        {
+          "code": "12.1",
+          "heading": "Toxicity",
+          "source_page": 151
+        },
+        {
+          "code": "12.2",
+          "heading": "Persistence and degradability",
+          "source_page": 151
+        },
+        {
+          "code": "12.3",
+          "heading": "Bioaccumulative potential",
+          "source_page": 151
+        },
+        {
+          "code": "12.4",
+          "heading": "Mobility in soil",
+          "source_page": 151
+        },
+        {
+          "code": "12.5",
+          "heading": "Results of PBT and vPvB assessment",
+          "source_page": 151
+        },
+        {
+          "code": "12.6",
+          "heading": "Endocrine disrupting properties",
+          "source_page": 151
+        },
+        {
+          "code": "12.7",
+          "heading": "Other adverse effects",
+          "source_page": 151
+        }
+      ]
+    },
+    {
+      "code": "13",
+      "heading": "Disposal considerations",
+      "source_page": 152,
+      "subsections": [
+        {
+          "code": "13.1",
+          "heading": "Waste treatment methods",
+          "source_page": 152
+        }
+      ]
+    },
+    {
+      "code": "14",
+      "heading": "Transport information",
+      "source_page": 152,
+      "subsections": [
+        {
+          "code": "14.1",
+          "heading": "UN number or ID number",
+          "source_page": 152
+        },
+        {
+          "code": "14.2",
+          "heading": "UN proper shipping name",
+          "source_page": 152
+        },
+        {
+          "code": "14.3",
+          "heading": "Transport hazard class(es)",
+          "source_page": 152
+        },
+        {
+          "code": "14.4",
+          "heading": "Packing group",
+          "source_page": 152
+        },
+        {
+          "code": "14.5",
+          "heading": "Environmental hazards",
+          "source_page": 152
+        },
+        {
+          "code": "14.6",
+          "heading": "Special precautions for user",
+          "source_page": 152
+        },
+        {
+          "code": "14.7",
+          "heading": "Maritime transport in bulk according to IMO instruments",
+          "source_page": 152
+        }
+      ]
+    },
+    {
+      "code": "15",
+      "heading": "Regulatory information",
+      "source_page": 152,
+      "subsections": [
+        {
+          "code": "15.1",
+          "heading": "Safety, health and environmental regulations/legislation specific for the substance or mixture",
+          "source_page": 152
+        },
+        {
+          "code": "15.2",
+          "heading": "Chemical safety assessment",
+          "source_page": 152
+        }
+      ]
+    },
+    {
+      "code": "16",
+      "heading": "Other information",
+      "source_page": 152,
+      "subsections": []
+    }
+  ]
+}

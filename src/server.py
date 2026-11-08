@@ -12,6 +12,8 @@ from catalogue_browser import search as catalogue_search, summary as catalogue_s
 from catalogue_reviews import lookup as review_lookup, set_review, ReviewError
 from regulatory_engine import RegulatoryError, evaluate_regulations
 from guidance_sources import search as guidance_search, summary as guidance_summary, GuidanceError
+from reach_annex2_source import search as reach_search, summary as reach_summary, ReachSourceError
+from reach_annex2_audit import audit_structure, load_structure, ReachAuditError
 
 ROOT = Path(__file__).resolve().parent.parent
 REVIEWS = ROOT / "data" / "catalogue_reviews.sqlite"
@@ -19,10 +21,13 @@ WEB = ROOT / "web"
 RULES = ROOT / "rules" / "pilot-eu-gb-v1.json"
 REGULATORY_PACK = ROOT / "rules" / "regulatory-demo-v0.2.json"
 GUIDANCE_DB = ROOT / "data" / "echa_guidance_2020.sqlite"
+REACH_DB = ROOT / "data" / "reach_annex2_2026.sqlite"
+REACH_CONTENT = ROOT / "rules" / "eu_reach_annex2_content_inventory_draft.json"
 STATIC = {"/": "index.html", "/index.html": "index.html", "/app.js": "app.js", "/styles.css": "styles.css",
           "/catalogue.html": "catalogue.html", "/catalogue.js": "catalogue.js", "/catalogue.css": "catalogue.css",
           "/regulatory.html": "regulatory.html", "/regulatory.js": "regulatory.js",
-          "/guidance.html": "guidance.html", "/guidance.js": "guidance.js"}
+          "/guidance.html": "guidance.html", "/guidance.js": "guidance.js",
+          "/reach.html": "reach.html", "/reach.js": "reach.js"}
 
 def load_rules():
     return json.loads(RULES.read_text(encoding="utf-8"))
@@ -80,6 +85,18 @@ def create_handler(db_path):
             url = urlparse(self.path)
             if url.path.startswith("/api/"):
                 try:
+                    if url.path == "/api/reach/structure":
+                        return self.json_reply(200, load_structure())
+                    if url.path == "/api/reach/content-inventory":
+                        return self.json_reply(200, json.loads(REACH_CONTENT.read_text(encoding="utf-8")))
+                    if url.path == "/api/reach/source/summary":
+                        return self.json_reply(200, reach_summary(REACH_DB))
+                    if url.path == "/api/reach/source/search":
+                        args = parse_qs(url.query, keep_blank_values=True)
+                        one = lambda key, default: args.get(key, [default])[0]
+                        return self.json_reply(200, reach_search(REACH_DB,
+                            query=one("query", ""), page=one("page", ""),
+                            limit=one("limit", "12"), offset=one("offset", "0")))
                     if url.path == "/api/guidance/summary":
                         return self.json_reply(200, guidance_summary(GUIDANCE_DB))
                     if url.path == "/api/guidance/search":
@@ -146,6 +163,17 @@ def create_handler(db_path):
             self.wfile.write(data)
 
         def do_POST(self):
+            if urlparse(self.path).path == "/api/reach/audit":
+                try:
+                    if not self.headers.get("Content-Type", "").startswith("application/json"):
+                        return self.json_reply(415, {"error": "JSON content type required"})
+                    length = int(self.headers.get("Content-Length", "0"))
+                    if not 0 < length <= 100000:
+                        return self.json_reply(413, {"error": "Invalid request size"})
+                    payload = json.loads(self.rfile.read(length))
+                    return self.json_reply(200, audit_structure(payload))
+                except (ReachAuditError, ValueError, TypeError, json.JSONDecodeError) as exc:
+                    return self.json_reply(400, {"error": str(exc)})
             if urlparse(self.path).path == "/api/regulatory/evaluate":
                 try:
                     if not self.headers.get("Content-Type", "").startswith("application/json"):

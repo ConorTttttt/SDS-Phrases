@@ -37,6 +37,21 @@
       "url": "https://eur-lex.europa.eu/eli/reg/2008/1272/oj",
       "verification_status": "source_package_not_in_this_upload; independently reviewed rules pending",
       "legal_authority": true
+    },
+    {
+      "id": "EU-REACH-ANNEX-II-CONSOLIDATED-20260622",
+      "type": "eu_consolidated_reference_not_authentic_official_journal",
+      "jurisdiction": "EU",
+      "title": "REACH Annex II, requirements for compilation of safety data sheets, Part A and Part B",
+      "consolidated_edition": "2026-06-22",
+      "revision_marker": "069.001",
+      "reference": "CELEX:02006R1907-20260622, pages 117–152",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX%3A02006R1907-20260622",
+      "local_pdf_sha256": "3e6304eb92c7ffb0b82fc7d634ac825f0bc8849195c81ac5d7efa4b16ead66fb",
+      "local_import": "data/reach_annex2_2026.sqlite",
+      "verification_status": "source_structure_drafted_content_rules_pending_independent_review",
+      "legal_authority": false,
+      "caution": "A consolidation is a documentation tool. Authentic enactments are in the Official Journal. User PDF retains old extractable headers. See docs/reach_annex2_source_intake.md."
     }
   ]
 }
