@@ -133,7 +133,7 @@ def find_phrases(path, *, jurisdiction="EU", section="4", subsection="", query="
     # Alphabetic, deterministic ordering for snippets and phrase type
     # preferences; when searching, exact/early textual hits appear first.
     order_params = []
-    priority = "0"
+    priority = "CASE WHEN e.entry_key IS NOT NULL THEN 0 ELSE 1 END"
     if query.strip():
         full = "%" + _escape_like(query.strip()) + "%"
         priority = ("CASE WHEN LOWER(e.english) LIKE ? ESCAPE '\\' THEN 0 "
