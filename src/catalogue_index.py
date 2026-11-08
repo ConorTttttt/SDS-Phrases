@@ -96,7 +96,11 @@ def classify(record: sqlite3.Row) -> dict:
     kind = {"Sentence":"sentence","List-Element":"list_item","List-Start":"list_start","Header":"heading","Data":"data"}.get(record["grammar"],"other")
     return {
         "entry_key":record["entry_key"],"sds_subsection":subsection,"sds_topic":topic,
-        "category":category,"phrase_kind":kind,"wording_hash":digest(phrase),
+        "category":category,"phrase_kind":kind,"wording_hash":digest(json.dumps((
+            phrase,code,record["catalogue_version"],record["revision_date_raw"],
+            record["source_file"],record["excel_row"],record["original_code"],
+            record["phrase_owner"],record["source"],record["info"],record["qualifier"]
+        ),ensure_ascii=False)),
         "wording_group":duplicate_key(phrase),"revision_date_iso":revision_date(record["revision_date_raw"]),
         "quality_flags":json.dumps(quality,ensure_ascii=False),"flags_count":len(quality),
         "catalogue_version":record["catalogue_version"],
@@ -108,13 +112,17 @@ def build_index(conn: sqlite3.Connection, source_sha256: str = "") -> dict:
     if not source_sha256 and conn.execute("SELECT 1 FROM sqlite_master WHERE name='catalogue_metadata'").fetchone():
         old = conn.execute("SELECT value FROM catalogue_metadata WHERE name='source_archive_sha256'").fetchone()
         source_sha256 = old[0] if old else ""
-    source = conn.execute("SELECT entry_key,collection,structurecode,english,grammar,revision_date_raw,catalogue_version FROM entries").fetchall()
+    source = conn.execute("""SELECT entry_key,collection,structurecode,english,grammar,
+        revision_date_raw,catalogue_version,source_file,excel_row,original_code,phrase_owner,
+        source,info,qualifier FROM entries""").fetchall()
     computed = [classify(row) for row in source]
     group_counts = collections.Counter(item["wording_group"] for item in computed if item["wording_group"])
     group_contexts = collections.defaultdict(set)
     for row,item in zip(source,computed):
         if item["wording_group"]:
             group_contexts[item["wording_group"]].add((row["collection"],row["structurecode"]))
+    # Explicit transaction makes DDL replacement atomic.
+    conn.execute("BEGIN IMMEDIATE")
     with conn:
         conn.execute("DROP TABLE IF EXISTS catalogue_index")
         conn.execute("DROP TABLE IF EXISTS catalogue_metadata")
