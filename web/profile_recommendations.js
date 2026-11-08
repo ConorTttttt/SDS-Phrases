@@ -6,6 +6,7 @@ const add=(parent,tag,cls,value)=>{const e=elem(tag,cls,value);parent.append(e);
 const DRAFT_KEY="sds_phrase_finder_draft_v1";
 const CLASS_TEXT={
  reported_property:"Reported property (value fragment)",
+ profile_match:"Profile-driven candidate",
  classification_related:"Classification-linked candidate",
  property_related:"Physical-property candidate",
  conditional_safety:"Safety instruction — confirm before use",

@@ -39,6 +39,7 @@ ALLOWED_KEYS=set(ALLOWED_FIELDS)|{
 }
 KIND_PRIORITY={
     "reported_property":0,
+    "profile_match":1,
     "classification_related":1,
     "property_related":2,
     "conditional_safety":3,
