@@ -214,7 +214,7 @@ def _source_rows(db, rules):
     return grouped
 
 
-def recommend_profile(db_path,product,pack=None,source_pack=None):
+def recommend_profile(db_path,product,pack=None,source_pack=None,family_pack=None):
     p=validate_profile(product)
     if pack is None or source_pack is None:
         loaded,known=load_pack()

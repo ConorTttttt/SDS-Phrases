@@ -6,6 +6,11 @@ const add=(parent,tag,cls,value)=>{const e=elem(tag,cls,value);parent.append(e);
 const DRAFT_KEY="sds_phrase_finder_draft_v1";
 const CLASS_TEXT={
  reported_property:"Reported property (value fragment)",
+ family_fragment:"Chemical-family material fragment",
+ family_process_review:"Family-specific process — verification required",
+ family_label_review:"Supplemental label candidate — legal review",
+ family_safety_review:"Family-related safety candidate",
+
  profile_match:"Profile-driven candidate",
  classification_related:"Classification-linked candidate",
  property_related:"Physical-property candidate",
@@ -13,6 +18,30 @@ const CLASS_TEXT={
  layout_fragment:"Table heading / layout candidate"
 };
 let latest=null;
+let familyConfig=null;
+function buildFamilies(config){
+ familyConfig=config;
+ const host=$("familyOptions");host.replaceChildren();
+ for(const family of config.families){
+  const label=add(host,"label","family-option");
+  const checkbox=add(label,"input","");checkbox.type="checkbox";
+  checkbox.value=family.id;checkbox.dataset.family=family.id;
+  const copy=add(label,"span","");
+  add(copy,"strong","",family.label);
+  add(copy,"small","",family.note);
+ }
+ const assessments=$("familyAssessments");assessments.replaceChildren();
+ for(const item of config.assessments){
+  const label=add(assessments,"label","");
+  add(label,"span","",item.label);
+  const select=add(label,"select","");
+  select.dataset.assessment=item.id;
+  for(const [value,title] of [["unknown","Not assessed"],["yes","Yes — assessed suitable"],["no","No"]]){
+   const opt=add(select,"option","",title);opt.value=value;
+  }
+  add(assessments,"small","",item.note);
+ }
+}
 function localDay(){
  const d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10);
 }
@@ -45,6 +74,10 @@ function profile(){
   sunlight_sensitive:$("sunlightSensitive").value,
   heat_pressure_risk:$("heatPressure").value,
   professional_use:$("professionalUse").value,
+  chemical_families:[...document.querySelectorAll("[data-family]:checked")].map(x=>x.value),
+  family_assessments:Object.fromEntries(
+   [...document.querySelectorAll("[data-assessment]")].map(x=>[x.dataset.assessment,x.value])
+  ),
  };
 }
 async function api(path,opts){
@@ -102,6 +135,9 @@ function card(item){
  const header=add(root,"div","rowtop");
  add(header,"strong","tag",(item.subsection?item.subsection+" · ":"")+item.topic);
  const status=add(header,"span","badge "+(item.kind==="reported_property"?"property":item.kind==="conditional_safety"?"safety":""),CLASS_TEXT[item.kind]||item.kind);
+ if(item.family_labels&&item.family_labels.length){
+  add(root,"p","family-info","Chemical family: "+item.family_labels.join(", "));
+ }
  if(item.phrase){
   add(root,"p","wording",item.phrase);
   if(item.is_fragment)add(root,"p","fragment","SOURCE FRAGMENT — table/list context needed; not a complete SDS sentence.");
@@ -143,7 +179,8 @@ function show(data){
   metric(sectionsMatched+"/16","sections with candidates"),
   metric(data.total_blocked_source_mappings,"source mapping blocks"),
   metric("0","legally approved"),
-  metric(draftCount(),"phrases in your draft")
+  metric(draftCount(),"phrases in your draft"),
+  metric(data.selected_chemical_families.length,"chemical families")
  );
  const warning=$("conflicts");warning.replaceChildren();
  if(data.profile_conflicts.length){
@@ -185,6 +222,8 @@ function demo(){
  $("colour").value="colourless";$("ph").value="5.2";
  $("classificationRef").value="FICTIONAL demonstration classification only";
  $("volatile").value="unknown";
+ const solvent=document.querySelector('[data-family="organic_solvents"]');
+ if(solvent)solvent.checked=true;
  setMessage("sections","Fictional example loaded. Click Get recommended SDS phrases.");
 }
 function reset(){
@@ -202,8 +241,14 @@ async function evaluate(e){
   show(data);$("resultsPanel").scrollIntoView({behavior:"smooth",block:"start"});
  }catch(err){setMessage("sections",err.message);}
 }
-function main(){
+async function main(){
  $("asOf").value=localDay();$("profileForm").addEventListener("submit",evaluate);
+ try{
+  const config=await api("/api/profile-recommendations/families");
+  buildFamilies(config);
+ }catch(err){
+  setMessage("familyOptions","Chemical-family catalogue unavailable: "+err.message);
+ }
  $("demo").addEventListener("click",demo);
  $("reset").addEventListener("click",reset);
  document.querySelectorAll("[data-h]").forEach(b=>b.addEventListener("click",()=>quickAdd(b.dataset.h)));

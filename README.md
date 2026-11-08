@@ -371,3 +371,32 @@ the v0.4 full-catalogue phrase finder. No wording is automatically approved.
 
 Open **http://127.0.0.1:8097/profile_recommendations.html**.
 See [design and safeguards](docs/profile_driven_phrase_recommendations.md).
+
+
+## v0.6 — Chemical-family phrase candidates
+
+Select **one or more chemical families** in
+\`/profile_recommendations.html\` alongside the existing H-statements and
+physical properties. The engine now supports ten family groups:
+acids, alkalis, organic solvents, isocyanates, epoxy resins, oxidisers,
+organic peroxides, water-reactive substances, metal powders, and
+acid-reactive toxic-gas releasers.
+
+**23 source-verified family mappings** supplement the 38 profile cues.
+The text is fetched unchanged from your local original eSDScom 5.5
+Core catalogue. H/EUH-code prerequisites and an explicit reviewed
+dilution assessment prevent several unsafe family-only generalisations.
+No family label by itself proves a hazard, medical instruction,
+protective-equipment suitability or legal label condition.
+
+\`\`\`bash
+cd /mnt/holochain/Regulatory/SDS_Phrases
+git fetch origin
+git switch --track origin/feature/chemical-family-phrase-recommendations
+python3 scripts/run_tests_checked.py
+python3 scripts/verify_family_phrase_sources.py
+python3 src/server.py --port 8098
+\`\`\`
+
+Open: **http://127.0.0.1:8098/profile_recommendations.html**.
+See [scope, source safeguards and limitations](docs/chemical_family_phrase_recommendations.md).

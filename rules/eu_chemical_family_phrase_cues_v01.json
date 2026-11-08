@@ -1,0 +1,498 @@
+{
+  "schema": "sds-chemical-family-phrase-cues/v0.1",
+  "id": "eu-family-source-references-v1",
+  "jurisdiction": "EU",
+  "language": "en",
+  "catalogue": "eSDScom Core 5.5",
+  "status": "family_related_draft_candidates_not_legally_verified",
+  "families": [
+    {
+      "id": "acids",
+      "label": "Acids and acidic formulations",
+      "note": "Acid-resistance or dilution-related wording; acidity alone does not establish skin corrosion."
+    },
+    {
+      "id": "alkalis",
+      "label": "Alkalis and alkaline formulations",
+      "note": "Alkali-resistant packaging and protection fragments; check actual compatibility."
+    },
+    {
+      "id": "organic_solvents",
+      "label": "Organic-solvent-containing products",
+      "note": "Solvent-resistance material fragments; solvent identity and exposure conditions govern suitability."
+    },
+    {
+      "id": "isocyanates",
+      "label": "Isocyanate-containing products",
+      "note": "Supplemental label candidates; EUH204 applicability and thresholds need legal review."
+    },
+    {
+      "id": "epoxy_resins",
+      "label": "Epoxy-resin-containing products",
+      "note": "Supplemental label candidates; EUH205 applicability depends on actual components and rules."
+    },
+    {
+      "id": "oxidising_substances",
+      "label": "Oxidising substances or mixtures",
+      "note": "Special fire/storage precautions only when compatible with an existing oxidising classification."
+    },
+    {
+      "id": "organic_peroxides",
+      "label": "Organic peroxides",
+      "note": "Thermal/ignition precautions require substance-specific stability and classification review."
+    },
+    {
+      "id": "water_reactive_substances",
+      "label": "Water-reactive substances",
+      "note": "Avoid-water handling/cleanup candidates gated by an existing H260/H261 classification."
+    },
+    {
+      "id": "metal_powders",
+      "label": "Metal powders and metallic dusts",
+      "note": "Dust precautions for confirmed metal-powder form; metal fires require expert-specific extinguishing decisions."
+    },
+    {
+      "id": "acid_reactive_gas_releasers",
+      "label": "Acid-reactive toxic-gas releasers",
+      "note": "Specific supplemental gas-release label wording only if EUH031 or EUH032 is in the approved classification."
+    }
+  ],
+  "assessments": [
+    {
+      "id": "water_dilution_approved",
+      "label": "Product-specific water dilution has been independently assessed as suitable",
+      "note": "Do not confirm merely because the product belongs to an acid family."
+    }
+  ],
+  "rules": [
+    {
+      "id": "FAMILY_ACIDS_01",
+      "family": "acids",
+      "structurecode": "01.07.02.02.1000.1017.",
+      "section": 7,
+      "subsection": "7.2",
+      "expected_english_sha256": "53aadaa732912cee5bbf1c8bb14b5441ab50bae26f91c1917516d185e82f3d8e",
+      "expected_grammar": "List-Element",
+      "kind": "Storage material resistance",
+      "topic": "family_fragment",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Check packaging compatibility with the actual acid, concentration and temperature.",
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_ACIDS_02",
+      "family": "acids",
+      "structurecode": "01.07.01.01.05.10000.1019.",
+      "section": 7,
+      "subsection": "7.1",
+      "expected_english_sha256": "53aadaa732912cee5bbf1c8bb14b5441ab50bae26f91c1917516d185e82f3d8e",
+      "expected_grammar": "List-Element",
+      "kind": "Handling equipment material resistance",
+      "topic": "family_fragment",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Check whether the handling materials are verified resistant to this product.",
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_ACIDS_03",
+      "family": "acids",
+      "structurecode": "01.08.02.02.02.02.01.2000.1012.",
+      "section": 8,
+      "subsection": "8.2",
+      "expected_english_sha256": "c69d119786dd1ee0021f496b3242372cdbfcc3e548236be46b8824277750e58d",
+      "expected_grammar": "List-Element",
+      "kind": "Glove resistance descriptor",
+      "topic": "family_fragment",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Do not treat a general resistance adjective as a glove material, thickness or breakthrough specification.",
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_ACIDS_04",
+      "family": "acids",
+      "structurecode": "01.07.01.01.05.13000.",
+      "section": 7,
+      "subsection": "7.1",
+      "expected_english_sha256": "e5b34707d0eac75a91b877ff506206453bd7b3021b009fb429bd6110c58af108",
+      "expected_grammar": "Sentence",
+      "kind": "Water dilution procedure",
+      "topic": "family_process_review",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Only consider when dilution with water has been independently approved for this exact product and process.",
+      "assessment": "water_dilution_approved",
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_ALKALIS_01",
+      "family": "alkalis",
+      "structurecode": "01.07.02.02.1000.1019.",
+      "section": 7,
+      "subsection": "7.2",
+      "expected_english_sha256": "7f059b82a066386d3b42b1f48f075c68778e71f24714a3e37016e92ad8634215",
+      "expected_grammar": "List-Element",
+      "kind": "Storage material resistance",
+      "topic": "family_fragment",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Check packaging resistance to the actual alkali composition and concentration.",
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_ALKALIS_02",
+      "family": "alkalis",
+      "structurecode": "01.07.01.01.05.10000.1021.",
+      "section": 7,
+      "subsection": "7.1",
+      "expected_english_sha256": "7f059b82a066386d3b42b1f48f075c68778e71f24714a3e37016e92ad8634215",
+      "expected_grammar": "List-Element",
+      "kind": "Handling equipment material resistance",
+      "topic": "family_fragment",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Check that handling equipment is compatible with the specific alkaline product.",
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_ALKALIS_03",
+      "family": "alkalis",
+      "structurecode": "01.08.02.02.02.02.01.2000.1013.",
+      "section": 8,
+      "subsection": "8.2",
+      "expected_english_sha256": "6807d4d53bf4ce15356881f6bfb6ab4b2255186a8b1ab926f8516199ea6741d2",
+      "expected_grammar": "List-Element",
+      "kind": "Glove resistance descriptor",
+      "topic": "family_fragment",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Material resistance alone does not specify adequate chemical protective gloves.",
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_ORGANIC_SOLVENTS_01",
+      "family": "organic_solvents",
+      "structurecode": "01.07.02.02.1000.1020.",
+      "section": 7,
+      "subsection": "7.2",
+      "expected_english_sha256": "d5a9d62a40b13d7e4a39c4ac3b1794ce79f93030f384e51bc038c267ea5406de",
+      "expected_grammar": "List-Element",
+      "kind": "Storage material resistance",
+      "topic": "family_fragment",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Confirm solvent-specific packaging compatibility, permeation and storage temperatures.",
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_ORGANIC_SOLVENTS_02",
+      "family": "organic_solvents",
+      "structurecode": "01.07.01.01.05.10000.1022.",
+      "section": 7,
+      "subsection": "7.1",
+      "expected_english_sha256": "d5a9d62a40b13d7e4a39c4ac3b1794ce79f93030f384e51bc038c267ea5406de",
+      "expected_grammar": "List-Element",
+      "kind": "Handling equipment material resistance",
+      "topic": "family_fragment",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Confirm solvent-specific process material resistance and safe handling conditions.",
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_ORGANIC_SOLVENTS_03",
+      "family": "organic_solvents",
+      "structurecode": "01.07.01.01.05.8000.1004.",
+      "section": 7,
+      "subsection": "7.1",
+      "expected_english_sha256": "fd7fece14c43194c242633bd0e9aa99c31911c56f6ad579b418f4802c2c21268",
+      "expected_grammar": "List-Element",
+      "kind": "Compatible material descriptor",
+      "topic": "family_fragment",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Do not insert this descriptor without a named, independently validated material.",
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_ISOCYANATES_01",
+      "family": "isocyanates",
+      "structurecode": "01.02.02.01.06.5000.",
+      "section": 2,
+      "subsection": "2.2",
+      "expected_english_sha256": "88db78476c0afe7268478e833d7935b02e8744b9ab1b6fd96f431a80fe352735",
+      "expected_grammar": "Sentence",
+      "kind": "EUH204 supplemental label wording",
+      "topic": "family_label_review",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Check actual isocyanate content, CLP EUH204 thresholds, exemptions, and applicable version.",
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_ISOCYANATES_02",
+      "family": "isocyanates",
+      "structurecode": "01.02.02.02.02.11000.",
+      "section": 2,
+      "subsection": "2.2",
+      "expected_english_sha256": "497643418e564f28c173dade12d15b87d879db95e5bfd8d4439d38410f5f8e15",
+      "expected_grammar": "Sentence",
+      "kind": "Diisocyanate sensitisation use warning",
+      "topic": "family_safety_review",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Verify actual diisocyanate presence, concentration, intended users and the suitability of this warning.",
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_EPOXY_RESINS_01",
+      "family": "epoxy_resins",
+      "structurecode": "01.02.02.01.06.6000.",
+      "section": 2,
+      "subsection": "2.2",
+      "expected_english_sha256": "8762906c243ddbfe0466e90da9785afaaf503039d1e0244bbbbaacd05bbed759",
+      "expected_grammar": "Sentence",
+      "kind": "EUH205 supplemental label wording",
+      "topic": "family_label_review",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Check actual epoxy constituents, CLP EUH205 thresholds, exemptions and applicable version.",
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_OXIDISING_SUBSTANCES_01",
+      "family": "oxidising_substances",
+      "structurecode": "01.10.04.00.3000.",
+      "section": 10,
+      "subsection": "10.4",
+      "expected_english_sha256": "9a343bb7a05a5d528f5f7d7e4e537219b97d4861cd200873d52de80545323f01",
+      "expected_grammar": "Sentence",
+      "kind": "Ignition and heat precautions",
+      "topic": "family_safety_review",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Requires independently confirmed oxidising classification and stability controls; wording is not universally applicable.",
+      "requires_hazard_any": [
+        "H270",
+        "H271",
+        "H272"
+      ],
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_ORGANIC_PEROXIDES_01",
+      "family": "organic_peroxides",
+      "structurecode": "01.10.04.00.3000.",
+      "section": 10,
+      "subsection": "10.4",
+      "expected_english_sha256": "9a343bb7a05a5d528f5f7d7e4e537219b97d4861cd200873d52de80545323f01",
+      "expected_grammar": "Sentence",
+      "kind": "Thermal stability and ignition precautions",
+      "topic": "family_safety_review",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Check organic peroxide type, self-accelerating decomposition temperature, temperature controls and product-specific fire instructions.",
+      "requires_hazard_any": [
+        "H240",
+        "H241",
+        "H242"
+      ],
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_WATER_REACTIVE_SUBSTANCES_01",
+      "family": "water_reactive_substances",
+      "structurecode": "01.06.03.02.3000.13000.",
+      "section": 6,
+      "subsection": "6.3",
+      "expected_english_sha256": "5eea6a772ded88dccf70fa8fd6db58c8e5be395039a2ede3270fea00575d591e",
+      "expected_grammar": "Sentence",
+      "kind": "Prevent water contact during cleanup",
+      "topic": "family_safety_review",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Only consider with confirmed H260/H261 and a validated spill procedure; some situations need specialist emergency measures.",
+      "requires_hazard_any": [
+        "H260",
+        "H261"
+      ],
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_WATER_REACTIVE_SUBSTANCES_02",
+      "family": "water_reactive_substances",
+      "structurecode": "01.06.03.02.3000.20000.",
+      "section": 6,
+      "subsection": "6.3",
+      "expected_english_sha256": "bd16b286d735a5edaf7d90196b51e9c6345b7c60f551742daa4b96966a707c83",
+      "expected_grammar": "Sentence",
+      "kind": "Avoid water-based spill rinsing",
+      "topic": "family_safety_review",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Confirm approved cleanup materials and fire/exposure conditions for the exact water-reactive substance.",
+      "requires_hazard_any": [
+        "H260",
+        "H261"
+      ],
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_WATER_REACTIVE_SUBSTANCES_03",
+      "family": "water_reactive_substances",
+      "structurecode": "01.07.01.01.02.00.22000.",
+      "section": 7,
+      "subsection": "7.1",
+      "expected_english_sha256": "ef3f9d51edb4007121f7469d2a435e7d514fb952d55878d581746360b3a2c786",
+      "expected_grammar": "Sentence",
+      "kind": "Water addition warning",
+      "topic": "family_safety_review",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Use only if actual handling procedures prohibit water addition; confirm against product-specific technical guidance.",
+      "requires_hazard_any": [
+        "H260",
+        "H261"
+      ],
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_WATER_REACTIVE_SUBSTANCES_04",
+      "family": "water_reactive_substances",
+      "structurecode": "01.10.04.00.4000.",
+      "section": 10,
+      "subsection": "10.4",
+      "expected_english_sha256": "74d029b1e3ff214e3b3178db5abd73214a41fb5f8a6d264ccbd843fb3d26594e",
+      "expected_grammar": "Sentence",
+      "kind": "Moisture protection",
+      "topic": "family_safety_review",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Check storage humidity specifications, container integrity and reactivity data.",
+      "requires_hazard_any": [
+        "H260",
+        "H261"
+      ],
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_METAL_POWDERS_01",
+      "family": "metal_powders",
+      "structurecode": "01.06.01.01.01.1000.",
+      "section": 6,
+      "subsection": "6.1",
+      "expected_english_sha256": "d8c8e328275b048b8ae316cc412637377ab57f026ab55eed960b45f93b4d7865",
+      "expected_grammar": "Sentence",
+      "kind": "Dust-generation precautions",
+      "topic": "family_safety_review",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Requires powder or dust-generation evidence; avoid assuming every metal powder is flammable.",
+      "requires_any_fields": [
+        {
+          "physical_form": "powder"
+        },
+        {
+          "dust_generating": "yes"
+        }
+      ],
+      "requires_fields": {
+        "physical_state": "solid"
+      },
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_METAL_POWDERS_02",
+      "family": "metal_powders",
+      "structurecode": "01.06.03.02.3000.28000.",
+      "section": 6,
+      "subsection": "6.3",
+      "expected_english_sha256": "6230a4ee3bff0842f6418ae2569f5ef71932b4b5279e2c9b4bb6f385fb8cfca8",
+      "expected_grammar": "Sentence",
+      "kind": "Dry-brushing and dust cloud warning",
+      "topic": "family_safety_review",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Check combustible dust, electrostatics, particle characteristics, ventilation and validated cleanup procedure.",
+      "requires_any_fields": [
+        {
+          "physical_form": "powder"
+        },
+        {
+          "dust_generating": "yes"
+        }
+      ],
+      "requires_fields": {
+        "physical_state": "solid"
+      },
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_ACID_REACTIVE_GAS_RELEASERS_01",
+      "family": "acid_reactive_gas_releasers",
+      "structurecode": "01.02.02.01.05.02.2000.",
+      "section": 2,
+      "subsection": "2.2",
+      "expected_english_sha256": "42d7c365eb949a34cab82c7354f0667f5d98171251f68d1ee4598fb7822ec257",
+      "expected_grammar": "Sentence",
+      "kind": "EUH031 supplemental label wording",
+      "topic": "family_label_review",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Only show when EUH031 is already in the supplied classification; verify legal scope and substance chemistry.",
+      "requires_hazard_any": [
+        "EUH031"
+      ],
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    },
+    {
+      "id": "FAMILY_ACID_REACTIVE_GAS_RELEASERS_02",
+      "family": "acid_reactive_gas_releasers",
+      "structurecode": "01.02.02.01.05.02.3000.",
+      "section": 2,
+      "subsection": "2.2",
+      "expected_english_sha256": "0291f7d8f85375e1ea2452d2a9360e5eea03642d554acf1a61cb7c153432e6d9",
+      "expected_grammar": "Sentence",
+      "kind": "EUH032 supplemental label wording",
+      "topic": "family_label_review",
+      "reason": "Original catalogue phrase associated with the declared chemical family; no regulatory suitability inference.",
+      "review_note": "Only show when EUH032 is already in the supplied classification; verify legal scope and substance chemistry.",
+      "requires_hazard_any": [
+        "EUH032"
+      ],
+      "review_status": "human_applicability_review_required",
+      "legal_status": "not_verified",
+      "source_review": "original_English_eSDScom_55_unique_Core_code_SHA256_crosschecked"
+    }
+  ],
+  "disclaimer": "Family selection is user supplied and not chemical identity verification. Wording is from the original local catalogue and is not automatically legally suitable, mandatory or safe.",
+  "source_verification": {
+    "method": "exact_original_English_SHA256_unique_Core_eSDScom_5_5_code",
+    "text_in_repository": false,
+    "legal_review": "pending"
+  }
+}

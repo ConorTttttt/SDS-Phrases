@@ -68,6 +68,10 @@ Hazard codes must come from your own completed classification. Physical-property
 <label>Professional use only?<select id="professionalUse"><option value="unknown">Unknown</option>
 <option value="yes">Yes</option><option value="no">No</option></select></label>
 </div>
+<div class="heading gap-top"><h2>3 · Chemical family (optional)</h2><span>SELECT ONE OR MORE FAMILIES</span></div>
+<p class="small-note">Select chemical families that actually describe this product or its relevant constituents. Family selection alone is not a composition, classification or compatibility determination. The engine will retrieve additional exact catalogue wording for specialist review.</p>
+<div id="familyOptions" class="family-options" aria-live="polite"><div class="empty">Loading available chemical families…</div></div>
+<div id="familyAssessments" class="family-assessments"></div>
 <p class="small-note">A numeric pH or flash point is used as a screening cue only. It is not enough to assign a CLP hazard class, protective equipment specification or recommended medical treatment.</p>
 <div class="form-actions">
 <button class="primary" type="submit">Get recommended SDS phrases →</button>
@@ -77,7 +81,7 @@ Hazard codes must come from your own completed classification. Physical-property
 </form>
 </section>
 <section class="panel result-panel" id="resultsPanel">
-<div class="heading"><h2>3 · Recommendations by SDS section</h2><span>ORIGINAL PHRASES · EXPERT REVIEW REQUIRED</span></div>
+<div class="heading"><h2>4 · Recommendations by SDS section</h2><span>ORIGINAL PHRASES · EXPERT REVIEW REQUIRED</span></div>
 <div id="status" class="stats"><div class="empty">Enter a hazard classification or physical properties above, then get recommendations.</div></div>
 <div id="conflicts" aria-live="polite"></div>
 <div id="sections" class="sections" aria-live="polite"><div class="empty">All 16 SDS sections will appear here, including sections for which no safe phrase can be inferred.</div></div>
