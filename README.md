@@ -321,3 +321,30 @@ does **not** close the connection. Read-only accesses now use
 \`contextlib.closing(...)\`; writes use \`with closing(...) as conn, conn:\`
 to commit/rollback before closing. GitHub CI runs the checked suite on
 Python 3.12 and 3.14, including the version on the local Ubuntu desktop.
+
+
+## v0.4 — Find and select actual original SDS phrases
+
+The \`feature/phrase-finder-all-catalogue-v1\` branch makes **real eSDScom
+phrase selection** the main authoring workflow, instead of asking numerous
+readiness questions first. The \`/phrase_finder.html\` page lets you select
+any SDS section, filter by subsection, keyword, source grammar and original
+catalogue jurisdiction, browse 105 exact-source curated options or **the
+entire locally imported Core phrase library**, and add wording to an
+unreviewed section-organised draft selection.
+
+The full original English source text is retrieved from
+\`data/catalogue.sqlite\` and is **never generated or copied into GitHub**.
+The draft persists in this browser's local storage. Copy/export is blocked if
+a stored phrase's source hashes no longer match the local catalogue.
+This is a source wording selection tool, NOT SDS legal compliance approval.
+
+    cd /mnt/holochain/Regulatory/SDS_Phrases
+    git fetch origin
+    git switch --track origin/feature/phrase-finder-all-catalogue-v1
+    python3 scripts/run_tests_checked.py
+    python3 src/server.py --port 8096
+
+Open: **http://127.0.0.1:8096/phrase_finder.html**.
+
+See [detailed phrase finder design and limitations](docs/phrase_finder_v1.md).

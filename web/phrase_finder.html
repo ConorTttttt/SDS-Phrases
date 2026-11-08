@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark"><title>Find SDS Phrases — eSDScom 5.5</title>
+<link rel="stylesheet" href="/catalogue.css"><link rel="stylesheet" href="/phrase_finder.css">
+<script src="/phrase_finder.js" defer></script></head>
+<body><main class="shell phrase-shell">
+<header class="top">
+<div><div class="eyebrow">SDS AUTHORING / EXACT ORIGINAL eSDScom WORDING</div>
+<h1>Find and <span>select phrases</span></h1>
+<p>Search your entire local eSDScom 5.5 Core library, organised by SDS section. Add useful source text to a draft shortlist.</p></div>
+<nav class="quicklinks"><a class="back" href="/">Home</a><a class="back" href="/section_recommendations.html">Evidence-based candidates</a><a class="back" href="/catalogue.html">Catalogue QA</a></nav>
+</header>
+<div class="notice"><strong>Source discovery, not legal selection.</strong> The 105 curated examples and the full catalogue are wording options, not automatically suitable for your formulation. No phrase here is independently approved or compulsory. REACH Annex II, CLP Annex IV, supplier evidence and competent-person assessment still govern SDS content. Original texts stay on your local computer.</div>
+<section class="workspace">
+<div class="source-col">
+<section class="panel finder-panel">
+<div class="heading"><h2>1 · Choose SDS section</h2><span>CORE 5.5 / 16 SECTIONS</span></div>
+<div class="section-pills" id="sectionPills"><div class="empty">Loading local catalogue…</div></div>
+<form id="finderForm">
+<div class="filter-grid">
+<label>Subsection<select id="subsection"><option value="">Entire selected section</option></select></label>
+<label>Catalogue structure<select id="jurisdiction">
+<option value="EU">EU</option><option value="GB">GB</option><option value="US">US</option>
+<option value="UN">UN</option><option value="MX">MX</option><option value="AR">AR</option>
+<option value="BR">BR</option><option value="CN">CN</option></select></label>
+<label>Source scope<select id="mode"><option value="curated">105 curated source mappings (EU)</option>
+<option value="catalogue">Entire local Core phrase library</option></select></label>
+<label>Phrase type<select id="kind"><option value="ALL">All phrase types</option>
+<option value="sentence">Sentences</option><option value="list_item">List items</option>
+<option value="list_start">List starts</option><option value="heading">Table headings</option>
+<option value="data">Data</option><option value="other">Other</option></select></label>
+<label class="span-2">Words or original source code<input id="query" maxlength="160" placeholder="e.g. eyes, glove, wash, containment"></label>
+<label class="flag-toggle"><input type="checkbox" id="flagged"> Include source records with quality flags</label>
+<button class="primary" type="submit">Find phrases →</button>
+</div>
+</form>
+<div class="toolrow"><span id="count">—</span><div class="paging"><button id="prev" disabled type="button">← Previous</button><button id="next" disabled type="button">Next →</button></div></div>
+<div class="result-help" id="resultHelp">An exact source match confirms wording identity, not product applicability.</div>
+<div id="results" class="records finder-results" aria-live="polite"><div class="empty">Choose a section to see original phrases.</div></div>
+</section>
+</div>
+<aside class="draft-col">
+<section class="panel draft-panel">
+<div class="heading"><h2>2 · Your draft selection</h2><span id="draftCount">0 PHRASES</span></div>
+<p class="meta">Save suitable-looking phrases for later expert review. Nothing is approved or marked mandatory. Selection is stored only in this browser, not on GitHub.</p>
+<div class="draft-actions">
+<button id="copyDraft" type="button">Copy draft text</button>
+<button id="exportDraft" type="button">Export .txt</button>
+<button id="clearDraft" type="button" class="destructive">Clear draft</button>
+</div>
+<div id="draft" class="draft-list"><div class="empty">Click “Add to draft” next to any original phrase.</div></div>
+<div class="draft-footer">Draft status: <strong>UNREVIEWED</strong><br>Tables, placeholders, country data and claim suitability must be completed and checked before SDS issue.</div>
+</section>
+</aside>
+</section>
+<footer>eSDScom 5.5 · LOCAL WORDING RETRIEVAL · NO AUTOMATIC SDS COMPLIANCE ASSERTION</footer>
+</main></body></html>
