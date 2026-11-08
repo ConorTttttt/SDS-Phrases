@@ -19,6 +19,7 @@ from section_recommendations import load_candidates, evaluate_sections, Recommen
 from sds_readiness import load_prompts, evaluate_readiness, ReadinessError
 from phrase_finder import find_phrases, finder_sections, validate_draft, PhraseFinderError
 from profile_phrase_engine import recommend_profile, ProfileRecommendationError
+from chemical_families import public_families, ChemicalFamilyError
 
 ROOT = Path(__file__).resolve().parent.parent
 REVIEWS = ROOT / "data" / "catalogue_reviews.sqlite"
@@ -100,6 +101,8 @@ def create_handler(db_path):
             url = urlparse(self.path)
             if url.path.startswith("/api/"):
                 try:
+                    if url.path == "/api/profile-recommendations/families":
+                        return self.json_reply(200,public_families())
                     if url.path == "/api/phrase-finder/sections":
                         return self.json_reply(200, finder_sections(db_path))
                     if url.path == "/api/phrase-finder/search":
@@ -172,7 +175,7 @@ def create_handler(db_path):
                             db_path, one("query", ""), one("jurisdiction", "EU"),
                             one("section", ""), one("collection", "Core"), one("limit", "40")))
                     return self.json_reply(404, {"error": "Unknown API endpoint."})
-                except (SelectionError, RecommendationError, ReadinessError, PhraseFinderError, CatalogueQueryError) as exc:
+                except (SelectionError, RecommendationError, ReadinessError, PhraseFinderError, CatalogueQueryError, ChemicalFamilyError) as exc:
                     return self.json_reply(400, {"error": str(exc)})
                 except (FileNotFoundError, sqlite3.Error) as exc:
                     return self.json_reply(503, {"error": "Catalogue unavailable: " + str(exc)})
