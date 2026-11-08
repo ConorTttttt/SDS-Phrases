@@ -34,7 +34,9 @@ def validate_input(payload):
         raise SelectionError("hazards must be an array of at most 100 codes.")
     if not isinstance(facts, dict):
         raise SelectionError("facts must be an object.")
-    hazards = [x.strip().upper() for x in hazards if isinstance(x, str)]
+    if any(not isinstance(x, str) for x in hazards):
+        raise SelectionError("Every hazard must be a string code.")
+    hazards = [x.strip().upper() for x in hazards]
     if any(not HAZARD_RE.fullmatch(x) for x in hazards):
         raise SelectionError("Invalid hazard code (expected Hnnn or EUHnnn).")
     if len(facts) > 100 or any(k not in FACTS or type(v) is not bool for k, v in facts.items()):
@@ -81,17 +83,17 @@ def evaluate(db_path, ruleset, payload):
             suffix = rule["structure_suffix"]
             code = JURISDICTION_PREFIX[jurisdiction] + "." + suffix
             rows = conn.execute(
-                """SELECT entry_key, collection, structurecode, esdscom_phrase_id,
+                """SELECT entry_key, catalogue_version, collection, structurecode, esdscom_phrase_id,
                           original_code, english, sds_section, region, source,
                           revision_date_raw, phrase_owner
                    FROM entries WHERE collection='Core' AND structurecode=?""",
                 (code,),
             ).fetchall()
-            if len(rows) != 1 or rows[0]["english"] != rule["expected_english"] or rows[0]["sds_section"] != section:
+            if len(rows) != 1 or rows[0]["english"] != rule["expected_english"] or rows[0]["sds_section"] != section or rows[0]["catalogue_version"] != ruleset["catalogue_version"]:
                 blocked.append({
                     "rule_id": rule["id"],
                     "section": section,
-                    "reason": "Catalogue code, section or exact wording did not match; no fallback or substitution allowed.",
+                    "reason": "Catalogue version, code, section or exact wording did not match; no fallback or substitution allowed.",
                     "expected_structurecode": code,
                 })
                 continue

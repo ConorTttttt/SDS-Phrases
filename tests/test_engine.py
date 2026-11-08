@@ -17,12 +17,12 @@ class EngineTests(unittest.TestCase):
             conn.execute("""CREATE TABLE entries (
                 entry_key TEXT, collection TEXT, structurecode TEXT, esdscom_phrase_id TEXT,
                 original_code TEXT, english TEXT, sds_section INTEGER, region TEXT,
-                source TEXT, revision_date_raw TEXT, phrase_owner TEXT
+                source TEXT, revision_date_raw TEXT, phrase_owner TEXT, catalogue_version TEXT
             )""")
-            conn.executemany("INSERT INTO entries VALUES (?,?,?,?,?,?,?,?,?,?,?)", [
-                ("test-EU-skin", "Core", "01.04.01.03.18000.", "", "", "After contact with skin, wash immediately with plenty of water and soap.", 4, "EU", "", "", "eSDScom"),
-                ("test-EU-store", "Core", "01.07.02.02.13000.", "", "S7", "Keep container tightly closed.", 7, "EU", "", "", "eSDScom"),
-                ("test-GB-skin", "Core", "02.04.01.03.18000.", "", "", "After contact with skin, wash immediately with plenty of water and soap.", 4, "GB", "", "", "eSDScom"),
+            conn.executemany("INSERT INTO entries VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", [
+                ("test-EU-skin", "Core", "01.04.01.03.18000.", "", "", "After contact with skin, wash immediately with plenty of water and soap.", 4, "EU", "", "", "eSDScom", "5.5"),
+                ("test-EU-store", "Core", "01.07.02.02.13000.", "", "S7", "Keep container tightly closed.", 7, "EU", "", "", "eSDScom", "5.5"),
+                ("test-GB-skin", "Core", "02.04.01.03.18000.", "", "", "After contact with skin, wash immediately with plenty of water and soap.", 4, "GB", "", "", "eSDScom", "5.5"),
             ])
     def tearDown(self):
         self.temp.cleanup()
@@ -67,6 +67,18 @@ class EngineTests(unittest.TestCase):
                                           "facts": {"skin_first_aid_reviewed": True}})
         self.assertEqual(result["selected"], [])
         self.assertEqual(result["blocked_matches"][0]["rule_id"], "FIRST_AID_SKIN")
+
+    def test_other_catalogue_version_blocks(self):
+        with sqlite3.connect(self.db) as conn:
+            conn.execute("UPDATE entries SET catalogue_version='5.4' WHERE entry_key='test-EU-skin'")
+        result = evaluate(self.db, RULES, {"jurisdiction": "EU", "hazards": ["H315"],
+                                          "facts": {"skin_first_aid_reviewed": True}})
+        self.assertEqual(result["selected"], [])
+        self.assertEqual(result["blocked_matches"][0]["rule_id"], "FIRST_AID_SKIN")
+
+    def test_non_string_hazard_rejected(self):
+        with self.assertRaises(SelectionError):
+            validate_input({"hazards": ["H315", 315]})
 
     def test_no_database_fails_closed(self):
         with self.assertRaises(FileNotFoundError):
