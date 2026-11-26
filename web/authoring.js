@@ -2,7 +2,7 @@
 const $=id=>document.getElementById(id);
 const parse=id=>JSON.parse($(id).value);
 const show=(id,x)=>$(id).textContent=typeof x==="string"?x:JSON.stringify(x,null,2);
-let report=null, schema=null;
+let report=null, schema=null, requestSerial=0, timer=null;
 const api=async(action,p={})=>{
  const res=await fetch("/api/authoring/"+action,{method:"POST",headers:{"Content-Type":"application/json","X-SDS-Local-Review":"1"},body:JSON.stringify(p)});
  const obj=await res.json(); if(!res.ok)throw Error(obj.error); return obj;
@@ -23,15 +23,20 @@ function render(){
 }
 async function revalidate(){
  const product=$("product").value,code=$("section").value;
- report=await api("evaluate",{dossier:parse("dossier")});
+ const serial=++requestSerial;
+ const result=await api("evaluate",{dossier:parse("dossier")});
+ if(serial!==requestSerial)return;
+ report=result;
  options("product",report.products.map(p=>[p.product,p.product]));
  if(report.products.some(p=>p.product===product))$("product").value=product;
- options("section",Object.entries(schema.headings));
- if(code)$("section").value=code;
+ const selected=report.products.find(p=>p.product===$("product").value);
+ options("section",selected.rows.map(r=>[r.code,r.code+" "+r.heading]));
+ if(selected.rows.some(r=>r.code===code))$("section").value=code;
  render();show("status",{fingerprint:report.fingerprint,grouping:report.grouping});
 }
-$("product").onchange=render;$("section").onchange=render;
+$("product").onchange=()=>{const p=report?.products.find(x=>x.product===$("product").value);if(p)options("section",p.rows.map(r=>[r.code,r.code+" "+r.heading]));render()};$("section").onchange=render;
 bind("evaluate",revalidate);
+$("dossier").addEventListener("input",()=>{requestSerial++;report=null;$("view").replaceChildren();show("status","Dossier edited — previous assessment stale");clearTimeout(timer);timer=setTimeout(()=>revalidate().catch(e=>show("status",e.message)),600)});
 for(const status of ["pending","approved","rejected"])bind(status,async()=>{
  const d=parse("dossier"),id=$("blockid").value||crypto.randomUUID();
  const b={id,code:$("section").value,products:split("targets"),wording:$("wording").value,kind:$("kind").value,status,

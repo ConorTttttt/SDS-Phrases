@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import sqlite3
+import subprocess
 import uuid
 from contextlib import closing
 from datetime import datetime, timezone, date
@@ -187,6 +188,8 @@ def validate_dossier(d):
         require(r.get("code") in headings() and r.get("kind") in KINDS and nonempty(r.get("wording")), "Invalid draft block")
         require(isinstance(r.get("products"),list) and r["products"] and set(r["products"]) <= ids, "Explicit product coverage required")
         require(r.get("status","pending") in APPROVALS, "Invalid draft status")
+        require(all(r["code"] in scopes(p) for p in d["products"] if p["id"] in r["products"]), "Use an applicable subsection for every target product")
+        require(isinstance(r.get("domains",[]),list) and all(k in DOMAINS for k in r.get("domains",[])), "Unknown evidence domain")
     return d
 
 def profile_inputs(p):
@@ -211,7 +214,7 @@ def profile_inputs(p):
 def draft_text(d, product=None, group=False, draft=True):
     lines = []
     for code, title in headings().items():
-        if code in {"3.1","3.2"} and product and code not in scopes(product):
+        if code in {"3.1","3.2"} and not any(code in scopes(p) for p in ([product] if product else d["products"])):
             continue
         lines.append(("SECTION " if "." not in code else "")+code+" "+title)
         blocks = [r for r in d.get("content",[]) if r["code"] == code and r.get("status") != "rejected"
@@ -223,14 +226,11 @@ def draft_text(d, product=None, group=False, draft=True):
             lines.append("[INFORMATION GAP — author review required]")
     return "\n".join(lines)
 
-def block_valid(r,p,approved, catalogue):
+def block_valid(r,p):
     if r.get("status") != "approved" or not nonempty(r.get("reviewer")) or not nonempty(r.get("reason")):
         return False
     if r["kind"] in {"catalogue","internal"}:
-        a = next((x for x in approved if x["id"] == r.get("approval_id")),None)
-        return bool(a and a["version"] == r.get("approval_version") and
-                    a["wording"] == r["wording"] and a["kind"] == r["kind"] and
-                    approved.valid(a,p,r["code"])) if hasattr(approved,"valid") else False
+        return False  # Checked separately against current controlled approval.
     if r["kind"] == "legal":
         entry = read("regulatory/assessment/clp_english.json").get(r.get("legal_code"))
         return bool(p["language"]=="en" and entry and entry["wording"]==r["wording"])
@@ -246,7 +246,15 @@ def evaluate(d, approvals):
         "regulatory/assessment/ref11.json","rules/eu_reach_annex2_partb_2026.json",
         "rules/regulatory-demo-v0.2.json","rules/eu_profile_phrase_relevance_v01.json",
         "rules/section_phrase_candidates_v0.1.json","rules/eu_sds_guidance_readiness_pilot.json")}
-    fingerprint = digest([d, approved, source_hashes])
+    live_sources = {}
+    for phrase in approved:
+        if phrase.get("source"):
+            key = phrase["source"]["entry_key"]
+            try:
+                live_sources[key] = catalogue_row(approvals.catalogue,key)
+            except (ValueError,sqlite3.Error):
+                live_sources[key] = None
+    fingerprint = digest([d, approved, source_hashes, live_sources])
     reports = []
     for p in d["products"]:
         profile, reg = profile_inputs(p)
@@ -254,7 +262,7 @@ def evaluate(d, approvals):
         def run(name, fn):
             try:
                 engines[name] = fn()
-            except (ValueError, TypeError, KeyError, OSError, sqlite3.Error) as exc:
+            except (ValueError, TypeError, KeyError, OSError, sqlite3.Error, subprocess.SubprocessError) as exc:
                 errors.append(name+": "+str(exc))
         run("profile", lambda: recommend_profile(approvals.catalogue,profile))
         run("section", lambda: evaluate_sections(approvals.catalogue,reg))
@@ -265,11 +273,21 @@ def evaluate(d, approvals):
         require(isinstance(context,dict),"Assessment context must be an object")
         # Never let a user-supplied structural attestation override draft extraction.
         context = {k:v for k,v in context.items() if k != "verified_structure"}
+        props = p["data"].get("properties",{}).get("value")
+        if evidence(p,"properties") and isinstance(props,dict) and props.get("physical_state") in {"solid","liquid","gas"} and type(props.get("aerosol")) is bool and p["kind"]!="unknown":
+            context["section9"]={"state":props["physical_state"],"kind":p["kind"],"aerosol":props["aerosol"]}
+        else:
+            context.pop("section9",None)
         run("assessment", lambda: assess({"name":p["id"],"sha256":text_hash(draft),
             "pages":[{"page":1,"text":draft}],"context":context}))
         conflicts = list(engines.get("profile",{}).get("profile_conflicts",[]))
         findings = engines.get("assessment",[])
         conflicts += [r["issue"] for r in findings if r["status"] in (FAIL,SUSPECT)]
+        state = profile.get("physical_state")
+        if state and state!="unknown" and any(h in profile["hazards"] for h in ("H224","H225","H226")) and state!="liquid":
+            conflicts.append("Flammable-liquid classification conflicts with physical state")
+        if isinstance(props,dict) and props.get("flammable") is False and set(profile["hazards"]) & {"H224","H225","H226"}:
+            conflicts.append("Flammable-liquid classification conflicts with non-flammable property")
         missing = [k for k in DOMAINS if not evidence(p,k)]
         if p["kind"] == "unknown":
             errors.append("Product type unknown")
@@ -282,7 +300,7 @@ def evaluate(d, approvals):
             if c not in scopes(p):
                 continue
             required = [k for k,s in DOMAINS.items() if c.split(".")[0] == s]
-            relevant = [r for r in findings if c in r["section"].split()]
+            relevant = [r for r in findings if any(x==c or x.startswith(c+"(") or x.startswith(c+".") for x in r["section"].split())]
             if c=="16":
                 relevant += [r for r in findings if r["section"] == "" or r["section"].startswith("0.")]
             blocks = [r for r in d.get("content",[]) if c==r["code"] and p["id"] in r["products"] and r.get("status")!="rejected"]
@@ -299,7 +317,7 @@ def evaluate(d, approvals):
                     valid=bool(a and a["version"]==r.get("approval_version") and a["wording"]==r["wording"] and a["kind"]==r["kind"]
                                and r.get("status")=="approved" and nonempty(r.get("reviewer")) and nonempty(r.get("reason")))
                 else:
-                    valid=block_valid(r,p,[],approvals.catalogue)
+                    valid=block_valid(r,p)
                 if not valid:
                     invalid.append(r["id"])
             rows.append({"code":c,"heading":title,"requirements":relevant,
@@ -387,7 +405,8 @@ def export_draft(record, fmt):
     title="DRAFT — NOT FOR SUPPLY"
     body=title+"\n"+draft_text(d,group=len(d["products"])>1)
     if fmt=="json":
-        return json.dumps({"status":"draft","document":body,"revision":record["version"],
+        return json.dumps({"schema":"sds-authoring-draft/v1","status":"draft","document":body,"revision":record["version"],
+                           "products":[p["id"] for p in d["products"]],"blocks":d.get("content",[]),
                            "review_blockers":record["blockers"]},ensure_ascii=False,indent=2).encode()
     out=BytesIO()
     if fmt=="docx":
