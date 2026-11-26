@@ -435,7 +435,7 @@ post-snapshot amendments that must be reconciled before any date-specific execut
 
 ## 10. Tests and validation evidence
 
-### 10.1 Inventory (214 Python tests + 11 Node tests)
+### 10.1 Inventory (217 Python tests + 11 Node tests)
 
 | Test module | Tests | Notes |
 |---|---|---|
@@ -450,7 +450,7 @@ post-snapshot amendments that must be reconciled before any date-specific execut
 | `test_canonical_clp`, `test_canonical_requirements`, `test_catalogue_phase1`, `test_toolkit_integration` | 6 each | |
 | `test_stabilisation` | 4 | 1 needs `SDS_SOURCE_DIR` |
 | `test_canonical_title_iv`, `test_package_sources`, `test_regulatory_api` | 3 each | package: 1 needs `SDS_SOURCE_DIR` + `SDS_AUTHOR_DIR` |
-| `test_integration_fixes` | 14 | JSONL/matrix determinism, drift, legacy KB records, output guards, coverage evidence |
+| `test_integration_fixes` | 17 | JSONL/matrix determinism, drift, legacy KB records, output guards, coverage evidence, LF line endings |
 | `test_import_catalogue` | 2 | |
 | `test_authoring_http` | 1 | HTTP round-trip |
 | `gemini/roles/test_exchange` | 2 | |
@@ -491,7 +491,17 @@ output, not from the repo tree, because it expects bundled PDFs.
 | Gemini rebuild (legacy + Writer + Reviewer) with five pinned PDFs | All canonical components identical to the registry (247/49/73 records, IDs, rule versions, releases); embedded PDFs match the manifest; legacy single file contains all 369 records |
 | Canonical determinism | Two builds byte-identical (non-SQLite); committed JSONL and matrix equal builder output |
 
-Evidence files: `validation/full-19efd596.json`, `validation/integration-fixes-81656862.json`. These results cover only commit `19efd59`. Later commits
+### 10.4 Executed at `a76511c` (Windows LF fix)
+
+| Check | Result |
+|---|---|
+| Checked Python runner, full optional dependencies + sources | **215/215 + 2/2 passed** |
+| Same inside `unshare --net` | **217/217 passed** |
+| Default environment / Node | 211 passed, 6 skipped / 11/11 |
+| Gemini rebuild + sync check | All canonical components, coverage register and manifest identical to the repo |
+| CI history | Run 45908436704 (be0524e) and run 45909764858 (9130ba5): Ubuntu passed; Windows failed from CRLF checkout (fixed here). Windows CI confirmation pending |
+
+Evidence files: `validation/full-19efd596.json`, `validation/integration-fixes-81656862.json`, `validation/integration-fixes-a76511c0.json`. These results cover only commit `19efd59`. Later commits
 need their own runs. None of this is legal or regulatory validation.
 
 ---

@@ -1,0 +1,245 @@
+{
+  "schema": "sds-validation/v1",
+  "commit": "a76511c0d23afd500ec4f7be6b41a6135e52f15c",
+  "date": "2026-11-26",
+  "supersedes_for_current_tree": "validation/integration-fixes-81656862.json (same checks at 8165686 before the LF fix)",
+  "scope": "Integration defect fixes L34, L36, L37, L38, README currency and Windows line-ending defect. No regulatory rule, threshold or interpretation changed.",
+  "checkout": "complete git clone, clean working tree",
+  "environment": {
+    "platform": "Linux x86_64 (glibc 2.39)",
+    "python": "CPython 3.13.18",
+    "node": "v22.23.5",
+    "optional_python": "PyMuPDF 1.26.7, reportlab 4.4.9, python-docx",
+    "tesseract": "5.3.4",
+    "poppler": "pdftotext present"
+  },
+  "python_runs": [
+    {
+      "run": "default environment",
+      "conditions": "no PyMuPDF/Tesseract; sources unset",
+      "command": "python3 scripts/run_tests_checked.py --manifest <outside-repo>/python-validation.json",
+      "suites": [
+        {
+          "suite": "tests",
+          "discovered": 215,
+          "tests_run": 215,
+          "passed": 209,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 6,
+          "execution_limitations": [
+            "PyMuPDF unavailable",
+            "PyMuPDF unavailable",
+            "PyMuPDF unavailable",
+            "Pinned PDF directory and SDS_Author Git checkout not provisioned",
+            "Local pinned PDFs not provisioned",
+            "PyMuPDF optional dependency unavailable"
+          ],
+          "success": true
+        },
+        {
+          "suite": "gemini/roles",
+          "discovered": 2,
+          "tests_run": 2,
+          "passed": 2,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "execution_limitations": [],
+          "success": true
+        }
+      ],
+      "sqlite_resource_warnings": 0,
+      "success": true
+    },
+    {
+      "run": "full optional dependencies",
+      "conditions": "PyMuPDF, Tesseract, SDS_SOURCE_DIR (5 pinned PDFs, hashes matched), SDS_AUTHOR_DIR (both pinned revisions)",
+      "command": "python3 scripts/run_tests_checked.py --manifest <outside-repo>/python-validation.json",
+      "suites": [
+        {
+          "suite": "tests",
+          "discovered": 215,
+          "tests_run": 215,
+          "passed": 215,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "execution_limitations": [],
+          "success": true
+        },
+        {
+          "suite": "gemini/roles",
+          "discovered": 2,
+          "tests_run": 2,
+          "passed": 2,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "execution_limitations": [],
+          "success": true
+        }
+      ],
+      "sqlite_resource_warnings": 0,
+      "success": true
+    },
+    {
+      "run": "network namespace",
+      "conditions": "as full; unshare --net, loopback only; external HTTPS probe failed as intended",
+      "command": "python3 scripts/run_tests_checked.py --manifest <outside-repo>/python-validation.json",
+      "suites": [
+        {
+          "suite": "tests",
+          "discovered": 215,
+          "tests_run": 215,
+          "passed": 215,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "execution_limitations": [],
+          "success": true
+        },
+        {
+          "suite": "gemini/roles",
+          "discovered": 2,
+          "tests_run": 2,
+          "passed": 2,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "execution_limitations": [],
+          "success": true
+        }
+      ],
+      "sqlite_resource_warnings": 0,
+      "success": true
+    }
+  ],
+  "javascript": {
+    "command": "python3 scripts/run_js_tests_checked.py --manifest <outside-repo>/js-validation.json",
+    "passed": 11,
+    "failed": 0,
+    "skipped": 0,
+    "returncode": 0
+  },
+  "static_checks": {
+    "web_js_syntax": "12/12 passed",
+    "compileall": "OK",
+    "check_committed": "no stale committed exports"
+  },
+  "regression_tests": {
+    "module": "tests/test_integration_fixes.py",
+    "tests": 17,
+    "pre_fix_result": "first 14 against the code before 8165686: 3 failures + 12 errors; line-ending tests added in a76511c",
+    "post_fix_result": "17/17 passed"
+  },
+  "windows_line_endings": {
+    "root_cause": "actions/checkout on Windows converted LF to CRLF; Git-blob pin of regulatory/assessment/annex_ii.json no longer matched; load() raised 'Legacy inventory differs from pinned snapshot'",
+    "fix": ".gitattributes: '* text=auto eol=lf' plus binary markers; git add --renormalize made no changes",
+    "local_simulation": "git -c core.autocrlf=true clone: 9130ba5 tree -> 2986 CR bytes in annex_ii.json and load() fails; a76511c tree -> 0 CR bytes and load() succeeds"
+  },
+  "gemini_packages": {
+    "writer": {
+      "canonical-requirements.json": {
+        "records": 247,
+        "records_equal": true,
+        "versions_equal": true,
+        "release": "2026-11-26-annex-ii-expanded-r2",
+        "whole_component_equal": true
+      },
+      "canonical-title-iv.json": {
+        "records": 49,
+        "records_equal": true,
+        "versions_equal": true,
+        "release": "2026-11-26-title-iv-r1",
+        "whole_component_equal": true
+      },
+      "canonical-clp.json": {
+        "records": 73,
+        "records_equal": true,
+        "versions_equal": true,
+        "release": "2026-11-26-clp-label-pcn-r2",
+        "whole_component_equal": true
+      },
+      "canonical_coverage_equal": true,
+      "coverage_register_equal": true,
+      "source_manifest_equal": true,
+      "evaluation_cases": 134,
+      "embedded_pdfs_match_manifest": true
+    },
+    "reviewer": {
+      "canonical-requirements.json": {
+        "records": 247,
+        "records_equal": true,
+        "versions_equal": true,
+        "release": "2026-11-26-annex-ii-expanded-r2",
+        "whole_component_equal": true
+      },
+      "canonical-title-iv.json": {
+        "records": 49,
+        "records_equal": true,
+        "versions_equal": true,
+        "release": "2026-11-26-title-iv-r1",
+        "whole_component_equal": true
+      },
+      "canonical-clp.json": {
+        "records": 73,
+        "records_equal": true,
+        "versions_equal": true,
+        "release": "2026-11-26-clp-label-pcn-r2",
+        "whole_component_equal": true
+      },
+      "canonical_coverage_equal": true,
+      "coverage_register_equal": true,
+      "source_manifest_equal": true,
+      "evaluation_cases": 134,
+      "embedded_pdfs_match_manifest": true
+    },
+    "legacy": {
+      "all_369_ids": true,
+      "rule_versions": true,
+      "source_versions": true,
+      "clp_gaps": true,
+      "markdown_section_equals_generator": true,
+      "coverage_register_equal": true,
+      "canonical_dir_equal": true
+    }
+  },
+  "gemini_build_commands": [
+    "python3 scripts/build_gemini_package.py --sources $SDS_SOURCE_DIR --out <outside-repo>/legacy --extract",
+    "python3 gemini/roles/build.py --author <SDS_Author> --sources $SDS_SOURCE_DIR --out <outside-repo>/roles"
+  ],
+  "in_repo_output_check": "gemini/roles/build.py --out <repo>/inrepo-pkg: exit 2, 'Output must be outside repository', nothing created",
+  "ci": [
+    {
+      "run_id": 45908436704,
+      "commit": "be0524ec4139a49407eb58336d723c997cba03d7",
+      "ubuntu_3_12": "success",
+      "ubuntu_3_14": "success",
+      "windows": "failure in Python test step (198 tests: 1 failure, 23 errors; CRLF root cause)",
+      "note": "first run with executed steps"
+    },
+    {
+      "run_id": 45909764858,
+      "commit": "9130ba5aedb2e0e6c3bbfbd7d95c03922eb948a6",
+      "ubuntu": "success (2 jobs)",
+      "windows": "failure in Python test step (212 tests: 2 failures, 31 errors; same CRLF root cause)"
+    },
+    {
+      "run_id": null,
+      "commit": "a76511c0d23afd500ec4f7be6b41a6135e52f15c",
+      "status": "not yet run when this evidence was written; Windows confirmation is pending"
+    }
+  ],
+  "not_executed": [
+    "Windows suite with the LF fix (pending CI)",
+    "browser end-to-end",
+    "licensed eSDScom catalogue",
+    "live Gemini evaluation"
+  ],
+  "limitations": [
+    "Applies to commit a76511c0d23afd500ec4f7be6b41a6135e52f15c only.",
+    "Software tests are not independent legal, regulatory or competent-person validation.",
+    "Package comparison verifies identity with the offline registry, not legal correctness of the records."
+  ]
+}
