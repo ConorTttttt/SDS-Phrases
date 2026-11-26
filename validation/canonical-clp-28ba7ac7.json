@@ -1,0 +1,800 @@
+{
+  "commit": "28ba7ac7094939faae0248614a0e2bf257dba972",
+  "release": "2026-11-26-clp-label-pcn-r2",
+  "source_sha256": "602529287cbdbbb80f4bc17404fef58041ce5edf30646509b3cdb6991b7fc8a7",
+  "source_span_check": {
+    "method": "Local Poppler text normalized; span length and dual 32-bit polynomial fingerprint (bases 31 and 131), compared on indicated PDF page(s). Not cryptographic proof of wording or legal verification.",
+    "matched": 85,
+    "unmatched": [],
+    "records": [
+      {
+        "id": "CLP-SRC-17-1-CHAPEAU",
+        "pdf_pages": [
+          19
+        ],
+        "length": 108,
+        "hash31": 2782004583,
+        "hash131": 2145512443
+      },
+      {
+        "id": "CLP-SRC-VIII-A-2-2",
+        "pdf_pages": [
+          1562
+        ],
+        "length": 337,
+        "hash31": 2907037832,
+        "hash131": 3034368652
+      },
+      {
+        "id": "CLP-SRC-A4-HARMONISED",
+        "pdf_pages": [
+          8,
+          9
+        ],
+        "length": 789,
+        "hash31": 1463627626,
+        "hash131": 1949081738
+      },
+      {
+        "id": "CLP-SRC-A4-LABEL-PACK",
+        "pdf_pages": [
+          9
+        ],
+        "length": 172,
+        "hash31": 2910214011,
+        "hash131": 2509798859
+      },
+      {
+        "id": "CLP-SRC-A17-SUPPLIER",
+        "pdf_pages": [
+          19
+        ],
+        "length": 53,
+        "hash31": 2394504121,
+        "hash131": 1079680765
+      },
+      {
+        "id": "CLP-SRC-A17-QUANTITY",
+        "pdf_pages": [
+          19
+        ],
+        "length": 139,
+        "hash31": 3363915579,
+        "hash131": 3645186415
+      },
+      {
+        "id": "CLP-SRC-A17-IDENTIFIER",
+        "pdf_pages": [
+          19
+        ],
+        "length": 44,
+        "hash31": 906571896,
+        "hash131": 321638148
+      },
+      {
+        "id": "CLP-SRC-A17-PICTOGRAM",
+        "pdf_pages": [
+          19
+        ],
+        "length": 61,
+        "hash31": 2647200883,
+        "hash131": 3966277683
+      },
+      {
+        "id": "CLP-SRC-A17-SIGNAL",
+        "pdf_pages": [
+          19
+        ],
+        "length": 56,
+        "hash31": 303726512,
+        "hash131": 2488486316
+      },
+      {
+        "id": "CLP-SRC-A17-HAZARD",
+        "pdf_pages": [
+          19
+        ],
+        "length": 61,
+        "hash31": 3375519239,
+        "hash131": 1659406739
+      },
+      {
+        "id": "CLP-SRC-A17-PRECAUTION",
+        "pdf_pages": [
+          19
+        ],
+        "length": 82,
+        "hash31": 1390558843,
+        "hash131": 241130667
+      },
+      {
+        "id": "CLP-SRC-A17-SUPPLEMENTAL",
+        "pdf_pages": [
+          19
+        ],
+        "length": 79,
+        "hash31": 594704961,
+        "hash131": 1651574921
+      },
+      {
+        "id": "CLP-SRC-A17-LANGUAGE",
+        "pdf_pages": [
+          19
+        ],
+        "length": 163,
+        "hash31": 911172899,
+        "hash131": 962042271
+      },
+      {
+        "id": "CLP-SRC-A17-MULTILINGUAL",
+        "pdf_pages": [
+          19
+        ],
+        "length": 127,
+        "hash31": 1802748388,
+        "hash131": 2682808328
+      },
+      {
+        "id": "CLP-SRC-A18-SDS-IDENTITY",
+        "pdf_pages": [
+          19
+        ],
+        "length": 244,
+        "hash31": 1307459598,
+        "hash131": 2789388510
+      },
+      {
+        "id": "CLP-SRC-18-2-CHAPEAU",
+        "pdf_pages": [
+          19
+        ],
+        "length": 67,
+        "hash31": 3215007865,
+        "hash131": 1412648629
+      },
+      {
+        "id": "CLP-SRC-A18-ANNEXVI-ID",
+        "pdf_pages": [
+          19
+        ],
+        "length": 89,
+        "hash31": 1889962441,
+        "hash131": 1139914573
+      },
+      {
+        "id": "CLP-SRC-A18-INVENTORY-ID",
+        "pdf_pages": [
+          20
+        ],
+        "length": 143,
+        "hash31": 3520693939,
+        "hash131": 2898379147
+      },
+      {
+        "id": "CLP-SRC-A18-CAS-ID",
+        "pdf_pages": [
+          20
+        ],
+        "length": 327,
+        "hash31": 3981431949,
+        "hash131": 277873181
+      },
+      {
+        "id": "CLP-SRC-A18-NO-CAS",
+        "pdf_pages": [
+          20
+        ],
+        "length": 105,
+        "hash31": 1427179455,
+        "hash131": 2715520423
+      },
+      {
+        "id": "CLP-SRC-A18-LONG-IUPAC",
+        "pdf_pages": [
+          20
+        ],
+        "length": 295,
+        "hash31": 4200255727,
+        "hash131": 3648467915
+      },
+      {
+        "id": "CLP-SRC-18-3-CHAPEAU",
+        "pdf_pages": [
+          20
+        ],
+        "length": 64,
+        "hash31": 3181197005,
+        "hash131": 1449036093
+      },
+      {
+        "id": "CLP-SRC-A18-MIXTURE-NAME",
+        "pdf_pages": [
+          20
+        ],
+        "length": 44,
+        "hash31": 3707153870,
+        "hash131": 3625232662
+      },
+      {
+        "id": "CLP-SRC-A18-MIXTURE-CONTRIBUTORS",
+        "pdf_pages": [
+          20
+        ],
+        "length": 666,
+        "hash31": 409752118,
+        "hash131": 1562786950
+      },
+      {
+        "id": "CLP-SRC-A19-PICTOGRAM",
+        "pdf_pages": [
+          20
+        ],
+        "length": 348,
+        "hash31": 3155611190,
+        "hash131": 610514086
+      },
+      {
+        "id": "CLP-SRC-A20-SIGNAL",
+        "pdf_pages": [
+          21
+        ],
+        "length": 250,
+        "hash31": 3205433747,
+        "hash131": 1492763395
+      },
+      {
+        "id": "CLP-SRC-A20-DANGER-PRECEDENCE",
+        "pdf_pages": [
+          21
+        ],
+        "length": 90,
+        "hash31": 965997751,
+        "hash131": 3816882403
+      },
+      {
+        "id": "CLP-SRC-A21-HAZARD-STATEMENTS",
+        "pdf_pages": [
+          21
+        ],
+        "length": 255,
+        "hash31": 4138491931,
+        "hash131": 2265559879
+      },
+      {
+        "id": "CLP-SRC-A21-HARMONISED-STATEMENTS",
+        "pdf_pages": [
+          21
+        ],
+        "length": 246,
+        "hash31": 2078729889,
+        "hash131": 670573873
+      },
+      {
+        "id": "CLP-SRC-A21-EXACT-WORDING",
+        "pdf_pages": [
+          21
+        ],
+        "length": 57,
+        "hash31": 164388366,
+        "hash131": 2087658378
+      },
+      {
+        "id": "CLP-SRC-A22-PRECAUTION-SELECT",
+        "pdf_pages": [
+          21
+        ],
+        "length": 380,
+        "hash31": 3278218421,
+        "hash131": 3937338349
+      },
+      {
+        "id": "CLP-SRC-A22-PRECAUTION-WORDING",
+        "pdf_pages": [
+          21
+        ],
+        "length": 70,
+        "hash31": 3950291236,
+        "hash131": 722828400
+      },
+      {
+        "id": "CLP-SRC-A24-ALTERNATIVE-REQUEST",
+        "pdf_pages": [
+          22
+        ],
+        "length": 514,
+        "hash31": 1497347861,
+        "hash131": 3291533593
+      },
+      {
+        "id": "CLP-SRC-A24-NAME-REVERT",
+        "pdf_pages": [
+          23
+        ],
+        "length": 353,
+        "hash31": 2270591786,
+        "hash131": 2602098814
+      },
+      {
+        "id": "CLP-SRC-A25-SUPPLEMENTAL-PROPERTIES",
+        "pdf_pages": [
+          23
+        ],
+        "length": 440,
+        "hash31": 2323320039,
+        "hash131": 2576184611
+      },
+      {
+        "id": "CLP-SRC-A25-NONCONTRADICTORY",
+        "pdf_pages": [
+          24
+        ],
+        "length": 373,
+        "hash31": 1894374351,
+        "hash131": 895534307
+      },
+      {
+        "id": "CLP-SRC-A25-MISLEADING",
+        "pdf_pages": [
+          24
+        ],
+        "length": 282,
+        "hash31": 208539542,
+        "hash131": 2209401250
+      },
+      {
+        "id": "CLP-SRC-A25-MIXTURE-SPECIAL",
+        "pdf_pages": [
+          24
+        ],
+        "length": 361,
+        "hash31": 1637792964,
+        "hash131": 3009403124
+      },
+      {
+        "id": "CLP-SRC-A25-UFI-LABEL",
+        "pdf_pages": [
+          24
+        ],
+        "length": 176,
+        "hash31": 2218082731,
+        "hash131": 3217323067
+      },
+      {
+        "id": "CLP-SRC-A25-BESPOKE-UFI",
+        "pdf_pages": [
+          24
+        ],
+        "length": 502,
+        "hash31": 2033265452,
+        "hash131": 567630944
+      },
+      {
+        "id": "CLP-SRC-A25-BESPOKE-CONCENTRATION",
+        "pdf_pages": [
+          24
+        ],
+        "length": 308,
+        "hash31": 2894468170,
+        "hash131": 1747661882
+      },
+      {
+        "id": "CLP-SRC-26-1-CHAPEAU",
+        "pdf_pages": [
+          25
+        ],
+        "length": 176,
+        "hash31": 2473275276,
+        "hash131": 717774352
+      },
+      {
+        "id": "CLP-SRC-A26-EXPLOSION",
+        "pdf_pages": [
+          25
+        ],
+        "length": 164,
+        "hash31": 3011326310,
+        "hash131": 1259398298
+      },
+      {
+        "id": "CLP-SRC-A26-SKULL",
+        "pdf_pages": [
+          25
+        ],
+        "length": 78,
+        "hash31": 2113796276,
+        "hash131": 219124188
+      },
+      {
+        "id": "CLP-SRC-A26-CORROSION",
+        "pdf_pages": [
+          25
+        ],
+        "length": 100,
+        "hash31": 2372627053,
+        "hash131": 165695189
+      },
+      {
+        "id": "CLP-SRC-A26-RESPIRATORY",
+        "pdf_pages": [
+          25
+        ],
+        "length": 150,
+        "hash31": 3322550265,
+        "hash131": 1354785409
+      },
+      {
+        "id": "CLP-SRC-A26-GAS",
+        "pdf_pages": [
+          25
+        ],
+        "length": 96,
+        "hash31": 2237096726,
+        "hash131": 1695787026
+      },
+      {
+        "id": "CLP-SRC-A26-SEVERITY",
+        "pdf_pages": [
+          25
+        ],
+        "length": 410,
+        "hash31": 3074911962,
+        "hash131": 4017755226
+      },
+      {
+        "id": "CLP-SRC-A27-HAZARD-PRECEDENCE",
+        "pdf_pages": [
+          25
+        ],
+        "length": 207,
+        "hash31": 53736525,
+        "hash131": 3882064197
+      },
+      {
+        "id": "CLP-SRC-A28-REDUNDANCY",
+        "pdf_pages": [
+          26
+        ],
+        "length": 204,
+        "hash31": 593130739,
+        "hash131": 2905670743
+      },
+      {
+        "id": "CLP-SRC-A28-DISPOSAL",
+        "pdf_pages": [
+          26
+        ],
+        "length": 402,
+        "hash31": 2055754217,
+        "hash131": 470054185
+      },
+      {
+        "id": "CLP-SRC-A28-SIX",
+        "pdf_pages": [
+          26
+        ],
+        "length": 119,
+        "hash31": 3595384145,
+        "hash131": 1817939125
+      },
+      {
+        "id": "CLP-SRC-A29-REDUCED-LABEL",
+        "pdf_pages": [
+          26
+        ],
+        "length": 450,
+        "hash31": 2951588275,
+        "hash131": 2603547047
+      },
+      {
+        "id": "CLP-SRC-VIII-A-BESPOKE",
+        "pdf_pages": [
+          1563
+        ],
+        "length": 159,
+        "hash31": 1691140553,
+        "hash131": 1047323669
+      },
+      {
+        "id": "CLP-SRC-VIII-A-LIMITED-SUBMISSION",
+        "pdf_pages": [
+          1563
+        ],
+        "length": 355,
+        "hash31": 2761871113,
+        "hash131": 1602218637
+      },
+      {
+        "id": "CLP-SRC-VIII-A-SUBMIT",
+        "pdf_pages": [
+          1563
+        ],
+        "length": 418,
+        "hash31": 2357582873,
+        "hash131": 1302818637
+      },
+      {
+        "id": "CLP-SRC-VIII-A-CLARIFICATION",
+        "pdf_pages": [
+          1563
+        ],
+        "length": 315,
+        "hash31": 1445165980,
+        "hash131": 1283124516
+      },
+      {
+        "id": "CLP-SRC-VIII-A-LANGUAGE",
+        "pdf_pages": [
+          1563
+        ],
+        "length": 150,
+        "hash31": 1949050171,
+        "hash131": 2455219155
+      },
+      {
+        "id": "CLP-SRC-VIII-A-CATEGORY",
+        "pdf_pages": [
+          1564
+        ],
+        "length": 116,
+        "hash31": 3021616232,
+        "hash131": 1500881228
+      },
+      {
+        "id": "CLP-SRC-VIII-A-UPDATE",
+        "pdf_pages": [
+          1564
+        ],
+        "length": 96,
+        "hash31": 4005450980,
+        "hash131": 2709973096
+      },
+      {
+        "id": "CLP-SRC-VIII-A-GROUP-CLASSIFICATION",
+        "pdf_pages": [
+          1564
+        ],
+        "length": 184,
+        "hash31": 767430532,
+        "hash131": 2027747364
+      },
+      {
+        "id": "CLP-SRC-VIII-A-GROUP-COMPOSITION",
+        "pdf_pages": [
+          1564
+        ],
+        "length": 481,
+        "hash31": 2829581719,
+        "hash131": 2643294047
+      },
+      {
+        "id": "CLP-SRC-VIII-A-GROUP-INFORMATION",
+        "pdf_pages": [
+          1564
+        ],
+        "length": 127,
+        "hash31": 2629033322,
+        "hash131": 1084232010
+      },
+      {
+        "id": "CLP-SRC-VIII-A-UFI-CREATE",
+        "pdf_pages": [
+          1564
+        ],
+        "length": 286,
+        "hash31": 4006696997,
+        "hash131": 2451487641
+      },
+      {
+        "id": "CLP-SRC-VIII-A-UFI-CHANGE",
+        "pdf_pages": [
+          1564
+        ],
+        "length": 828,
+        "hash31": 2930379236,
+        "hash131": 4131231004
+      },
+      {
+        "id": "CLP-SRC-VIII-A-UFI-FORMAT",
+        "pdf_pages": [
+          1564
+        ],
+        "length": 131,
+        "hash31": 3751027099,
+        "hash131": 191214479
+      },
+      {
+        "id": "CLP-SRC-VIII-A-UFI-PACKAGING",
+        "pdf_pages": [
+          1564
+        ],
+        "length": 320,
+        "hash31": 924967261,
+        "hash131": 4183054461
+      },
+      {
+        "id": "CLP-SRC-VIII-A-UFI-UNPACKAGED",
+        "pdf_pages": [
+          1565
+        ],
+        "length": 158,
+        "hash31": 3090578929,
+        "hash131": 953348757
+      },
+      {
+        "id": "CLP-SRC-VIII-A-UFI-INDUSTRIAL",
+        "pdf_pages": [
+          1565
+        ],
+        "length": 157,
+        "hash31": 941513845,
+        "hash131": 2619659273
+      },
+      {
+        "id": "CLP-SRC-VIII-B-UFI-SUBMISSION",
+        "pdf_pages": [
+          1565
+        ],
+        "length": 51,
+        "hash31": 2156141557,
+        "hash131": 1711233821
+      },
+      {
+        "id": "CLP-SRC-VIII-B-EMERGENCY-CONTACT",
+        "pdf_pages": [
+          1565
+        ],
+        "length": 325,
+        "hash31": 196115263,
+        "hash131": 2356309719
+      },
+      {
+        "id": "CLP-SRC-VIII-B-TOXICOLOGY",
+        "pdf_pages": [
+          1566
+        ],
+        "length": 200,
+        "hash31": 1615257274,
+        "hash131": 2231442914
+      },
+      {
+        "id": "CLP-SRC-VIII-B-LIMITED-COMPOSITION",
+        "pdf_pages": [
+          1566
+        ],
+        "length": 440,
+        "hash31": 3334500732,
+        "hash131": 2133721780
+      },
+      {
+        "id": "CLP-SRC-VIII-B-4-1-CHAPEAU",
+        "pdf_pages": [
+          1572
+        ],
+        "length": 164,
+        "hash31": 1324548095,
+        "hash131": 687164127
+      },
+      {
+        "id": "CLP-SRC-VIII-B-UPDATE-IDENTIFIER",
+        "pdf_pages": [
+          1572
+        ],
+        "length": 51,
+        "hash31": 360442781,
+        "hash131": 3648150229
+      },
+      {
+        "id": "CLP-SRC-VIII-B-UPDATE-CLASSIFICATION",
+        "pdf_pages": [
+          1572
+        ],
+        "length": 66,
+        "hash31": 1981291293,
+        "hash131": 2081445073
+      },
+      {
+        "id": "CLP-SRC-VIII-B-UPDATE-TOXICOLOGY",
+        "pdf_pages": [
+          1573
+        ],
+        "length": 153,
+        "hash31": 3271647593,
+        "hash131": 3213256173
+      },
+      {
+        "id": "CLP-SRC-VIII-B-UPDATE-COMPOSITION",
+        "pdf_pages": [
+          1573
+        ],
+        "length": 451,
+        "hash31": 2070506808,
+        "hash131": 2472942992
+      },
+      {
+        "id": "CLP-SRC-VIII-B-UPDATE-EXCEPTIONS",
+        "pdf_pages": [
+          1573
+        ],
+        "length": 494,
+        "hash31": 81662797,
+        "hash131": 1953422949
+      },
+      {
+        "id": "CLP-SRC-VIII-B-TABLE4",
+        "pdf_pages": [
+          1573
+        ],
+        "length": 66,
+        "hash31": 2156913876,
+        "hash131": 2389542976
+      },
+      {
+        "id": "CLP-SRC-VIII-A-DATE-CONSUMER",
+        "pdf_pages": [
+          1562
+        ],
+        "length": 156,
+        "hash31": 499659690,
+        "hash131": 141082198
+      },
+      {
+        "id": "CLP-SRC-VIII-A-DATE-PROFESSIONAL",
+        "pdf_pages": [
+          1562
+        ],
+        "length": 160,
+        "hash31": 2081156187,
+        "hash131": 3727254671
+      },
+      {
+        "id": "CLP-SRC-VIII-A-DATE-INDUSTRIAL",
+        "pdf_pages": [
+          1562
+        ],
+        "length": 203,
+        "hash31": 1465857734,
+        "hash131": 1944007006
+      },
+      {
+        "id": "CLP-SRC-VIII-A-DATE-LEGACY",
+        "pdf_pages": [
+          1562
+        ],
+        "length": 298,
+        "hash31": 1967154719,
+        "hash131": 4079420631
+      },
+      {
+        "id": "CLP-SRC-VIII-A-DATE-LEGACY-CHANGE",
+        "pdf_pages": [
+          1562
+        ],
+        "length": 211,
+        "hash31": 2603931692,
+        "hash131": 292752488
+      }
+    ]
+  },
+  "visual_table_check": {
+    "pdf_page": 1573,
+    "table": "Annex VIII Part B 4.1 Table 4",
+    "rows": 4,
+    "result": "layout and values visually matched"
+  },
+  "integrated_test": {
+    "workflow_run": 45892831098,
+    "url": "https://github.com/ConorTttttt/SDS-Phrases/actions/runs/45892831098",
+    "conclusion": "failure",
+    "jobs": [
+      140159425686,
+      140159425981,
+      140159425982,
+      140159426024
+    ],
+    "steps_recorded": 0,
+    "job_log": "404 BlobNotFound",
+    "test_execution_confirmed": false,
+    "local_git": "DNS resolution failed",
+    "cause": "unresolved"
+  }
+}
