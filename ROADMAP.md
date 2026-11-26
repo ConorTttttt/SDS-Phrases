@@ -5,3 +5,5 @@
 3. Provision the five hash-pinned PDFs and pinned SDS_Author history to execute both existing builders, extraction and original package checker. Validate live Gemini independently.
 4. Extend partial Article 31/32 and Section 3 decision coverage and CLP calculation/label modules; independently review thresholds, exceptions and dates.
 5. Expand assessment beyond structural and selected deterministic checks, verify REF-11 interpretation and document extraction fidelity. Independently review controlled authoring and any future release workflow.
+
+The restored profile rule pack and upstream tests, new optional dependency and HTTP tests, canonical source registry and consolidated package-source preflight require a full regression run. Do not report CI as executed when runner IDs are zero and steps empty.

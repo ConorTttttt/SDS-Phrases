@@ -1,6 +1,5 @@
 """Build a local source-pinned manual Gemini reference folder. No data upload."""
 import argparse
-import hashlib
 import json
 import shutil
 import subprocess
@@ -8,6 +7,8 @@ import tempfile
 import sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/"src"))
+from package_sources import verify_sources, extract_pages
 def build(source_dir, out, extract=False):
     source_dir, out = Path(source_dir), Path(out)
     if out.exists(): raise ValueError("Output must not already exist")
@@ -22,15 +23,7 @@ def build(source_dir, out, extract=False):
 def _build(source_dir, out, extract=False):
     if extract and not shutil.which("pdftotext"):
         raise ValueError("Page extraction requires Poppler pdftotext on PATH; install poppler-utils or omit --extract")
-    manifest=json.loads((ROOT/"regulatory/source_manifest.json").read_text())
-    for field in ("id", "filename", "package_filename"):
-        values = [s[field] for s in manifest["sources"]]
-        if len(values) != len(set(values)) or any(not v or Path(v).name != v for v in values):
-            raise ValueError("Invalid or duplicate source manifest " + field)
-    for s in manifest["sources"]:
-        p=source_dir/s["filename"]
-        if not p.is_file() or hashlib.sha256(p.read_bytes()).hexdigest()!=s["sha256"]:
-            raise ValueError("Missing or changed pinned source: "+s["filename"])
+    manifest=verify_sources(ROOT/"regulatory/source_manifest.json", source_dir)
     out.mkdir(parents=True)
     shutil.copytree(ROOT/"regulatory/author",out/"author")
     shutil.copytree(ROOT/"regulatory/canonical",out/"canonical")
@@ -54,14 +47,11 @@ def _build(source_dir, out, extract=False):
     for r in sorted((out/"author/references").glob("*.md")):
         text+="\n\n# Reference: "+r.name+"\n"+r.read_text(encoding="utf-8")
     (out/"SINGLE_FILE_LLM_KNOWLEDGE_BASE.md").write_text(text,encoding="utf-8")
-    subprocess.run([sys.executable, str(out/"author/tests/check_package.py")], check=True)
+    subprocess.run([sys.executable, "-X", "utf8", str(out/"author/tests/check_package.py")], check=True)
     if extract:
         with (out/"page_chunks.jsonl").open("w",encoding="utf-8") as f:
             for s in manifest["sources"]:
-                r=subprocess.run(["pdftotext","-layout",str(out/"sources"/s["package_filename"]),"-"],check=True,capture_output=True)
-                pages=r.stdout.decode("utf-8",errors="replace").split("\f")
-                if pages and not pages[-1].strip(): pages.pop()
-                if len(pages)!=s["pages"]: raise ValueError("Page count mismatch: "+s["id"])
+                pages=extract_pages(out/"sources"/s["package_filename"],s["pages"])
                 for i,page in enumerate(pages,1):
                     f.write(json.dumps({"source_id":s["id"],"pdf_page":i,"authority":s["authority"],"text":page,"extraction_status":"unverified_layout"},ensure_ascii=False)+"\n")
 if __name__=="__main__":

@@ -162,7 +162,7 @@ def assess(document, corrections=None):
                     SUSPECT,"Check the original test result, decimal sign, unit and applicable test conditions.")
             rows[-1].update(scientific_plausibility=SUSPECT,severity="major")
     hazard_codes=set(re.findall(r"\b(?:EUH|H)\d{3}[a-zA-Z]*\b",text("2.1")+" "+text("3.2")))
-    statements=json.loads((ROOT/"regulatory/assessment/clp_english.json").read_text())
+    statements=json.loads((ROOT/"regulatory/assessment/clp_english.json").read_text(encoding="utf-8"))
     normalize=lambda s: " ".join(s.casefold().split()).strip(" .")
     relevant_text=normalize(" ".join(text(c) for c in ("2.1","2.2","3.2","16")))
     for code in sorted(hazard_codes):
@@ -210,7 +210,7 @@ def assess(document, corrections=None):
                 finding(f"section9/{i}","9.1",result["name"]+" — "+result["reason"], LAW+" "+result["basis"],
                         REVIEW,result["guidance"])
                 rows[-1]["applicability"]=result["status"]
-    for question in json.loads((ROOT/"regulatory/assessment/ref11.json").read_text()):
+    for question in json.loads((ROOT/"regulatory/assessment/ref11.json").read_text(encoding="utf-8")):
         key,topic,codes,law,page=question
         finding("REF11/"+key,codes,topic,law or "Administrative inspection record",SKIP if not law else UNKNOWN,
                 "Record inspection response and the evidence for it.")
@@ -237,7 +237,7 @@ def export(directory, document, rows):
             requests.append(row["section"]+" — "+row["issue"]+" "+row["recommended_correction"])
     write("supplier-request.txt","Supplier information request for "+document["name"]+"\n"+
           "\n".join(dict.fromkeys(requests)))
-    template=(ROOT/"web/assessment-report.html").read_text()
+    template=(ROOT/"web/assessment-report.html").read_text(encoding="utf-8")
     payload=json.dumps(dict(document=document,rows=rows,statuses=STATUSES),ensure_ascii=False).replace("<","\\u003c")
     write("report.html",template.replace("CASE_PAYLOAD",payload))
 
@@ -249,7 +249,7 @@ def main():
     parser.add_argument("--ocr",action="store_true")
     parser.add_argument("--review",type=Path,help="Review JSON saved from the workspace")
     args=parser.parse_args()
-    review=json.loads(args.review.read_text()) if args.review else {}
+    review=json.loads(args.review.read_text(encoding="utf-8")) if args.review else {}
     if review and len(args.files)!=1:
         parser.error("--review applies to one original document per invocation")
     for file in args.files:

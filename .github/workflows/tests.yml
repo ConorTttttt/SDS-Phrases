@@ -4,6 +4,8 @@ on:
     branches: ["main", "feature/**", "integration/**"]
   pull_request:
   workflow_dispatch:
+env:
+  PYTHONUTF8: "1"
 jobs:
   test:
     runs-on: ${{ matrix.os }}
@@ -32,7 +34,7 @@ jobs:
         run: |
           for file in web/*.js; do node --input-type=module --check < "$file" || exit 1; done
       - name: Run original Section 9 tests
-        run: node --test modules/section9/tests/rules.test.mjs
+        run: python scripts/run_js_tests_checked.py --manifest "${{ runner.temp }}/js-validation.json"
       - name: Run all Python tests in network namespace (loopback only)
         if: runner.os == 'Linux'
         run: |
@@ -44,5 +46,7 @@ jobs:
         if: always()
         with:
           name: validation-${{ matrix.os }}-${{ matrix.python-version }}
-          path: ${{ runner.temp }}/python-validation.json
+          path: |
+            ${{ runner.temp }}/python-validation.json
+            ${{ runner.temp }}/js-validation.json
           if-no-files-found: warn

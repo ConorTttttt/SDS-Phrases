@@ -1,11 +1,11 @@
 """Generate both roles from shared offline records and pinned SDS_Author revisions."""
 import argparse
-import hashlib
 import json
 import re
 import shutil
 import subprocess
 import tempfile
+import sys
 from pathlib import Path
 from exchange import ROOT, INTAKE, OUTPUT, read
 
@@ -70,7 +70,9 @@ def build(repo, sources, dest):
         raise ValueError("Role generation requires Git on PATH and the pinned SDS_Author checkout")
     if not shutil.which("pdftotext"):
         raise ValueError("Role generation requires Poppler pdftotext on PATH")
-    manifest = read(REG/"source_manifest.json")
+    sys.path.insert(0, str(ROOT/"src"))
+    from package_sources import verify_sources, extract_pages
+    manifest = verify_sources(REG/"source_manifest.json", sources)
     common = dest/"shared"
     common.mkdir()
     refs = {}
@@ -82,8 +84,6 @@ def build(repo, sources, dest):
         refs[name] = content
         if "TEST_CASES" not in name:
             write(common,Path(path).name,content)
-    import sys
-    sys.path.insert(0, str(ROOT/"src"))
     from canonical_requirements import load as load_canonical, requirement_version, coverage
     pack, raw, _ = load_canonical(ROOT)
     records = pack["requirements"]
@@ -122,13 +122,9 @@ def build(repo, sources, dest):
     # Full page runs retain continuations and footnotes. Use neighbouring chunks at boundaries.
     for s in manifest["sources"]:
         path=sources/s["filename"]
-        if hashlib.sha256(path.read_bytes()).hexdigest()!=s["sha256"]:
-            raise ValueError("Changed source: "+s["id"])
         (common/"sources").mkdir(exist_ok=True)
         shutil.copyfile(path,common/"sources"/s["package_filename"])
-        pages=subprocess.check_output(["pdftotext","-layout",str(path),"-"]).decode("utf-8").split("\f")
-        if pages[-1].strip() or len(pages)-1!=s["pages"]:
-            raise ValueError("Unexpected page boundaries "+s["id"])
+        pages=extract_pages(path,s["pages"])
         for start in range(0,s["pages"],12):
             body=[]
             for page,txt in enumerate(pages[start:min(start+12,s["pages"])],start+1):

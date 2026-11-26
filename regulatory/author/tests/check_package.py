@@ -19,16 +19,16 @@ files = [
 ]
 missing = [p for p in files if not (root/p).is_file()]
 assert not missing, f'Missing: {missing}'
-s = (root/'SKILL.md').read_text(encoding="utf-8")
+s = (root/'SKILL.md').read_text()
 for text in ['version: 4.0.0','ARTICLE31_CHECK','SECTION3_REVIEW','MULTI_PRODUCT_COVERAGE','REACH_ARTICLES_DECISION_ENGINE.md','REACH_SECTION3_DISCLOSURE_ENGINE.md']:
  assert text in s, text
-rules = [json.loads(line) for line in (root/'references/REACH_RULE_INDEX.jsonl').read_text(encoding="utf-8").splitlines() if line.strip()]
+rules = [json.loads(line) for line in (root/'references/REACH_RULE_INDEX.jsonl').read_text().splitlines() if line.strip()]
 assert len(rules) == 46, len(rules)
 assert len({r['id'] for r in rules}) == len(rules)
 for r in rules:
  assert r['source_file'] in files
  assert r['pdf_pages'] and all(isinstance(page,int) and 1 <= page <= 603 for page in r['pdf_pages'])
-tests=(root/'references/REACH_TEST_CASES.md').read_text(encoding="utf-8")
+tests=(root/'references/REACH_TEST_CASES.md').read_text()
 import re
 ids=re.findall(r'^\| ([ASQG]\d{2}) \|', tests, flags=re.M)
 assert len(ids)==48, (len(ids),ids)

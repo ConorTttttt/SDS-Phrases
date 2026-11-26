@@ -75,6 +75,15 @@ class SupplierAssessment(unittest.TestCase):
             self.assertIn("SECTION 2",doc["pages"][1]["text"])
             self.assertEqual(doc["pages"][1]["page"],2)
 
+    def test_missing_node_preserves_other_assessment(self):
+        from unittest.mock import patch
+        self.doc["context"]={"section9":{"state":"liquid","kind":"mixture","aerosol":False}}
+        with patch("sds_assessment.shutil.which",return_value=None):
+            rows={r["id"]:r for r in assess(self.doc)}
+        self.assertEqual(rows["section9/unavailable"]["status"],"Not assessed")
+        self.assertTrue(any(k.startswith("REF11/") for k in rows))
+        self.assertIn("heading/2",rows)
+
     def test_verified_heading_inventory(self):
         self.doc["context"]={"verified_structure":{
             "jurisdiction":"EU","as_of":"2026-06-22","headings":["2","2.1","9","9.1"],

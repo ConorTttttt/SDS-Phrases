@@ -52,7 +52,8 @@ def main():
             bad_methods = {str(getattr(t, "test_case", t)) for t, _ in outcome.errors + outcome.failures}
             bad_methods.update(str(t) for t in outcome.unexpectedSuccesses)
             records.append(dict(suite=directory, discovery_pattern=pattern, discovered=discovered,
-                                command=[sys.executable, *sys.argv], commit=commit, tests_run=outcome.testsRun,
+                                command=[sys.executable, *sys.argv], commit=commit,
+                                environment=dict(platform=platform.platform(), python=sys.version), tests_run=outcome.testsRun,
                                 passed=max(0, outcome.testsRun-len(bad_methods)-skipped-expected),
                                 failed=len(bad_methods), errors=errors, failure_events=failures,
                                 skipped=skipped, expected_failures=expected, unexpected_successes=unexpected,

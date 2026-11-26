@@ -32,7 +32,7 @@
       "status": "partial",
       "implementation": "modules/section9/rules.mjs",
       "limits": "9.1 applicability heuristic, 9.2 reference lists; independent legal validation pending",
-      "validation_status": "upstream_blob_parity_verified; runtime_pending",
+      "validation_status": "11 original upstream-identical Node tests passed at 36219aa2; independent regulatory validation pending",
       "implementation_status": "partially_implemented"
     },
     {
@@ -98,7 +98,7 @@
     {
       "id": "pdf_ingestion",
       "status": "partial",
-      "validation_status": "five isolated synthetic format smoke tests passed at 2d2e7f03; full assessment integration pending",
+      "validation_status": "five synthetic intake and two missing-dependency smoke tests passed on exact blobs at 36219aa2; integrated assessment pending",
       "implementation_status": "partially_implemented",
       "implementation": "src/sds_intake.py",
       "limits": "Local PDF text, optional OCR, table extraction and image candidates require visual verification."
@@ -106,7 +106,7 @@
     {
       "id": "exchange_import",
       "status": "implemented_pending_human_review",
-      "validation_status": "two original exchange tests passed against exact blobs at 2d2e7f03",
+      "validation_status": "two original exchange tests passed again at 36219aa2; full canonical exchange workflow pending",
       "implementation_status": "implemented",
       "implementation": "gemini/roles/exchange.py"
     },
