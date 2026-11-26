@@ -1,0 +1,19 @@
+{
+  "base": {
+    "repository": "ConorTttttt/SDS-Phrases",
+    "commit": "a12fcf062573a6befba5cf8d0f8a6051c4a211d6"
+  },
+  "author": {
+    "repository": "ConorTttttt/SDS_Author",
+    "commit": "ba0014655372a56c855b46b85fb6fd0f002d09c0"
+  },
+  "section9": {
+    "repository": "ConorTttttt/EU_SDS",
+    "commit": "3e4272df30979d3793f77ecefe511c425ae30629"
+  },
+  "design_reference": {
+    "repository": "ConorTttttt/Rrgulatory_LLM_Optimised",
+    "commit": "60d378dc98f384d9ac9e1fbde965bb04ebecdb05",
+    "note": "Architecture only; no Korean rules imported."
+  }
+}

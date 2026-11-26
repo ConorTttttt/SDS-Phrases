@@ -1,0 +1,55 @@
+{
+  "schema": "sds-source-manifest/v1",
+  "sources": [
+    {
+      "id": "reach",
+      "filename": "Full REACH.pdf",
+      "package_filename": "REACH_1907_2006_consolidated_EN_2026-06-22.pdf",
+      "version": "2026-06-22",
+      "authority": "legislation_consolidation",
+      "sha256": "04e3d65150eeed337e09f2a6d4a6cb6dae47a0bda488bebcef44972092147572",
+      "pages": 603,
+      "currentness": "not_verified_after_snapshot"
+    },
+    {
+      "id": "clp",
+      "filename": "CELEX_02008R1272-20260701_EN_TXT.pdf",
+      "package_filename": "CLP_1272_2008_consolidated_EN_2026-07-01.pdf",
+      "version": "2026-07-01",
+      "authority": "legislation_consolidation",
+      "sha256": "602529287cbdbbb80f4bc17404fef58041ce5edf30646509b3cdb6991b7fc8a7",
+      "pages": 1584,
+      "currentness": "not_verified_after_snapshot"
+    },
+    {
+      "id": "echa",
+      "filename": "sds_guidance.pdf",
+      "package_filename": "ECHA_Guidance_on_Compilation_of_SDS_v4_Dec2020.pdf",
+      "version": "2020-12",
+      "authority": "guidance",
+      "sha256": "2a4ac00f87544ebc6397e208e13da331a5ebabd6c5ceb5f149e84cb138501c28",
+      "pages": 137,
+      "currentness": "not_verified_after_snapshot"
+    },
+    {
+      "id": "ref11",
+      "filename": "REF SDS.pdf",
+      "package_filename": "ECHA_REF11_SDS_Enforcement_Report_Dec2024.pdf",
+      "version": "2024-12",
+      "authority": "enforcement_report",
+      "sha256": "2514559e63f7348e001d8b3578d264144fcd70bac317ad218de0183971a132a0",
+      "pages": 42,
+      "currentness": "not_verified_after_snapshot"
+    },
+    {
+      "id": "label",
+      "filename": "clp_labelling_enGuidance.pdf",
+      "package_filename": "ECHA_CLP_Labelling_Guidance_v4_2_Mar2021.pdf",
+      "version": "2021-03",
+      "authority": "guidance",
+      "sha256": "cd0dffa85a5ae00ab46d82da9ec184788caa9d9a46f5bac829f6146a243615ae",
+      "pages": 200,
+      "currentness": "not_verified_after_snapshot"
+    }
+  ]
+}
