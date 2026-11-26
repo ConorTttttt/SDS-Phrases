@@ -198,7 +198,7 @@ Every subsequent task must follow these steps in order and report on each one.
 
 | Module (coverage id) | Implementation | Status (coverage.json) | Scope and limits |
 |---|---|---|---|
-| Article 31 supply (`article31`) | `src/toolkit.py` (`article31`, CLI) + `canonical/title_iv.json` | partial | Art. 31(1)/(4) positive trigger routing only. 31(3), 32 and special CLP triggers are not executable |
+| Article 31 supply (`article31`) | `src/toolkit.py` (`article31`, CLI) + `canonical/title_iv.json` + `src/regulatory_evaluators.py` | partial | Legacy `article31()` routing retained. Advisory evaluators for 31(1)(a)–(c), 31(3)(a)–(b) and 31(4). 31(3)(c), 32 and special CLP triggers are not executable |
 | Annex II structure (`structure`) | `src/reach_annex2_audit.py`, `rules/eu_reach_annex2_partb_2026.json` | implemented, structural only | 16 sections + 51 subsection headings. Heading presence ≠ content adequacy |
 | Section 3 disclosure (`section3`) | `regulatory/author/references/REACH_SECTION3_DISCLOSURE_ENGINE.md` | knowledge only | No executable disclosure engine |
 | Section 9 (`section9`) | `modules/section9/rules.mjs` (+ `web/section9-*`) | partial | 9.1 applicability heuristic, 9.2 reference lists. Unknown-input guard |
@@ -214,6 +214,7 @@ Every subsequent task must follow these steps in order and report on each one.
 | Guidance sources | `src/guidance_sources.py`, `src/guidance_pdf_verification.py` | implemented | Non-binding. Verifies hash, page count and chapter anchors only |
 | REACH source index | `src/reach_annex2_source.py` | implemented | Accepts the full 603-page PDF or the legacy 36-page excerpt (`3e6304eb…`) |
 | Canonical registry | `src/canonical_requirements.py` | implemented (candidate data) | Builds JSON/JSONL/SQLite FTS5, migration, clause lookup, version resolution |
+| Executable evaluators (`executable_evaluators`) | `src/regulatory_evaluators.py`, `regulatory/canonical/evaluators.json` | pilot, advisory (gate closed) | 16 of 369 targets bound: Art. 31(1)(a)–(c), 31(3)(a)–(b), 31(4), 31(6) headings/date, Annex II 0.4. See §5.1 |
 | Authoring workspace (`authoring_workspace`) | `src/sds_authoring.py`, `src/authoring_api.py`, `web/authoring.*` | implemented, draft only | Controlled phrase approval/revocation, revisions, review gates, JSON/PDF/DOCX draft export. No release |
 | Gemini (`gemini`) | `scripts/build_gemini_package.py`, `gemini/roles/build.py` | generators implemented | Live Gemini behaviour not validated |
 | Exchange (`exchange_import`) | `gemini/roles/exchange.py` | implemented, pending human review | Selective export. Import only stages `pending.json` |
@@ -266,6 +267,46 @@ and either `legacy_ids` (Annex II) or `source_record_ids` (Title IV/CLP; CLP add
 (`legacy_snapshot` pins the inventory blob `1bf7a9f…`); REF-11 entries stay in `enforcement_crosswalk`;
 Section 9.2 illustrative data are not standalone duties; Annex II, Title IV and CLP remain separate
 components even in combined exports.
+
+### 5.1 Controlled executable evaluators (Task 24 pilot)
+
+- **Registry:** `regulatory/canonical/evaluators.json` (`sds-canonical-evaluators/v1`, `2026-11-27-pilot-r1`). Each
+  binding = `requirement_id` + exact `rule_version` + allow-listed `evaluator` name/version + declarative
+  `parameters` + `software_implementation_status` + `runtime_validation` + `limitations`. **No code in JSON.**
+  `validate_registry()` rejects unknown keys (for example `code`, `expression`, `regulatory_verification_status`),
+  unknown evaluators, version mismatches, missing test files and any threshold that is not copied verbatim
+  from the canonical wording.
+- **Evaluators** (`EVALUATORS` in `src/regulatory_evaluators.py`): `article31_1_trigger`, `article31_4_public_exception`,
+  `article31_3_ingredient_threshold`, `annex_ii_structure`, `sds_dated`. Adding one requires code review,
+  regression tests, a registry entry and a ledger entry.
+- **Logic primitives:** three-valued facts (`fact`), `all3`/`any3`, exact `Decimal` parsing (floats rejected),
+  point or interval concentrations with inclusivity, unit validation (`% w/w`, `% v/v`; no conversion),
+  contradiction detection, effective-date and snapshot checks, and missing-information collection.
+- **Statuses:**
+  - Regulatory verification is read from the canonical record and is never written by evaluators.
+  - Software implementation and runtime validation come from the binding.
+  - `promotion_gate()` (R9) opens only for `independently_verified_legal_rule` with full sign-off
+    (`competent_person`, `reviewer`, `audit_reference`, `verified_at`, `source_locator`) and a source verified current.
+  - The canonical loader still rejects records that are not `manual_review_only`.
+  - While the gate is closed, a computed yes/no maps to *Requires competent-person review*, unknown maps to *Insufficient evidence*, and contradictions map to review.
+- **Traces:** `sds-evaluator-trace/v1` contains:
+  - requirement ID, rule version, evaluator and evaluator version;
+  - registry version and binding digest;
+  - input data and input digest;
+  - evidence references, evaluated conditions and calculation results;
+  - citations with source SHA-256;
+  - missing information and contradictions;
+  - verification statuses and limitations;
+  - `trace_digest`, which `verify_trace()` recomputes.
+- **Integration:**
+  - `toolkit.assess()` returns `executable_evaluations`.
+  - `sds_assessment.assess()` attaches `evaluator_trace` and `calculation` to bound rows, using `context.reach` and the reviewed heading inventory.
+  - `sds_authoring.evaluate()` reports `engines.executable` and fingerprints `evaluators.json`.
+  - The Gemini exchange exports the `calculation` field and an `evaluator_trace_snapshot`. It rejects model replies that return a compliance conclusion while the gate is closed.
+  - Both role packages include `canonical-evaluators.json`.
+- **Changing a canonical record** changes its rule version, so its binding silently stops matching. The evaluator then
+  returns manual review until a new binding for the new version is reviewed. Never edit a binding's
+  `rule_version` without re-reviewing the parameters against the new wording.
 
 ---
 
@@ -347,7 +388,8 @@ python3 src/sds_assessment.py --out ../reviewed --review review.json supplier.pd
 python3 gemini/roles/exchange.py export CASE/findings.json PRODUCT-REV export.json --select heading/1:section
 python3 gemini/roles/exchange.py import CASE/findings.json PRODUCT-REV pending.json --bundle export.json --response gemini-response.json
 python3 evaluate.py evaluation.json A01 [--expected]     # inside an extracted role package
-python3 src/toolkit.py regulatory/example.synthetic.json # ✅ advisory Article 31 + heading review
+python3 src/toolkit.py regulatory/example.synthetic.json # ✅ advisory Article 31 + heading review + executable_evaluations
+PYTHONPATH=src python3 -c "import regulatory_evaluators as e; print(e.registry_coverage())"   # registry validation and coverage
 ```
 
 ---
@@ -370,6 +412,8 @@ python3 src/toolkit.py regulatory/example.synthetic.json # ✅ advisory Article 
 | `sds-source-register/v0.1` | `sources/source_register.json` |
 | `sds-toolkit-assessment/v1` | `src/toolkit.py` output |
 | `sds-validation/v1` | runner manifests and `validation/*.json` |
+| `sds-canonical-evaluators/v1` | `regulatory/canonical/evaluators.json` (bindings; no code) |
+| `sds-evaluator-trace/v1` | `regulatory_evaluators.evaluate()` output; `calculation` export field |
 | JSON Schemas | `INTAKE` / `OUTPUT` in `gemini/roles/exchange.py` → `product-intake.schema.json`, `assessment-output.schema.json` in role packages |
 
 Each pack records its draft or unverified state, either at the top level (`status` / `review_status`), per rule (for example `"unverified"` in the demo pack), or in source metadata (`source.source_status` in the Part B structure). Keep these fields accurate, and never set a verified state without meeting the R9 gate.
@@ -435,7 +479,7 @@ post-snapshot amendments that must be reconciled before any date-specific execut
 
 ## 10. Tests and validation evidence
 
-### 10.1 Inventory (217 Python tests + 11 Node tests)
+### 10.1 Inventory (239 Python tests + 11 Node tests)
 
 | Test module | Tests | Notes |
 |---|---|---|
@@ -450,6 +494,7 @@ post-snapshot amendments that must be reconciled before any date-specific execut
 | `test_canonical_clp`, `test_canonical_requirements`, `test_catalogue_phase1`, `test_toolkit_integration` | 6 each | |
 | `test_stabilisation` | 4 | 1 needs `SDS_SOURCE_DIR` |
 | `test_canonical_title_iv`, `test_package_sources`, `test_regulatory_api` | 3 each | package: 1 needs `SDS_SOURCE_DIR` + `SDS_AUTHOR_DIR` |
+| `test_regulatory_evaluators` | 22 | Registry validation, no-code guard, gate bypass, three-valued, decimal/interval/unit, contradictions, dates, history, traces, integration |
 | `test_integration_fixes` | 17 | JSONL/matrix determinism, drift, legacy KB records, output guards, coverage evidence, LF line endings |
 | `test_import_catalogue` | 2 | |
 | `test_authoring_http` | 1 | HTTP round-trip |
@@ -499,7 +544,7 @@ output, not from the repo tree, because it expects bundled PDFs.
 | Same inside `unshare --net` | **217/217 passed** |
 | Default environment / Node | 211 passed, 6 skipped / 11/11 |
 | Gemini rebuild + sync check | All canonical components, coverage register and manifest identical to the repo |
-| CI history | Run 45908436704 (be0524e) and run 45909764858 (9130ba5): Ubuntu passed; Windows failed from CRLF checkout (fixed here). Windows CI confirmation pending |
+| CI history | Runs 45908436704 (be0524e) and 45909764858 (9130ba5): Ubuntu passed, Windows failed from CRLF checkout. **Run 45910715379 (27feb1c): all four jobs passed, Windows included** |
 
 Evidence files: `validation/full-19efd596.json`, `validation/integration-fixes-81656862.json`, `validation/integration-fixes-a76511c0.json`. These results cover only commit `19efd59`. Later commits
 need their own runs. None of this is legal or regulatory validation.
@@ -525,7 +570,7 @@ Statuses: **Done** means implemented with executed evidence (not legally verifie
 | L10 | Offline exchange export/import staging | Done | |
 | L11 | Section 9 module integration | Done | Independent legal validation pending |
 | L12 | Supplier intake (PDF/OCR/DOCX/TXT/JSON) | Done (tests) | Visual verification of image candidates is manual |
-| L13 | Article 31 routing | Partial | 31(1)/(4) only |
+| L13 | Article 31 routing | Partial | Advisory evaluators for 31(1)(a)–(c), 31(3)(a)–(b), 31(4); 31(3)(c) and 32 outstanding |
 | L14 | Annex II structural audit | Partial | Structure only |
 | L15 | Section 3 disclosure | Partial (knowledge only) | Executable engine outstanding (L29) |
 | L16 | Readiness prompts (Sections 4, 7, 8) | Partial | Other sections outstanding |
@@ -535,13 +580,13 @@ Statuses: **Done** means implemented with executed evidence (not legally verifie
 | L20 | Evidence-led authoring workspace | Partial | Draft gates. Release workflow outstanding (L35) |
 | L21 | Page extraction | Partial | `unverified_layout`. Tables, footnotes and formulas need visual checks |
 | L22 | Documentation currency | Partial | README rewritten for the integration branch; older `docs/` notes remain historical |
-| L23 | GitHub Actions | Partial | Executing since run 45908436704 (be0524e). Ubuntu jobs pass. Earlier runs had zero steps |
+| L23 | GitHub Actions | Done | Run 45910715379 (27feb1c): all 4 jobs passed. Earlier runs had zero steps or Windows CRLF failures |
 | L24 | Licensed catalogue verification (phrase verifiers, live wording) | **Blocked** | Requires the licensed eSDScom ZIP on the developer machine |
 | L25 | ECHA guidance Markdown archive import/cross-check | **Blocked** | `CLP_A_I-main.zip` not available |
 | L26 | Live Gemini blind evaluation | **Blocked** | Manual, authorised runs only |
 | L27 | Independent legal / competent-person verification | **Blocked** | External reviewer required |
-| L28 | Windows execution | Partial | CI at be0524e: 23 errors + 1 failure caused by CRLF checkout breaking the legacy inventory blob pin. Fixed by `.gitattributes` (`eol=lf`) with tests and a local autocrlf simulation. See §10.3 for the CI result |
-| L29 | Executable Section 3, Art. 31(3) and Art. 32 | Outstanding | Requires the R9 gate |
+| L28 | Windows execution | Done (CI) | Windows 3.12/3.14 passed in run 45910715379 after the `.gitattributes` LF fix |
+| L29 | Executable Section 3, Art. 31(3) and Art. 32 | Partial | 31(3)(a)–(b) advisory evaluators exist; 31(3)(c), 32 and Section 3 disclosure outstanding; determinative use requires the R9 gate |
 | L30 | Post-snapshot amendment reconciliation (REACH and CLP) | Outstanding | See §8.1 |
 | L31 | CLP classification engine (Arts. 5–16, Annex I) | Outstanding | Keep separate from disclosure (R10) |
 | L32 | CLP Annexes II–VI statements, pictograms, Annex VI entries | Outstanding | |
@@ -550,6 +595,8 @@ Statuses: **Done** means implemented with executed evidence (not legally verifie
 | L35 | Competent-person release record (sign-off, versioned) | Outstanding | No autonomous release (R14) |
 | L36 | Role builder refuses output inside the repo | Done | `check_output()` + tests |
 | L37 | Legacy single-file KB embeds canonical records | Done | `knowledge_base_markdown()` + tests |
+| L39 | Controlled executable evaluator architecture (Task 24) | Partial (pilot) | 16 bindings; registry validation, R9 gate, traces, assessment/authoring/toolkit/exchange integration, 22 tests. Next: more structural checks, independent legal verification and sign-off records |
+| L40 | Regulatory sign-off record workflow to open the gate | Outstanding | Needs a versioned `regulatory_signoff` schema, competent-person review UI and loader support (R9, R14) |
 | L38 | Deterministic `coverage_matrix.json` and JSONL generation | Done | Root cause: committed JSONL was written with compact, insertion-order serialisation, while the builder used sorted keys and default separators. Unified under `jsonl()`; byte-reproducibility tests |
 
 ---

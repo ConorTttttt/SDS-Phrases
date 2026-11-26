@@ -80,8 +80,25 @@ def json_text(value):
 
 MATRIX_WARNING = "Candidate target coverage only. No independent legal verification or exhaustive atomisation."
 
-def coverage_matrix(pack, raw):
-    """Committed per-section snapshot derived solely from coverage(); never hand-edited."""
+def evaluator_bindings(root=ROOT):
+    """Raw (id, rule_version) -> binding map; full validation is in regulatory_evaluators."""
+    path = Path(root) / "regulatory/canonical/evaluators.json"
+    if not path.is_file():
+        return {}, None
+    registry = read(path)
+    return {(b["requirement_id"], b["rule_version"]): b for b in registry.get("bindings", [])}, registry.get("registry_version")
+
+def implementation_entry(row, bindings):
+    """Software status kept separate from the record's regulatory verification status."""
+    b = bindings.get((row["id"], requirement_version(row)))
+    return {"software_implementation_status": b["software_implementation_status"] if b else "not_implemented",
+            "evaluator": f"{b['evaluator']}@{b['evaluator_version']}" if b else None,
+            "runtime_validation_status": b["runtime_validation"]["status"] if b else "not_tested"}
+
+def coverage_matrix(pack, raw, root=ROOT):
+    """Committed per-section snapshot derived from coverage() and the evaluator registry; never hand-edited."""
+    bindings, registry_version = evaluator_bindings(root)
+    rows = {r["id"]: r for r in pack["requirements"]}
     sections = {}
     for section, entry in sorted(coverage(pack, raw).items(), key=lambda item: int(item[0])):
         sections[section] = {"source_records": entry["source_records"],
@@ -89,10 +106,15 @@ def coverage_matrix(pack, raw):
             "unmapped_source_records": entry["unmapped_source_records"],
             "unresolved_source_records": entry["unresolved_source_records"],
             "reference_only_records": entry["reference_only_records"],
-            "assessment_targets": [{k: r[k] for k in ("id", "verification_status", "implementation_status")}
+            "assessment_targets": [{**{k: r[k] for k in ("id", "verification_status", "implementation_status")},
+                                    **implementation_entry(rows[r["id"]], bindings)}
                                    for r in entry["requirements"]],
             "verification": entry["coverage"]}
-    return {"release": pack["release"], "warning": MATRIX_WARNING, "sections": sections}
+    bound = sum(t["evaluator"] is not None for sec in sections.values() for t in sec["assessment_targets"])
+    return {"release": pack["release"], "warning": MATRIX_WARNING,
+            "executable_evaluators": {"registry_version": registry_version, "annex_ii_targets_bound": bound,
+                                      "note": "Bound evaluators are advisory while the R9 promotion gate is closed; regulatory verification is unchanged."},
+            "sections": sections}
 
 COMMITTED_EXPORTS = ("regulatory/canonical/requirements.jsonl", "regulatory/canonical/coverage_matrix.json")
 
@@ -100,7 +122,7 @@ def committed_exports(root=ROOT):
     """Generated files that are committed for review; regenerate, do not edit by hand."""
     pack, raw, _ = load(root)
     return {COMMITTED_EXPORTS[0]: jsonl(pack["requirements"]),
-            COMMITTED_EXPORTS[1]: json_text(coverage_matrix(pack, raw))}
+            COMMITTED_EXPORTS[1]: json_text(coverage_matrix(pack, raw, root))}
 
 def sync_committed(root=ROOT, check=False):
     """Write (or, with check=True, only compare) committed exports. Returns stale paths."""
@@ -315,9 +337,11 @@ def resolve_any_requirement_version(identifier, version, root=ROOT):
             or resolve_requirement_version(title,identifier,version)
             or resolve_requirement_version(load_clp(root,annex,title),identifier,version))
 
-def title_iv_coverage(pack):
+def title_iv_coverage(pack, root=ROOT):
+    bindings, _ = evaluator_bindings(root)
     return {str(n): {"requirements":[{"id":r["id"],"version":requirement_version(r),
-        "verification_status":r["verification_status"],"implementation_status":r["implementation_status"]}
+        "verification_status":r["verification_status"],"implementation_status":r["implementation_status"],
+        **implementation_entry(r, bindings)}
         for r in pack["requirements"] if r["clause"].startswith("Article "+str(n))],
         "coverage":"candidate_pending_independent_verification"} for n in range(31,37)}
 
@@ -335,10 +359,10 @@ def build(out, root=ROOT, source_dir=None):
         "requirements":all_rows},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     (out/"title_iv.json").write_text(json.dumps(title,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     (out/"all_requirements.jsonl").write_bytes(jsonl(all_rows).encode("utf-8"))
-    (out/"title_iv_coverage.json").write_text(json.dumps(title_iv_coverage(title),ensure_ascii=False,indent=2),encoding="utf-8")
+    (out/"title_iv_coverage.json").write_text(json.dumps(title_iv_coverage(title,root),ensure_ascii=False,indent=2),encoding="utf-8")
     (out/"requirements.json").write_text(json.dumps(pack,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     (out/"requirements.jsonl").write_bytes(jsonl(rows).encode("utf-8"))
-    (out/"coverage_matrix.json").write_bytes(json_text(coverage_matrix(pack,raw)).encode("utf-8"))
+    (out/"coverage_matrix.json").write_bytes(json_text(coverage_matrix(pack,raw,root)).encode("utf-8"))
     (out/"coverage.json").write_text(json.dumps(coverage(pack,raw),ensure_ascii=False,indent=2),encoding="utf-8")
     (out/"migration.json").write_text(json.dumps(pack["migration"],ensure_ascii=False,indent=2),encoding="utf-8")
     path = out/"requirements.sqlite"

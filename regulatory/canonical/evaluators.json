@@ -1,0 +1,406 @@
+{
+  "schema": "sds-canonical-evaluators/v1",
+  "registry_version": "2026-11-27-pilot-r1",
+  "description": "Bindings of exact canonical rule versions to approved, allow-listed Python evaluators in src/regulatory_evaluators.py. Contains no executable code. Regulatory verification is read from canonical records only; every binding is advisory while the R9 promotion gate is closed.",
+  "bindings": [
+    {
+      "requirement_id": "EU-REACH-A31-SUPPLY-HAZARDOUS",
+      "rule_version": "77da2539c009b26bf07a62c9e4a100d3d8a847640d5bf7f91b5d7749aaf71d28",
+      "evaluator": "article31_1_trigger",
+      "evaluator_version": "1.0.0",
+      "parameters": {
+        "branch": "hazardous"
+      },
+      "software_implementation_status": "pilot_implemented",
+      "runtime_validation": {
+        "status": "regression_tested",
+        "tests": [
+          "tests/test_regulatory_evaluators.py"
+        ]
+      },
+      "limitations": [
+        "Product facts are user-submitted; Article 2 scope, CLP classification and supply records are not verified by the software."
+      ]
+    },
+    {
+      "requirement_id": "EU-REACH-A31-SUPPLY-PBT-VPVB",
+      "rule_version": "df26400a0d935424e60ffb7271f5f0598442a686102e1a4e45a4f47b67404590",
+      "evaluator": "article31_1_trigger",
+      "evaluator_version": "1.0.0",
+      "parameters": {
+        "branch": "pbt_vpvb"
+      },
+      "software_implementation_status": "pilot_implemented",
+      "runtime_validation": {
+        "status": "regression_tested",
+        "tests": [
+          "tests/test_regulatory_evaluators.py"
+        ]
+      },
+      "limitations": [
+        "Product facts are user-submitted; Article 2 scope, CLP classification and supply records are not verified by the software.",
+        "PBT/vPvB status per Annex XIII is an input, not computed."
+      ]
+    },
+    {
+      "requirement_id": "EU-REACH-A31-SUPPLY-CANDIDATE",
+      "rule_version": "eba5706b3d8550d21b936e665f6a35240e4df84d9ce2d6540324fd4bb919e115",
+      "evaluator": "article31_1_trigger",
+      "evaluator_version": "1.0.0",
+      "parameters": {
+        "branch": "candidate_list_other_reason"
+      },
+      "software_implementation_status": "pilot_implemented",
+      "runtime_validation": {
+        "status": "regression_tested",
+        "tests": [
+          "tests/test_regulatory_evaluators.py"
+        ]
+      },
+      "limitations": [
+        "Product facts are user-submitted; Article 2 scope, CLP classification and supply records are not verified by the software.",
+        "Candidate List inclusion and date are inputs, not looked up."
+      ]
+    },
+    {
+      "requirement_id": "EU-REACH-A31-GENERAL-PUBLIC-EXCEPTION",
+      "rule_version": "70106211ac284045bd84dbd34a8275f3facf3e2c441f0ad834560f0f39e8af5e",
+      "evaluator": "article31_4_public_exception",
+      "evaluator_version": "1.0.0",
+      "parameters": {},
+      "software_implementation_status": "pilot_implemented",
+      "runtime_validation": {
+        "status": "regression_tested",
+        "tests": [
+          "tests/test_regulatory_evaluators.py"
+        ]
+      },
+      "limitations": [
+        "Product facts are user-submitted; Article 2 scope, CLP classification and supply records are not verified by the software.",
+        "Not a blanket consumer-product exemption."
+      ]
+    },
+    {
+      "requirement_id": "EU-REACH-A31-REQUEST-HAZARD",
+      "rule_version": "1b38e052f21fb00e657a743ce4f936bdb104025af2ed54d900373bbd62aaa5f6",
+      "evaluator": "article31_3_ingredient_threshold",
+      "evaluator_version": "1.0.0",
+      "parameters": {
+        "ingredient_flag": "human_health_or_environmental_hazard",
+        "phase_thresholds": {
+          "non_gaseous": {
+            "source_text": "≥ 1 % by weight",
+            "operator": ">=",
+            "value": "1",
+            "unit": "% w/w"
+          },
+          "gaseous": {
+            "source_text": "≥ 0,2 % by volume",
+            "operator": ">=",
+            "value": "0.2",
+            "unit": "% v/v"
+          }
+        }
+      },
+      "software_implementation_status": "pilot_implemented",
+      "runtime_validation": {
+        "status": "regression_tested",
+        "tests": [
+          "tests/test_regulatory_evaluators.py"
+        ]
+      },
+      "limitations": [
+        "Product facts are user-submitted; Article 2 scope, CLP classification and supply records are not verified by the software.",
+        "Ingredient hazard flags are inputs; no CLP classification is calculated.",
+        "Distinct from the Annex II 3.2.2 disclosure test (R10)."
+      ]
+    },
+    {
+      "requirement_id": "EU-REACH-A31-REQUEST-CARC2",
+      "rule_version": "07000a46989a464232d62dfa3744ea9d1932fab1596db82f15a6186c758538ea",
+      "evaluator": "article31_3_ingredient_threshold",
+      "evaluator_version": "1.0.0",
+      "parameters": {
+        "ingredient_flag": "carcinogenic_category_2",
+        "phase_thresholds": {
+          "non_gaseous": {
+            "source_text": "≥ 0,1 % by weight",
+            "operator": ">=",
+            "value": "0.1",
+            "unit": "% w/w"
+          }
+        }
+      },
+      "software_implementation_status": "pilot_implemented",
+      "runtime_validation": {
+        "status": "regression_tested",
+        "tests": [
+          "tests/test_regulatory_evaluators.py"
+        ]
+      },
+      "limitations": [
+        "Product facts are user-submitted; Article 2 scope, CLP classification and supply records are not verified by the software.",
+        "Ingredient hazard flags are inputs; no CLP classification is calculated.",
+        "No automatic conclusion for gaseous mixtures under this branch."
+      ]
+    },
+    {
+      "requirement_id": "EU-REACH-A31-REQUEST-REPRO",
+      "rule_version": "e1924ee65b56dc54793b439a7bca488e6be8fc97e7fdc0e4f790046afb500080",
+      "evaluator": "article31_3_ingredient_threshold",
+      "evaluator_version": "1.0.0",
+      "parameters": {
+        "ingredient_flag": "reproductive_toxicant_category_1a_1b_2",
+        "phase_thresholds": {
+          "non_gaseous": {
+            "source_text": "≥ 0,1 % by weight",
+            "operator": ">=",
+            "value": "0.1",
+            "unit": "% w/w"
+          }
+        }
+      },
+      "software_implementation_status": "pilot_implemented",
+      "runtime_validation": {
+        "status": "regression_tested",
+        "tests": [
+          "tests/test_regulatory_evaluators.py"
+        ]
+      },
+      "limitations": [
+        "Product facts are user-submitted; Article 2 scope, CLP classification and supply records are not verified by the software.",
+        "Ingredient hazard flags are inputs; no CLP classification is calculated.",
+        "No automatic conclusion for gaseous mixtures under this branch."
+      ]
+    },
+    {
+      "requirement_id": "EU-REACH-A31-REQUEST-SKIN-SENS",
+      "rule_version": "b50bd693a835774130ebe46467f3c7ee324ff32186188ed93842ad027a86458b",
+      "evaluator": "article31_3_ingredient_threshold",
+      "evaluator_version": "1.0.0",
+      "parameters": {
+        "ingredient_flag": "skin_sensitiser_category_1",
+        "phase_thresholds": {
+          "non_gaseous": {
+            "source_text": "≥ 0,1 % by weight",
+            "operator": ">=",
+            "value": "0.1",
+            "unit": "% w/w"
+          }
+        }
+      },
+      "software_implementation_status": "pilot_implemented",
+      "runtime_validation": {
+        "status": "regression_tested",
+        "tests": [
+          "tests/test_regulatory_evaluators.py"
+        ]
+      },
+      "limitations": [
+        "Product facts are user-submitted; Article 2 scope, CLP classification and supply records are not verified by the software.",
+        "Ingredient hazard flags are inputs; no CLP classification is calculated.",
+        "No automatic conclusion for gaseous mixtures under this branch."
+      ]
+    },
+    {
+      "requirement_id": "EU-REACH-A31-REQUEST-RESP-SENS",
+      "rule_version": "58b4a3203fff30ac19b3738b1e7b6139a9ca89a4239399e628dec80f60c7091c",
+      "evaluator": "article31_3_ingredient_threshold",
+      "evaluator_version": "1.0.0",
+      "parameters": {
+        "ingredient_flag": "respiratory_sensitiser_category_1",
+        "phase_thresholds": {
+          "non_gaseous": {
+            "source_text": "≥ 0,1 % by weight",
+            "operator": ">=",
+            "value": "0.1",
+            "unit": "% w/w"
+          }
+        }
+      },
+      "software_implementation_status": "pilot_implemented",
+      "runtime_validation": {
+        "status": "regression_tested",
+        "tests": [
+          "tests/test_regulatory_evaluators.py"
+        ]
+      },
+      "limitations": [
+        "Product facts are user-submitted; Article 2 scope, CLP classification and supply records are not verified by the software.",
+        "Ingredient hazard flags are inputs; no CLP classification is calculated.",
+        "No automatic conclusion for gaseous mixtures under this branch."
+      ]
+    },
+    {
+      "requirement_id": "EU-REACH-A31-REQUEST-LACTATION",
+      "rule_version": "e7040989e9f595c2243ac5101db6a1b1a2c85532d50722a627111ec32b285ff7",
+      "evaluator": "article31_3_ingredient_threshold",
+      "evaluator_version": "1.0.0",
+      "parameters": {
+        "ingredient_flag": "effects_on_or_via_lactation",
+        "phase_thresholds": {
+          "non_gaseous": {
+            "source_text": "≥ 0,1 % by weight",
+            "operator": ">=",
+            "value": "0.1",
+            "unit": "% w/w"
+          }
+        }
+      },
+      "software_implementation_status": "pilot_implemented",
+      "runtime_validation": {
+        "status": "regression_tested",
+        "tests": [
+          "tests/test_regulatory_evaluators.py"
+        ]
+      },
+      "limitations": [
+        "Product facts are user-submitted; Article 2 scope, CLP classification and supply records are not verified by the software.",
+        "Ingredient hazard flags are inputs; no CLP classification is calculated.",
+        "No automatic conclusion for gaseous mixtures under this branch."
+      ]
+    },
+    {
+      "requirement_id": "EU-REACH-A31-REQUEST-PBT",
+      "rule_version": "99f3329f63237bf321ccc93c254732d5b8cb0228bf4a9afd2c937cab0715a987",
+      "evaluator": "article31_3_ingredient_threshold",
+      "evaluator_version": "1.0.0",
+      "parameters": {
+        "ingredient_flag": "pbt",
+        "phase_thresholds": {
+          "non_gaseous": {
+            "source_text": "≥ 0,1 % by weight",
+            "operator": ">=",
+            "value": "0.1",
+            "unit": "% w/w"
+          }
+        }
+      },
+      "software_implementation_status": "pilot_implemented",
+      "runtime_validation": {
+        "status": "regression_tested",
+        "tests": [
+          "tests/test_regulatory_evaluators.py"
+        ]
+      },
+      "limitations": [
+        "Product facts are user-submitted; Article 2 scope, CLP classification and supply records are not verified by the software.",
+        "Ingredient hazard flags are inputs; no CLP classification is calculated.",
+        "No automatic conclusion for gaseous mixtures under this branch."
+      ]
+    },
+    {
+      "requirement_id": "EU-REACH-A31-REQUEST-VPVB",
+      "rule_version": "1b6634b44d2a28b36465350a17bdaa0485291a946c60c2d177cbcd43f8a94209",
+      "evaluator": "article31_3_ingredient_threshold",
+      "evaluator_version": "1.0.0",
+      "parameters": {
+        "ingredient_flag": "vpvb",
+        "phase_thresholds": {
+          "non_gaseous": {
+            "source_text": "≥ 0,1 % by weight",
+            "operator": ">=",
+            "value": "0.1",
+            "unit": "% w/w"
+          }
+        }
+      },
+      "software_implementation_status": "pilot_implemented",
+      "runtime_validation": {
+        "status": "regression_tested",
+        "tests": [
+          "tests/test_regulatory_evaluators.py"
+        ]
+      },
+      "limitations": [
+        "Product facts are user-submitted; Article 2 scope, CLP classification and supply records are not verified by the software.",
+        "Ingredient hazard flags are inputs; no CLP classification is calculated.",
+        "No automatic conclusion for gaseous mixtures under this branch."
+      ]
+    },
+    {
+      "requirement_id": "EU-REACH-A31-REQUEST-CANDIDATE",
+      "rule_version": "71be2aa5fc255a6335348557608900def79faec7dca4d2e8292140c88d454ee9",
+      "evaluator": "article31_3_ingredient_threshold",
+      "evaluator_version": "1.0.0",
+      "parameters": {
+        "ingredient_flag": "candidate_list_other_reason",
+        "phase_thresholds": {
+          "non_gaseous": {
+            "source_text": "≥ 0,1 % by weight",
+            "operator": ">=",
+            "value": "0.1",
+            "unit": "% w/w"
+          }
+        }
+      },
+      "software_implementation_status": "pilot_implemented",
+      "runtime_validation": {
+        "status": "regression_tested",
+        "tests": [
+          "tests/test_regulatory_evaluators.py"
+        ]
+      },
+      "limitations": [
+        "Product facts are user-submitted; Article 2 scope, CLP classification and supply records are not verified by the software.",
+        "Ingredient hazard flags are inputs; no CLP classification is calculated.",
+        "No automatic conclusion for gaseous mixtures under this branch."
+      ]
+    },
+    {
+      "requirement_id": "EU-REACH-A31-HEADINGS",
+      "rule_version": "cf55c9aa227d2eef99e493904fe6f576222655ce67ecb871a1967b2a79a9913d",
+      "evaluator": "annex_ii_structure",
+      "evaluator_version": "1.0.0",
+      "parameters": {
+        "check": "main_headings"
+      },
+      "software_implementation_status": "pilot_implemented",
+      "runtime_validation": {
+        "status": "regression_tested",
+        "tests": [
+          "tests/test_regulatory_evaluators.py"
+        ]
+      },
+      "limitations": [
+        "Heading inventory is user-attested; heading presence is not content adequacy."
+      ]
+    },
+    {
+      "requirement_id": "EU-REACH-AII-NO-BLANK",
+      "rule_version": "df4b0c413603de0f9e8eadda57cdcfc4360c8e77f811510b3fd1e73c6b18256c",
+      "evaluator": "annex_ii_structure",
+      "evaluator_version": "1.0.0",
+      "parameters": {
+        "check": "no_blank_subsections"
+      },
+      "software_implementation_status": "pilot_implemented",
+      "runtime_validation": {
+        "status": "regression_tested",
+        "tests": [
+          "tests/test_regulatory_evaluators.py"
+        ]
+      },
+      "limitations": [
+        "Heading inventory is user-attested; heading presence is not content adequacy."
+      ]
+    },
+    {
+      "requirement_id": "EU-REACH-A31-DATE",
+      "rule_version": "475f280d3d0edeb3318dd91e19d930a26bb104f98e6236cdd52204788445e189",
+      "evaluator": "sds_dated",
+      "evaluator_version": "1.0.0",
+      "parameters": {},
+      "software_implementation_status": "pilot_implemented",
+      "runtime_validation": {
+        "status": "regression_tested",
+        "tests": [
+          "tests/test_regulatory_evaluators.py"
+        ]
+      },
+      "limitations": [
+        "Date presence only; revision and update obligations (Article 31(9)) are separate."
+      ]
+    }
+  ]
+}

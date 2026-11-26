@@ -8,7 +8,8 @@ ROOT = Path(__file__).resolve().parents[2]
 STATUS = ["Compliant against assessed requirement", "Non-compliant", "Potential non-compliance",
           "Insufficient evidence", "Not applicable", "Not assessed", "Requires competent-person review"]
 DIMENSIONS = "applicability presence completeness regulatory_adequacy scientific_plausibility internal_consistency expert_judgement".split()
-FIELDS = ["original_wording", "product_evidence", "page", "section"]
+FIELDS = ["original_wording", "product_evidence", "page", "section", "calculation"]
+DETERMINATIVE = STATUS[:2]
 STRING = {"type": "string", "minLength": 1}
 
 
@@ -33,6 +34,9 @@ def versions(rows=()):
     pinned = {r["id"]:r["rule_version"] for r in rows if r.get("rule_version")}
     if pinned:
         result["canonical_rule_snapshot"] = digest(pinned)
+    traces = {r["id"]: r["evaluator_trace"]["trace_digest"] for r in rows if isinstance(r.get("evaluator_trace"), dict)}
+    if traces:
+        result["evaluator_trace_snapshot"] = digest(traces)
     return result
 
 
@@ -68,6 +72,7 @@ def validate(rows, bundle, response, product):
     if any(response[k] != trusted[k] for k in (*HEADER, "export_id")):
         raise ValueError("Mismatched product, document, export or source snapshot")
     known = {r["id"] for r in rows}
+    indexed_rows = {r["id"]: r for r in rows}
     selected = {e["id"] for e in trusted["evidence"]}
     if not isinstance(response["findings"], list):
         raise ValueError("Expected findings array")
@@ -79,6 +84,9 @@ def validate(rows, bundle, response, product):
         for k in ["citation", "interpretation", "requested_action", *DIMENSIONS]:
             if not isinstance(f[k], str) or not f[k].strip():
                 raise ValueError("Missing " + k)
+        trace = indexed_rows[f["requirement_id"]].get("evaluator_trace")
+        if isinstance(trace, dict) and not trace["verification"]["promotion_gate"]["open"] and f["status"] in DETERMINATIVE:
+            raise ValueError("Review gate closed for " + f["requirement_id"] + ": model cannot return a compliance conclusion")
         ids = f["evidence_ids"]
         if not isinstance(ids, list) or any(i not in selected for i in ids):
             raise ValueError("Unknown evidence")

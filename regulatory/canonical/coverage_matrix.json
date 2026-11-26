@@ -1,6 +1,11 @@
 {
   "release": "2026-11-26-annex-ii-expanded-r2",
   "warning": "Candidate target coverage only. No independent legal verification or exhaustive atomisation.",
+  "executable_evaluators": {
+    "registry_version": "2026-11-27-pilot-r1",
+    "annex_ii_targets_bound": 1,
+    "note": "Bound evaluators are advisory while the R9 promotion gate is closed; regulatory verification is unchanged."
+  },
   "sections": {
     "0": {
       "source_records": 24,
@@ -12,102 +17,162 @@
         {
           "id": "EU-REACH-AII-CSR-CONSISTENCY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-CSR-EXPOSURE-SCENARIO",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-NANOFORM-LINK",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-COMPETENT-PERSON",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TRAINING",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-CLEAR-CONCISE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-COMPILATION-DATE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-REVISION-CHANGES",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-REVISION-IDENTIFIER",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PAGINATION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-RELEVANT-CONTENT",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-NO-BLANK",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "pilot_implemented",
+          "evaluator": "annex_ii_structure@1.0.0",
+          "runtime_validation_status": "regression_tested"
         },
         {
           "id": "EU-REACH-AII-GENERAL-SAFE-USE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-GENERAL-WORKPLACE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-GENERAL-LANGUAGE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-GENERAL-LENGTH",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-GENERAL-ADDITIONAL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-GENERAL-MARITIME",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-GENERAL-UNITS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-GENERAL-SPECIAL-SDS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"
@@ -122,97 +187,154 @@
         {
           "id": "EU-REACH-AII-PRODUCT-IDENTIFIER",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-REGISTERED-IDENTIFIER",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-REGISTRATION-REQUEST",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-MULTI-PRODUCT",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SUBSTANCE-FORMS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-NANOFORM-WORD",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-UFI-LOCATION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-IDENTIFIED-USES",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-USES-ADVISED-AGAINST",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-USES-CSR",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SUPPLIER-IDENTITY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SUPPLIER-ADDRESS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SUPPLIER-TELEPHONE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-COMPETENT-EMAIL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-LOCAL-RESPONSIBLE-PERSON",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SUPPLIER-REGISTRATION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-EMERGENCY-SERVICE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-EMERGENCY-OFFICIAL-BODY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-EMERGENCY-LIMITS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"
@@ -227,67 +349,106 @@
         {
           "id": "EU-REACH-AII-CLASSIFICATION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-CLASSIFICATION-NOTIFICATION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-MIXTURE-NONCLASSIFIED",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-CLASSIFICATION-FULL-TEXT",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-KEY-ADVERSE-EFFECTS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-LABEL-PICTOGRAM",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-LABEL-SIGNAL-WORD",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-LABEL-HAZARD-STATEMENTS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-LABEL-PRECAUTIONARY-STATEMENTS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-LABEL-SUPPLEMENTAL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-OTHER-PBT",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-OTHER-ED",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-OTHER-NONCLASSIFIED-HAZARDS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"
@@ -302,172 +463,274 @@
         {
           "id": "EU-REACH-AII-CLASSIFIED-LOWEST-THRESHOLD",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-CLASSIFIED-UNION-OEL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-CLASSIFIED-PBT-ED",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SURFACE-CHEMISTRY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SUBSTANCE-MAIN-CONSTITUENT",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SUBSTANCE-CLASSIFIED-CONSTITUENTS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SUBSTANCE-SCL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SUBSTANCE-MFACTOR",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SUBSTANCE-ATE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SUBSTANCE-REGISTERED-NANO",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SUBSTANCE-UNREGISTERED-NANO",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-MIXTURE-DISCLOSURE-FIELDS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-MIXTURE-CONCENTRATION-FORMAT",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-MIXTURE-RANGE-WORST-CASE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-MIXTURE-WHOLE-EFFECTS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-UNCLASSIFIED-HAZARD-THRESHOLD",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-UNCLASSIFIED-OEL-THRESHOLD",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-UNCLASSIFIED-PBT-ED",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-UNCLASSIFIED-SENS-CARC",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-UNCLASSIFIED-SENS-1A",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-UNCLASSIFIED-SENS-SCL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-UNCLASSIFIED-REPRO",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-INGREDIENT-CLASSIFICATION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-INGREDIENT-STATEMENT-FULL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-INGREDIENT-NONCLASSIFIED-REASON",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-INGREDIENT-SCL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-INGREDIENT-MFACTOR",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-INGREDIENT-ATE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-INGREDIENT-REGISTERED-NANO",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-INGREDIENT-OTHER-NANO",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-INGREDIENT-NAME",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-INGREDIENT-REGISTRATION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-INGREDIENT-REGISTRATION-REQUEST",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-INGREDIENT-EC-NUMBER",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"
@@ -482,42 +745,66 @@
         {
           "id": "EU-REACH-AII-FIRSTAID-CLEAR",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-FIRSTAID-ROUTES",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-FIRSTAID-MEDICAL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-FIRSTAID-FRESH-AIR",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-FIRSTAID-CLOTHING",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-FIRSTAID-RESPONDER-PPE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-FIRSTAID-SYMPTOMS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-FIRSTAID-SPECIAL-TREATMENT",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"
@@ -532,27 +819,42 @@
         {
           "id": "EU-REACH-AII-FIRE-SUITABLE-MEDIA",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-FIRE-UNSUITABLE-MEDIA",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-FIRE-HAZARDS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-FIRE-PROTECTIVE-ACTIONS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-FIRE-PPE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"
@@ -567,42 +869,66 @@
         {
           "id": "EU-REACH-AII-SPILL-RESPONSE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SPILL-NONEMERGENCY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SPILL-RESPONDER-PPE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SPILL-ENVIRONMENT",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SPILL-CONTAINMENT",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SPILL-CLEANUP",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SPILL-INAPPROPRIATE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SPILL-CROSSREF",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"
@@ -617,67 +943,106 @@
         {
           "id": "EU-REACH-AII-HANDLING-USES",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-HANDLING-CSR",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-HANDLING-CONTAINMENT",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-HANDLING-INCOMPATIBLES",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-HANDLING-NEW-RISKS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-HANDLING-ENVIRONMENT",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-HANDLING-HYGIENE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-STORAGE-PROPERTIES",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-STORAGE-RISK",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-STORAGE-CONDITIONS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-STORAGE-INTEGRITY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-STORAGE-FACILITY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-SPECIFIC-END-USE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"
@@ -692,122 +1057,194 @@
         {
           "id": "EU-REACH-AII-EXPOSURE-CSR",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-OEL-NATIONAL-UNION-CAD",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-OEL-NATIONAL-UNION-CMR",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-OEL-OTHER-NATIONAL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-BIOLOGICAL-UNION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-BIOLOGICAL-NATIONAL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-MONITORING",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-GENERATED-CONTAMINANTS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-DNEL-PNEC",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-CONTROL-BANDING",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-CONTROLS-ES-ALTERNATIVE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TEST-WAIVER-CONDITIONS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-INTERMEDIATE-CONSISTENCY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-ENGINEERING-CONTROLS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PPE-INTEGRATED",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PPE-EYE-FACE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PPE-GLOVE-TYPE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PPE-GLOVE-MATERIAL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PPE-GLOVE-BREAKTHROUGH",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PPE-OTHER-SKIN",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PPE-RESPIRATORY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PPE-THERMAL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-ENVIRONMENTAL-CONTROLS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-ENVIRONMENTAL-CSR",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"
@@ -822,122 +1259,194 @@
         {
           "id": "EU-REACH-AII-PROPERTY-AVAILABILITY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-A",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-B",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-C",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-D",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-E",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-F",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-G",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-H",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-I",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-J",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-K",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-L",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-M",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-N",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-O",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-P",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-Q",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTY-R",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTIES-EMPIRICAL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTIES-INGREDIENT-ATTRIBUTION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-PROPERTIES-UNITS-METHOD",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-OTHER-PHYSICAL-PARAMETERS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-OTHER-SAFETY-PARAMETERS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"
@@ -952,62 +1461,98 @@
         {
           "id": "EU-REACH-AII-STABILITY-SUMMARY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-REACTIVITY-DATA",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-REACTIVITY-MIXTURE-FALLBACK",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-CHEMICAL-STABILITY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-STABILISERS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-APPEARANCE-SIGNIFICANCE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-DESENSITISED-STABILITY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-HAZARDOUS-REACTIONS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-CONDITIONS-AVOID",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-DESENSITISED-CONDITIONS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-INCOMPATIBLE-MATERIALS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-DECOMPOSITION-PRODUCTS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"
@@ -1022,127 +1567,202 @@
         {
           "id": "EU-REACH-AII-TOX-SUMMARY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-REGISTRATION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-NONCLASSIFICATION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-MARKETED-PRODUCT",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-SUPPORTING-DATA",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-ROUTES",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-SYMPTOMS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-IMMEDIATE-CHRONIC",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-INTERACTION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-SURROGATE-DATA",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-UNTESTED-MIXTURE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-MIXTURE-INTERACTIONS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-MIXTURE-CONTRIBUTION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-ED",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-OTHER",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-CLASS-ACUTE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-CLASS-SKIN",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-CLASS-EYE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-CLASS-SENSITISATION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-CLASS-MUTAGENICITY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-CLASS-CARCINOGENICITY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-CLASS-REPRODUCTION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-CLASS-STOT-SE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-CLASS-STOT-RE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TOX-CLASS-ASPIRATION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"
@@ -1157,67 +1777,106 @@
         {
           "id": "EU-REACH-AII-ECO-SUMMARY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-ECO-INGREDIENT-DATA",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-ECO-CONSISTENCY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-ECO-EXPERIMENTAL-PRIORITY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-ECO-AQUATIC-TERRESTRIAL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-ECO-MODEL-CONSIDERATION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-ECO-REGISTRATION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-ECO-PERSISTENCE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-ECO-BIOACCUMULATION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-ECO-MOBILITY",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-ECO-PBT-ASSESSMENT",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-ECO-ED",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-ECO-OTHER",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"
@@ -1232,37 +1891,58 @@
         {
           "id": "EU-REACH-AII-WASTE-GENERAL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-WASTE-CSR",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-WASTE-METHODS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-WASTE-PROPERTIES",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-WASTE-SEWAGE",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-WASTE-PRECAUTIONS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-WASTE-LEGAL-PROVISIONS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"
@@ -1277,57 +1957,90 @@
         {
           "id": "EU-REACH-AII-TRANSPORT-MODES",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TRANSPORT-UN-ID",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TRANSPORT-SHIPPING-NAME",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TRANSPORT-HAZARD-CLASS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TRANSPORT-PACKING-GROUP",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TRANSPORT-ENVIRONMENTAL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TRANSPORT-ADN-TANK",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TRANSPORT-PRECAUTIONS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TRANSPORT-BULK-LIQUID",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TRANSPORT-BULK-SOLID",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-TRANSPORT-BULK-GAS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"
@@ -1342,27 +2055,42 @@
         {
           "id": "EU-REACH-AII-REGULATORY-OTHER",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-REGULATORY-UNION-NATIONAL",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-REGULATORY-AUTH-RESTRICTION",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-REGULATORY-AUTH-CONDITIONS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-CSA-STATUS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"
@@ -1377,32 +2105,50 @@
         {
           "id": "EU-REACH-AII-REVISION-EXPLANATION-REQUEST",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-OTHER-ABBREVIATIONS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-OTHER-REFERENCES",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-OTHER-MIXTURE-METHOD",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-OTHER-FULL-STATEMENTS",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         },
         {
           "id": "EU-REACH-AII-OTHER-TRAINING",
           "verification_status": "candidate_pending_independent_legal_and_extraction_review",
-          "implementation_status": "manual_review_only"
+          "implementation_status": "manual_review_only",
+          "software_implementation_status": "not_implemented",
+          "evaluator": null,
+          "runtime_validation_status": "not_tested"
         }
       ],
       "verification": "incomplete"

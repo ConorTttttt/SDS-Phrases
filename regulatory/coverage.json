@@ -5,8 +5,8 @@
     {
       "id": "article31",
       "status": "partial",
-      "implementation": "src/toolkit.py",
-      "limits": "Article 31(1)/(4) positive trigger routing only; Article 31(3), 32 and special CLP triggers not executable.",
+      "implementation": "src/toolkit.py; src/regulatory_evaluators.py",
+      "limits": "Advisory executable pilot: Article 31(1)(a)-(c), 31(3)(a)-(b) on-request ingredient thresholds and 31(4) exception conditions bound to exact canonical rule versions; outcomes route to competent-person review while the R9 gate is closed. Article 31(3)(c), 32, Article 2 scope and special CLP triggers not executable.",
       "validation_status": "6 toolkit integration tests passed at 19efd59 (validation/full-19efd596.json); independent regulatory validation pending",
       "implementation_status": "partially_implemented"
     },
@@ -14,7 +14,7 @@
       "id": "structure",
       "scope": "Annex II Part B and 0.4",
       "status": "implemented_structural_only",
-      "implementation": "src/reach_annex2_audit.py",
+      "implementation": "src/reach_annex2_audit.py; src/regulatory_evaluators.py (Article 31(6) headings and date, Annex II 0.4 blank subsections)",
       "validation_status": "Annex II structural audit tests passed at 19efd59 (validation/full-19efd596.json); structural only; independent regulatory validation pending",
       "implementation_status": "implemented"
     },
@@ -127,6 +127,14 @@
       "implementation_status": "implemented",
       "validation_status": "authoring unit and HTTP tests passed at 19efd59 (validation/full-19efd596.json); browser end-to-end pending",
       "limits": "Controlled phrases, review gates and revision history; no automated release or certification."
+    },
+    {
+      "id": "executable_evaluators",
+      "status": "pilot_advisory_gate_closed",
+      "implementation": "src/regulatory_evaluators.py; regulatory/canonical/evaluators.json",
+      "implementation_status": "partially_implemented",
+      "validation_status": "tests/test_regulatory_evaluators.py (22 tests) executed; see VALIDATION.md; independent regulatory validation pending",
+      "limits": "16 of 369 candidate targets bound to approved evaluators; 353 remain manual_review_only. Regulatory verification unchanged (candidate); promotion gate open for 0 bindings. Inputs are user-submitted facts; no CLP classification is calculated."
     }
   ],
   "canonical_requirement_registry": {
@@ -199,13 +207,12 @@
     ],
     "not_executed": [
       "browser end-to-end",
-      "Windows",
       "live licensed eSDScom catalogue",
       "live Gemini evaluation"
     ],
     "scope": "Software test execution only; no independent legal, regulatory or competent-person validation.",
     "ci": {
-      "status": "GitHub Actions executes since run 45908436704 (be0524e): Ubuntu 3.12/3.14 jobs passed, including the loopback-only Python run; Windows Python suites failed because CRLF checkout changed the Git-blob-pinned legacy inventory. .gitattributes now pins LF; Windows confirmation pending until its CI run completes.",
+      "status": "GitHub Actions run 45910715379 (27feb1c) succeeded on all four jobs: Ubuntu 3.12/3.14 (loopback-only Python run) and Windows 3.12/3.14 after the LF fix. Earlier runs 45908436704 and 45909764858 failed on Windows from CRLF checkout.",
       "evidence": "VALIDATION.md"
     }
   }

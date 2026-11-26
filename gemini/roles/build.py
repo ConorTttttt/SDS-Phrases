@@ -106,6 +106,9 @@ def build(repo, sources, dest):
     write(common,"canonical-clp.json",clp)
     write(common,"canonical-clp-coverage.json",clp_coverage(clp))
     write(common,"ref11-canonical-crosswalk.json",pack.get("enforcement_crosswalk",[]))
+    from regulatory_evaluators import load_registry, registry_coverage
+    write(common,"canonical-evaluators.json",load_registry(ROOT))
+    write(common,"canonical-evaluator-coverage.json",registry_coverage(root=ROOT))
     sections = re.split(r"(?m)(?=^## Section \d+ —)",refs["ECHA_SECTION_PLAYBOOK"])
     index = []
     for n in range(17):

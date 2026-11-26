@@ -72,6 +72,10 @@ def assess(record):
         output["structure"]=audit_structure(profile)
     else:
         output["structure"]={"status":"not_assessed","reason":"No reviewed heading inventory provided."}
+    from regulatory_evaluators import evaluate_record, registry_coverage
+    # Advisory executable pilot; the R9 promotion gate keeps every outcome under competent-person review.
+    output["executable_evaluations"]=evaluate_record(record)
+    output["executable_coverage"]=registry_coverage()
     return output
 
 def main():

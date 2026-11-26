@@ -242,7 +242,7 @@ def evaluate(d, approvals):
     approved = approvals.latest()
     # Revision fingerprint includes active approval versions and canonical regulatory inputs.
     source_hashes = {f:text_hash((ROOT/f).read_text(encoding="utf-8")) for f in (
-        "regulatory/canonical/requirements.json","regulatory/canonical/title_iv.json","regulatory/canonical/clp.json","regulatory/assessment/annex_ii.json","regulatory/assessment/clp_english.json",
+        "regulatory/canonical/requirements.json","regulatory/canonical/title_iv.json","regulatory/canonical/clp.json","regulatory/canonical/evaluators.json","regulatory/assessment/annex_ii.json","regulatory/assessment/clp_english.json",
         "regulatory/assessment/ref11.json","rules/eu_reach_annex2_partb_2026.json",
         "rules/regulatory-demo-v0.2.json","rules/eu_profile_phrase_relevance_v01.json",
         "rules/section_phrase_candidates_v0.1.json","rules/eu_sds_guidance_readiness_pilot.json")}
@@ -326,6 +326,10 @@ def evaluate(d, approvals):
                 "approved_candidates":suitable,"draft":blocks,"invalid_blocks":invalid,
                 "coverage":"INSUFFICIENT_INFORMATION" if not blocks or invalid or any(k in missing for k in required) else "REVIEW_NEEDED",
                 "adequacy":"Not assessed: every applicable requirement needs product-specific review"})
+        executable = [r["evaluator_trace"] for r in findings if isinstance(r.get("evaluator_trace"), dict)]
+        engines["executable"] = {"evaluations": executable,
+            "summary": {s: sum(t["assessment_status"] == s for t in executable) for s in sorted({t["assessment_status"] for t in executable})},
+            "promotion_gate_open": sum(t["verification"]["promotion_gate"]["open"] for t in executable)}
         reports.append({"product":p["id"],"rows":rows,"findings":findings,"engines":engines,
                         "errors":errors,"conflicts":conflicts,"missing_domains":missing})
     return {"fingerprint":fingerprint,"source_hashes":source_hashes,"products":reports,

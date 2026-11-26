@@ -33,6 +33,38 @@ CROSS = [
     ("1.2 7.1 8.2", "Compare attached exposure scenarios with uses, handling and exposure controls."),
 ]
 
+def _executable_context(context):
+    """Bind approved pilot evaluators to finding rows. Inputs: context["reach"] (toolkit record format),
+    optionally completed from a reviewed heading inventory. Outcomes stay advisory while the R9 gate is closed."""
+    from regulatory_evaluators import EvaluatorError, bindings_for, calculation_summary, evaluate, load_registry
+    registry = load_registry(ROOT)
+    bound = bindings_for(registry)
+    inputs = dict(context.get("reach", {})) if isinstance(context.get("reach"), dict) else {}
+    inventory = context.get("verified_structure")
+    if isinstance(inventory, dict):
+        inputs.setdefault("structure", {k: inventory[k] for k in ("headings", "inventory_complete", "blank_subsections") if k in inventory})
+        for key in ("as_of", "jurisdiction", "product_type"):
+            if key in inventory:
+                inputs.setdefault(key, inventory[key])
+    def apply(item, row):
+        from canonical_requirements import requirement_version
+        if (item["id"], requirement_version(item)) not in bound:
+            row.update(software_implementation_status="not_implemented", decision_mode="manual_review_only")
+            return
+        try:
+            trace = evaluate(item["id"], inputs, registry, ROOT)
+        except EvaluatorError as exc:
+            row.update(status=SKIP, explanation="Evaluator input rejected: " + str(exc), missing_information=str(exc),
+                       software_implementation_status="pilot_implemented", decision_mode="executable_advisory")
+            return
+        row.update(status=trace["assessment_status"], explanation=trace["explanation"],
+                   missing_information="; ".join(trace["missing_information"]) or row["missing_information"],
+                   evaluator_trace=trace, calculation=calculation_summary(trace),
+                   software_implementation_status=trace["verification"]["software_implementation_status"],
+                   runtime_validation_status=trace["verification"]["runtime_validation_status"],
+                   decision_mode="executable_advisory", decision_effect=trace["decision_effect"])
+    return apply
+
 def assess(document, corrections=None):
     pages = document["pages"]
     effective = [dict(p) for p in pages]
@@ -90,6 +122,7 @@ def assess(document, corrections=None):
                        recommended_correction="Restore the required heading or complete the blank subsection." if outcome == FAIL else "",
                        missing_information="", review_status="reviewed inventory")
     pack, raw, _ = load_canonical(ROOT)
+    executable = _executable_context(document.get("context", {}))
     for item in pack["requirements"]:
         clause = item["clause"].split()[-1]
         code = ".".join(clause.split("(")[0].split(".")[:2])
@@ -100,6 +133,7 @@ def assess(document, corrections=None):
         rows[-1].update(rule_version=result["rule_version"], canonical_release=pack["release"],
                         assessment_method=item["assessment_methodology"], legacy_ids=item["legacy_ids"],
                         verification_status=item["verification_status"])
+        executable(item, rows[-1])
     title_iv = load_title_iv(ROOT,pack)
     for item in title_iv["requirements"]:
         result = evaluate_requirement(item)
@@ -110,6 +144,7 @@ def assess(document, corrections=None):
                         assessment_method=item["assessment_methodology"],
                         verification_status=item["verification_status"],
                         applicability="requires product and supply-chain scope confirmation")
+        executable(item, rows[-1])
     clp = load_clp(ROOT,pack,title_iv)
     for item in clp["requirements"]:
         codes = item["sds_section"]
