@@ -177,6 +177,28 @@ class OutputLocations(unittest.TestCase):
         self.assertFalse((ROOT / "legacy-package-test").exists())
 
 
+class LineEndings(unittest.TestCase):
+    """Windows CI failure at be0524e: CRLF checkout broke the legacy inventory Git-blob pin."""
+    HASHED = ("regulatory/assessment/annex_ii.json", "regulatory/canonical/requirements.jsonl",
+              "regulatory/canonical/coverage_matrix.json", "modules/section9/rules.mjs", "web/section9-rules.js")
+
+    def test_gitattributes_pins_lf(self):
+        rules = (ROOT / ".gitattributes").read_text(encoding="utf-8").split("\n")
+        self.assertIn("* text=auto eol=lf", rules)
+        self.assertIn("*.pdf binary", rules)
+
+    def test_hashed_files_have_no_carriage_returns(self):
+        for name in self.HASHED:
+            self.assertNotIn(b"\r", (ROOT / name).read_bytes(), name)
+
+    @unittest.skipUnless(shutil.which("git") and (ROOT / ".git").exists(), "Git checkout unavailable")
+    def test_git_resolves_lf_for_hashed_files(self):
+        out = subprocess.run(["git", "-C", str(ROOT), "check-attr", "eol", "--", *self.HASHED],
+                             capture_output=True, text=True, check=True).stdout.splitlines()
+        self.assertEqual(len(out), len(self.HASHED))
+        self.assertTrue(all(line.endswith(": eol: lf") for line in out), out)
+
+
 class CoverageEvidence(unittest.TestCase):
     def test_coverage_cites_executed_evidence(self):
         coverage = json.loads((ROOT / "regulatory/coverage.json").read_text(encoding="utf-8"))

@@ -201,9 +201,12 @@
       "browser end-to-end",
       "Windows",
       "live licensed eSDScom catalogue",
-      "live Gemini evaluation",
-      "GitHub Actions (runs fail before any step)"
+      "live Gemini evaluation"
     ],
-    "scope": "Software test execution only; no independent legal, regulatory or competent-person validation."
+    "scope": "Software test execution only; no independent legal, regulatory or competent-person validation.",
+    "ci": {
+      "status": "GitHub Actions executes since run 45908436704 (be0524e): Ubuntu 3.12/3.14 jobs passed, including the loopback-only Python run; Windows Python suites failed because CRLF checkout changed the Git-blob-pinned legacy inventory. .gitattributes now pins LF; Windows confirmation pending until its CI run completes.",
+      "evidence": "VALIDATION.md"
+    }
   }
 }

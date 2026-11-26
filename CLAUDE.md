@@ -525,12 +525,12 @@ Statuses: **Done** means implemented with executed evidence (not legally verifie
 | L20 | Evidence-led authoring workspace | Partial | Draft gates. Release workflow outstanding (L35) |
 | L21 | Page extraction | Partial | `unverified_layout`. Tables, footnotes and formulas need visual checks |
 | L22 | Documentation currency | Partial | README rewritten for the integration branch; older `docs/` notes remain historical |
-| L23 | GitHub Actions | **Blocked** | Every recorded run fails with no steps. Check Actions billing, runner and settings in the repo owner account |
+| L23 | GitHub Actions | Partial | Executing since run 45908436704 (be0524e). Ubuntu jobs pass. Earlier runs had zero steps |
 | L24 | Licensed catalogue verification (phrase verifiers, live wording) | **Blocked** | Requires the licensed eSDScom ZIP on the developer machine |
 | L25 | ECHA guidance Markdown archive import/cross-check | **Blocked** | `CLP_A_I-main.zip` not available |
 | L26 | Live Gemini blind evaluation | **Blocked** | Manual, authorised runs only |
 | L27 | Independent legal / competent-person verification | **Blocked** | External reviewer required |
-| L28 | Windows execution | **Blocked** | No Windows runner (CI blocked) |
+| L28 | Windows execution | Partial | CI at be0524e: 23 errors + 1 failure caused by CRLF checkout breaking the legacy inventory blob pin. Fixed by `.gitattributes` (`eol=lf`) with tests and a local autocrlf simulation. See §10.3 for the CI result |
 | L29 | Executable Section 3, Art. 31(3) and Art. 32 | Outstanding | Requires the R9 gate |
 | L30 | Post-snapshot amendment reconciliation (REACH and CLP) | Outstanding | See §8.1 |
 | L31 | CLP classification engine (Arts. 5–16, Annex I) | Outstanding | Keep separate from disclosure (R10) |
@@ -556,7 +556,7 @@ Statuses: **Done** means implemented with executed evidence (not legally verifie
   `data/*`, `*.sqlite`, `*.db`, `*.pdf`, `*.zip`, `*.xlsx`, `*.csv`, `*.jsonl`. Tracked JSONL files
   (`regulatory/canonical/requirements.jsonl`, `regulatory/author/references/REACH_RULE_INDEX.jsonl`) need
   `git add -f`. Do not force-add anything else.
-- **Encoding:** UTF-8 everywhere. Invoke the original package checker with `python -X utf8`.
+- **Encoding and line endings:** UTF-8 everywhere. `.gitattributes` forces LF on every platform, because integrity checks hash committed bytes (the legacy inventory Git-blob pin, canonical exports and the Section 9 copies). Never add CRLF files. Invoke the original package checker with `python -X utf8`.
 - **Byte-identical upstream copies:** `modules/section9/*`, `web/section9-rules.js`,
   `regulatory/author/tests/check_package.py`. Do not edit them. Change them upstream and re-pin.
 - **Python versions:** CI targets 3.12 and 3.14. Validated locally on 3.13. Avoid syntax newer than 3.10 in `src/`.

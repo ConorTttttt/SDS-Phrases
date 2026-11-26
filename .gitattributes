@@ -1,0 +1,9 @@
+# Byte-exact checkouts on every platform. Several integrity checks hash committed
+# files (legacy Annex II inventory Git-blob pin, canonical JSONL/matrix exports,
+# byte-identical Section 9 copies), so line endings must never be converted.
+* text=auto eol=lf
+*.pdf binary
+*.zip binary
+*.sqlite binary
+*.xlsx binary
+*.png binary

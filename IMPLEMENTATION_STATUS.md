@@ -16,7 +16,7 @@ Current baseline: integration/offline-eu-gemini after be0524ec. Full execution e
 | Gemini exchange | Selective export and staged review import | Two original tests passed at 19efd59 |
 | Comprehensive CLP classification and Section 3 engine | Not established as executable | Pending |
 | Canonical generated exports | requirements.jsonl and coverage_matrix.json generated deterministically from the registry | Byte-reproducibility and drift tests pass |
-| Test execution | Checked Python and Node runners | 200 Python (incl. source-gated, network-isolated) and 11 Node tests passed at 19efd59; GitHub Actions still executes no steps |
+| Test execution | Checked Python and Node runners | 200 Python (incl. source-gated, network-isolated) and 11 Node tests passed at 19efd59; GitHub Actions executes: Ubuntu passed from be0524e; Windows CRLF defect fixed by .gitattributes (see VALIDATION.md) |
 | Release | Draft gates only; no autonomous certification | Pending competent-person review |
 
 See regulatory/coverage.json, VALIDATION.md, KNOWN_LIMITATIONS.md and ROADMAP.md. No application-wide runtime or regulatory sign-off is implied.
