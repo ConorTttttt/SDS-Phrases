@@ -1,6 +1,6 @@
 {
   "schema": "sds-canonical-clp/v1",
-  "release": "2026-11-26-clp-label-pcn-r1",
+  "release": "2026-11-26-clp-label-pcn-r2",
   "source_id": "clp",
   "source_version": "2026-07-01",
   "source_sha256": "602529287cbdbbb80f4bc17404fef58041ce5edf30646509b3cdb6991b7fc8a7",
@@ -329,7 +329,7 @@
       "printed_pages": [
         20
       ],
-      "wording": "The label shall include the relevant hazard pictogram(s), intended to convey specific information on the hazard concerned. Subject to Article 33, hazard pictograms shall fulfil the requirements laid down in section 1.2.1 of Annex I and in Annex V. The hazard pictogram relevant for each specific classification is set out in the tables indicating the label elements required for each hazard class in Annex I.",
+      "wording": "The label shall include the relevant hazard pictogram(s), intended to convey specific information on the hazard concerned. 2. Subject to Article 33, hazard pictograms shall fulfil the requirements laid down in section 1.2.1 of Annex I and in Annex V. 3. The hazard pictogram relevant for each specific classification is set out in the tables indicating the label elements required for each hazard class in Annex I.",
       "source_role": "operative_text",
       "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
     },
@@ -342,7 +342,7 @@
       "printed_pages": [
         21
       ],
-      "wording": "The label shall include the relevant signal word in accordance with the classification of the hazardous substance or mixture. The signal word relevant for each specific classification is set out in the tables indicating the label elements required for each hazard class in Parts 2 to 5 of Annex I.",
+      "wording": "The label shall include the relevant signal word in accordance with the classification of the hazardous substance or mixture. 2. The signal word relevant for each specific classification is set out in the tables indicating the label elements required for each hazard class in Parts 2 to 5 of Annex I.",
       "source_role": "operative_text",
       "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
     },
@@ -368,7 +368,7 @@
       "printed_pages": [
         21
       ],
-      "wording": "The label shall include the relevant hazard statements in accordance with the classification of the hazardous substance or mixture. The hazard statements relevant for each classification are set out in the tables indicating the label elements required for each hazard class in Parts 2 to 5 of Annex I.",
+      "wording": "The label shall include the relevant hazard statements in accordance with the classification of the hazardous substance or mixture. 2. The hazard statements relevant for each classification are set out in the tables indicating the label elements required for each hazard class in Parts 2 to 5 of Annex I.",
       "source_role": "operative_text",
       "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
     },
@@ -407,7 +407,7 @@
       "printed_pages": [
         21
       ],
-      "wording": "The label shall include the relevant precautionary statements. The precautionary statements shall be selected from those set out in the tables in Parts 2 to 5 of Annex I indicating the label elements for each hazard class. The precautionary statements shall be selected in accordance with the criteria laid down in Part 1 of Annex IV taking into account the hazard statements and the intended or identified use or uses of the substance or the mixture.",
+      "wording": "The label shall include the relevant precautionary statements. 2. The precautionary statements shall be selected from those set out in the tables in Parts 2 to 5 of Annex I indicating the label elements for each hazard class. 3. The precautionary statements shall be selected in accordance with the criteria laid down in Part 1 of Annex IV taking into account the hazard statements and the intended or identified use or uses of the substance or the mixture.",
       "source_role": "operative_text",
       "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
     },
@@ -693,7 +693,7 @@
       "printed_pages": [
         26
       ],
-      "wording": "Where the packaging of a substance or a mixture is either in such a shape or form or is so small that it is impossible to meet the requirements laid down in Article 31 for a label in the languages of the Member State in which the substance or mixture is placed on the market, the label elements set out in Article 17(1), shall be provided in accordance with section 1.5.1 of Annex I. If the full label information cannot be provided in the way specified in paragraph 1 the label information may be reduced in accordance with section 1.5.2 of Annex I.",
+      "wording": "Where the packaging of a substance or a mixture is either in such a shape or form or is so small that it is impossible to meet the requirements laid down in Article 31 for a label in the languages of the Member State in which the substance or mixture is placed on the market, the label elements set out in Article 17(1), shall be provided in accordance with section 1.5.1 of Annex I. 2. If the full label information cannot be provided in the way specified in paragraph 1 the label information may be reduced in accordance with section 1.5.2 of Annex I.",
       "source_role": "alternative_or_derogation",
       "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
     },
@@ -810,7 +810,7 @@
       "printed_pages": [
         1564
       ],
-      "wording": "A group submission shall only be permitted when all mixtures in the group contain the same components (as identified in Section 3.2 of Part B), and for each of the components, the reported concentration range is the same for all mixtures (as provided in Section 3.4 of Part B). By way of derogation from Section 4.2, a group submission shall also be allowed where the difference in the composition between different mixtures in the group only concerns perfumes, provided that the total concentration of the differing perfumes contained in each mixture does not exceed 5 %.",
+      "wording": "A group submission shall only be permitted when all mixtures in the group contain the same components (as identified in Section 3.2 of Part B), and for each of the components, the reported concentration range is the same for all mixtures (as provided in Section 3.4 of Part B). 4.3. By way of derogation from Section 4.2, a group submission shall also be allowed where the difference in the composition between different mixtures in the group only concerns perfumes, provided that the total concentration of the differing perfumes contained in each mixture does not exceed 5 %.",
       "source_role": "alternative_or_derogation",
       "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
     },
@@ -1899,7 +1899,7 @@
         "CLP-SRC-A19-PICTOGRAM"
       ],
       "context_record_ids": [],
-      "wording": "The label shall include the relevant hazard pictogram(s), intended to convey specific information on the hazard concerned. Subject to Article 33, hazard pictograms shall fulfil the requirements laid down in section 1.2.1 of Annex I and in Annex V. The hazard pictogram relevant for each specific classification is set out in the tables indicating the label elements required for each hazard class in Annex I.",
+      "wording": "The label shall include the relevant hazard pictogram(s), intended to convey specific information on the hazard concerned. 2. Subject to Article 33, hazard pictograms shall fulfil the requirements laid down in section 1.2.1 of Annex I and in Annex V. 3. The hazard pictogram relevant for each specific classification is set out in the tables indicating the label elements required for each hazard class in Annex I.",
       "applicability_conditions": "Hazardous packaged substance or mixture within CLP scope; applicable derogations checked",
       "exceptions": [
         "Article 33; Article 26; applicable Annex I derogations."
@@ -1937,7 +1937,7 @@
         "CLP-SRC-A20-SIGNAL"
       ],
       "context_record_ids": [],
-      "wording": "The label shall include the relevant signal word in accordance with the classification of the hazardous substance or mixture. The signal word relevant for each specific classification is set out in the tables indicating the label elements required for each hazard class in Parts 2 to 5 of Annex I.",
+      "wording": "The label shall include the relevant signal word in accordance with the classification of the hazardous substance or mixture. 2. The signal word relevant for each specific classification is set out in the tables indicating the label elements required for each hazard class in Parts 2 to 5 of Annex I.",
       "applicability_conditions": "Hazardous packaged substance or mixture within CLP scope; applicable derogations checked",
       "exceptions": [],
       "required_product_evidence": "Classification and applicable Annex I table",
@@ -2009,7 +2009,7 @@
         "CLP-SRC-A21-HAZARD-STATEMENTS"
       ],
       "context_record_ids": [],
-      "wording": "The label shall include the relevant hazard statements in accordance with the classification of the hazardous substance or mixture. The hazard statements relevant for each classification are set out in the tables indicating the label elements required for each hazard class in Parts 2 to 5 of Annex I.",
+      "wording": "The label shall include the relevant hazard statements in accordance with the classification of the hazardous substance or mixture. 2. The hazard statements relevant for each classification are set out in the tables indicating the label elements required for each hazard class in Parts 2 to 5 of Annex I.",
       "applicability_conditions": "Hazardous packaged substance or mixture within CLP scope; applicable derogations checked",
       "exceptions": [
         "Article 27 duplication or redundancy."
@@ -2119,7 +2119,7 @@
         "CLP-SRC-A22-PRECAUTION-SELECT"
       ],
       "context_record_ids": [],
-      "wording": "The label shall include the relevant precautionary statements. The precautionary statements shall be selected from those set out in the tables in Parts 2 to 5 of Annex I indicating the label elements for each hazard class. The precautionary statements shall be selected in accordance with the criteria laid down in Part 1 of Annex IV taking into account the hazard statements and the intended or identified use or uses of the substance or the mixture.",
+      "wording": "The label shall include the relevant precautionary statements. 2. The precautionary statements shall be selected from those set out in the tables in Parts 2 to 5 of Annex I indicating the label elements for each hazard class. 3. The precautionary statements shall be selected in accordance with the criteria laid down in Part 1 of Annex IV taking into account the hazard statements and the intended or identified use or uses of the substance or the mixture.",
       "applicability_conditions": "Hazardous packaged substance or mixture within CLP scope; applicable derogations checked",
       "exceptions": [
         "Apply Article 28 precedence."
@@ -2909,7 +2909,7 @@
         "CLP-SRC-A29-REDUCED-LABEL"
       ],
       "context_record_ids": [],
-      "wording": "Where the packaging of a substance or a mixture is either in such a shape or form or is so small that it is impossible to meet the requirements laid down in Article 31 for a label in the languages of the Member State in which the substance or mixture is placed on the market, the label elements set out in Article 17(1), shall be provided in accordance with section 1.5.1 of Annex I. If the full label information cannot be provided in the way specified in paragraph 1 the label information may be reduced in accordance with section 1.5.2 of Annex I.",
+      "wording": "Where the packaging of a substance or a mixture is either in such a shape or form or is so small that it is impossible to meet the requirements laid down in Article 31 for a label in the languages of the Member State in which the substance or mixture is placed on the market, the label elements set out in Article 17(1), shall be provided in accordance with section 1.5.1 of Annex I. 2. If the full label information cannot be provided in the way specified in paragraph 1 the label information may be reduced in accordance with section 1.5.2 of Annex I.",
       "applicability_conditions": "Packaging constraint makes normal label impossible; operative version confirmed",
       "exceptions": [
         "No blanket exemption based only on package volume."
@@ -3303,7 +3303,7 @@
         "CLP-SRC-VIII-A-DATE-LEGACY",
         "CLP-SRC-VIII-A-DATE-LEGACY-CHANGE"
       ],
-      "wording": "A group submission shall only be permitted when all mixtures in the group contain the same components (as identified in Section 3.2 of Part B), and for each of the components, the reported concentration range is the same for all mixtures (as provided in Section 3.4 of Part B). By way of derogation from Section 4.2, a group submission shall also be allowed where the difference in the composition between different mixtures in the group only concerns perfumes, provided that the total concentration of the differing perfumes contained in each mixture does not exceed 5 %.",
+      "wording": "A group submission shall only be permitted when all mixtures in the group contain the same components (as identified in Section 3.2 of Part B), and for each of the components, the reported concentration range is the same for all mixtures (as provided in Section 3.4 of Part B). 4.3. By way of derogation from Section 4.2, a group submission shall also be allowed where the difference in the composition between different mixtures in the group only concerns perfumes, provided that the total concentration of the differing perfumes contained in each mixture does not exceed 5 %.",
       "applicability_conditions": "Annex VIII in-scope mixture classified for health or physical effects; supplier role and market confirmed; exclusions A 2.2 and bespoke paint A 2.2a checked; group submission",
       "exceptions": [
         "Perfume-only variation and total differing perfumes <=5% in each mixture."
@@ -4077,10 +4077,16 @@
           "relative_variation_percent": 30
         }
       ],
-      "verification_status": "transcribed_pending_visual_review",
+      "verification_status": "visual_spot_check_matched_supplied_pdf_pending_independent_review",
       "execution": "reference_only",
       "related_requirements": [
         "EU-CLP-VIII-B-UPDATE-COMPOSITION"
+      ],
+      "source_row_wording": [
+        "> 25 – ≤ 100 | 5 %",
+        "> 10 – ≤ 25 | 10 %",
+        "> 2,5 – ≤ 10 | 20 %",
+        "≤ 2,5 | 30 %"
       ]
     }
   ],
@@ -4094,5 +4100,355 @@
     "Articles 23, 24 remainder, 29 remainder and Articles 30–33 label format/update",
     "Annex VIII Part A 2.4 definitions and Parts B–D complete PCN schema, concentration tables, MIM, ICG, standard formulas",
     "Current applicability of amendments and stock transitions; national derogations and language rules"
-  ]
+  ],
+  "historical_versions": [
+    {
+      "record": {
+        "id": "EU-CLP-A19-PICTOGRAM",
+        "source_id": "clp",
+        "source_version": "2026-07-01",
+        "legal_authority_type": "binding_law_via_consolidation",
+        "clause": "Article 19(1)–(3)",
+        "table_references": [],
+        "printed_pages": [
+          20
+        ],
+        "pdf_pages": [
+          20
+        ],
+        "source_record_ids": [
+          "CLP-SRC-A19-PICTOGRAM"
+        ],
+        "context_record_ids": [],
+        "wording": "The label shall include the relevant hazard pictogram(s), intended to convey specific information on the hazard concerned. Subject to Article 33, hazard pictograms shall fulfil the requirements laid down in section 1.2.1 of Annex I and in Annex V. The hazard pictogram relevant for each specific classification is set out in the tables indicating the label elements required for each hazard class in Annex I.",
+        "applicability_conditions": "Hazardous packaged substance or mixture within CLP scope; applicable derogations checked",
+        "exceptions": [
+          "Article 33; Article 26; applicable Annex I derogations."
+        ],
+        "required_product_evidence": "Classification, complete label, Annex I and V",
+        "required_sds_content": "Relevant pictogram selection and conformity; SDS 2.2 review",
+        "assessment_methodology": "competent_person_judgement",
+        "related_requirements": [],
+        "sds_section": "2.2",
+        "effective_date": null,
+        "transition_rules": "Verify operative original/amending act, product market date and stock transitions; 2024/2865 as amended by 2025/2439; 2026/2382 defence scope amendment is outside supplied consolidation. No automatic effective-date assumption.",
+        "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+        "implementation_status": "manual_review_only",
+        "test_ids": [
+          "clp-schema",
+          "clp-source-trace",
+          "clp-no-unverified-pass"
+        ],
+        "modality": "candidate_obligation"
+      },
+      "source_records": [
+        {
+          "id": "CLP-SRC-A19-PICTOGRAM",
+          "clause": "Article 19(1)–(3)",
+          "pdf_pages": [
+            20
+          ],
+          "printed_pages": [
+            20
+          ],
+          "wording": "The label shall include the relevant hazard pictogram(s), intended to convey specific information on the hazard concerned. Subject to Article 33, hazard pictograms shall fulfil the requirements laid down in section 1.2.1 of Annex I and in Annex V. The hazard pictogram relevant for each specific classification is set out in the tables indicating the label elements required for each hazard class in Annex I.",
+          "source_role": "operative_text",
+          "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+        }
+      ],
+      "reason": "Restore internal paragraph numbering omitted from r1 transcription."
+    },
+    {
+      "record": {
+        "id": "EU-CLP-A20-SIGNAL",
+        "source_id": "clp",
+        "source_version": "2026-07-01",
+        "legal_authority_type": "binding_law_via_consolidation",
+        "clause": "Article 20(1)–(2)",
+        "table_references": [],
+        "printed_pages": [
+          21
+        ],
+        "pdf_pages": [
+          21
+        ],
+        "source_record_ids": [
+          "CLP-SRC-A20-SIGNAL"
+        ],
+        "context_record_ids": [],
+        "wording": "The label shall include the relevant signal word in accordance with the classification of the hazardous substance or mixture. The signal word relevant for each specific classification is set out in the tables indicating the label elements required for each hazard class in Parts 2 to 5 of Annex I.",
+        "applicability_conditions": "Hazardous packaged substance or mixture within CLP scope; applicable derogations checked",
+        "exceptions": [],
+        "required_product_evidence": "Classification and applicable Annex I table",
+        "required_sds_content": "Correct signal word",
+        "assessment_methodology": "conditional_applicability",
+        "related_requirements": [],
+        "sds_section": "2.2",
+        "effective_date": null,
+        "transition_rules": "Verify operative original/amending act, product market date and stock transitions; 2024/2865 as amended by 2025/2439; 2026/2382 defence scope amendment is outside supplied consolidation. No automatic effective-date assumption.",
+        "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+        "implementation_status": "manual_review_only",
+        "test_ids": [
+          "clp-schema",
+          "clp-source-trace",
+          "clp-no-unverified-pass"
+        ],
+        "modality": "candidate_obligation"
+      },
+      "source_records": [
+        {
+          "id": "CLP-SRC-A20-SIGNAL",
+          "clause": "Article 20(1)–(2)",
+          "pdf_pages": [
+            21
+          ],
+          "printed_pages": [
+            21
+          ],
+          "wording": "The label shall include the relevant signal word in accordance with the classification of the hazardous substance or mixture. The signal word relevant for each specific classification is set out in the tables indicating the label elements required for each hazard class in Parts 2 to 5 of Annex I.",
+          "source_role": "operative_text",
+          "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+        }
+      ],
+      "reason": "Restore internal paragraph numbering omitted from r1 transcription."
+    },
+    {
+      "record": {
+        "id": "EU-CLP-A21-HAZARD-STATEMENTS",
+        "source_id": "clp",
+        "source_version": "2026-07-01",
+        "legal_authority_type": "binding_law_via_consolidation",
+        "clause": "Article 21(1)–(2)",
+        "table_references": [],
+        "printed_pages": [
+          21
+        ],
+        "pdf_pages": [
+          21
+        ],
+        "source_record_ids": [
+          "CLP-SRC-A21-HAZARD-STATEMENTS"
+        ],
+        "context_record_ids": [],
+        "wording": "The label shall include the relevant hazard statements in accordance with the classification of the hazardous substance or mixture. The hazard statements relevant for each classification are set out in the tables indicating the label elements required for each hazard class in Parts 2 to 5 of Annex I.",
+        "applicability_conditions": "Hazardous packaged substance or mixture within CLP scope; applicable derogations checked",
+        "exceptions": [
+          "Article 27 duplication or redundancy."
+        ],
+        "required_product_evidence": "Classification, complete applicable Annex I tables, actual label",
+        "required_sds_content": "Relevant hazard statements",
+        "assessment_methodology": "competent_person_judgement",
+        "related_requirements": [],
+        "sds_section": "2.2",
+        "effective_date": null,
+        "transition_rules": "Verify operative original/amending act, product market date and stock transitions; 2024/2865 as amended by 2025/2439; 2026/2382 defence scope amendment is outside supplied consolidation. No automatic effective-date assumption.",
+        "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+        "implementation_status": "manual_review_only",
+        "test_ids": [
+          "clp-schema",
+          "clp-source-trace",
+          "clp-no-unverified-pass"
+        ],
+        "modality": "candidate_obligation"
+      },
+      "source_records": [
+        {
+          "id": "CLP-SRC-A21-HAZARD-STATEMENTS",
+          "clause": "Article 21(1)–(2)",
+          "pdf_pages": [
+            21
+          ],
+          "printed_pages": [
+            21
+          ],
+          "wording": "The label shall include the relevant hazard statements in accordance with the classification of the hazardous substance or mixture. The hazard statements relevant for each classification are set out in the tables indicating the label elements required for each hazard class in Parts 2 to 5 of Annex I.",
+          "source_role": "operative_text",
+          "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+        }
+      ],
+      "reason": "Restore internal paragraph numbering omitted from r1 transcription."
+    },
+    {
+      "record": {
+        "id": "EU-CLP-A22-PRECAUTION-SELECT",
+        "source_id": "clp",
+        "source_version": "2026-07-01",
+        "legal_authority_type": "binding_law_via_consolidation",
+        "clause": "Article 22(1)–(3)",
+        "table_references": [],
+        "printed_pages": [
+          21
+        ],
+        "pdf_pages": [
+          21
+        ],
+        "source_record_ids": [
+          "CLP-SRC-A22-PRECAUTION-SELECT"
+        ],
+        "context_record_ids": [],
+        "wording": "The label shall include the relevant precautionary statements. The precautionary statements shall be selected from those set out in the tables in Parts 2 to 5 of Annex I indicating the label elements for each hazard class. The precautionary statements shall be selected in accordance with the criteria laid down in Part 1 of Annex IV taking into account the hazard statements and the intended or identified use or uses of the substance or the mixture.",
+        "applicability_conditions": "Hazardous packaged substance or mixture within CLP scope; applicable derogations checked",
+        "exceptions": [
+          "Apply Article 28 precedence."
+        ],
+        "required_product_evidence": "Classification, uses, Annex I and IV selection criteria",
+        "required_sds_content": "Relevant precautionary statements",
+        "assessment_methodology": "competent_person_judgement",
+        "related_requirements": [],
+        "sds_section": "2.2",
+        "effective_date": null,
+        "transition_rules": "Verify operative original/amending act, product market date and stock transitions; 2024/2865 as amended by 2025/2439; 2026/2382 defence scope amendment is outside supplied consolidation. No automatic effective-date assumption.",
+        "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+        "implementation_status": "manual_review_only",
+        "test_ids": [
+          "clp-schema",
+          "clp-source-trace",
+          "clp-no-unverified-pass"
+        ],
+        "modality": "candidate_obligation"
+      },
+      "source_records": [
+        {
+          "id": "CLP-SRC-A22-PRECAUTION-SELECT",
+          "clause": "Article 22(1)–(3)",
+          "pdf_pages": [
+            21
+          ],
+          "printed_pages": [
+            21
+          ],
+          "wording": "The label shall include the relevant precautionary statements. The precautionary statements shall be selected from those set out in the tables in Parts 2 to 5 of Annex I indicating the label elements for each hazard class. The precautionary statements shall be selected in accordance with the criteria laid down in Part 1 of Annex IV taking into account the hazard statements and the intended or identified use or uses of the substance or the mixture.",
+          "source_role": "operative_text",
+          "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+        }
+      ],
+      "reason": "Restore internal paragraph numbering omitted from r1 transcription."
+    },
+    {
+      "record": {
+        "id": "EU-CLP-A29-REDUCED-LABEL",
+        "source_id": "clp",
+        "source_version": "2026-07-01",
+        "legal_authority_type": "binding_law_via_consolidation",
+        "clause": "Article 29(1)–(2)",
+        "table_references": [],
+        "printed_pages": [
+          26
+        ],
+        "pdf_pages": [
+          26
+        ],
+        "source_record_ids": [
+          "CLP-SRC-A29-REDUCED-LABEL"
+        ],
+        "context_record_ids": [],
+        "wording": "Where the packaging of a substance or a mixture is either in such a shape or form or is so small that it is impossible to meet the requirements laid down in Article 31 for a label in the languages of the Member State in which the substance or mixture is placed on the market, the label elements set out in Article 17(1), shall be provided in accordance with section 1.5.1 of Annex I. If the full label information cannot be provided in the way specified in paragraph 1 the label information may be reduced in accordance with section 1.5.2 of Annex I.",
+        "applicability_conditions": "Packaging constraint makes normal label impossible; operative version confirmed",
+        "exceptions": [
+          "No blanket exemption based only on package volume."
+        ],
+        "required_product_evidence": "Package dimensions, languages, label design and Annex I derogation",
+        "required_sds_content": "Assess permitted packaging derogation separately from SDS completeness",
+        "assessment_methodology": "competent_person_judgement",
+        "related_requirements": [],
+        "sds_section": "2.2",
+        "effective_date": null,
+        "transition_rules": "Verify operative original/amending act, product market date and stock transitions; 2024/2865 as amended by 2025/2439; 2026/2382 defence scope amendment is outside supplied consolidation. No automatic effective-date assumption.",
+        "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+        "implementation_status": "manual_review_only",
+        "test_ids": [
+          "clp-schema",
+          "clp-source-trace",
+          "clp-no-unverified-pass"
+        ],
+        "modality": "permitted_alternative"
+      },
+      "source_records": [
+        {
+          "id": "CLP-SRC-A29-REDUCED-LABEL",
+          "clause": "Article 29(1)–(2)",
+          "pdf_pages": [
+            26
+          ],
+          "printed_pages": [
+            26
+          ],
+          "wording": "Where the packaging of a substance or a mixture is either in such a shape or form or is so small that it is impossible to meet the requirements laid down in Article 31 for a label in the languages of the Member State in which the substance or mixture is placed on the market, the label elements set out in Article 17(1), shall be provided in accordance with section 1.5.1 of Annex I. If the full label information cannot be provided in the way specified in paragraph 1 the label information may be reduced in accordance with section 1.5.2 of Annex I.",
+          "source_role": "alternative_or_derogation",
+          "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+        }
+      ],
+      "reason": "Restore internal paragraph numbering omitted from r1 transcription."
+    },
+    {
+      "record": {
+        "id": "EU-CLP-VIII-A-GROUP-COMPOSITION",
+        "source_id": "clp",
+        "source_version": "2026-07-01",
+        "legal_authority_type": "binding_law_via_consolidation",
+        "clause": "Annex VIII Part A 4.2–4.3",
+        "table_references": [],
+        "printed_pages": [
+          1564
+        ],
+        "pdf_pages": [
+          1564
+        ],
+        "source_record_ids": [
+          "CLP-SRC-VIII-A-GROUP-COMPOSITION"
+        ],
+        "context_record_ids": [
+          "CLP-SRC-VIII-A-DATE-CONSUMER",
+          "CLP-SRC-VIII-A-DATE-PROFESSIONAL",
+          "CLP-SRC-VIII-A-DATE-INDUSTRIAL",
+          "CLP-SRC-VIII-A-DATE-LEGACY",
+          "CLP-SRC-VIII-A-DATE-LEGACY-CHANGE"
+        ],
+        "wording": "A group submission shall only be permitted when all mixtures in the group contain the same components (as identified in Section 3.2 of Part B), and for each of the components, the reported concentration range is the same for all mixtures (as provided in Section 3.4 of Part B). By way of derogation from Section 4.2, a group submission shall also be allowed where the difference in the composition between different mixtures in the group only concerns perfumes, provided that the total concentration of the differing perfumes contained in each mixture does not exceed 5 %.",
+        "applicability_conditions": "Annex VIII in-scope mixture classified for health or physical effects; supplier role and market confirmed; exclusions A 2.2 and bespoke paint A 2.2a checked; group submission",
+        "exceptions": [
+          "Perfume-only variation and total differing perfumes <=5% in each mixture."
+        ],
+        "required_product_evidence": "All component identities and ranges; perfume differences",
+        "required_sds_content": "Group composition conditions; <=5% differing perfumes exception",
+        "assessment_methodology": "numeric_threshold",
+        "related_requirements": [],
+        "sds_section": "",
+        "effective_date": null,
+        "transition_rules": "Verify operative original/amending act, product market date and stock transitions; 2024/2865 as amended by 2025/2439; 2026/2382 defence scope amendment is outside supplied consolidation. No automatic effective-date assumption. Snapshot A 1.1–1.5: consumer/professional 2021-01-01, industrial/end-use exception 2024-01-01, qualifying prior notification transition ended 2025-01-01 subject to earlier change trigger. Verify later revision of submitter scope.",
+        "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+        "implementation_status": "manual_review_only",
+        "test_ids": [
+          "clp-schema",
+          "clp-source-trace",
+          "clp-no-unverified-pass"
+        ],
+        "modality": "permitted_alternative"
+      },
+      "source_records": [
+        {
+          "id": "CLP-SRC-VIII-A-GROUP-COMPOSITION",
+          "clause": "Annex VIII Part A 4.2–4.3",
+          "pdf_pages": [
+            1564
+          ],
+          "printed_pages": [
+            1564
+          ],
+          "wording": "A group submission shall only be permitted when all mixtures in the group contain the same components (as identified in Section 3.2 of Part B), and for each of the components, the reported concentration range is the same for all mixtures (as provided in Section 3.4 of Part B). By way of derogation from Section 4.2, a group submission shall also be allowed where the difference in the composition between different mixtures in the group only concerns perfumes, provided that the total concentration of the differing perfumes contained in each mixture does not exceed 5 %.",
+          "source_role": "alternative_or_derogation",
+          "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+        }
+      ],
+      "reason": "Restore internal paragraph numbering omitted from r1 transcription."
+    }
+  ],
+  "source_text_check": {
+    "method": "Independent local dual rolling-hash normalized span comparison; SHA-256 source identity matched; numbering restored for six records; whitespace, soft hyphenation, amendment markers and quote variants normalized.",
+    "records": 85,
+    "matched": 85,
+    "unmatched": [],
+    "source_sha256": "602529287cbdbbb80f4bc17404fef58041ce5edf30646509b3cdb6991b7fc8a7",
+    "limitations": "Not a legal/atomicity review or full visual extraction check."
+  }
 }

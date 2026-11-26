@@ -36,6 +36,13 @@ class CLPCanonicalTests(unittest.TestCase):
         self.assertEqual([x["relative_variation_percent"] for x in t["rows"]],[5,10,20,30])
         self.assertFalse(t["rows"][0]["lower_inclusive"])
         self.assertTrue(t["rows"][0]["upper_inclusive"])
+    def test_historical_versions_and_source_check(self):
+        self.assertEqual(len(self.pack["historical_versions"]),6)
+        self.assertEqual(self.pack["source_text_check"]["matched"],len(self.pack["source_records"]))
+        for entry in self.pack["historical_versions"]:
+            old=entry["record"]
+            self.assertNotEqual(c.requirement_version(old),c.requirement_version(self.rows[old["id"]]))
+            self.assertEqual(c.resolve_any_requirement_version(old["id"],c.requirement_version(old)),old)
     def test_sqlite_and_combined(self):
         with tempfile.TemporaryDirectory() as tmp:
             out=Path(tmp)

@@ -189,6 +189,12 @@ def load_clp(root=ROOT, annex_pack=None, title_pack=None):
                 or row["assessment_methodology"] not in METHODS
                 or row["implementation_status"]!="manual_review_only"):
             raise ValueError("Invalid CLP requirement "+row["id"])
+    for old in pack.get("historical_versions", []):
+        row = old["record"]
+        if row["id"] not in rows or not old.get("reason") or digest(row)==digest(rows[row["id"]]):
+            raise ValueError("Invalid historical CLP requirement")
+        if row["wording"]!=" ".join(r["wording"] for r in old["source_records"]):
+            raise ValueError("Invalid archived CLP source trace")
     for table in pack["reference_tables"]:
         if table["id"] not in records or table["execution"]!="reference_only" or not set(table["related_requirements"])<=set(rows):
             raise ValueError("Invalid CLP reference table")
@@ -208,10 +214,10 @@ def verify_clp_pdf(pack, source_pdf):
         raise ValueError("Changed CLP source PDF")
     pages = subprocess.check_output(["pdftotext","-layout",str(source_pdf),"-"]).decode("utf-8").split("\f")
     def normalize(text):
-        text = re.sub(r"(?m)^.*02008R1272.*031\\.001.*$", "", text)
-        text = re.sub(r"[▼►]M?\\d*|[▼►]B|◄", "", text)
-        text = re.sub(r"\\u00ad\\s*", "", text)
-        return re.sub(r"\\s+", "", text).replace("’","'").replace("‘","'").replace("“",'"').replace("”",'"')
+        text = re.sub(r"(?m)^.*02008R1272.*031\.001.*$", "", text)
+        text = re.sub(r"[▼►](?:[MBC]\d*)|◄", "", text)
+        text = re.sub(r"\u00ad\s*", "", text)
+        return re.sub(r"\s+", "", text).replace("’","'").replace("‘","'").replace("“",'"').replace("”",'"')
     missing=[]
     for row in pack["source_records"]:
         source = normalize(" ".join(pages[n-1] for n in row["pdf_pages"]))
@@ -277,7 +283,7 @@ def build(out, root=ROOT, source_dir=None):
             db.execute("INSERT INTO search VALUES (?,?,?,?)",(r["id"],r["legal_authority_type"],r["clause"],r["wording"]))
         for table in clp["reference_tables"]:
             db.execute("INSERT INTO reference_table VALUES (?,?)",(table["id"],json.dumps(table,ensure_ascii=False)))
-        for old in pack.get("historical_versions", []):
+        for old in pack.get("historical_versions", []) + clp.get("historical_versions", []):
             r = old["record"]
             db.execute("INSERT INTO historical_requirement VALUES (?,?,?)",(r["id"],requirement_version(r),json.dumps(old,ensure_ascii=False)))
         for link in pack.get("enforcement_crosswalk", []):

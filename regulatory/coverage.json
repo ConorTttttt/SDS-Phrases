@@ -152,7 +152,7 @@
   },
   "canonical_clp": {
     "path": "regulatory/canonical/clp.json",
-    "release": "2026-11-26-clp-label-pcn-r1",
+    "release": "2026-11-26-clp-label-pcn-r2",
     "source_records": 85,
     "candidate_assessment_targets": 73,
     "status": "partial_candidate_manual_review_only",
@@ -167,6 +167,7 @@
       "Articles 23, 24 remainder, 29 remainder and Articles 30–33 label format/update",
       "Annex VIII Part A 2.4 definitions and Parts B–D complete PCN schema, concentration tables, MIM, ICG, standard formulas",
       "Current applicability of amendments and stock transitions; national derogations and language rules"
-    ]
+    ],
+    "source_text_check": "85/85 normalized spans matched supplied PDF after restoring paragraph numbers; no independent legal sign-off"
   }
 }
