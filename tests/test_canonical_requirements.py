@@ -49,3 +49,16 @@ class CanonicalTests(unittest.TestCase):
         rows={r["id"]:r for r in pack["requirements"]}
         self.assertNotIn("IATA, 2007",rows["EU-REACH-AII-TRANSPORT-SHIPPING-NAME"]["wording"])
         self.assertIn("If the UN number",rows["EU-REACH-AII-TRANSPORT-SHIPPING-NAME"]["wording"])
+
+    def test_archived_version_and_ref11_links(self):
+        pack,raw,_=c.load()
+        old=pack["historical_versions"][0]["record"]
+        active=next(r for r in pack["requirements"] if r["id"]==old["id"])
+        self.assertNotEqual(c.requirement_version(old),c.requirement_version(active))
+        self.assertEqual(c.resolve_requirement_version(pack,old["id"],c.requirement_version(old)),old)
+        self.assertNotIn("explosion limit",active["wording"])
+        self.assertEqual(pack["source_annotations"]["annex/336"]["corrected_clause"],"9.1(g)")
+        self.assertTrue(c.inspection_link(pack,"REF11/3.8")["requirement_ids"])
+        self.assertEqual(c.inspection_link(pack,"REF11/3.4")["link_status"],"partial_link_external_legal_basis_unresolved")
+        self.assertFalse(c.inspection_link(pack,"REF11/0.1")["requirement_ids"])
+        self.assertFalse(any(m["disposition"]=="pending_decomposition" for m in pack["migration"]))

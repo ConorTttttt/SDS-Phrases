@@ -1,6 +1,6 @@
 {
   "schema": "sds-canonical-requirements/v1",
-  "release": "2026-11-26-annex-ii-expanded",
+  "release": "2026-11-26-annex-ii-expanded-r2",
   "legacy_snapshot": {
     "commit": "2d2e7f03aa6b6ab593a08f705ecee82bd00897e8",
     "path": "regulatory/assessment/annex_ii.json",
@@ -1669,7 +1669,7 @@
         135,
         136
       ],
-      "wording": "(l) Kinematic viscosity Only applies to liquids. The measurement unit shall be mm 2 /s. ( 1 ) Note: The term ‘explosion limit’ is synonymous to ‘flammability limit’, used outside the Union. For non-Newtonian liquids, the thixotropic or rheopexic behaviour shall be indicated.",
+      "wording": "(l) Kinematic viscosity Only applies to liquids. The measurement unit shall be mm 2 /s. For non-Newtonian liquids, the thixotropic or rheopexic behaviour shall be indicated.",
       "applicability_conditions": "Assess 9.1 property-specific conditions, exceptions and permitted alternatives; do not infer applicability from extraction",
       "exceptions": [
         "See complete property text and 9.1 general rule; footnotes remain source evidence."
@@ -1692,7 +1692,6 @@
         "annex/333",
         "annex/334",
         "annex/335",
-        "annex/336",
         "annex/337"
       ],
       "modality": "candidate_obligation_or_conditional_assessment_target"
@@ -10650,9 +10649,13 @@
     },
     {
       "legacy_id": "annex/238",
-      "requirement_ids": [],
-      "disposition": "pending_decomposition",
-      "source_role": "unclassified_pending_review"
+      "requirement_ids": [
+        "EU-REACH-AII-OEL-NATIONAL-UNION-CAD",
+        "EU-REACH-AII-ENGINEERING-CONTROLS",
+        "EU-REACH-AII-ENVIRONMENTAL-CONTROLS"
+      ],
+      "disposition": "reference_not_standalone_obligation",
+      "source_role": "scope_or_parent_context"
     },
     {
       "legacy_id": "annex/239",
@@ -11415,7 +11418,7 @@
     {
       "legacy_id": "annex/336",
       "requirement_ids": [
-        "EU-REACH-AII-PROPERTY-L"
+        "EU-REACH-AII-PROPERTY-G"
       ],
       "disposition": "reference_not_standalone_obligation",
       "source_role": "footnote"
@@ -13400,7 +13403,984 @@
     "annex/336": {
       "corrected_clause": "9.1(g)",
       "source_role": "footnote",
-      "note": "Footnote on explosion limit appears after kinematic viscosity text; verify original footnote attachment."
+      "verification": "visual_check_pdf_135",
+      "note": "Footnote marker attached to 9.1(g); printed below 9.1(l). Removed from current viscosity wording; previous version archived."
     }
-  }
+  },
+  "historical_versions": [
+    {
+      "record": {
+        "id": "EU-REACH-AII-PROPERTY-L",
+        "source_id": "reach",
+        "source_version": "2026-06-22",
+        "legal_authority_type": "binding_law_via_consolidation",
+        "clause": "Annex II Part A 9.1(l)",
+        "table_references": [],
+        "printed_pages": [
+          135,
+          136
+        ],
+        "pdf_pages": [
+          135,
+          136
+        ],
+        "wording": "(l) Kinematic viscosity Only applies to liquids. The measurement unit shall be mm 2 /s. ( 1 ) Note: The term ‘explosion limit’ is synonymous to ‘flammability limit’, used outside the Union. For non-Newtonian liquids, the thixotropic or rheopexic behaviour shall be indicated.",
+        "applicability_conditions": "Assess 9.1 property-specific conditions, exceptions and permitted alternatives; do not infer applicability from extraction",
+        "exceptions": [
+          "See complete property text and 9.1 general rule; footnotes remain source evidence."
+        ],
+        "required_product_evidence": "Physical state; product type; measurements; method and units as applicable",
+        "required_sds_content": "Kinematic viscosity or justified availability/applicability statement",
+        "assessment_methodology": "scientific_adequacy",
+        "related_requirements": [
+          "EU-REACH-AII-PROPERTY-AVAILABILITY"
+        ],
+        "effective_date": "2021-01-01",
+        "transition_rules": "2020/878 Art. 2: prior format permitted until 2022-12-31; verify assessment date and separate CLP transitions",
+        "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+        "implementation_status": "manual_review_only",
+        "test_ids": [
+          "canonical-schema",
+          "canonical-legacy-map"
+        ],
+        "legacy_ids": [
+          "annex/333",
+          "annex/334",
+          "annex/335",
+          "annex/336",
+          "annex/337"
+        ],
+        "modality": "candidate_obligation_or_conditional_assessment_target"
+      },
+      "superseded_in": "2026-11-26-annex-ii-expanded-r2",
+      "reason": "PDF p135 footnote belongs to 9.1(g), not 9.1(l); visually confirmed."
+    }
+  ],
+  "enforcement_crosswalk": [
+    {
+      "id": "REF11/0.1",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "0.1",
+      "question_summary": "Country",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        32
+      ],
+      "printed_pages": [
+        32
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/0.2",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "0.2",
+      "question_summary": "Authority",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        32
+      ],
+      "printed_pages": [
+        32
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/0.3",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "0.3",
+      "question_summary": "Inspector",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        32
+      ],
+      "printed_pages": [
+        32
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/0.4",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "0.4",
+      "question_summary": "Inspector telephone",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        32
+      ],
+      "printed_pages": [
+        32
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/0.5",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "0.5",
+      "question_summary": "Inspector email",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        32
+      ],
+      "printed_pages": [
+        32
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/0.6",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "0.6",
+      "question_summary": "Inspection date",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        32
+      ],
+      "printed_pages": [
+        32
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/0.7",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "0.7",
+      "question_summary": "File reference",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        32
+      ],
+      "printed_pages": [
+        32
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/0.8",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "0.8",
+      "question_summary": "Inspection method",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        32
+      ],
+      "printed_pages": [
+        32
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/1.1",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "1.1",
+      "question_summary": "Supplier company",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        32
+      ],
+      "printed_pages": [
+        32
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/1.2",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "1.2",
+      "question_summary": "Contact person",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        32
+      ],
+      "printed_pages": [
+        32
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/1.3",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "1.3",
+      "question_summary": "Contact telephone",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        32
+      ],
+      "printed_pages": [
+        32
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/1.4",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "1.4",
+      "question_summary": "Contact role",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        32
+      ],
+      "printed_pages": [
+        32
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/1.5",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "1.5",
+      "question_summary": "NACE code",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        32
+      ],
+      "printed_pages": [
+        32
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/1.6",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "1.6",
+      "question_summary": "Enterprise size",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        32
+      ],
+      "printed_pages": [
+        32
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/1.7",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "1.7",
+      "question_summary": "Supply-chain role",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        32
+      ],
+      "printed_pages": [
+        32
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/2.1",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "2.1",
+      "question_summary": "Evidence of active SDS supply",
+      "reported_legal_basis": "REACH Article 31(1), (3), (4), (8)",
+      "pdf_pages": [
+        33
+      ],
+      "printed_pages": [
+        33
+      ],
+      "requirement_ids": [],
+      "link_status": "legal_requirement_mapping_pending",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/2.1/update",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "2.1/update",
+      "question_summary": "Redistribution procedures",
+      "reported_legal_basis": "REACH Article 31(9)",
+      "pdf_pages": [
+        33
+      ],
+      "printed_pages": [
+        33
+      ],
+      "requirement_ids": [],
+      "link_status": "legal_requirement_mapping_pending",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/2.2",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "2.2",
+      "question_summary": "Information supplied where SDS is unnecessary",
+      "reported_legal_basis": "REACH Article 32",
+      "pdf_pages": [
+        33
+      ],
+      "printed_pages": [
+        33
+      ],
+      "requirement_ids": [],
+      "link_status": "legal_requirement_mapping_pending",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/2.3",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "2.3",
+      "question_summary": "Applicable format and revision",
+      "reported_legal_basis": "REACH Article 31(6) and Annex II",
+      "pdf_pages": [
+        33
+      ],
+      "printed_pages": [
+        33
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-COMPILATION-DATE",
+        "EU-REACH-AII-REVISION-IDENTIFIER",
+        "EU-REACH-AII-NO-BLANK",
+        "EU-REACH-AII-RELEVANT-CONTENT",
+        "EU-REACH-AII-PAGINATION"
+      ],
+      "link_status": "candidate_partial_link",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions. Part B headings and complete Annex II review remain required."
+    },
+    {
+      "id": "REF11/2.4",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "2.4",
+      "question_summary": "Exposure scenario provision or incorporation",
+      "reported_legal_basis": "REACH Article 31(7)",
+      "pdf_pages": [
+        33
+      ],
+      "printed_pages": [
+        33
+      ],
+      "requirement_ids": [],
+      "link_status": "legal_requirement_mapping_pending",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/2.5",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "2.5",
+      "question_summary": "Market and language of SDS and annexes",
+      "reported_legal_basis": "REACH Article 31(5)",
+      "pdf_pages": [
+        33,
+        34
+      ],
+      "printed_pages": [
+        33,
+        34
+      ],
+      "requirement_ids": [],
+      "link_status": "legal_requirement_mapping_pending",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/3.1",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "3.1",
+      "question_summary": "Mixture UFI placement",
+      "reported_legal_basis": "REACH Annex II Part A 1.1",
+      "pdf_pages": [
+        34
+      ],
+      "printed_pages": [
+        34
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-UFI-LOCATION"
+      ],
+      "link_status": "candidate_partial_link",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/3.2",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "3.2",
+      "question_summary": "Last supplier contact details",
+      "reported_legal_basis": "REACH Annex II Part A 1.3",
+      "pdf_pages": [
+        34
+      ],
+      "printed_pages": [
+        34
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-SUPPLIER-IDENTITY",
+        "EU-REACH-AII-SUPPLIER-ADDRESS",
+        "EU-REACH-AII-SUPPLIER-TELEPHONE",
+        "EU-REACH-AII-COMPETENT-EMAIL",
+        "EU-REACH-AII-LOCAL-RESPONSIBLE-PERSON"
+      ],
+      "link_status": "candidate_partial_link",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/3.3",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "3.3",
+      "question_summary": "Classification of supplied product",
+      "reported_legal_basis": "REACH Annex II Part A 2.1",
+      "pdf_pages": [
+        34
+      ],
+      "printed_pages": [
+        34
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-CLASSIFICATION",
+        "EU-REACH-AII-CLASSIFICATION-NOTIFICATION",
+        "EU-REACH-AII-MIXTURE-NONCLASSIFIED",
+        "EU-REACH-AII-CLASSIFICATION-FULL-TEXT"
+      ],
+      "link_status": "candidate_partial_link",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/3.4",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "3.4",
+      "question_summary": "Authorisation numbers on label",
+      "reported_legal_basis": "REACH Annex II Part A 2.2",
+      "pdf_pages": [
+        34,
+        35
+      ],
+      "printed_pages": [
+        34,
+        35
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-LABEL-SUPPLEMENTAL",
+        "EU-REACH-AII-REGULATORY-AUTH-RESTRICTION"
+      ],
+      "link_status": "partial_link_external_legal_basis_unresolved",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions. Authorisation number on label requires separate REACH Article 65 applicability review; generic Annex II supplemental element candidate does not prove that duty."
+    },
+    {
+      "id": "REF11/3.5",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "3.5",
+      "question_summary": "Classifications of disclosed ingredients",
+      "reported_legal_basis": "REACH Annex II Part A 3.2",
+      "pdf_pages": [
+        35
+      ],
+      "printed_pages": [
+        35
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-MIXTURE-DISCLOSURE-FIELDS",
+        "EU-REACH-AII-INGREDIENT-CLASSIFICATION",
+        "EU-REACH-AII-INGREDIENT-STATEMENT-FULL",
+        "EU-REACH-AII-INGREDIENT-NONCLASSIFIED-REASON"
+      ],
+      "link_status": "candidate_partial_link",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/3.6",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "3.6",
+      "question_summary": "Available ATE, SCL and M-factors",
+      "reported_legal_basis": "REACH Annex II Part A 3.1 3.2",
+      "pdf_pages": [
+        35
+      ],
+      "printed_pages": [
+        35
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-SUBSTANCE-SCL",
+        "EU-REACH-AII-SUBSTANCE-MFACTOR",
+        "EU-REACH-AII-SUBSTANCE-ATE",
+        "EU-REACH-AII-INGREDIENT-SCL",
+        "EU-REACH-AII-INGREDIENT-MFACTOR",
+        "EU-REACH-AII-INGREDIENT-ATE"
+      ],
+      "link_status": "candidate_partial_link",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/3.7",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "3.7",
+      "question_summary": "National OELs, notations and legal bases",
+      "reported_legal_basis": "REACH Annex II Part A 8.1",
+      "pdf_pages": [
+        35,
+        36
+      ],
+      "printed_pages": [
+        35,
+        36
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-OEL-NATIONAL-UNION-CAD",
+        "EU-REACH-AII-OEL-NATIONAL-UNION-CMR",
+        "EU-REACH-AII-OEL-OTHER-NATIONAL"
+      ],
+      "link_status": "candidate_partial_link",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/3.8",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "3.8",
+      "question_summary": "PPE specifications and suitability",
+      "reported_legal_basis": "REACH Annex II Part A 8.2",
+      "pdf_pages": [
+        36
+      ],
+      "printed_pages": [
+        36
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-PPE-INTEGRATED",
+        "EU-REACH-AII-PPE-EYE-FACE",
+        "EU-REACH-AII-PPE-GLOVE-TYPE",
+        "EU-REACH-AII-PPE-GLOVE-MATERIAL",
+        "EU-REACH-AII-PPE-GLOVE-BREAKTHROUGH",
+        "EU-REACH-AII-PPE-OTHER-SKIN",
+        "EU-REACH-AII-PPE-RESPIRATORY",
+        "EU-REACH-AII-PPE-THERMAL",
+        "EU-REACH-AII-CONTROLS-ES-ALTERNATIVE"
+      ],
+      "link_status": "candidate_partial_link",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/3.9",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "3.9",
+      "question_summary": "Applicable basic physical and chemical properties",
+      "reported_legal_basis": "REACH Annex II Part A 9.1",
+      "pdf_pages": [
+        36
+      ],
+      "printed_pages": [
+        36
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-PROPERTY-AVAILABILITY",
+        "EU-REACH-AII-PROPERTIES-UNITS-METHOD",
+        "EU-REACH-AII-PROPERTIES-INGREDIENT-ATTRIBUTION",
+        "EU-REACH-AII-PROPERTY-A",
+        "EU-REACH-AII-PROPERTY-B",
+        "EU-REACH-AII-PROPERTY-C",
+        "EU-REACH-AII-PROPERTY-D",
+        "EU-REACH-AII-PROPERTY-E",
+        "EU-REACH-AII-PROPERTY-F",
+        "EU-REACH-AII-PROPERTY-G",
+        "EU-REACH-AII-PROPERTY-H",
+        "EU-REACH-AII-PROPERTY-I",
+        "EU-REACH-AII-PROPERTY-J",
+        "EU-REACH-AII-PROPERTY-K",
+        "EU-REACH-AII-PROPERTY-L",
+        "EU-REACH-AII-PROPERTY-M",
+        "EU-REACH-AII-PROPERTY-N",
+        "EU-REACH-AII-PROPERTY-O",
+        "EU-REACH-AII-PROPERTY-P",
+        "EU-REACH-AII-PROPERTY-Q",
+        "EU-REACH-AII-PROPERTY-R"
+      ],
+      "link_status": "candidate_partial_link",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/3.10",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "3.10",
+      "question_summary": "Additional physical hazard characteristics",
+      "reported_legal_basis": "REACH Annex II Part A 9.2",
+      "pdf_pages": [
+        36
+      ],
+      "printed_pages": [
+        36
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-OTHER-PHYSICAL-PARAMETERS",
+        "EU-REACH-AII-OTHER-SAFETY-PARAMETERS"
+      ],
+      "link_status": "candidate_partial_link",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/3.11",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "3.11",
+      "question_summary": "Desensitised explosives",
+      "reported_legal_basis": "REACH Annex II Part A 10.2 10.4",
+      "pdf_pages": [
+        36
+      ],
+      "printed_pages": [
+        36
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-DESENSITISED-STABILITY",
+        "EU-REACH-AII-DESENSITISED-CONDITIONS"
+      ],
+      "link_status": "candidate_partial_link",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/3.12",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "3.12",
+      "question_summary": "Proper shipping name and maritime transport in bulk",
+      "reported_legal_basis": "REACH Annex II Part A 14.2 14.7",
+      "pdf_pages": [
+        36
+      ],
+      "printed_pages": [
+        36
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-TRANSPORT-SHIPPING-NAME",
+        "EU-REACH-AII-TRANSPORT-BULK-LIQUID",
+        "EU-REACH-AII-TRANSPORT-BULK-SOLID",
+        "EU-REACH-AII-TRANSPORT-BULK-GAS"
+      ],
+      "link_status": "candidate_partial_link",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/3.13",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "3.13",
+      "question_summary": "Authorisation conditions and monitoring",
+      "reported_legal_basis": "REACH Annex II Part A 15.1",
+      "pdf_pages": [
+        36,
+        37
+      ],
+      "printed_pages": [
+        36,
+        37
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-REGULATORY-AUTH-RESTRICTION",
+        "EU-REACH-AII-REGULATORY-AUTH-CONDITIONS"
+      ],
+      "link_status": "candidate_partial_link",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/3.14",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "3.14",
+      "question_summary": "Nanoform coverage and identity (CAS/EC)",
+      "reported_legal_basis": "REACH Annex II Part A 1.1 3.1 3.2 9.1",
+      "pdf_pages": [
+        37
+      ],
+      "printed_pages": [
+        37
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-NANOFORM-LINK",
+        "EU-REACH-AII-NANOFORM-WORD",
+        "EU-REACH-AII-SUBSTANCE-REGISTERED-NANO",
+        "EU-REACH-AII-SUBSTANCE-UNREGISTERED-NANO",
+        "EU-REACH-AII-INGREDIENT-REGISTERED-NANO",
+        "EU-REACH-AII-INGREDIENT-OTHER-NANO",
+        "EU-REACH-AII-PROPERTY-R",
+        "EU-REACH-AII-PROPERTY-M",
+        "EU-REACH-AII-PROPERTY-N",
+        "EU-REACH-AII-INGREDIENT-NAME",
+        "EU-REACH-AII-INGREDIENT-EC-NUMBER"
+      ],
+      "link_status": "candidate_partial_link",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions. Inspection request for substance identity is not itself a universal SDS CAS requirement."
+    },
+    {
+      "id": "REF11/3.15",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "3.15",
+      "question_summary": "Endocrine disruptors",
+      "reported_legal_basis": "REACH Annex II Part A 2.3 3.2 11.2 12.6",
+      "pdf_pages": [
+        37
+      ],
+      "printed_pages": [
+        37
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-OTHER-ED",
+        "EU-REACH-AII-CLASSIFIED-PBT-ED",
+        "EU-REACH-AII-UNCLASSIFIED-PBT-ED",
+        "EU-REACH-AII-TOX-ED",
+        "EU-REACH-AII-ECO-ED"
+      ],
+      "link_status": "candidate_partial_link",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/3.16",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "3.16",
+      "question_summary": "Incorrect or implausible information and affected sections",
+      "reported_legal_basis": "REACH Annex II Part A 0.2.1",
+      "pdf_pages": [
+        38
+      ],
+      "printed_pages": [
+        38
+      ],
+      "requirement_ids": [
+        "EU-REACH-AII-GENERAL-SAFE-USE",
+        "EU-REACH-AII-GENERAL-LANGUAGE",
+        "EU-REACH-AII-GENERAL-WORKPLACE",
+        "EU-REACH-AII-RELEVANT-CONTENT"
+      ],
+      "link_status": "candidate_partial_link",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions. Quality review is cross-section and not exhausted by these general provisions."
+    },
+    {
+      "id": "REF11/4.1/31(1) and (3)",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "4.1/31(1) and (3)",
+      "question_summary": "Inspection determination for Article 31(1) and (3)",
+      "reported_legal_basis": "REACH Article 31(1) and (3)",
+      "pdf_pages": [
+        39
+      ],
+      "printed_pages": [
+        39
+      ],
+      "requirement_ids": [],
+      "link_status": "legal_requirement_mapping_pending",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/4.1/31(5)",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "4.1/31(5)",
+      "question_summary": "Inspection determination for Article 31(5)",
+      "reported_legal_basis": "REACH Article 31(5)",
+      "pdf_pages": [
+        39
+      ],
+      "printed_pages": [
+        39
+      ],
+      "requirement_ids": [],
+      "link_status": "legal_requirement_mapping_pending",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/4.1/31(7)",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "4.1/31(7)",
+      "question_summary": "Inspection determination for Article 31(7)",
+      "reported_legal_basis": "REACH Article 31(7)",
+      "pdf_pages": [
+        39
+      ],
+      "printed_pages": [
+        39
+      ],
+      "requirement_ids": [],
+      "link_status": "legal_requirement_mapping_pending",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/4.1/31(9)",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "4.1/31(9)",
+      "question_summary": "Inspection determination for Article 31(9)",
+      "reported_legal_basis": "REACH Article 31(9)",
+      "pdf_pages": [
+        39
+      ],
+      "printed_pages": [
+        39
+      ],
+      "requirement_ids": [],
+      "link_status": "legal_requirement_mapping_pending",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/4.1/32",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "4.1/32",
+      "question_summary": "Inspection determination for Article 32",
+      "reported_legal_basis": "REACH Article 32",
+      "pdf_pages": [
+        39
+      ],
+      "printed_pages": [
+        39
+      ],
+      "requirement_ids": [],
+      "link_status": "legal_requirement_mapping_pending",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/4.2",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "4.2",
+      "question_summary": "Action initiated and type of enforcement response",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        39
+      ],
+      "printed_pages": [
+        39
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/4.3",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "4.3",
+      "question_summary": "Follow-up progress",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        40
+      ],
+      "printed_pages": [
+        40
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    },
+    {
+      "id": "REF11/V",
+      "source_id": "ref11",
+      "source_version": "2024-12",
+      "legal_authority_type": "enforcement_report",
+      "question_reference": "V",
+      "question_summary": "Comments, obstacles, lessons and clarifications",
+      "reported_legal_basis": "",
+      "pdf_pages": [
+        40
+      ],
+      "printed_pages": [
+        40
+      ],
+      "requirement_ids": [],
+      "link_status": "administrative_record_not_legal_obligation",
+      "limitations": "REF-11 inspection scope only; underlying legal applicability, evidence and independent review govern conclusions."
+    }
+  ]
 }

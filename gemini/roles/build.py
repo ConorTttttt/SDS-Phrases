@@ -89,6 +89,7 @@ def build(repo, sources, dest):
     records = pack["requirements"]
     write(common,"canonical-requirements.json",pack)
     write(common,"canonical-coverage.json",coverage(pack,raw))
+    write(common,"ref11-canonical-crosswalk.json",pack.get("enforcement_crosswalk",[]))
     sections = re.split(r"(?m)(?=^## Section \d+ —)",refs["ECHA_SECTION_PLAYBOOK"])
     index = []
     for n in range(17):

@@ -1,5 +1,5 @@
 {
-  "release": "2026-11-26-annex-ii-expanded",
+  "release": "2026-11-26-annex-ii-expanded-r2",
   "warning": "Candidate target coverage only. No independent legal verification or exhaustive atomisation.",
   "sections": {
     "0": {
@@ -684,10 +684,10 @@
     },
     "8": {
       "source_records": 44,
-      "mapped_source_records": 29,
-      "unmapped_source_records": 15,
-      "unresolved_source_records": 1,
-      "reference_only_records": 14,
+      "mapped_source_records": 30,
+      "unmapped_source_records": 14,
+      "unresolved_source_records": 0,
+      "reference_only_records": 15,
       "assessment_targets": [
         {
           "id": "EU-REACH-AII-EXPOSURE-CSR",

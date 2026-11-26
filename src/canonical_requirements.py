@@ -55,10 +55,31 @@ def load(root=ROOT):
             raise ValueError("Untraceable wording or related requirement")
         if r["implementation_status"] != "manual_review_only":
             raise ValueError("No canonical deterministic legal rules approved")
+    for old in pack.get("historical_versions", []):
+        historical = old["record"]
+        if historical["id"] not in ids or not old.get("reason"):
+            raise ValueError("Invalid historical requirement")
+        if any(digest(historical) == digest(r) for r in rows):
+            raise ValueError("Historical version duplicates active record")
+    inspection_ids = set()
+    for link in pack.get("enforcement_crosswalk", []):
+        if link["id"] in inspection_ids or link["source_id"] != "ref11" or link["legal_authority_type"] != "enforcement_report":
+            raise ValueError("Invalid inspection reference")
+        inspection_ids.add(link["id"])
+        if not set(link["requirement_ids"]) <= ids:
+            raise ValueError("Unknown inspection crosswalk target")
     return pack, raw, sources
 
 def requirement_version(row):
     return digest(row)
+
+def resolve_requirement_version(pack, identifier, version):
+    """Resolve active or archived exact requirement, never substitute a newer version."""
+    candidates = pack["requirements"] + [h["record"] for h in pack.get("historical_versions", [])]
+    return next((r for r in candidates if r["id"] == identifier and requirement_version(r) == version), None)
+
+def inspection_link(pack, identifier):
+    return next((r for r in pack.get("enforcement_crosswalk", []) if r["id"] == identifier), None)
 
 def coverage(pack, raw):
     result = {}
@@ -104,12 +125,19 @@ def build(out, root=ROOT, source_dir=None):
         CREATE TABLE source_record(id TEXT PRIMARY KEY, authority TEXT, clause TEXT, page INTEGER, payload TEXT);
         CREATE TABLE migration(legacy_id TEXT PRIMARY KEY, payload TEXT);
         CREATE TABLE source_manifest(id TEXT PRIMARY KEY, payload TEXT);
+        CREATE TABLE historical_requirement(id TEXT, version TEXT, payload TEXT, PRIMARY KEY(id,version));
+        CREATE TABLE enforcement_crosswalk(id TEXT PRIMARY KEY, payload TEXT);
         CREATE VIRTUAL TABLE search USING fts5(id UNINDEXED, authority UNINDEXED, clause, body);""")
         for source in sources.values():
             db.execute("INSERT INTO source_manifest VALUES (?,?)",(source["id"],json.dumps(source,ensure_ascii=False)))
         for r in rows:
             db.execute("INSERT INTO requirement VALUES (?,?,?,?)",(r["id"],requirement_version(r),r["clause"],json.dumps(r,ensure_ascii=False)))
             db.execute("INSERT INTO search VALUES (?,?,?,?)",(r["id"],r["legal_authority_type"],r["clause"],r["wording"]))
+        for old in pack.get("historical_versions", []):
+            r = old["record"]
+            db.execute("INSERT INTO historical_requirement VALUES (?,?,?)",(r["id"],requirement_version(r),json.dumps(old,ensure_ascii=False)))
+        for link in pack.get("enforcement_crosswalk", []):
+            db.execute("INSERT INTO enforcement_crosswalk VALUES (?,?)",(link["id"],json.dumps(link,ensure_ascii=False)))
         for i,r in enumerate(raw):
             r = dict(r, legacy_id="annex/"+str(i), annotation=pack.get("source_annotations",{}).get("annex/"+str(i),{}))
             key="source/reach/"+digest(raw[i])

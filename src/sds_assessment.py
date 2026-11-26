@@ -11,7 +11,7 @@ from pathlib import Path
 from reach_annex2_audit import load_structure
 from toolkit import article31
 from sds_intake import blocks, extract
-from canonical_requirements import load as load_canonical, evaluate_requirement, coverage as canonical_coverage
+from canonical_requirements import load as load_canonical, evaluate_requirement, coverage as canonical_coverage, inspection_link
 
 ROOT = Path(__file__).resolve().parents[1]
 PASS, FAIL, SUSPECT, UNKNOWN, NA, SKIP, REVIEW = STATUSES = (
@@ -215,6 +215,11 @@ def assess(document, corrections=None):
         finding("REF11/"+key,codes,topic,law or "Administrative inspection record",SKIP if not law else UNKNOWN,
                 "Record inspection response and the evidence for it.")
         rows[-1]["source_citation"]=f"ECHA-24-R-13-EN, Annex I, {key}, printed p. {page}"
+        link = inspection_link(pack, "REF11/"+key)
+        if link:
+            rows[-1].update(related_requirement_ids=link["requirement_ids"],
+                            enforcement_link_status=link["link_status"],
+                            enforcement_limitations=link["limitations"])
     return rows
 
 def export(directory, document, rows):
