@@ -1,0 +1,366 @@
+{
+ "H201": {
+  "wording": "Explosive; mass explosion hazard.",
+  "page": 249
+ },
+ "H202": {
+  "wording": "Explosive, severe projection hazard.",
+  "page": 250
+ },
+ "H203": {
+  "wording": "Explosive; fire, blast or projection hazard.",
+  "page": 251
+ },
+ "H204": {
+  "wording": "Fire or projection hazard.",
+  "page": 252
+ },
+ "H205": {
+  "wording": "May mass explode in fire.",
+  "page": 252
+ },
+ "H206": {
+  "wording": "Fire, blast or projection hazard; increased risk of explosion if desensitising agent is reduced.",
+  "page": 253
+ },
+ "H207": {
+  "wording": "Fire or projection hazard; increased risk of explosion if desensitising agent is reduced.",
+  "page": 255
+ },
+ "H208": {
+  "wording": "Fire hazard; increased risk of explosion if desensitising agent is reduced.",
+  "page": 256
+ },
+ "H220": {
+  "wording": "Extremely flammable gas.",
+  "page": 257
+ },
+ "H221": {
+  "wording": "Flammable gas.",
+  "page": 258
+ },
+ "H223": {
+  "wording": "Flammable aerosol.",
+  "page": 259
+ },
+ "H224": {
+  "wording": "Extremely flammable liquid and vapour.",
+  "page": 260
+ },
+ "H225": {
+  "wording": "Highly flammable liquid and vapour.",
+  "page": 260
+ },
+ "H226": {
+  "wording": "Flammable liquid and vapour.",
+  "page": 261
+ },
+ "H228": {
+  "wording": "Flammable solid.",
+  "page": 262
+ },
+ "H229": {
+  "wording": "Pressurised container: May burst if heated.",
+  "page": 263
+ },
+ "H230": {
+  "wording": "May react explosively even in the absence of air.",
+  "page": 264
+ },
+ "H232": {
+  "wording": "May ignite spontaneously if exposed to air.",
+  "page": 265
+ },
+ "H240": {
+  "wording": "Heating may cause an explosion.",
+  "page": 267
+ },
+ "H241": {
+  "wording": "Heating may cause a fire or explosion.",
+  "page": 268
+ },
+ "H242": {
+  "wording": "Heating may cause a fire.",
+  "page": 268
+ },
+ "H250": {
+  "wording": "Catches fire spontaneously if exposed to air.",
+  "page": 269
+ },
+ "H251": {
+  "wording": "Self-heating: may catch fire.",
+  "page": 270
+ },
+ "H252": {
+  "wording": "Self-heating in large quantities; may catch fire.",
+  "page": 271
+ },
+ "H260": {
+  "wording": "In contact with water releases flammable gases which may ignite spontaneously.",
+  "page": 272
+ },
+ "H261": {
+  "wording": "In contact with water releases flammable gases.",
+  "page": 273
+ },
+ "H270": {
+  "wording": "May cause or intensify fire; oxidiser.",
+  "page": 274
+ },
+ "H271": {
+  "wording": "May cause fire or explosion; strong oxidiser.",
+  "page": 275
+ },
+ "H272": {
+  "wording": "May intensify fire; oxidiser.",
+  "page": 276
+ },
+ "H280": {
+  "wording": "Contains gas under pressure; may explode if heated.",
+  "page": 277
+ },
+ "H281": {
+  "wording": "Contains refrigerated gas; may cause cryogenic burns or injury.",
+  "page": 278
+ },
+ "H290": {
+  "wording": "May be corrosive to metals.",
+  "page": 279
+ },
+ "H300": {
+  "wording": "Fatal if swallowed.",
+  "page": 279
+ },
+ "H301": {
+  "wording": "Toxic if swallowed.",
+  "page": 280
+ },
+ "H302": {
+  "wording": "Harmful if swallowed.",
+  "page": 281
+ },
+ "H304": {
+  "wording": "May be fatal if swallowed and enters airways.",
+  "page": 281
+ },
+ "H310": {
+  "wording": "Fatal if swallowed or in contact with skin",
+  "page": 314
+ },
+ "H311": {
+  "wording": "Toxic if swallowed or in contact with skin",
+  "page": 318
+ },
+ "H312": {
+  "wording": "Harmful if swallowed or in contact with skin",
+  "page": 322
+ },
+ "H315": {
+  "wording": "Causes skin irritation.",
+  "page": 285
+ },
+ "H317": {
+  "wording": "May cause an allergic skin reaction.",
+  "page": 286
+ },
+ "H318": {
+  "wording": "Causes serious eye damage.",
+  "page": 287
+ },
+ "H319": {
+  "wording": "Causes serious eye irritation.",
+  "page": 287
+ },
+ "H330": {
+  "wording": "Fatal if swallowed, in contact with skin or if inhaled",
+  "page": 317
+ },
+ "H331": {
+  "wording": "Toxic if swallowed, in contact with skin or if inhaled",
+  "page": 321
+ },
+ "H332": {
+  "wording": "Harmful if swallowed, in contact with skin or if inhaled",
+  "page": 324
+ },
+ "H334": {
+  "wording": "May cause allergy or asthma symptoms or breathing difficulties if inhaled.",
+  "page": 290
+ },
+ "H335": {
+  "wording": "May cause respiratory irritation.",
+  "page": 291
+ },
+ "H336": {
+  "wording": "May cause drowsiness or dizziness.",
+  "page": 292
+ },
+ "H340": {
+  "wording": "May cause genetic defects <state route of exposure if it is conclusively proven that no other routes of exposure cause the hazard>.",
+  "page": 293
+ },
+ "H341": {
+  "wording": "Suspected of causing genetic defects <state route of exposure if it is conclusively proven that no other routes of exposure cause the hazard>.",
+  "page": 295
+ },
+ "H350": {
+  "wording": "May cause cancer <state route of exposure if it is conclusively proven that no other routes of exposure cause the hazard>.",
+  "page": 297
+ },
+ "H360": {
+  "wording": "May damage fertility or the unborn child <state specific effect if known > <state route of exposure if it is conclusively proven that no other routes of exposure cause the hazard>.",
+  "page": 300
+ },
+ "H361": {
+  "wording": "Suspected of damaging fertility or the unborn child <state specific effect if known> <state route of exposure if it is conclusively proven that no other routes of exposure cause the hazard>.",
+  "page": 302
+ },
+ "H362": {
+  "wording": "May cause harm to breast-fed children.",
+  "page": 304
+ },
+ "H370": {
+  "wording": "Causes damage to organs <or state all organs affected, if known> <state route of exposure if it is conclusively proven that no other routes of exposure cause the hazard>.",
+  "page": 305
+ },
+ "H371": {
+  "wording": "May cause damage to organs <or state all organs affected, if known> <state route of exposure if it is conclusively proven that no other routes of exposure cause the hazard>.",
+  "page": 307
+ },
+ "H372": {
+  "wording": "Causes damage to organs <or state all organs affected, if known> through prolonged or repeated exposure <state route of exposure if it is conclusively proven that no other routes of exposure cause the hazard>.",
+  "page": 310
+ },
+ "H373": {
+  "wording": "May cause damage to organs <or state all organs affected, if known> through prolonged or repeated exposure <state route of exposure if it is conclusively proven that no other routes of exposure cause the hazard>.",
+  "page": 312
+ },
+ "EUH380": {
+  "wording": "May cause endocrine disruption in humans",
+  "page": 325
+ },
+ "EUH381": {
+  "wording": "Suspected of causing endocrine disruption in humans",
+  "page": 326
+ },
+ "H400": {
+  "wording": "Very toxic to aquatic life.",
+  "page": 327
+ },
+ "H410": {
+  "wording": "Very toxic to aquatic life with long lasting effects.",
+  "page": 328
+ },
+ "H411": {
+  "wording": "Toxic to aquatic life with long lasting effects.",
+  "page": 329
+ },
+ "H412": {
+  "wording": "Harmful to aquatic life with long lasting effects.",
+  "page": 330
+ },
+ "H413": {
+  "wording": "May cause long lasting harmful effects to aquatic life.",
+  "page": 331
+ },
+ "H420": {
+  "wording": "Harms public health and the environment by destroying ozone in the upper atmosphere",
+  "page": 332
+ },
+ "EUH430": {
+  "wording": "May cause endocrine disruption in the environment",
+  "page": 334
+ },
+ "EUH431": {
+  "wording": "Suspected of causing endocrine disruption in the environment",
+  "page": 334
+ },
+ "EUH440": {
+  "wording": "Accumulates in the environment and living organisms including in humans",
+  "page": 335
+ },
+ "EUH441": {
+  "wording": "Strongly accumulates in the environment and living organisms including in humans",
+  "page": 336
+ },
+ "EUH450": {
+  "wording": "Can cause long-lasting and diffuse contamination of water resources",
+  "page": 337
+ },
+ "EUH451": {
+  "wording": "Can cause very long-lasting and diffuse contamination of water resources",
+  "page": 338
+ },
+ "EUH014": {
+  "wording": "Reacts violently with water.",
+  "page": 340
+ },
+ "EUH018": {
+  "wording": "In use may form flammable/explosive vapour- air mixture.",
+  "page": 341
+ },
+ "EUH019": {
+  "wording": "May form explosive peroxides.",
+  "page": 342
+ },
+ "EUH029": {
+  "wording": "Contact with water liberates toxic gas.",
+  "page": 343
+ },
+ "EUH031": {
+  "wording": "Contact with acids liberates toxic gas.",
+  "page": 344
+ },
+ "EUH032": {
+  "wording": "Contact with acids liberates very toxic gas.",
+  "page": 345
+ },
+ "EUH066": {
+  "wording": "Repeated exposure may cause skin dryness or cracking.",
+  "page": 346
+ },
+ "EUH070": {
+  "wording": "Toxic by eye contact.",
+  "page": 347
+ },
+ "EUH071": {
+  "wording": "Corrosive to the respiratory tract.",
+  "page": 348
+ },
+ "EUH202": {
+  "wording": "Cyanoacrylate. Danger. Bonds skin and eyes in seconds. Keep out of the reach of children.",
+  "page": 350
+ },
+ "EUH203": {
+  "wording": "Contains chromium (VI). May produce an allergic reaction.",
+  "page": 351
+ },
+ "EUH204": {
+  "wording": "Contains isocyanates. May produce an allergic reaction.",
+  "page": 352
+ },
+ "EUH206": {
+  "wording": "Warning! Do not use together with other products. May release dangerous gases (chlorine).",
+  "page": 355
+ },
+ "EUH207": {
+  "wording": "Warning! Contains cadmium. Dangerous fumes are formed during use. See information supplied by the manufacturer. Comply with the safety instructions.",
+  "page": 356
+ },
+ "EUH210": {
+  "wording": "Safety data sheet available on request.",
+  "page": 360
+ },
+ "EUH211": {
+  "wording": "Warning! Hazardous respirable droplets may be formed when sprayed. Do not breathe spray or mist.",
+  "page": 361
+ },
+ "EUH212": {
+  "wording": "Warning! Hazardous respirable dust may be formed when used. Do not breathe dust.",
+  "page": 362
+ },
+ "EUH401": {
+  "wording": "To avoid risks to human health and the environment, comply with the instructions for use.",
+  "page": 364
+ }
+}

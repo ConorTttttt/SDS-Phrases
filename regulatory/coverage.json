@@ -52,26 +52,31 @@
     },
     {
       "id": "ref11",
-      "status": "knowledge_only",
-      "implementation": "regulatory/author/references/REF11_ENFORCEMENT_QA.md",
-      "validation_status": "unverified_runtime",
-      "implementation_status": "partially_implemented"
+      "status": "partial",
+      "implementation": "src/sds_assessment.py",
+      "validation_status": "synthetic assessment tests; independent regulatory validation pending",
+      "implementation_status": "partially_implemented",
+      "limits": "Question-indexed manual worksheet, source-linked questionnaire and legal references."
     },
     {
       "id": "cross_section",
-      "status": "not_assessed",
-      "validation_status": "unverified_runtime",
-      "implementation_status": "not_implemented"
+      "status": "partial",
+      "validation_status": "synthetic assessment tests; independent regulatory validation pending",
+      "implementation_status": "partially_implemented",
+      "implementation": "src/sds_assessment.py",
+      "limits": "Twelve relationships routed to review; selected conflicts tested deterministically."
     },
     {
       "id": "multi_product",
-      "status": "knowledge_only",
-      "validation_status": "unverified_runtime",
-      "implementation_status": "partially_implemented"
+      "status": "partial",
+      "validation_status": "synthetic assessment tests; independent regulatory validation pending",
+      "implementation_status": "partially_implemented",
+      "implementation": "src/sds_assessment.py",
+      "limits": "Batch intake isolates each original by content hash; no automatic reconciliation across suppliers."
     },
     {
       "id": "clp",
-      "scope": "Annexes I–VI and VIII",
+      "scope": "Annexes I\u2013VI and VIII",
       "status": "not_assessed",
       "validation_status": "unverified_runtime",
       "implementation_status": "not_implemented"
@@ -91,9 +96,11 @@
     },
     {
       "id": "pdf_ingestion",
-      "status": "not_assessed",
-      "validation_status": "unverified_runtime",
-      "implementation_status": "not_implemented"
+      "status": "partial",
+      "validation_status": "synthetic assessment tests; independent regulatory validation pending",
+      "implementation_status": "partially_implemented",
+      "implementation": "src/sds_intake.py",
+      "limits": "Local PDF text, optional OCR, table extraction and image candidates require visual verification."
     },
     {
       "id": "exchange_import",

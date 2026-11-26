@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Supplier SDS assessment</title>
+<style>*{box-sizing:border-box}body{font:16px system-ui;color:#183238;margin:2rem;background:#fafbf9}main{display:grid;grid-template-columns:1fr 1fr;gap:2rem}section{min-width:0}textarea,select,input{width:100%;padding:.5rem;margin:.3rem 0}textarea{height:10rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:38vh;overflow:auto}button{padding:.6rem;margin:.4rem 0}dt{font-weight:bold}dd{margin:0 0 .6rem;white-space:pre-wrap;overflow-wrap:anywhere}@media(max-width:800px){main{display:block}}</style>
+<h1>Supplier SDS assessment</h1><p id="name"></p><main><section><h2>Supplier evidence</h2><a id="original">Open original document</a><label>Source page or text block<select id="pg"></select></label><object id="pdf" hidden type="application/pdf" width="100%" height="400" aria-label="Original supplier PDF"></object><pre id="source"></pre>
+<details><summary>Extracted tables, fields and visual candidates</summary><pre id="fields"></pre><div id="images"></div></details><label>Corrected extraction<textarea id="edit"></textarea></label><button id="correct">Record correction</button>
+</section><section><h2>Findings</h2><a id="questionnaire" hidden href="ref11.pdf#page=32">Open full REF-11 questionnaire and response options</a><label>Filter by section, status or requirement<input id="filter"></label><label>Requirement<select id="item"></select></label><dl id="details"></dl>
+<details><summary>Assessment dimensions</summary><div id="dimensions"></div></details><label>Review decision<select id="status"></select></label><label>Cited original pages<input id="sourcePages"></label><label>Verified original wording<textarea id="sourceQuote"></textarea></label><label>Evidence and rationale<textarea id="reason"></textarea></label><button id="record">Record decision</button></section></main>
+<button id="save">Download review for reassessment</button><p id="message" role="status"></p>
+<script type="application/json" id="data">CASE_PAYLOAD</script><script>
+const {document:doc,rows,statuses}=JSON.parse(document.querySelector('#data').textContent);
+const el=id=>document.getElementById(id);
+const review=Object.assign({sha256:doc.sha256,corrections:{},decisions:{}},doc.review);
+el('questionnaire').hidden=!doc.ref11;
+el('name').textContent=doc.name;
+el('original').href='original.'+doc.name.split('.').pop().toLowerCase();
+for(const [i,p] of doc.pages.entries())el('pg').add(new Option(p.page?'Page '+p.page:'Text block '+(i+1),i));
+for(const s of statuses)el('status').add(new Option(s,s));
+function page(){const i=el('pg').value,p=doc.pages[i];el('source').textContent=p?.text||'';if(doc.name.toLowerCase().endsWith('.pdf')){el('pdf').hidden=false;el('pdf').data='original.pdf#page='+(Number(p?.page)||1)}el('fields').textContent=JSON.stringify({tables:p?.tables,fields:p?.fields,pictogram_codes:p?.pictogram_codes,hazard_codes:p?.hazard_codes},null,2);
+el('images').replaceChildren();for(const v of p?.visual_candidates||[]){const img=document.createElement('img');img.src='data:image/png;base64,'+v.png;img.alt='Source image at '+v.bbox;el('images').append(img)}
+el('edit').value=review.corrections[i]??p?.text??''}
+const dimensions=['applicability','presence','completeness','regulatory_adequacy','scientific_plausibility','internal_consistency','expert_judgement'];
+for(const key of dimensions){const l=document.createElement('label'),input=document.createElement('input');input.id='dim-'+key;l.textContent=key.replaceAll('_',' ');l.append(input);el('dimensions').append(l)}
+function detail(){const r=rows[el('item').value];el('details').replaceChildren();if(!r)return;
+for(const [k,v] of Object.entries(r)){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=k.replaceAll('_',' ');dd.textContent=v;el('details').append(dt,dd)}
+const d=review.decisions[r.id];for(const key of dimensions)el('dim-'+key).value=d?.[key]??r[key];el('status').value=d?.status||r.status;el('reason').value=d?.reason||'';el('sourcePages').value=d?.source_pages||r.page;el('sourceQuote').value=d?.source_quote||r.original_wording;
+const i=doc.pages.findIndex(p=>p.page && String(p.page)===r.page.split(',')[0]);if(i>=0){el('pg').value=i;page()}}
+function list(){el('item').replaceChildren();rows.forEach((r,i)=>{if([r.id,r.issue,r.section,r.status].join(' ').toLowerCase().includes(el('filter').value.toLowerCase()))el('item').add(new Option(r.id+' · '+r.issue.slice(0,100),i))});detail()}
+el('pg').onchange=page;el('filter').oninput=list;el('item').onchange=detail;
+el('correct').onclick=()=>{review.corrections[el('pg').value]=el('edit').value;el('message').textContent='Correction recorded. Download the review and rerun the assessment.'};
+el('record').onclick=()=>{const r=rows[el('item').value],reason=el('reason').value.trim();if(!r||!reason){el('message').textContent='Enter supporting evidence and rationale.';return}review.decisions[r.id]={status:el('status').value,reason,source_pages:el('sourcePages').value,source_quote:el('sourceQuote').value,...Object.fromEntries(dimensions.map(k=>[k,el('dim-'+k).value]))};el('message').textContent='Decision recorded. Download the review to keep it.'};
+el('save').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(review,null,2)],{type:'application/json'}));a.download='review-'+doc.sha256.slice(0,12)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+page();list();
+</script></html>

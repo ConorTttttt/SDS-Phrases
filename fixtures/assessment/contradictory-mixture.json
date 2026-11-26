@@ -1,0 +1,11 @@
+{
+  "pages": [
+    {"page": 1, "text": "SECTION 2: Hazards identification\n2.1 Classification\nFlammable liquid H225. H318.\n2.2 Label elements\nGHS02"},
+    {"page": 2, "text": "SECTION 4: First aid measures\n4.1 Description of first aid measures\nEye contact: no action required\nSECTION 9: Physical and chemical properties\n9.1 Basic properties\nFlammability: Non-flammable"},
+    {"page": 3, "text": ""}
+  ],
+  "assessment_context": {
+    "section9": {"state":"liquid","kind":"mixture","aerosol":false},
+    "reach": {"jurisdiction":"EU","as_of":"2026-06-22","title_iv_in_scope":{"value":"yes","evidence":"Synthetic supply record"},"product_type":{"value":"mixture","evidence":"Synthetic formulation"},"hazardous":{"value":"yes","evidence":"Synthetic classification record"}}
+  }
+}

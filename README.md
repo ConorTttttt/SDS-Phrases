@@ -404,3 +404,39 @@ python3 src/server.py --port 8098
 
 Open: **http://127.0.0.1:8098/profile_recommendations.html**.
 See [scope, source safeguards and limitations](docs/chemical_family_phrase_recommendations.md).
+
+## Offline supplier SDS assessment
+
+Run the following from the repository root. Supply one or more local PDFs, DOCX,
+UTF-8 text files or JSON files. Each distinct original receives a SHA-256 case
+directory. Open its printed report.html path locally.
+
+    python3 src/sds_assessment.py --out ../supplier-cases fixtures/assessment/contradictory-mixture.json
+
+PDF intake uses local PyMuPDF (tested with 1.26.6). Add `--ocr` to recognise
+image-only pages using a local Tesseract installation and English language data.
+Review mixed raster/text pages visually. The original PDF retains vector and
+raster pictograms. Extracted image locations and GHS codes are candidates for
+manual identification. DOCX has no stable pagination. Use its rendered PDF if
+original page citations are required. JSON pages accept text and optional page
+number. The fixture demonstrates explicit Section 9 inputs (requires local Node)
+and evidenced facts for the branch's partial Article 31 engine.
+
+Use `--ref11 "/path/to/REF SDS.pdf"` to attach the complete pinned questionnaire,
+including its answer options and skip instructions, to the local case. The
+REF-11 worksheet records responses by inspection question. Administrative
+items have no statutory breach status. Check applicable legislation separately.
+
+In the report compare each finding with the source, enter corrections or review
+decisions, then download the review JSON. Apply that file to the same original
+and a new output directory to retain both assessment versions:
+
+    python3 src/sds_assessment.py --out ../reviewed --review review.json supplier.pdf
+
+Reports include JSON, Excel-compatible UTF-8 CSV, corrective actions and
+supplier evidence requests. Heading checks concern structure only. The
+page-indexed Part A source blocks are review material, including continuation
+paragraphs and table fragments. They need interpretation in clause context.
+Selected contradictions are deterministic. Other cross-section comparisons
+require a reviewer and product records. Citation and applicability review
+against the law applicable to the supply date remains necessary.

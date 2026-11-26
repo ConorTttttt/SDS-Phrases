@@ -1,0 +1,317 @@
+[
+ [
+  "0.1",
+  "Country",
+  "",
+  "",
+  32
+ ],
+ [
+  "0.2",
+  "Authority",
+  "",
+  "",
+  32
+ ],
+ [
+  "0.3",
+  "Inspector",
+  "",
+  "",
+  32
+ ],
+ [
+  "0.4",
+  "Inspector telephone",
+  "",
+  "",
+  32
+ ],
+ [
+  "0.5",
+  "Inspector email",
+  "",
+  "",
+  32
+ ],
+ [
+  "0.6",
+  "Inspection date",
+  "",
+  "",
+  32
+ ],
+ [
+  "0.7",
+  "File reference",
+  "",
+  "",
+  32
+ ],
+ [
+  "0.8",
+  "Inspection method",
+  "",
+  "",
+  32
+ ],
+ [
+  "1.1",
+  "Supplier company",
+  "",
+  "",
+  32
+ ],
+ [
+  "1.2",
+  "Contact person",
+  "",
+  "",
+  32
+ ],
+ [
+  "1.3",
+  "Contact telephone",
+  "",
+  "",
+  32
+ ],
+ [
+  "1.4",
+  "Contact role",
+  "",
+  "",
+  32
+ ],
+ [
+  "1.5",
+  "NACE code",
+  "",
+  "",
+  32
+ ],
+ [
+  "1.6",
+  "Enterprise size",
+  "",
+  "",
+  32
+ ],
+ [
+  "1.7",
+  "Supply-chain role",
+  "",
+  "",
+  32
+ ],
+ [
+  "2.1",
+  "Evidence of active SDS supply",
+  "",
+  "REACH Article 31(1), (3), (4), (8)",
+  33
+ ],
+ [
+  "2.1/update",
+  "Redistribution procedures",
+  "",
+  "REACH Article 31(9)",
+  33
+ ],
+ [
+  "2.2",
+  "Information supplied where SDS is unnecessary",
+  "",
+  "REACH Article 32",
+  33
+ ],
+ [
+  "2.3",
+  "Applicable format and revision",
+  "",
+  "REACH Article 31(6) and Annex II",
+  33
+ ],
+ [
+  "2.4",
+  "Exposure scenario provision or incorporation",
+  "",
+  "REACH Article 31(7)",
+  33
+ ],
+ [
+  "2.5",
+  "Market and language of SDS and annexes",
+  "",
+  "REACH Article 31(5)",
+  33
+ ],
+ [
+  "3.1",
+  "Mixture UFI placement",
+  "1.1",
+  "REACH Annex II Part A 1.1",
+  34
+ ],
+ [
+  "3.2",
+  "Last supplier contact details",
+  "1.3",
+  "REACH Annex II Part A 1.3",
+  34
+ ],
+ [
+  "3.3",
+  "Classification of supplied product",
+  "2.1",
+  "REACH Annex II Part A 2.1",
+  34
+ ],
+ [
+  "3.4",
+  "Authorisation numbers on label",
+  "2.2",
+  "REACH Annex II Part A 2.2",
+  34
+ ],
+ [
+  "3.5",
+  "Classifications of disclosed ingredients",
+  "3.2",
+  "REACH Annex II Part A 3.2",
+  35
+ ],
+ [
+  "3.6",
+  "Available ATE, SCL and M-factors",
+  "3.1 3.2",
+  "REACH Annex II Part A 3.1 3.2",
+  35
+ ],
+ [
+  "3.7",
+  "National OELs, notations and legal bases",
+  "8.1",
+  "REACH Annex II Part A 8.1",
+  35
+ ],
+ [
+  "3.8",
+  "PPE specifications and suitability",
+  "8.2",
+  "REACH Annex II Part A 8.2",
+  36
+ ],
+ [
+  "3.9",
+  "Applicable basic physical and chemical properties",
+  "9.1",
+  "REACH Annex II Part A 9.1",
+  36
+ ],
+ [
+  "3.10",
+  "Additional physical hazard characteristics",
+  "9.2",
+  "REACH Annex II Part A 9.2",
+  36
+ ],
+ [
+  "3.11",
+  "Desensitised explosives",
+  "10.2 10.4",
+  "REACH Annex II Part A 10.2 10.4",
+  36
+ ],
+ [
+  "3.12",
+  "Proper shipping name and maritime transport in bulk",
+  "14.2 14.7",
+  "REACH Annex II Part A 14.2 14.7",
+  36
+ ],
+ [
+  "3.13",
+  "Authorisation conditions and monitoring",
+  "15.1",
+  "REACH Annex II Part A 15.1",
+  36
+ ],
+ [
+  "3.14",
+  "Nanoform coverage and identity (CAS/EC)",
+  "1.1 3.1 3.2 9.1",
+  "REACH Annex II Part A 1.1 3.1 3.2 9.1",
+  37
+ ],
+ [
+  "3.15",
+  "Endocrine disruptors",
+  "2.3 3.2 11.2 12.6",
+  "REACH Annex II Part A 2.3 3.2 11.2 12.6",
+  37
+ ],
+ [
+  "3.16",
+  "Incorrect or implausible information and affected sections",
+  "",
+  "REACH Annex II Part A 0.2.1",
+  38
+ ],
+ [
+  "4.1/31(1) and (3)",
+  "Inspection determination for Article 31(1) and (3)",
+  "",
+  "REACH Article 31(1) and (3)",
+  39
+ ],
+ [
+  "4.1/31(5)",
+  "Inspection determination for Article 31(5)",
+  "",
+  "REACH Article 31(5)",
+  39
+ ],
+ [
+  "4.1/31(7)",
+  "Inspection determination for Article 31(7)",
+  "",
+  "REACH Article 31(7)",
+  39
+ ],
+ [
+  "4.1/31(9)",
+  "Inspection determination for Article 31(9)",
+  "",
+  "REACH Article 31(9)",
+  39
+ ],
+ [
+  "4.1/32",
+  "Inspection determination for Article 32",
+  "",
+  "REACH Article 32",
+  39
+ ],
+ [
+  "4.2",
+  "Action initiated and type of enforcement response",
+  "",
+  "",
+  39
+ ],
+ [
+  "4.3",
+  "Follow-up progress",
+  "",
+  "",
+  40
+ ],
+ [
+  "V",
+  "Comments, obstacles, lessons and clarifications",
+  "",
+  "",
+  40
+ ]
+]
