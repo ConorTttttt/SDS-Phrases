@@ -1,0 +1,237 @@
+{
+  "schema": "sds-validation/v1",
+  "commit": "19efd59653a9603c41eb70e889a84979527b4c6c",
+  "date": "2026-11-26",
+  "checkout": "complete git clone, clean working tree (git status --porcelain empty)",
+  "environment": {
+    "platform": "Linux x86_64 (glibc 2.39)",
+    "python": "CPython 3.13.18",
+    "node": "v22.23.5",
+    "sqlite": "3.53.1 with FTS5",
+    "poppler": "pdftotext/pdfinfo present",
+    "tesseract": "5.3.4 (installed for this run)",
+    "optional_python": "PyMuPDF 1.26.7, reportlab 4.4.9, python-docx (venv from requirements-documents.txt)"
+  },
+  "python_runs": [
+    {
+      "run": "default environment",
+      "conditions": "no PyMuPDF, no Tesseract, SDS_SOURCE_DIR/SDS_AUTHOR_DIR unset",
+      "command": "python3 scripts/run_tests_checked.py --manifest <outside-repo>/python-validation.json",
+      "suites": [
+        {
+          "suite": "tests",
+          "discovery_pattern": "test_*.py",
+          "discovered": 198,
+          "tests_run": 198,
+          "passed": 192,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 6,
+          "execution_limitations": [
+            "PyMuPDF unavailable",
+            "PyMuPDF unavailable",
+            "Tesseract unavailable",
+            "Pinned PDF directory and SDS_Author Git checkout not provisioned",
+            "Local pinned PDFs not provisioned",
+            "PyMuPDF optional dependency unavailable"
+          ],
+          "success": true
+        },
+        {
+          "suite": "gemini/roles",
+          "discovery_pattern": "test_exchange.py",
+          "discovered": 2,
+          "tests_run": 2,
+          "passed": 2,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "execution_limitations": [],
+          "success": true
+        }
+      ],
+      "sqlite_resource_warnings": 0,
+      "success": true
+    },
+    {
+      "run": "pinned sources",
+      "conditions": "SDS_SOURCE_DIR and SDS_AUTHOR_DIR set; no PyMuPDF/Tesseract",
+      "command": "python3 scripts/run_tests_checked.py --manifest <outside-repo>/python-validation.json",
+      "suites": [
+        {
+          "suite": "tests",
+          "discovery_pattern": "test_*.py",
+          "discovered": 198,
+          "tests_run": 198,
+          "passed": 194,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 4,
+          "execution_limitations": [
+            "PyMuPDF unavailable",
+            "PyMuPDF unavailable",
+            "Tesseract unavailable",
+            "PyMuPDF optional dependency unavailable"
+          ],
+          "success": true
+        },
+        {
+          "suite": "gemini/roles",
+          "discovery_pattern": "test_exchange.py",
+          "discovered": 2,
+          "tests_run": 2,
+          "passed": 2,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "execution_limitations": [],
+          "success": true
+        }
+      ],
+      "sqlite_resource_warnings": 0,
+      "success": true
+    },
+    {
+      "run": "full optional dependencies",
+      "conditions": "PyMuPDF 1.26.7, reportlab 4.4.9, python-docx, Tesseract 5.3.4, Poppler, sources",
+      "command": "python3 scripts/run_tests_checked.py --manifest <outside-repo>/python-validation.json",
+      "suites": [
+        {
+          "suite": "tests",
+          "discovery_pattern": "test_*.py",
+          "discovered": 198,
+          "tests_run": 198,
+          "passed": 198,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "execution_limitations": [],
+          "success": true
+        },
+        {
+          "suite": "gemini/roles",
+          "discovery_pattern": "test_exchange.py",
+          "discovered": 2,
+          "tests_run": 2,
+          "passed": 2,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "execution_limitations": [],
+          "success": true
+        }
+      ],
+      "sqlite_resource_warnings": 0,
+      "success": true
+    },
+    {
+      "run": "network namespace",
+      "conditions": "as full; run under unshare --net with loopback only; external HTTPS probe failed as intended",
+      "command": "python3 scripts/run_tests_checked.py --manifest <outside-repo>/python-validation.json",
+      "suites": [
+        {
+          "suite": "tests",
+          "discovery_pattern": "test_*.py",
+          "discovered": 198,
+          "tests_run": 198,
+          "passed": 198,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "execution_limitations": [],
+          "success": true
+        },
+        {
+          "suite": "gemini/roles",
+          "discovery_pattern": "test_exchange.py",
+          "discovered": 2,
+          "tests_run": 2,
+          "passed": 2,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "execution_limitations": [],
+          "success": true
+        }
+      ],
+      "sqlite_resource_warnings": 0,
+      "success": true
+    }
+  ],
+  "python_runs_note": "Network-namespace run first errored (76 tests, Errno 101) because iproute2 was not installed so loopback stayed down; after installing iproute2 the identical command passed. Environment defect, not application behaviour.",
+  "javascript": {
+    "command": "python3 scripts/run_js_tests_checked.py --manifest <outside-repo>/js-validation.json",
+    "passed": 11,
+    "failed": 0,
+    "skipped": 0,
+    "returncode": 0,
+    "status": "executed"
+  },
+  "static_checks": {
+    "web_js_syntax": "12/12 files passed node --input-type=module --check",
+    "compileall": "python3 -m compileall -q src tests scripts regulatory/author gemini/roles: OK"
+  },
+  "sources": {
+    "method": "sha256sum + pdfinfo page count against regulatory/source_manifest.json",
+    "matched": [
+      "reach",
+      "clp",
+      "echa",
+      "ref11",
+      "label"
+    ],
+    "provenance": {
+      "reach": "session upload",
+      "echa": "session upload",
+      "ref11": "session upload",
+      "label": "session upload",
+      "clp": "not uploaded; downloaded from https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20260701; SHA-256 equal to manifest"
+    },
+    "currentness": "not verified after snapshot"
+  },
+  "builders": {
+    "canonical_requirements (no sources)": "OK; requirements.json, clp.json, title_iv.json byte-identical to committed; requirements.jsonl 247 records semantically identical, serialisation differs; committed coverage_matrix.json not produced by builder",
+    "canonical_requirements --sources": "OK; requirement table 369 rows; source_record 3281 rows including 2566 PDF pages",
+    "verify_clp_pdf": "checked 85, unmatched 0, status text_match_only",
+    "reach_annex2_source (full PDF)": "OK; legally_verified_rules_created 0",
+    "guidance_pdf_verification (PDF only)": "OK; full-fidelity, tables and legal rules not verified",
+    "scripts/build_gemini_package.py --extract": "OK; check_package.py PASS static only: 23 files, 46 locators, 48 scenarios",
+    "gemini/roles/build.py": "OK; eu-sds-writer.zip and eu-sds-reviewer.zip; canonical requirement/CLP/Title IV arrays equal committed registry for both roles; evaluation.json 134 cases",
+    "src/sds_assessment.py fixture --ref11": "OK; report.html, findings.json/csv, corrective-actions.txt, supplier-request.txt",
+    "src/toolkit.py regulatory/example.synthetic.json": "OK; legal_compliance_determined false"
+  },
+  "server_smoke": {
+    "200": [
+      "/",
+      "/api/info",
+      "/api/regulatory/pack",
+      "/api/reach/structure",
+      "/section9-workspace.html",
+      "/authoring.html"
+    ],
+    "503": [
+      "/api/catalogue/summary (no local catalogue; expected fail-closed)"
+    ]
+  },
+  "blocked": [
+    "scripts/verify_section_phrase_sources.py: missing_local_catalogue (exit 2)",
+    "scripts/verify_family_phrase_sources.py: 23 blocked mappings (exit 1)",
+    "guidance archive cross-check: CLP_A_I-main.zip unavailable",
+    "live Gemini evaluation not run",
+    "Windows not run",
+    "browser E2E not run"
+  ],
+  "ci": {
+    "run_id": 45892880848,
+    "url": "https://github.com/ConorTttttt/SDS-Phrases/actions/runs/45892880848",
+    "conclusion": "failure",
+    "jobs": "4 (ubuntu/windows x 3.12/3.14), each completed within about 3 seconds",
+    "test_execution_established": false
+  },
+  "limitations": [
+    "Results apply only to commit 19efd59653a9603c41eb70e889a84979527b4c6c.",
+    "Synthetic fixtures only; licensed catalogue absent.",
+    "No independent legal, regulatory or competent-person validation is implied.",
+    "Extraction fidelity of tables, footnotes and formulas not verified."
+  ]
+}
