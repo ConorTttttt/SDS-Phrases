@@ -34,3 +34,18 @@ class CanonicalTests(unittest.TestCase):
         r=pack["requirements"][0]
         self.assertEqual(c.requirement_version(r),c.requirement_version(dict(reversed(list(r.items())))))
         self.assertNotEqual(c.requirement_version(r),c.requirement_version(dict(r,wording="changed")))
+
+    def test_expanded_coverage_and_roles(self):
+        pack,raw,_=c.load()
+        coverage=c.coverage(pack,raw)
+        self.assertEqual(set(coverage),{str(i) for i in range(17)})
+        self.assertTrue(all(v["requirements"] and v["coverage"]=="incomplete" for v in coverage.values()))
+        self.assertEqual(sum(v["source_records"] for v in coverage.values()),597)
+        self.assertEqual(pack["source_annotations"]["annex/516"]["corrected_clause"],"11.2")
+        self.assertEqual(pack["source_annotations"]["annex/564"]["continuation"],"annex/566")
+        self.assertEqual(c.resolve_legacy(pack,"annex/565")["source_role"],"footnote")
+        self.assertEqual(c.resolve_legacy(pack,"annex/99")["source_role"],"table_material")
+        self.assertEqual(c.resolve_legacy(pack,"annex/450")["source_role"],"example_or_optional_reference")
+        rows={r["id"]:r for r in pack["requirements"]}
+        self.assertNotIn("IATA, 2007",rows["EU-REACH-AII-TRANSPORT-SHIPPING-NAME"]["wording"])
+        self.assertIn("If the UN number",rows["EU-REACH-AII-TRANSPORT-SHIPPING-NAME"]["wording"])

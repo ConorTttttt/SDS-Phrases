@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import re
 import sqlite3
 import subprocess
 from contextlib import closing
@@ -64,11 +65,15 @@ def coverage(pack, raw):
     for i, m in enumerate(pack["migration"]):
         section = raw[int(m["legacy_id"].split("/")[1])]["clause"].split(".")[0]
         entry = result.setdefault(section, {"source_records":0,"linked_source_records":0,
-             "unmapped_source_records":0,"requirements":[], "coverage":"incomplete"})
+             "unmapped_source_records":0,"unresolved_source_records":0,"reference_only_records":0,"requirements":[], "coverage":"incomplete"})
         entry["source_records"] += 1
+        if m["disposition"] == "pending_decomposition":
+            entry["unresolved_source_records"] += 1
+        if "reference_not_standalone" in m["disposition"]:
+            entry["reference_only_records"] += 1
         entry["linked_source_records" if m["requirement_ids"] else "unmapped_source_records"] += 1
     for r in pack["requirements"]:
-        section = r["clause"].split()[-1].split(".")[0]
+        section = re.split(r"[.(]",r["clause"].split()[-1])[0]
         result[section]["requirements"].append({"id":r["id"],"version":requirement_version(r),
             "verification_status":r["verification_status"],"implementation_status":r["implementation_status"]})
     return result
@@ -106,9 +111,10 @@ def build(out, root=ROOT, source_dir=None):
             db.execute("INSERT INTO requirement VALUES (?,?,?,?)",(r["id"],requirement_version(r),r["clause"],json.dumps(r,ensure_ascii=False)))
             db.execute("INSERT INTO search VALUES (?,?,?,?)",(r["id"],r["legal_authority_type"],r["clause"],r["wording"]))
         for i,r in enumerate(raw):
-            key="source/reach/"+digest(r)
-            if db.execute("INSERT OR IGNORE INTO source_record VALUES (?,?,?,?,?)",(key,"legislation_consolidation",r["clause"],r["page"],json.dumps(r,ensure_ascii=False))).rowcount:
-                db.execute("INSERT INTO search VALUES (?,?,?,?)",(key,"legislation_consolidation",r["clause"],r["text"]))
+            r = dict(r, legacy_id="annex/"+str(i), annotation=pack.get("source_annotations",{}).get("annex/"+str(i),{}))
+            key="source/reach/"+digest(raw[i])
+            if db.execute("INSERT OR IGNORE INTO source_record VALUES (?,?,?,?,?)",(key,"legislation_consolidation",r["annotation"].get("corrected_clause",r["clause"]),r["page"],json.dumps(r,ensure_ascii=False))).rowcount:
+                db.execute("INSERT INTO search VALUES (?,?,?,?)",(key,"legislation_consolidation",r["annotation"].get("corrected_clause",r["clause"]),r["text"]))
         for m in pack["migration"]:
             db.execute("INSERT INTO migration VALUES (?,?)",(m["legacy_id"],json.dumps(m,ensure_ascii=False)))
         for key,r in read(root/"regulatory/assessment/clp_english.json").items():

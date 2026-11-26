@@ -95,7 +95,7 @@ def build(repo, sources, dest):
         body = [f"# REACH Annex II Part A — section {n}",sections[n] if n else sections[0]]
         body.append("Canonical decomposition incomplete; source extracts are not independently verified requirements.")
         for r in records:
-            if r["clause"].split()[-1].split(".")[0] != str(n):
+            if re.split(r"[.(]",r["clause"].split()[-1])[0] != str(n):
                 continue
             page = r["pdf_pages"][0]
             anchor = f"[{r['clause']}, PDF p. {page}](sources/{manifest['sources'][0]['package_filename']}#page={page})"

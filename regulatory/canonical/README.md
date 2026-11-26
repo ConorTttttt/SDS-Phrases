@@ -7,3 +7,7 @@ This is a deliberately partial canonical registry. The legacy inventory remains 
 Pass `--sources /path/to/original-pdfs` to verify all five hashes and add raw layout-preserving PDF pages to FTS5. Printed pages remain unset for unreviewed extractions. The legacy Gemini generator also bundles the registry. New exchanges include a hash of assessed rule versions in the sources header; old exchanges retain their format.
 
 `retrieve_clause(path, clause)` provides exact clause lookup; source record clauses retain legacy syntax (e.g. `1.1`), canonical clauses include `Annex II Part A`. `resolve_legacy(pack, legacy_id)` returns the historical disposition. `coverage_matrix.json` is a generated snapshot, not an independent rule source.
+
+## Expanded Annex II release
+
+247 curated candidate assessment targets span general provisions and all sixteen sections. Legacy source dispositions separate headings, footnotes, table material, optional examples, conditional context and operative/mixed material. Original 53 requirement records and their version hashes remain unchanged. Non-mapped source records include reference material and unresolved records; these are not equivalent to missing obligations. Coverage remains incomplete in every section. Section 9.2 illustrative data are not standalone mandatory obligations. Source annotations preserve corrected locator and continuation information without modifying legacy text.

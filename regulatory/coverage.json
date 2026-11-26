@@ -131,11 +131,12 @@
   ],
   "canonical_requirement_registry": {
     "path": "regulatory/canonical/requirements.json",
-    "release": "2026-11-26-initial",
+    "release": "2026-11-26-annex-ii-expanded",
     "source_records": 597,
-    "candidate_assessment_targets": 53,
-    "unmapped_source_records": 456,
-    "status": "partial_pending_legal_verification",
-    "implementation_status": "manual_review_only"
+    "candidate_assessment_targets": 247,
+    "unmapped_source_records": 149,
+    "status": "all_sections_candidate_coverage_pending_legal_verification",
+    "implementation_status": "manual_review_only",
+    "unresolved_source_records": 1
   }
 }
