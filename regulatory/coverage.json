@@ -128,5 +128,14 @@
       "validation_status": "existing tests present; integrated runtime pending",
       "limits": "Controlled phrases, review gates and revision history; no automated release or certification."
     }
-  ]
+  ],
+  "canonical_requirement_registry": {
+    "path": "regulatory/canonical/requirements.json",
+    "release": "2026-11-26-initial",
+    "source_records": 597,
+    "candidate_assessment_targets": 53,
+    "unmapped_source_records": 456,
+    "status": "partial_pending_legal_verification",
+    "implementation_status": "manual_review_only"
+  }
 }

@@ -11,6 +11,7 @@ from pathlib import Path
 from reach_annex2_audit import load_structure
 from toolkit import article31
 from sds_intake import blocks, extract
+from canonical_requirements import load as load_canonical, evaluate_requirement, coverage as canonical_coverage
 
 ROOT = Path(__file__).resolve().parents[1]
 PASS, FAIL, SUSPECT, UNKNOWN, NA, SKIP, REVIEW = STATUSES = (
@@ -88,11 +89,22 @@ def assess(document, corrections=None):
                        applicability="inapplicable" if outcome == NA else "see reviewed inventory",
                        recommended_correction="Restore the required heading or complete the blank subsection." if outcome == FAIL else "",
                        missing_information="", review_status="reviewed inventory")
-    for i,item in enumerate(json.loads((ROOT/"regulatory/assessment/annex_ii.json").read_text())):
-        clause=item["clause"]
-        code=".".join(clause.split(".")[:2])
-        finding(f"annex/{i}",code,item["text"],f"{LAW} Part A {clause}, p. {item['page']}",
-                REVIEW if code in groups else UNKNOWN,"Establish applicability, check product records and record a substantiated decision.")
+    pack, raw, _ = load_canonical(ROOT)
+    for item in pack["requirements"]:
+        clause = item["clause"].split()[-1]
+        code = ".".join(clause.split("(")[0].split(".")[:2])
+        result = evaluate_requirement(item, groups.get(code))
+        finding(item["id"], code, item["required_sds_content"],
+                f"{LAW} {item['clause']}, PDF pp. {item['pdf_pages']}", result["status"],
+                result["missing_information"])
+        rows[-1].update(rule_version=result["rule_version"], canonical_release=pack["release"],
+                        assessment_method=item["assessment_methodology"], legacy_ids=item["legacy_ids"],
+                        verification_status=item["verification_status"])
+    for section, summary in canonical_coverage(pack, raw).items():
+        finding("coverage/annex-ii/"+section, section,
+                "Canonical legal decomposition and independent verification incomplete",
+                LAW, UNKNOWN, "Review remaining source records, qualifications and current legal version.")
+        rows[-1].update(canonical_release=pack["release"], coverage_gap=summary)
     for i,(codes,issue) in enumerate(CROSS):
         finding(f"consistency/{i}",codes,issue,f"{LAW} Part A "+", ".join(codes.split()),
                 REVIEW if all(c in groups for c in codes.split()) else UNKNOWN,"Compare cited sections and supporting product data.")
@@ -210,10 +222,11 @@ def export(directory, document, rows):
         (directory/name).write_text(value,encoding="utf-8")
     write("findings.json",json.dumps(rows,ensure_ascii=False,indent=2))
     with (directory/"findings.csv").open("w",encoding="utf-8-sig",newline="") as f:
-        writer=csv.DictWriter(f,rows[0].keys())
+        writer=csv.DictWriter(f,list(dict.fromkeys(k for row in rows for k in row)))
         writer.writeheader()
         for row in rows:
-            writer.writerow({k:("'"+v if v.lstrip().startswith(("=","+","-","@")) else v) for k,v in row.items()})
+            values = {k: v if isinstance(v, str) else json.dumps(v, ensure_ascii=False) for k,v in row.items()}
+            writer.writerow({k: ("'"+v if v.lstrip().startswith(("=","+","-","@")) else v) for k,v in values.items()})
     actions=[r for r in rows if r["status"] in (SUSPECT,FAIL)]
     write("corrective-actions.txt","\n".join(r["id"]+" — "+r["recommended_correction"] for r in actions))
     requests = []

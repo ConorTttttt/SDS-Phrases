@@ -82,17 +82,25 @@ def build(repo, sources, dest):
         refs[name] = content
         if "TEST_CASES" not in name:
             write(common,Path(path).name,content)
-    records = read(REG/"assessment/annex_ii.json")
+    import sys
+    sys.path.insert(0, str(ROOT/"src"))
+    from canonical_requirements import load as load_canonical, requirement_version, coverage
+    pack, raw, _ = load_canonical(ROOT)
+    records = pack["requirements"]
+    write(common,"canonical-requirements.json",pack)
+    write(common,"canonical-coverage.json",coverage(pack,raw))
     sections = re.split(r"(?m)(?=^## Section \d+ —)",refs["ECHA_SECTION_PLAYBOOK"])
     index = []
     for n in range(17):
         body = [f"# REACH Annex II Part A — section {n}",sections[n] if n else sections[0]]
-        for i,r in enumerate(records):
-            if r["clause"].split(".")[0] != str(n):
+        body.append("Canonical decomposition incomplete; source extracts are not independently verified requirements.")
+        for r in records:
+            if r["clause"].split()[-1].split(".")[0] != str(n):
                 continue
-            anchor = f"[REACH Annex II {r['clause']}, PDF p. {r['page']}](sources/{manifest['sources'][0]['package_filename']}#page={r['page']})"
-            body.append(f"### annex/{i} · {anchor}\n\n{r['text']}")
-            index.append(f"annex/{i} | {r['clause']} | Section-{n:02}.md | PDF {r['page']}")
+            page = r["pdf_pages"][0]
+            anchor = f"[{r['clause']}, PDF p. {page}](sources/{manifest['sources'][0]['package_filename']}#page={page})"
+            body.append(f"### {r['id']} · {anchor}\n\n{r['wording']}\n\nApplicability: {r['applicability_conditions']}\n\nEvidence: {r['required_product_evidence']}\n\nVersion: {requirement_version(r)}; {r['verification_status']}")
+            index.append(f"{r['id']} | {r['clause']} | Section-{n:02}.md | PDF {r['pdf_pages']}")
         write(common,f"Section-{n:02}.md","\n\n".join(body))
     for line in refs["REACH_RULE_INDEX"].splitlines():
         r=json.loads(line)

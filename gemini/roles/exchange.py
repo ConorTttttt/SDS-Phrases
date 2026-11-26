@@ -28,8 +28,12 @@ def digest(data):
     return hashlib.sha256(json.dumps(data, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
 
 
-def versions():
-    return {s["id"]: s["version"] + "/" + s["sha256"] for s in read(ROOT/"regulatory/source_manifest.json")["sources"]}
+def versions(rows=()):
+    result = {s["id"]: s["version"] + "/" + s["sha256"] for s in read(ROOT/"regulatory/source_manifest.json")["sources"]}
+    pinned = {r["id"]:r["rule_version"] for r in rows if r.get("rule_version")}
+    if pinned:
+        result["canonical_rule_snapshot"] = digest(pinned)
+    return result
 
 
 HEADER = {"product_id": STRING, "document_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
@@ -53,7 +57,7 @@ def prepare(rows, product, selections):
         if field not in FIELDS or not indexed[key][field]:
             raise ValueError("Unavailable evidence field: " + selection)
         evidence.append(dict(id=selection, field=field, value=indexed[key][field], requirement_id=key))
-    data = dict(product_id=product, document_sha256=docs.pop(), sources=versions(), evidence=evidence)
+    data = dict(product_id=product, document_sha256=docs.pop(), sources=versions(rows), evidence=evidence)
     return dict(data, export_id=digest(data))
 
 

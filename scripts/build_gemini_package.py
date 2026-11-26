@@ -33,6 +33,7 @@ def _build(source_dir, out, extract=False):
             raise ValueError("Missing or changed pinned source: "+s["filename"])
     out.mkdir(parents=True)
     shutil.copytree(ROOT/"regulatory/author",out/"author")
+    shutil.copytree(ROOT/"regulatory/canonical",out/"canonical")
     (out/"sources").mkdir()
     for s in manifest["sources"]:
         shutil.copy2(source_dir/s["filename"],out/"sources"/s["package_filename"])

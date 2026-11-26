@@ -242,7 +242,7 @@ def evaluate(d, approvals):
     approved = approvals.latest()
     # Revision fingerprint includes active approval versions and canonical regulatory inputs.
     source_hashes = {f:text_hash((ROOT/f).read_text(encoding="utf-8")) for f in (
-        "regulatory/assessment/annex_ii.json","regulatory/assessment/clp_english.json",
+        "regulatory/canonical/requirements.json","regulatory/assessment/annex_ii.json","regulatory/assessment/clp_english.json",
         "regulatory/assessment/ref11.json","rules/eu_reach_annex2_partb_2026.json",
         "rules/regulatory-demo-v0.2.json","rules/eu_profile_phrase_relevance_v01.json",
         "rules/section_phrase_candidates_v0.1.json","rules/eu_sds_guidance_readiness_pilot.json")}
