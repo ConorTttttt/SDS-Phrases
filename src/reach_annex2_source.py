@@ -1,6 +1,6 @@
 """Local, non-destructive REACH Annex II PDF source index.
 
-Input is the 36-page user-supplied PDF, containing an excerpt of the
+Input is the pinned complete PDF or the legacy 36-page excerpt of the
 2026-06-22 EU consolidated text. Extraction artefacts may retain stale headers.
 Do not treat the consolidated document as the authentic Official Journal act.
 """
@@ -17,6 +17,7 @@ import tempfile
 from pathlib import Path
 
 SOURCE_SHA256="3e6304eb92c7ffb0b82fc7d634ac825f0bc8849195c81ac5d7efa4b16ead66fb"
+FULL_SOURCE_SHA256="04e3d65150eeed337e09f2a6d4a6cb6dae47a0bda488bebcef44972092147572"
 CELEX="02006R1907-20260622"
 OFFICIAL="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX%3A"+CELEX
 
@@ -40,11 +41,13 @@ def _pages(text):
 def import_pdf(path, db):
     path,db=Path(path),Path(db)
     if not path.is_file():raise FileNotFoundError(path)
-    if hashlib.sha256(path.read_bytes()).hexdigest()!=SOURCE_SHA256:
-        raise ReachSourceError("PDF fingerprint does not match reviewed upload. Use the original Full REACH_removed.pdf; no source substitution.")
+    digest=hashlib.sha256(path.read_bytes()).hexdigest()
+    if digest not in (SOURCE_SHA256,FULL_SOURCE_SHA256):
+        raise ReachSourceError("PDF fingerprint does not match either pinned REACH source (complete or excerpt).")
+    page_args=["-f","117","-l","152"] if digest==FULL_SOURCE_SHA256 else []
     if not shutil.which("pdftotext"):
         raise ReachSourceError("Missing pdftotext. On Ubuntu: sudo apt install poppler-utils")
-    result=subprocess.run(["pdftotext","-layout","-enc","UTF-8",str(path),"-"],
+    result=subprocess.run(["pdftotext",*page_args,"-layout","-enc","UTF-8",str(path),"-"],
                           capture_output=True,text=True,timeout=45,check=False)
     if result.returncode!=0:
         raise ReachSourceError("PDF text extraction failed: "+result.stderr[-400:])
@@ -67,25 +70,26 @@ def import_pdf(path, db):
             conn.execute("CREATE TABLE source_metadata (name TEXT PRIMARY KEY,value TEXT NOT NULL)")
             meta={
               "celex":CELEX,"consolidated_edition":"2026-06-22","official_reference_url":OFFICIAL,
-              "source_sha256":SOURCE_SHA256,"pdf_pages":"36",
+              "source_sha256":digest,"pdf_pages":"36",
               "visible_edition":"069.001 / 22.06.2026",
               "extracted_old_header_pages":str(prior_headers),
               "extracted_new_header_pages":str(current_headers),
               "consolidated_text_is_authentic_oj":"no",
               "source_status":"document_index_only_not_rule_verification",
-              "rendered_visual_sample_checked":"PDF pages 1,8,35; EUR-Lex reference checked",
+              "rendered_visual_sample_checked":"legacy excerpt sample only; complete PDF extraction not independently visually reviewed",
+              "source_pdf_first_page":"117" if digest==FULL_SOURCE_SHA256 else "1",
               "warning":"PDF has layered old and new headers in text extraction. Use PDF page/printed page and EUR-Lex source, not raw header text."
             }
             conn.executemany("INSERT INTO source_metadata VALUES (?,?)",meta.items())
         tmp.replace(db)
-    return {"pages":len(pages),"source_sha256":SOURCE_SHA256,
+    return {"pages":len(pages),"source_sha256":digest,
             "legacy_header_pages":prior_headers,"visible_current_header_pages":current_headers,
             "legally_verified_rules_created":0,
             "warning":"Source indexed, not legal rule-verified; extracted version headers conflict."}
 
 def _connect(db):
     db=Path(db)
-    if not db.is_file():raise FileNotFoundError("Import Full REACH_removed.pdf before searching this local reference")
+    if not db.is_file():raise FileNotFoundError("Import pinned Full REACH.pdf or legacy Full REACH_removed.pdf before searching this local reference")
     conn=sqlite3.connect(db)
     conn.row_factory=sqlite3.Row
     if not conn.execute("SELECT 1 FROM sqlite_master WHERE name='source_metadata'").fetchone():
@@ -126,7 +130,7 @@ def search(db, *, query="", page="", limit=12, offset=0):
         "notice":"PDF text may contain stale overlaid headers. Read rendered page for authoritative typography."}
 
 def main():
-    p=argparse.ArgumentParser(description="Index the original 36-page REACH Annex II PDF locally")
+    p=argparse.ArgumentParser(description="Index Annex II from the pinned full REACH PDF or legacy excerpt")
     p.add_argument("pdf");p.add_argument("--db",default="data/reach_annex2_2026.sqlite")
     args=p.parse_args()
     print(json.dumps(import_pdf(args.pdf,args.db),indent=2))

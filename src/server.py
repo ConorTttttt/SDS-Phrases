@@ -175,10 +175,10 @@ def create_handler(db_path):
                             db_path, one("query", ""), one("jurisdiction", "EU"),
                             one("section", ""), one("collection", "Core"), one("limit", "40")))
                     return self.json_reply(404, {"error": "Unknown API endpoint."})
-                except (SelectionError, RecommendationError, ReadinessError, PhraseFinderError, CatalogueQueryError, ChemicalFamilyError) as exc:
+                except (SelectionError, RecommendationError, ReadinessError, PhraseFinderError, CatalogueQueryError, ChemicalFamilyError, GuidanceError, ReachSourceError) as exc:
                     return self.json_reply(400, {"error": str(exc)})
                 except (FileNotFoundError, sqlite3.Error) as exc:
-                    return self.json_reply(503, {"error": "Catalogue unavailable: " + str(exc)})
+                    return self.json_reply(503, {"error": "Local data or source unavailable: " + str(exc)})
                 except (TypeError, ValueError) as exc:
                     return self.json_reply(400, {"error": str(exc)})
             filename = STATIC.get(url.path)

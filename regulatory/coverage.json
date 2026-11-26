@@ -6,72 +6,110 @@
       "id": "article31",
       "status": "partial",
       "implementation": "src/toolkit.py",
-      "limits": "Article 31(1)/(4) positive trigger routing only; Article 31(3), 32 and special CLP triggers not executable."
+      "limits": "Article 31(1)/(4) positive trigger routing only; Article 31(3), 32 and special CLP triggers not executable.",
+      "validation_status": "unverified_runtime",
+      "implementation_status": "partially_implemented"
     },
     {
       "id": "structure",
       "scope": "Annex II Part B and 0.4",
       "status": "implemented_structural_only",
-      "implementation": "src/reach_annex2_audit.py"
+      "implementation": "src/reach_annex2_audit.py",
+      "validation_status": "unverified_runtime",
+      "implementation_status": "implemented"
     },
     {
       "id": "section3",
       "scope": "Annex II 3.1/3.2",
       "status": "knowledge_only",
-      "implementation": "regulatory/author/references/REACH_SECTION3_DISCLOSURE_ENGINE.md"
+      "implementation": "regulatory/author/references/REACH_SECTION3_DISCLOSURE_ENGINE.md",
+      "validation_status": "unverified_runtime",
+      "implementation_status": "partially_implemented"
     },
     {
       "id": "section9",
       "scope": "Annex II 9.1/9.2",
       "status": "partial",
       "implementation": "modules/section9/rules.mjs",
-      "limits": "9.1 applicability heuristic, 9.2 reference lists; independent legal validation pending"
+      "limits": "9.1 applicability heuristic, 9.2 reference lists; independent legal validation pending",
+      "validation_status": "upstream_blob_parity_verified; runtime_pending",
+      "implementation_status": "partially_implemented"
     },
     {
       "id": "section2",
       "scope": "CLP label and classification",
-      "status": "not_assessed"
+      "status": "not_assessed",
+      "validation_status": "unverified_runtime",
+      "implementation_status": "not_implemented"
     },
     {
       "id": "section8",
       "scope": "Annex II 8",
       "status": "evidence_prompts_only",
-      "implementation": "src/sds_readiness.py"
+      "implementation": "src/sds_readiness.py",
+      "validation_status": "unverified_runtime",
+      "implementation_status": "partially_implemented"
     },
     {
       "id": "ref11",
       "status": "knowledge_only",
-      "implementation": "regulatory/author/references/REF11_ENFORCEMENT_QA.md"
+      "implementation": "regulatory/author/references/REF11_ENFORCEMENT_QA.md",
+      "validation_status": "unverified_runtime",
+      "implementation_status": "partially_implemented"
     },
     {
       "id": "cross_section",
-      "status": "not_assessed"
+      "status": "not_assessed",
+      "validation_status": "unverified_runtime",
+      "implementation_status": "not_implemented"
     },
     {
       "id": "multi_product",
-      "status": "knowledge_only"
+      "status": "knowledge_only",
+      "validation_status": "unverified_runtime",
+      "implementation_status": "partially_implemented"
     },
     {
       "id": "clp",
       "scope": "Annexes I–VI and VIII",
-      "status": "not_assessed"
+      "status": "not_assessed",
+      "validation_status": "unverified_runtime",
+      "implementation_status": "not_implemented"
     },
     {
       "id": "phrases",
       "status": "draft_candidates_only",
-      "implementation": "src/engine.py"
+      "implementation": "src/engine.py",
+      "validation_status": "unverified_runtime",
+      "implementation_status": "partially_implemented"
     },
     {
       "id": "gemini",
-      "status": "manual_package_generator_unvalidated"
+      "status": "manual_package_generator_unvalidated",
+      "validation_status": "unverified_runtime",
+      "implementation_status": "partially_implemented"
     },
     {
       "id": "pdf_ingestion",
-      "status": "not_assessed"
+      "status": "not_assessed",
+      "validation_status": "unverified_runtime",
+      "implementation_status": "not_implemented"
     },
     {
       "id": "exchange_import",
-      "status": "not_assessed"
+      "status": "not_assessed",
+      "validation_status": "unverified_runtime",
+      "implementation_status": "not_implemented"
+    },
+    {
+      "id": "source_integrity",
+      "implementation_status": "partially_implemented",
+      "validation_status": "five supplied PDF hashes and page counts verified; source currency and extraction unverified"
+    },
+    {
+      "id": "catalogue",
+      "implementation_status": "implemented",
+      "validation_status": "licensed catalogue unavailable; live wording unverified"
     }
   ]
 }

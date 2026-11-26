@@ -4,12 +4,27 @@ import hashlib
 import json
 import shutil
 import subprocess
+import tempfile
+import sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def build(source_dir, out, extract=False):
-    manifest=json.loads((ROOT/"regulatory/source_manifest.json").read_text())
+    source_dir, out = Path(source_dir), Path(out)
     if out.exists(): raise ValueError("Output must not already exist")
     if out.resolve().is_relative_to(ROOT): raise ValueError("Output must be outside repository")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix=".sds-build-", dir=out.parent) as staging:
+        target = Path(staging) / "package"
+        _build(source_dir, target, extract)
+        if out.exists(): raise ValueError("Output appeared during build")
+        target.rename(out)
+
+def _build(source_dir, out, extract=False):
+    manifest=json.loads((ROOT/"regulatory/source_manifest.json").read_text())
+    for field in ("id", "filename", "package_filename"):
+        values = [s[field] for s in manifest["sources"]]
+        if len(values) != len(set(values)) or any(not v or Path(v).name != v for v in values):
+            raise ValueError("Invalid or duplicate source manifest " + field)
     for s in manifest["sources"]:
         p=source_dir/s["filename"]
         if not p.is_file() or hashlib.sha256(p.read_bytes()).hexdigest()!=s["sha256"]:
@@ -19,6 +34,11 @@ def build(source_dir, out, extract=False):
     (out/"sources").mkdir()
     for s in manifest["sources"]:
         shutil.copy2(source_dir/s["filename"],out/"sources"/s["package_filename"])
+    # Retain the original author package relative source paths.
+    (out/"author/sources").mkdir()
+    for s in manifest["sources"]:
+        if s["id"] in {"reach", "echa", "ref11"}:
+            shutil.copy2(out/"sources"/s["package_filename"], out/"author/sources"/s["package_filename"])
     for name in ["source_manifest.json","coverage.json","upstream.json"]:
         shutil.copy2(ROOT/"regulatory"/name,out/name)
     (out/"shared_rules").mkdir()
@@ -31,6 +51,7 @@ def build(source_dir, out, extract=False):
     for r in sorted((out/"author/references").glob("*.md")):
         text+="\n\n# Reference: "+r.name+"\n"+r.read_text(encoding="utf-8")
     (out/"SINGLE_FILE_LLM_KNOWLEDGE_BASE.md").write_text(text,encoding="utf-8")
+    subprocess.run([sys.executable, str(out/"author/tests/check_package.py")], check=True)
     if extract:
         with (out/"page_chunks.jsonl").open("w",encoding="utf-8") as f:
             for s in manifest["sources"]:

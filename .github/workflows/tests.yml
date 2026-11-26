@@ -1,8 +1,9 @@
-name: Rule engine tests
+name: Offline SDS toolkit tests
 on:
   push:
-    branches: ["main", "feature/**"]
+    branches: ["main", "feature/**", "integration/**"]
   pull_request:
+  workflow_dispatch:
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -15,9 +16,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
       - name: Verify Python source
-        run: python -m compileall -q src tests
-      - name: Check browser JavaScript syntax
-        run: node --check web/phrase_finder.js
-      - name: Run offline unit tests
-        run: python scripts/run_tests_checked.py
+        run: python -m compileall -q src tests scripts regulatory/author
+      - name: Check all browser JavaScript syntax
+        run: |
+          for file in web/*.js; do node --input-type=module --check < "$file" || exit 1; done
+      - name: Run original Section 9 tests
+        run: node --test modules/section9/tests/*.test.mjs
+      - name: Run all Python tests in network namespace (loopback only)
+        run: |
+          sudo unshare --net -- bash -c 'ip link set lo up; exec "$1" scripts/run_tests_checked.py' _ "$(command -v python)"
