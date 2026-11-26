@@ -479,7 +479,19 @@ output, not from the repo tree, because it expects bundled PDFs.
 | Phrase-source verifiers | **Blocked**: no licensed catalogue (`missing_local_catalogue`; 23 family mappings blocked) |
 | GitHub Actions run 45892880848 (`19efd59`) | **Failure, all 4 jobs ended in ~3 s**, consistent with the earlier zero-step runs. No CI test execution is established |
 
-Evidence file: `validation/full-19efd596.json`. These results cover only commit `19efd59`. Later commits
+### 10.3 Executed at `8165686` (integration defect fixes, 2026-11-26, clean tree)
+
+| Check | Result |
+|---|---|
+| Checked Python runner, full optional dependencies + sources | **212/212 + 2/2 passed, 0 skipped**, 0 SQLite leaks |
+| Same inside `unshare --net` (loopback only) | **214/214 passed** |
+| Default environment | 208 passed, 6 skipped (optional tools/sources) |
+| Node runner / web syntax / compileall | 11/11 passed / 12/12 / OK |
+| `test_integration_fixes` against previous code | 3 failures + 12 errors (confirms the tests detect the defects) |
+| Gemini rebuild (legacy + Writer + Reviewer) with five pinned PDFs | All canonical components identical to the registry (247/49/73 records, IDs, rule versions, releases); embedded PDFs match the manifest; legacy single file contains all 369 records |
+| Canonical determinism | Two builds byte-identical (non-SQLite); committed JSONL and matrix equal builder output |
+
+Evidence files: `validation/full-19efd596.json`, `validation/integration-fixes-81656862.json`. These results cover only commit `19efd59`. Later commits
 need their own runs. None of this is legal or regulatory validation.
 
 ---
