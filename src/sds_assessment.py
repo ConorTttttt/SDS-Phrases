@@ -11,7 +11,7 @@ from pathlib import Path
 from reach_annex2_audit import load_structure
 from toolkit import article31
 from sds_intake import blocks, extract
-from canonical_requirements import load as load_canonical, evaluate_requirement, coverage as canonical_coverage, inspection_link
+from canonical_requirements import load as load_canonical, evaluate_requirement, coverage as canonical_coverage, inspection_link, load_title_iv
 
 ROOT = Path(__file__).resolve().parents[1]
 PASS, FAIL, SUSPECT, UNKNOWN, NA, SKIP, REVIEW = STATUSES = (
@@ -100,6 +100,16 @@ def assess(document, corrections=None):
         rows[-1].update(rule_version=result["rule_version"], canonical_release=pack["release"],
                         assessment_method=item["assessment_methodology"], legacy_ids=item["legacy_ids"],
                         verification_status=item["verification_status"])
+    title_iv = load_title_iv(ROOT,pack)
+    for item in title_iv["requirements"]:
+        result = evaluate_requirement(item)
+        finding(item["id"], "", item["required_sds_content"],
+                f"REACH 02006R1907-20260622 {item['clause']}, PDF pp. {item['pdf_pages']}",
+                result["status"], result["missing_information"])
+        rows[-1].update(rule_version=result["rule_version"], canonical_release=title_iv["release"],
+                        assessment_method=item["assessment_methodology"],
+                        verification_status=item["verification_status"],
+                        applicability="requires product and supply-chain scope confirmation")
     for section, summary in canonical_coverage(pack, raw).items():
         finding("coverage/annex-ii/"+section, section,
                 "Canonical legal decomposition and independent verification incomplete",

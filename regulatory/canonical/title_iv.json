@@ -1,0 +1,2428 @@
+{
+  "schema": "sds-canonical-title-iv/v1",
+  "release": "2026-11-26-title-iv-r1",
+  "source_id": "reach",
+  "source_version": "2026-06-22",
+  "source_sha256": "04e3d65150eeed337e09f2a6d4a6cb6dae47a0bda488bebcef44972092147572",
+  "scope": "Articles 31–36, consolidated snapshot only; source text normalised from PDF layout (amendment markers removed); no currentness or legal certification",
+  "source_records": [
+    {
+      "id": "REACH-TIV-31-1",
+      "clause": "Article 31(1)",
+      "pdf_pages": [
+        39
+      ],
+      "printed_pages": [
+        39
+      ],
+      "wording": "The supplier of a substance or a mixture shall provide the recipient of the substance or mixture with a safety data sheet compiled in accordance with Annex II:",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-1-a",
+      "clause": "Article 31(1)(a)",
+      "pdf_pages": [
+        40
+      ],
+      "printed_pages": [
+        40
+      ],
+      "wording": "(a) where a substance or mixture meets the criteria for classification as hazardous in accordance with Regulation (EC) No 1272/2008; or",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-1-b",
+      "clause": "Article 31(1)(b)",
+      "pdf_pages": [
+        40
+      ],
+      "printed_pages": [
+        40
+      ],
+      "wording": "(b) where a substance is persistent, bioaccumulative and toxic or very persistent and very bioaccumulative in accordance with the criteria set out in Annex XIII; or",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-1-c",
+      "clause": "Article 31(1)(c)",
+      "pdf_pages": [
+        40
+      ],
+      "printed_pages": [
+        40
+      ],
+      "wording": "(c) where a substance is included in the list established in accordance with Article 59(1) for reasons other than those referred to in points (a) and (b).",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-2",
+      "clause": "Article 31(2)",
+      "pdf_pages": [
+        40
+      ],
+      "printed_pages": [
+        40
+      ],
+      "wording": "Any actor in the supply chain who is required, under Articles 14 or 37, to carry out a chemical safety assessment for a substance shall ensure that the information in the safety data sheet is consistent with the information in this assessment. If the safety data sheet is developed for a mixture and the actor in the supply chain has prepared a chemical safety assessment for that mixture, it is sufficient if the information in the safety data sheet is consistent with the chemical safety report for the mixture instead of with the chemical safety report for each substance in the mixture.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-3",
+      "clause": "Article 31(3)",
+      "pdf_pages": [
+        40
+      ],
+      "printed_pages": [
+        40
+      ],
+      "wording": "The supplier shall provide the recipient at his request with a safety data sheet compiled in accordance with Annex II, where a mixture does not meet the criteria for classification as hazardous in accordance with Titles I and II of Regulation (EC) No 1272/2008, but contains:",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-3-a",
+      "clause": "Article 31(3)(a)",
+      "pdf_pages": [
+        40
+      ],
+      "printed_pages": [
+        40
+      ],
+      "wording": "(a) in an individual concentration of ≥ 1 % by weight for non-gaseous mixtures and ≥ 0,2 % by volume for gaseous mixtures at least one substance posing human health or environmental hazards; or",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-3-b",
+      "clause": "Article 31(3)(b)",
+      "pdf_pages": [
+        40
+      ],
+      "printed_pages": [
+        40
+      ],
+      "wording": "(b) in an individual concentration of ≥ 0,1 % by weight for non-gaseous mixtures at least one substance that is carcinogenic category 2 or toxic to reproduction category 1A, 1B and 2, skin sensitiser category 1, respiratory sensitiser category 1, or has effects on or via lactation or is persistent, bioaccumulative and toxic (PBT) in accordance with the criteria set out in Annex XIII or very persistent and very bioaccumulative (vPvB) in accordance with the criteria set out in Annex XIII or has been included for reasons other than those referred to in point (a) in the list established in accordance with Article 59(1); or",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-3-c",
+      "clause": "Article 31(3)(c)",
+      "pdf_pages": [
+        40
+      ],
+      "printed_pages": [
+        40
+      ],
+      "wording": "(c) a substance for which there are Community workplace exposure limits.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-4",
+      "clause": "Article 31(4)",
+      "pdf_pages": [
+        40
+      ],
+      "printed_pages": [
+        40
+      ],
+      "wording": "The safety data sheet need not be supplied where hazardous substances or mixtures offered or sold to the general public are provided with sufficient information to enable users to take the necessary measures as regards the protection of human health, safety and the environment, unless requested by a downstream user or distributor.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-5",
+      "clause": "Article 31(5)",
+      "pdf_pages": [
+        40
+      ],
+      "printed_pages": [
+        40
+      ],
+      "wording": "The safety data sheet shall be supplied in an official language of the Member State(s) where the substance or mixture is placed on the market, unless the Member State(s) concerned provide otherwise.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-6",
+      "clause": "Article 31(6)",
+      "pdf_pages": [
+        41
+      ],
+      "printed_pages": [
+        41
+      ],
+      "wording": "The safety data sheet shall be dated and shall contain the following headings: 1. identification of the substance/mixture and of the company/undertaking; 2. hazards identification; 3. composition/information on ingredients; 4. first-aid measures; 5. fire-fighting measures; 6. accidental release measures; 7. handling and storage; 8. exposure controls/personal protection; 9. physical and chemical properties; 10. stability and reactivity; 11. toxicological information; 12. ecological information; 13. disposal considerations; 14. transport information; 15. regulatory information; 16. other information.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-7-first",
+      "clause": "Article 31(7)-first",
+      "pdf_pages": [
+        41
+      ],
+      "printed_pages": [
+        41
+      ],
+      "wording": "Any actor in the supply chain who is required to prepare a chemical safety report according to Articles 14 or 37 shall place the relevant exposure scenarios (including use and exposure categories where appropriate) in an annex to the safety data sheet covering identified uses and including specific conditions resulting from the application of Section 3 of Annex XI.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-7-second",
+      "clause": "Article 31(7)-second",
+      "pdf_pages": [
+        41
+      ],
+      "printed_pages": [
+        41
+      ],
+      "wording": "Any downstream user shall include relevant exposure scenarios, and use other relevant information, from the safety data sheet supplied to him when compiling his own safety data sheet for identified uses.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-7-third",
+      "clause": "Article 31(7)-third",
+      "pdf_pages": [
+        41
+      ],
+      "printed_pages": [
+        41
+      ],
+      "wording": "Any distributor shall pass on relevant exposure scenarios, and use other relevant information, from the safety data sheet supplied to him when compiling his own safety data sheet for uses for which he has passed on information according to Article 37(2).",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-8",
+      "clause": "Article 31(8)",
+      "pdf_pages": [
+        41
+      ],
+      "printed_pages": [
+        41
+      ],
+      "wording": "A safety data sheet shall be provided free of charge on paper or electronically no later than the date on which the substance or mixture is first supplied.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-9",
+      "clause": "Article 31(9)",
+      "pdf_pages": [
+        41
+      ],
+      "printed_pages": [
+        41
+      ],
+      "wording": "Suppliers shall update the safety data sheet without delay on the following occasions:",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-9-a",
+      "clause": "Article 31(9)(a)",
+      "pdf_pages": [
+        41
+      ],
+      "printed_pages": [
+        41
+      ],
+      "wording": "(a) as soon as new information which may affect the risk management measures, or new information on hazards becomes available;",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-9-b",
+      "clause": "Article 31(9)(b)",
+      "pdf_pages": [
+        41
+      ],
+      "printed_pages": [
+        41
+      ],
+      "wording": "(b) once an authorisation has been granted or refused;",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-9-c",
+      "clause": "Article 31(9)(c)",
+      "pdf_pages": [
+        42
+      ],
+      "printed_pages": [
+        42
+      ],
+      "wording": "(c) once a restriction has been imposed.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-9-redistribution",
+      "clause": "Article 31(9)-redistribution",
+      "pdf_pages": [
+        42
+      ],
+      "printed_pages": [
+        42
+      ],
+      "wording": "The new, dated version of the information, identified as ‘Revision: (date)’, shall be provided free of charge on paper or electronically to all former recipients to whom they have supplied the substance or mixture within the preceding 12 months. Any updates following registration shall include the registration number.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-31-10",
+      "clause": "Article 31(10)",
+      "pdf_pages": [
+        42
+      ],
+      "printed_pages": [
+        42
+      ],
+      "wording": "Where substances are classified in accordance with Regulation (EC) No 1272/2008 during the period from its entry into force until 1 December 2010, that classification may be added in the safety data sheet together with the classification in accordance with Directive 67/548/EEC. From 1 December 2010 until 1 June 2015, the safety data sheets for substances shall contain the classification according to both Directive 67/548/EEC and Regulation (EC) No 1272/2008. Where mixtures are classified in accordance with Regulation (EC) No 1272/2008 during the period from its entry into force until 1 June 2015, that classification may be added in the safety data sheet, together with the classification in accordance with Directive 1999/45/EC. However, until 1 June 2015, where substances or mixtures are both classified and labelled in accordance with Regulation (EC) No 1272/2008 that classification shall be provided in the safety data sheet, together with the classification in accordance with Directives 67/548/EEC and 1999/45/EC respectively, for the substance, the mixture and its constituents.",
+      "source_role": "historic_transition_reference",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-32-1",
+      "clause": "Article 32(1)",
+      "pdf_pages": [
+        42
+      ],
+      "printed_pages": [
+        42
+      ],
+      "wording": "Any supplier of a substance on its own or in a mixture who does not have to supply a safety data sheet in accordance with Article 31 shall provide the recipient with the following information:",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-32-1-a",
+      "clause": "Article 32(1)(a)",
+      "pdf_pages": [
+        42
+      ],
+      "printed_pages": [
+        42
+      ],
+      "wording": "(a) the registration number(s) referred to in Article 20(3), if available, for any substances for which information is communicated under points (b), (c) or (d) of this paragraph;",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-32-1-b",
+      "clause": "Article 32(1)(b)",
+      "pdf_pages": [
+        42
+      ],
+      "printed_pages": [
+        42
+      ],
+      "wording": "(b) if the substance is subject to authorisation and details of any authorisation granted or denied under Title VII in this supply chain;",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-32-1-c",
+      "clause": "Article 32(1)(c)",
+      "pdf_pages": [
+        42
+      ],
+      "printed_pages": [
+        42
+      ],
+      "wording": "(c) details of any restriction imposed under Title VIII;",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-32-1-d",
+      "clause": "Article 32(1)(d)",
+      "pdf_pages": [
+        42
+      ],
+      "printed_pages": [
+        42
+      ],
+      "wording": "(d) any other available and relevant information about the substance that is necessary to enable appropriate risk management measures to be identified and applied including specific conditions resulting from the application of Section 3 of Annex XI.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-32-2",
+      "clause": "Article 32(2)",
+      "pdf_pages": [
+        42
+      ],
+      "printed_pages": [
+        42
+      ],
+      "wording": "The information referred to in paragraph 1 shall be communicated free of charge on paper or electronically at the latest at the time of the first delivery of a substance on its own or in a mixture after 1 June 2007.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-32-3",
+      "clause": "Article 32(3)",
+      "pdf_pages": [
+        43
+      ],
+      "printed_pages": [
+        43
+      ],
+      "wording": "Suppliers shall update this information without delay on the following occasions:",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-32-3-a",
+      "clause": "Article 32(3)(a)",
+      "pdf_pages": [
+        43
+      ],
+      "printed_pages": [
+        43
+      ],
+      "wording": "(a) as soon as new information which may affect the risk management measures, or new information on hazards becomes available;",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-32-3-b",
+      "clause": "Article 32(3)(b)",
+      "pdf_pages": [
+        43
+      ],
+      "printed_pages": [
+        43
+      ],
+      "wording": "(b) once an authorisation has been granted or refused;",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-32-3-c",
+      "clause": "Article 32(3)(c)",
+      "pdf_pages": [
+        43
+      ],
+      "printed_pages": [
+        43
+      ],
+      "wording": "(c) once a restriction has been imposed.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-32-3-redistribution",
+      "clause": "Article 32(3)-redistribution",
+      "pdf_pages": [
+        43
+      ],
+      "printed_pages": [
+        43
+      ],
+      "wording": "In addition, the updated information shall be provided free of charge on paper or electronically to all former recipients to whom they have supplied the substance or mixture within the preceding 12 months. Any updates following registration shall include the registration number.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-33-1",
+      "clause": "Article 33(1)",
+      "pdf_pages": [
+        43
+      ],
+      "printed_pages": [
+        43
+      ],
+      "wording": "Any supplier of an article containing a substance meeting the criteria in Article 57 and identified in accordance with Article 59(1) in a concentration above 0,1 % weight by weight (w/w) shall provide the recipient of the article with sufficient information, available to the supplier, to allow safe use of the article including, as a minimum, the name of that substance.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-33-2",
+      "clause": "Article 33(2)",
+      "pdf_pages": [
+        43
+      ],
+      "printed_pages": [
+        43
+      ],
+      "wording": "On request by a consumer any supplier of an article containing a substance meeting the criteria in Article 57 and identified in accordance with Article 59(1) in a concentration above 0,1 % weight by weight (w/w) shall provide the consumer with sufficient information, available to the supplier, to allow safe use of the article including, as a minimum, the name of that substance. The relevant information shall be provided, free of charge, within 45 days of receipt of the request.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-34",
+      "clause": "Article 34",
+      "pdf_pages": [
+        43
+      ],
+      "printed_pages": [
+        43
+      ],
+      "wording": "Any actor in the supply chain of a substance or a mixture shall communicate the following information to the next actor or distributor up the supply chain:",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-34-a",
+      "clause": "Article 34(a)",
+      "pdf_pages": [
+        43
+      ],
+      "printed_pages": [
+        43
+      ],
+      "wording": "(a) new information on hazardous properties, regardless of the uses concerned;",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-34-b",
+      "clause": "Article 34(b)",
+      "pdf_pages": [
+        43
+      ],
+      "printed_pages": [
+        43
+      ],
+      "wording": "(b) any other information that might call into question the appropriateness of the risk management measures identified in a safety data sheet supplied to him, which shall be communicated only for identified uses.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-34-distributors",
+      "clause": "Article 34-distributors",
+      "pdf_pages": [
+        43
+      ],
+      "printed_pages": [
+        43
+      ],
+      "wording": "Distributors shall pass on that information to the next actor or distributor up the supply chain.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-35",
+      "clause": "Article 35",
+      "pdf_pages": [
+        43
+      ],
+      "printed_pages": [
+        43
+      ],
+      "wording": "Workers and their representatives shall be granted access by their employer to the information provided in accordance with Articles 31 and 32 in relation to substances or mixtures that they use or may be exposed to in the course of their work.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-36-1",
+      "clause": "Article 36(1)",
+      "pdf_pages": [
+        44
+      ],
+      "printed_pages": [
+        44
+      ],
+      "wording": "Each manufacturer, importer, downstream user and distributor shall assemble and keep available all the information he requires to carry out his duties under this Regulation for a period of at least 10 years after he last manufactured, imported, supplied or used the substance or mixture. That manufacturer, importer, downstream user or distributor shall submit this information or make it available without delay upon request to any competent authority of the Member State in which he is established or to the Agency, without prejudice to Titles II and VI.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    },
+    {
+      "id": "REACH-TIV-36-2",
+      "clause": "Article 36(2)",
+      "pdf_pages": [
+        44
+      ],
+      "printed_pages": [
+        44
+      ],
+      "wording": "In the event of a registrant, downstream user or distributor ceasing activity, or transferring part or all of his operations to a third party, the party responsible for liquidating the registrant, downstream user or distributor's undertaking or assuming responsibility for the placing on the market of the substance or mixture concerned shall be bound by the obligation in paragraph 1 in place of the registrant, downstream user or distributor.",
+      "source_role": "operative_text",
+      "verification_status": "transcribed_from_supplied_pdf_pending_independent_review"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "EU-REACH-A31-SUPPLY-HAZARDOUS",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(1)(a)",
+      "table_references": [],
+      "printed_pages": [
+        39,
+        40
+      ],
+      "pdf_pages": [
+        39,
+        40
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-1",
+        "REACH-TIV-31-1-a"
+      ],
+      "wording": "The supplier of a substance or a mixture shall provide the recipient of the substance or mixture with a safety data sheet compiled in accordance with Annex II: (a) where a substance or mixture meets the criteria for classification as hazardous in accordance with Regulation (EC) No 1272/2008; or",
+      "applicability_conditions": "Substance or mixture classified hazardous under applicable CLP",
+      "exceptions": [
+        "Article 31(4) general-public exception where applicable; scope under Article 2 must be resolved."
+      ],
+      "required_product_evidence": "Product classification and supply record; recipient and applicable scope; supply record",
+      "required_sds_content": "Supply Annex II SDS; document presence alone does not establish delivery",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-SUPPLY-PBT-VPVB",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(1)(b)",
+      "table_references": [],
+      "printed_pages": [
+        39,
+        40
+      ],
+      "pdf_pages": [
+        39,
+        40
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-1",
+        "REACH-TIV-31-1-b"
+      ],
+      "wording": "The supplier of a substance or a mixture shall provide the recipient of the substance or mixture with a safety data sheet compiled in accordance with Annex II: (b) where a substance is persistent, bioaccumulative and toxic or very persistent and very bioaccumulative in accordance with the criteria set out in Annex XIII; or",
+      "applicability_conditions": "Substance meets Annex XIII PBT/vPvB criteria",
+      "exceptions": [
+        "Article 31(4) general-public exception where applicable; scope under Article 2 must be resolved."
+      ],
+      "required_product_evidence": "Substance identity and PBT/vPvB assessment; recipient and applicable scope; supply record",
+      "required_sds_content": "Supply Annex II SDS; document presence alone does not establish delivery",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-SUPPLY-CANDIDATE",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(1)(c)",
+      "table_references": [],
+      "printed_pages": [
+        39,
+        40
+      ],
+      "pdf_pages": [
+        39,
+        40
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-1",
+        "REACH-TIV-31-1-c"
+      ],
+      "wording": "The supplier of a substance or a mixture shall provide the recipient of the substance or mixture with a safety data sheet compiled in accordance with Annex II: (c) where a substance is included in the list established in accordance with Article 59(1) for reasons other than those referred to in points (a) and (b).",
+      "applicability_conditions": "Substance included in Article 59(1) list for reasons other than (a)/(b)",
+      "exceptions": [
+        "Article 31(4) general-public exception where applicable; scope under Article 2 must be resolved."
+      ],
+      "required_product_evidence": "Substance identity, Candidate List date and inclusion reason; recipient and applicable scope; supply record",
+      "required_sds_content": "Supply Annex II SDS; document presence alone does not establish delivery",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-CSA-CONSISTENCY",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(2)",
+      "table_references": [],
+      "printed_pages": [
+        40
+      ],
+      "pdf_pages": [
+        40
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-2"
+      ],
+      "wording": "Any actor in the supply chain who is required, under Articles 14 or 37, to carry out a chemical safety assessment for a substance shall ensure that the information in the safety data sheet is consistent with the information in this assessment. If the safety data sheet is developed for a mixture and the actor in the supply chain has prepared a chemical safety assessment for that mixture, it is sufficient if the information in the safety data sheet is consistent with the chemical safety report for the mixture instead of with the chemical safety report for each substance in the mixture.",
+      "applicability_conditions": "Actor required to carry out CSA under Article 14 or 37",
+      "exceptions": [
+        "If actor prepared a mixture CSA, consistency with mixture CSR suffices."
+      ],
+      "required_product_evidence": "CSA/CSR and SDS; dutyholder and use",
+      "required_sds_content": "SDS consistent with assessment",
+      "assessment_methodology": "cross_section_consistency",
+      "related_requirements": [
+        "EU-REACH-AII-CSR-CONSISTENCY"
+      ],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-REQUEST-HAZARD",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(3)(a)",
+      "table_references": [],
+      "printed_pages": [
+        40
+      ],
+      "pdf_pages": [
+        40
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-3",
+        "REACH-TIV-31-3-a"
+      ],
+      "wording": "The supplier shall provide the recipient at his request with a safety data sheet compiled in accordance with Annex II, where a mixture does not meet the criteria for classification as hazardous in accordance with Titles I and II of Regulation (EC) No 1272/2008, but contains: (a) in an individual concentration of ≥ 1 % by weight for non-gaseous mixtures and ≥ 0,2 % by volume for gaseous mixtures at least one substance posing human health or environmental hazards; or",
+      "applicability_conditions": "Non-classified mixture and recipient request; individual hazardous ingredient ≥1% w/w non-gaseous or ≥0.2% v/v gaseous",
+      "exceptions": [
+        "Do not use Annex II 3.2.2 disclosure threshold as a substitute for Article 31 supply test; consider separate CLP table-note triggers."
+      ],
+      "required_product_evidence": "Mixture classification, formulation, phase, concentration basis, ingredient hazards, request/delivery records",
+      "required_sds_content": "Supply Annex II SDS on request",
+      "assessment_methodology": "numeric_threshold",
+      "related_requirements": [
+        "EU-REACH-AII-UNCLASSIFIED-HAZARD-THRESHOLD"
+      ],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-REQUEST-CARC2",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(3)(b)",
+      "table_references": [],
+      "printed_pages": [
+        40
+      ],
+      "pdf_pages": [
+        40
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-3",
+        "REACH-TIV-31-3-b"
+      ],
+      "wording": "The supplier shall provide the recipient at his request with a safety data sheet compiled in accordance with Annex II, where a mixture does not meet the criteria for classification as hazardous in accordance with Titles I and II of Regulation (EC) No 1272/2008, but contains: (b) in an individual concentration of ≥ 0,1 % by weight for non-gaseous mixtures at least one substance that is carcinogenic category 2 or toxic to reproduction category 1A, 1B and 2, skin sensitiser category 1, respiratory sensitiser category 1, or has effects on or via lactation or is persistent, bioaccumulative and toxic (PBT) in accordance with the criteria set out in Annex XIII or very persistent and very bioaccumulative (vPvB) in accordance with the criteria set out in Annex XIII or has been included for reasons other than those referred to in point (a) in the list established in accordance with Article 59(1); or",
+      "applicability_conditions": "Non-classified non-gaseous mixture and recipient request; individual carcinogenic category 2 ingredient ≥0.1% w/w",
+      "exceptions": [
+        "No automatic conclusion for gaseous mixtures under this branch; assess other triggers."
+      ],
+      "required_product_evidence": "Dated ingredient classification/status, complete composition, phase, weight concentration and request/delivery evidence",
+      "required_sds_content": "Supply Annex II SDS on request",
+      "assessment_methodology": "numeric_threshold",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-REQUEST-REPRO",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(3)(b)",
+      "table_references": [],
+      "printed_pages": [
+        40
+      ],
+      "pdf_pages": [
+        40
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-3",
+        "REACH-TIV-31-3-b"
+      ],
+      "wording": "The supplier shall provide the recipient at his request with a safety data sheet compiled in accordance with Annex II, where a mixture does not meet the criteria for classification as hazardous in accordance with Titles I and II of Regulation (EC) No 1272/2008, but contains: (b) in an individual concentration of ≥ 0,1 % by weight for non-gaseous mixtures at least one substance that is carcinogenic category 2 or toxic to reproduction category 1A, 1B and 2, skin sensitiser category 1, respiratory sensitiser category 1, or has effects on or via lactation or is persistent, bioaccumulative and toxic (PBT) in accordance with the criteria set out in Annex XIII or very persistent and very bioaccumulative (vPvB) in accordance with the criteria set out in Annex XIII or has been included for reasons other than those referred to in point (a) in the list established in accordance with Article 59(1); or",
+      "applicability_conditions": "Non-classified non-gaseous mixture and recipient request; individual toxic to reproduction categories 1A, 1B or 2 ingredient ≥0.1% w/w",
+      "exceptions": [
+        "No automatic conclusion for gaseous mixtures under this branch; assess other triggers."
+      ],
+      "required_product_evidence": "Dated ingredient classification/status, complete composition, phase, weight concentration and request/delivery evidence",
+      "required_sds_content": "Supply Annex II SDS on request",
+      "assessment_methodology": "numeric_threshold",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-REQUEST-SKIN-SENS",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(3)(b)",
+      "table_references": [],
+      "printed_pages": [
+        40
+      ],
+      "pdf_pages": [
+        40
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-3",
+        "REACH-TIV-31-3-b"
+      ],
+      "wording": "The supplier shall provide the recipient at his request with a safety data sheet compiled in accordance with Annex II, where a mixture does not meet the criteria for classification as hazardous in accordance with Titles I and II of Regulation (EC) No 1272/2008, but contains: (b) in an individual concentration of ≥ 0,1 % by weight for non-gaseous mixtures at least one substance that is carcinogenic category 2 or toxic to reproduction category 1A, 1B and 2, skin sensitiser category 1, respiratory sensitiser category 1, or has effects on or via lactation or is persistent, bioaccumulative and toxic (PBT) in accordance with the criteria set out in Annex XIII or very persistent and very bioaccumulative (vPvB) in accordance with the criteria set out in Annex XIII or has been included for reasons other than those referred to in point (a) in the list established in accordance with Article 59(1); or",
+      "applicability_conditions": "Non-classified non-gaseous mixture and recipient request; individual skin sensitiser category 1 ingredient ≥0.1% w/w",
+      "exceptions": [
+        "No automatic conclusion for gaseous mixtures under this branch; assess other triggers."
+      ],
+      "required_product_evidence": "Dated ingredient classification/status, complete composition, phase, weight concentration and request/delivery evidence",
+      "required_sds_content": "Supply Annex II SDS on request",
+      "assessment_methodology": "numeric_threshold",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-REQUEST-RESP-SENS",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(3)(b)",
+      "table_references": [],
+      "printed_pages": [
+        40
+      ],
+      "pdf_pages": [
+        40
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-3",
+        "REACH-TIV-31-3-b"
+      ],
+      "wording": "The supplier shall provide the recipient at his request with a safety data sheet compiled in accordance with Annex II, where a mixture does not meet the criteria for classification as hazardous in accordance with Titles I and II of Regulation (EC) No 1272/2008, but contains: (b) in an individual concentration of ≥ 0,1 % by weight for non-gaseous mixtures at least one substance that is carcinogenic category 2 or toxic to reproduction category 1A, 1B and 2, skin sensitiser category 1, respiratory sensitiser category 1, or has effects on or via lactation or is persistent, bioaccumulative and toxic (PBT) in accordance with the criteria set out in Annex XIII or very persistent and very bioaccumulative (vPvB) in accordance with the criteria set out in Annex XIII or has been included for reasons other than those referred to in point (a) in the list established in accordance with Article 59(1); or",
+      "applicability_conditions": "Non-classified non-gaseous mixture and recipient request; individual respiratory sensitiser category 1 ingredient ≥0.1% w/w",
+      "exceptions": [
+        "No automatic conclusion for gaseous mixtures under this branch; assess other triggers."
+      ],
+      "required_product_evidence": "Dated ingredient classification/status, complete composition, phase, weight concentration and request/delivery evidence",
+      "required_sds_content": "Supply Annex II SDS on request",
+      "assessment_methodology": "numeric_threshold",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-REQUEST-LACTATION",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(3)(b)",
+      "table_references": [],
+      "printed_pages": [
+        40
+      ],
+      "pdf_pages": [
+        40
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-3",
+        "REACH-TIV-31-3-b"
+      ],
+      "wording": "The supplier shall provide the recipient at his request with a safety data sheet compiled in accordance with Annex II, where a mixture does not meet the criteria for classification as hazardous in accordance with Titles I and II of Regulation (EC) No 1272/2008, but contains: (b) in an individual concentration of ≥ 0,1 % by weight for non-gaseous mixtures at least one substance that is carcinogenic category 2 or toxic to reproduction category 1A, 1B and 2, skin sensitiser category 1, respiratory sensitiser category 1, or has effects on or via lactation or is persistent, bioaccumulative and toxic (PBT) in accordance with the criteria set out in Annex XIII or very persistent and very bioaccumulative (vPvB) in accordance with the criteria set out in Annex XIII or has been included for reasons other than those referred to in point (a) in the list established in accordance with Article 59(1); or",
+      "applicability_conditions": "Non-classified non-gaseous mixture and recipient request; individual effects on or via lactation ingredient ≥0.1% w/w",
+      "exceptions": [
+        "No automatic conclusion for gaseous mixtures under this branch; assess other triggers."
+      ],
+      "required_product_evidence": "Dated ingredient classification/status, complete composition, phase, weight concentration and request/delivery evidence",
+      "required_sds_content": "Supply Annex II SDS on request",
+      "assessment_methodology": "numeric_threshold",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-REQUEST-PBT",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(3)(b)",
+      "table_references": [],
+      "printed_pages": [
+        40
+      ],
+      "pdf_pages": [
+        40
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-3",
+        "REACH-TIV-31-3-b"
+      ],
+      "wording": "The supplier shall provide the recipient at his request with a safety data sheet compiled in accordance with Annex II, where a mixture does not meet the criteria for classification as hazardous in accordance with Titles I and II of Regulation (EC) No 1272/2008, but contains: (b) in an individual concentration of ≥ 0,1 % by weight for non-gaseous mixtures at least one substance that is carcinogenic category 2 or toxic to reproduction category 1A, 1B and 2, skin sensitiser category 1, respiratory sensitiser category 1, or has effects on or via lactation or is persistent, bioaccumulative and toxic (PBT) in accordance with the criteria set out in Annex XIII or very persistent and very bioaccumulative (vPvB) in accordance with the criteria set out in Annex XIII or has been included for reasons other than those referred to in point (a) in the list established in accordance with Article 59(1); or",
+      "applicability_conditions": "Non-classified non-gaseous mixture and recipient request; individual PBT under Annex XIII ingredient ≥0.1% w/w",
+      "exceptions": [
+        "No automatic conclusion for gaseous mixtures under this branch; assess other triggers."
+      ],
+      "required_product_evidence": "Dated ingredient classification/status, complete composition, phase, weight concentration and request/delivery evidence",
+      "required_sds_content": "Supply Annex II SDS on request",
+      "assessment_methodology": "numeric_threshold",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-REQUEST-VPVB",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(3)(b)",
+      "table_references": [],
+      "printed_pages": [
+        40
+      ],
+      "pdf_pages": [
+        40
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-3",
+        "REACH-TIV-31-3-b"
+      ],
+      "wording": "The supplier shall provide the recipient at his request with a safety data sheet compiled in accordance with Annex II, where a mixture does not meet the criteria for classification as hazardous in accordance with Titles I and II of Regulation (EC) No 1272/2008, but contains: (b) in an individual concentration of ≥ 0,1 % by weight for non-gaseous mixtures at least one substance that is carcinogenic category 2 or toxic to reproduction category 1A, 1B and 2, skin sensitiser category 1, respiratory sensitiser category 1, or has effects on or via lactation or is persistent, bioaccumulative and toxic (PBT) in accordance with the criteria set out in Annex XIII or very persistent and very bioaccumulative (vPvB) in accordance with the criteria set out in Annex XIII or has been included for reasons other than those referred to in point (a) in the list established in accordance with Article 59(1); or",
+      "applicability_conditions": "Non-classified non-gaseous mixture and recipient request; individual vPvB under Annex XIII ingredient ≥0.1% w/w",
+      "exceptions": [
+        "No automatic conclusion for gaseous mixtures under this branch; assess other triggers."
+      ],
+      "required_product_evidence": "Dated ingredient classification/status, complete composition, phase, weight concentration and request/delivery evidence",
+      "required_sds_content": "Supply Annex II SDS on request",
+      "assessment_methodology": "numeric_threshold",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-REQUEST-CANDIDATE",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(3)(b)",
+      "table_references": [],
+      "printed_pages": [
+        40
+      ],
+      "pdf_pages": [
+        40
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-3",
+        "REACH-TIV-31-3-b"
+      ],
+      "wording": "The supplier shall provide the recipient at his request with a safety data sheet compiled in accordance with Annex II, where a mixture does not meet the criteria for classification as hazardous in accordance with Titles I and II of Regulation (EC) No 1272/2008, but contains: (b) in an individual concentration of ≥ 0,1 % by weight for non-gaseous mixtures at least one substance that is carcinogenic category 2 or toxic to reproduction category 1A, 1B and 2, skin sensitiser category 1, respiratory sensitiser category 1, or has effects on or via lactation or is persistent, bioaccumulative and toxic (PBT) in accordance with the criteria set out in Annex XIII or very persistent and very bioaccumulative (vPvB) in accordance with the criteria set out in Annex XIII or has been included for reasons other than those referred to in point (a) in the list established in accordance with Article 59(1); or",
+      "applicability_conditions": "Non-classified non-gaseous mixture and recipient request; individual Candidate List for reasons other than 31(3)(a) ingredient ≥0.1% w/w",
+      "exceptions": [
+        "No automatic conclusion for gaseous mixtures under this branch; assess other triggers."
+      ],
+      "required_product_evidence": "Dated ingredient classification/status, complete composition, phase, weight concentration and request/delivery evidence",
+      "required_sds_content": "Supply Annex II SDS on request",
+      "assessment_methodology": "numeric_threshold",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-REQUEST-OEL",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(3)(c)",
+      "table_references": [],
+      "printed_pages": [
+        40
+      ],
+      "pdf_pages": [
+        40
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-3",
+        "REACH-TIV-31-3-c"
+      ],
+      "wording": "The supplier shall provide the recipient at his request with a safety data sheet compiled in accordance with Annex II, where a mixture does not meet the criteria for classification as hazardous in accordance with Titles I and II of Regulation (EC) No 1272/2008, but contains: (c) a substance for which there are Community workplace exposure limits.",
+      "applicability_conditions": "Non-classified mixture contains a substance with Union workplace exposure limit and recipient requests SDS",
+      "exceptions": [
+        "Article 31(3)(c) states no concentration threshold; distinct from Annex II 3.2.2(a)(ii)."
+      ],
+      "required_product_evidence": "Complete composition, dated Union OEL evidence, request/delivery evidence",
+      "required_sds_content": "Supply Annex II SDS on request",
+      "assessment_methodology": "conditional_applicability",
+      "related_requirements": [
+        "EU-REACH-AII-UNCLASSIFIED-OEL-THRESHOLD"
+      ],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-GENERAL-PUBLIC-EXCEPTION",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(4)",
+      "table_references": [],
+      "printed_pages": [
+        40
+      ],
+      "pdf_pages": [
+        40
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-4"
+      ],
+      "wording": "The safety data sheet need not be supplied where hazardous substances or mixtures offered or sold to the general public are provided with sufficient information to enable users to take the necessary measures as regards the protection of human health, safety and the environment, unless requested by a downstream user or distributor.",
+      "applicability_conditions": "Hazardous substance/mixture offered or sold to general public",
+      "exceptions": [
+        "Not a blanket consumer-product exemption."
+      ],
+      "required_product_evidence": "Distribution channel, sufficient safety information, downstream user/distributor request status",
+      "required_sds_content": "No SDS supply under exception only when conditions met; supply if requested by downstream user/distributor",
+      "assessment_methodology": "conditional_applicability",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "permitted_alternative_with_conditions"
+    },
+    {
+      "id": "EU-REACH-A31-LANGUAGE",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(5)",
+      "table_references": [],
+      "printed_pages": [
+        40
+      ],
+      "pdf_pages": [
+        40
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-5"
+      ],
+      "wording": "The safety data sheet shall be supplied in an official language of the Member State(s) where the substance or mixture is placed on the market, unless the Member State(s) concerned provide otherwise.",
+      "applicability_conditions": "SDS supplied for product placed on Member State market",
+      "exceptions": [
+        "Member State may provide otherwise."
+      ],
+      "required_product_evidence": "Target states, official languages, applicable derogations and actual SDS language",
+      "required_sds_content": "Official language(s) as required",
+      "assessment_methodology": "required_factual_information",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-DATE",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(6)",
+      "table_references": [],
+      "printed_pages": [
+        41
+      ],
+      "pdf_pages": [
+        41
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-6"
+      ],
+      "wording": "The safety data sheet shall be dated and shall contain the following headings: 1. identification of the substance/mixture and of the company/undertaking; 2. hazards identification; 3. composition/information on ingredients; 4. first-aid measures; 5. fire-fighting measures; 6. accidental release measures; 7. handling and storage; 8. exposure controls/personal protection; 9. physical and chemical properties; 10. stability and reactivity; 11. toxicological information; 12. ecological information; 13. disposal considerations; 14. transport information; 15. regulatory information; 16. other information.",
+      "applicability_conditions": "SDS supplied",
+      "exceptions": [],
+      "required_product_evidence": "Complete document and date",
+      "required_sds_content": "Dated SDS",
+      "assessment_methodology": "structural_presence",
+      "related_requirements": [
+        "EU-REACH-AII-COMPILATION-DATE"
+      ],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-HEADINGS",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(6)",
+      "table_references": [],
+      "printed_pages": [
+        41
+      ],
+      "pdf_pages": [
+        41
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-6"
+      ],
+      "wording": "The safety data sheet shall be dated and shall contain the following headings: 1. identification of the substance/mixture and of the company/undertaking; 2. hazards identification; 3. composition/information on ingredients; 4. first-aid measures; 5. fire-fighting measures; 6. accidental release measures; 7. handling and storage; 8. exposure controls/personal protection; 9. physical and chemical properties; 10. stability and reactivity; 11. toxicological information; 12. ecological information; 13. disposal considerations; 14. transport information; 15. regulatory information; 16. other information.",
+      "applicability_conditions": "SDS supplied",
+      "exceptions": [],
+      "required_product_evidence": "Complete document, language and applicable Annex II Part B",
+      "required_sds_content": "16 headings; use Part B for required format",
+      "assessment_methodology": "structural_presence",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-ES-ANNEX",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(7)",
+      "table_references": [],
+      "printed_pages": [
+        41
+      ],
+      "pdf_pages": [
+        41
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-7-first"
+      ],
+      "wording": "Any actor in the supply chain who is required to prepare a chemical safety report according to Articles 14 or 37 shall place the relevant exposure scenarios (including use and exposure categories where appropriate) in an annex to the safety data sheet covering identified uses and including specific conditions resulting from the application of Section 3 of Annex XI.",
+      "applicability_conditions": "Actor required to prepare CSR under Articles 14 or 37",
+      "exceptions": [],
+      "required_product_evidence": "CSR, identified uses, ES, Annex XI conditions",
+      "required_sds_content": "Relevant ES annex covering identified uses and specific conditions",
+      "assessment_methodology": "cross_section_consistency",
+      "related_requirements": [
+        "EU-REACH-AII-CSR-EXPOSURE-SCENARIO"
+      ],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-DU-ES",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(7)",
+      "table_references": [],
+      "printed_pages": [
+        41
+      ],
+      "pdf_pages": [
+        41
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-7-second"
+      ],
+      "wording": "Any downstream user shall include relevant exposure scenarios, and use other relevant information, from the safety data sheet supplied to him when compiling his own safety data sheet for identified uses.",
+      "applicability_conditions": "Downstream user compiling own SDS for identified uses",
+      "exceptions": [],
+      "required_product_evidence": "Upstream SDS/ES and own use scope",
+      "required_sds_content": "Include relevant exposure scenarios and use other relevant information",
+      "assessment_methodology": "cross_section_consistency",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-DISTRIBUTOR-ES",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(7)",
+      "table_references": [],
+      "printed_pages": [
+        41
+      ],
+      "pdf_pages": [
+        41
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-7-third"
+      ],
+      "wording": "Any distributor shall pass on relevant exposure scenarios, and use other relevant information, from the safety data sheet supplied to him when compiling his own safety data sheet for uses for which he has passed on information according to Article 37(2).",
+      "applicability_conditions": "Distributor compiling own SDS for uses communicated under Art 37(2)",
+      "exceptions": [],
+      "required_product_evidence": "Upstream SDS/ES and Article 37(2) communication",
+      "required_sds_content": "Pass on relevant ES; use other relevant information",
+      "assessment_methodology": "cross_section_consistency",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-FIRST-SUPPLY",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(8)",
+      "table_references": [],
+      "printed_pages": [
+        41
+      ],
+      "pdf_pages": [
+        41
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-8"
+      ],
+      "wording": "A safety data sheet shall be provided free of charge on paper or electronically no later than the date on which the substance or mixture is first supplied.",
+      "applicability_conditions": "SDS required",
+      "exceptions": [],
+      "required_product_evidence": "First supply date, actual delivery date, format and charges",
+      "required_sds_content": "Supply on paper/electronically at latest first supply",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-FREE",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(8)",
+      "table_references": [],
+      "printed_pages": [
+        41
+      ],
+      "pdf_pages": [
+        41
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-8"
+      ],
+      "wording": "A safety data sheet shall be provided free of charge on paper or electronically no later than the date on which the substance or mixture is first supplied.",
+      "applicability_conditions": "SDS required",
+      "exceptions": [],
+      "required_product_evidence": "Charges, invoice and delivery evidence",
+      "required_sds_content": "Free of charge",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-UPDATE-HAZARDS",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(9)(a)",
+      "table_references": [],
+      "printed_pages": [
+        41
+      ],
+      "pdf_pages": [
+        41
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-9",
+        "REACH-TIV-31-9-a"
+      ],
+      "wording": "Suppliers shall update the safety data sheet without delay on the following occasions: (a) as soon as new information which may affect the risk management measures, or new information on hazards becomes available;",
+      "applicability_conditions": "New hazard or risk-management information",
+      "exceptions": [],
+      "required_product_evidence": "Trigger evidence, awareness dates, update records",
+      "required_sds_content": "Update SDS without delay",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-UPDATE-AUTHORISATION",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(9)(b)",
+      "table_references": [],
+      "printed_pages": [
+        41
+      ],
+      "pdf_pages": [
+        41
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-9",
+        "REACH-TIV-31-9-b"
+      ],
+      "wording": "Suppliers shall update the safety data sheet without delay on the following occasions: (b) once an authorisation has been granted or refused;",
+      "applicability_conditions": "Authorisation granted/refused",
+      "exceptions": [],
+      "required_product_evidence": "Trigger evidence, awareness dates, update records",
+      "required_sds_content": "Update SDS without delay",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-UPDATE-RESTRICTION",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(9)(c)",
+      "table_references": [],
+      "printed_pages": [
+        41,
+        42
+      ],
+      "pdf_pages": [
+        41,
+        42
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-9",
+        "REACH-TIV-31-9-c"
+      ],
+      "wording": "Suppliers shall update the safety data sheet without delay on the following occasions: (c) once a restriction has been imposed.",
+      "applicability_conditions": "Restriction imposed",
+      "exceptions": [],
+      "required_product_evidence": "Trigger evidence, awareness dates, update records",
+      "required_sds_content": "Update SDS without delay",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-REDISTRIBUTION",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(9)",
+      "table_references": [],
+      "printed_pages": [
+        42
+      ],
+      "pdf_pages": [
+        42
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-9-redistribution"
+      ],
+      "wording": "The new, dated version of the information, identified as ‘Revision: (date)’, shall be provided free of charge on paper or electronically to all former recipients to whom they have supplied the substance or mixture within the preceding 12 months. Any updates following registration shall include the registration number.",
+      "applicability_conditions": "Article 31(9) update",
+      "exceptions": [],
+      "required_product_evidence": "Recipient list for preceding 12 months and free delivery evidence",
+      "required_sds_content": "Dated revision redistributed free to all former recipients in preceding 12 months",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A31-UPDATE-REGISTRATION",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 31(9)",
+      "table_references": [],
+      "printed_pages": [
+        42
+      ],
+      "pdf_pages": [
+        42
+      ],
+      "source_record_ids": [
+        "REACH-TIV-31-9-redistribution"
+      ],
+      "wording": "The new, dated version of the information, identified as ‘Revision: (date)’, shall be provided free of charge on paper or electronically to all former recipients to whom they have supplied the substance or mixture within the preceding 12 months. Any updates following registration shall include the registration number.",
+      "applicability_conditions": "Update following registration",
+      "exceptions": [],
+      "required_product_evidence": "Registration number and updated SDS",
+      "required_sds_content": "Include registration number",
+      "assessment_methodology": "required_factual_information",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A32-REGISTRATION",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 32(1)(a)",
+      "table_references": [],
+      "printed_pages": [
+        42
+      ],
+      "pdf_pages": [
+        42
+      ],
+      "source_record_ids": [
+        "REACH-TIV-32-1",
+        "REACH-TIV-32-1-a"
+      ],
+      "wording": "Any supplier of a substance on its own or in a mixture who does not have to supply a safety data sheet in accordance with Article 31 shall provide the recipient with the following information: (a) the registration number(s) referred to in Article 20(3), if available, for any substances for which information is communicated under points (b), (c) or (d) of this paragraph;",
+      "applicability_conditions": "Article 31 SDS not required; Registration number available for substance communicated under (b), (c) or (d)",
+      "exceptions": [],
+      "required_product_evidence": "Registration and basis for communication; communication evidence",
+      "required_sds_content": "Registration number in Article 32 communication (not necessarily SDS)",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A32-AUTHORISATION",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 32(1)(b)",
+      "table_references": [],
+      "printed_pages": [
+        42
+      ],
+      "pdf_pages": [
+        42
+      ],
+      "source_record_ids": [
+        "REACH-TIV-32-1",
+        "REACH-TIV-32-1-b"
+      ],
+      "wording": "Any supplier of a substance on its own or in a mixture who does not have to supply a safety data sheet in accordance with Article 31 shall provide the recipient with the following information: (b) if the substance is subject to authorisation and details of any authorisation granted or denied under Title VII in this supply chain;",
+      "applicability_conditions": "Article 31 SDS not required; Substance subject to authorisation",
+      "exceptions": [],
+      "required_product_evidence": "Title VII decision and supply chain; communication evidence",
+      "required_sds_content": "Authorisation status and details granted/denied in supply chain in Article 32 communication (not necessarily SDS)",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A32-RESTRICTION",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 32(1)(c)",
+      "table_references": [],
+      "printed_pages": [
+        42
+      ],
+      "pdf_pages": [
+        42
+      ],
+      "source_record_ids": [
+        "REACH-TIV-32-1",
+        "REACH-TIV-32-1-c"
+      ],
+      "wording": "Any supplier of a substance on its own or in a mixture who does not have to supply a safety data sheet in accordance with Article 31 shall provide the recipient with the following information: (c) details of any restriction imposed under Title VIII;",
+      "applicability_conditions": "Article 31 SDS not required; Title VIII restriction imposed",
+      "exceptions": [],
+      "required_product_evidence": "Applicable restriction and uses; communication evidence",
+      "required_sds_content": "Restriction details in Article 32 communication (not necessarily SDS)",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A32-RISK-MANAGEMENT",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 32(1)(d)",
+      "table_references": [],
+      "printed_pages": [
+        42
+      ],
+      "pdf_pages": [
+        42
+      ],
+      "source_record_ids": [
+        "REACH-TIV-32-1",
+        "REACH-TIV-32-1-d"
+      ],
+      "wording": "Any supplier of a substance on its own or in a mixture who does not have to supply a safety data sheet in accordance with Article 31 shall provide the recipient with the following information: (d) any other available and relevant information about the substance that is necessary to enable appropriate risk management measures to be identified and applied including specific conditions resulting from the application of Section 3 of Annex XI.",
+      "applicability_conditions": "Article 31 SDS not required; Available relevant information necessary for risk management",
+      "exceptions": [],
+      "required_product_evidence": "Product hazards, risk controls and Annex XI waiver; communication evidence",
+      "required_sds_content": "Necessary risk-management information including Annex XI conditions in Article 32 communication (not necessarily SDS)",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A32-FIRST-DELIVERY",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 32(2)",
+      "table_references": [],
+      "printed_pages": [
+        42
+      ],
+      "pdf_pages": [
+        42
+      ],
+      "source_record_ids": [
+        "REACH-TIV-32-2"
+      ],
+      "wording": "The information referred to in paragraph 1 shall be communicated free of charge on paper or electronically at the latest at the time of the first delivery of a substance on its own or in a mixture after 1 June 2007.",
+      "applicability_conditions": "Article 32(1) information required",
+      "exceptions": [],
+      "required_product_evidence": "First delivery after 1 June 2007 and actual communication records",
+      "required_sds_content": "Communication on paper/electronically no later than first delivery",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A32-FREE",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 32(2)",
+      "table_references": [],
+      "printed_pages": [
+        42
+      ],
+      "pdf_pages": [
+        42
+      ],
+      "source_record_ids": [
+        "REACH-TIV-32-2"
+      ],
+      "wording": "The information referred to in paragraph 1 shall be communicated free of charge on paper or electronically at the latest at the time of the first delivery of a substance on its own or in a mixture after 1 June 2007.",
+      "applicability_conditions": "Article 32(1) information required",
+      "exceptions": [],
+      "required_product_evidence": "Charges/invoice and communication evidence",
+      "required_sds_content": "Free communication",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A32-UPDATE-HAZARDS",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 32(3)(a)",
+      "table_references": [],
+      "printed_pages": [
+        43
+      ],
+      "pdf_pages": [
+        43
+      ],
+      "source_record_ids": [
+        "REACH-TIV-32-3",
+        "REACH-TIV-32-3-a"
+      ],
+      "wording": "Suppliers shall update this information without delay on the following occasions: (a) as soon as new information which may affect the risk management measures, or new information on hazards becomes available;",
+      "applicability_conditions": "Article 32 applies; New relevant hazard or risk-management information",
+      "exceptions": [],
+      "required_product_evidence": "Trigger, dates and update records",
+      "required_sds_content": "Update Article 32 information without delay",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A32-UPDATE-AUTHORISATION",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 32(3)(b)",
+      "table_references": [],
+      "printed_pages": [
+        43
+      ],
+      "pdf_pages": [
+        43
+      ],
+      "source_record_ids": [
+        "REACH-TIV-32-3",
+        "REACH-TIV-32-3-b"
+      ],
+      "wording": "Suppliers shall update this information without delay on the following occasions: (b) once an authorisation has been granted or refused;",
+      "applicability_conditions": "Article 32 applies; Authorisation granted/refused",
+      "exceptions": [],
+      "required_product_evidence": "Trigger, dates and update records",
+      "required_sds_content": "Update Article 32 information without delay",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A32-UPDATE-RESTRICTION",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 32(3)(c)",
+      "table_references": [],
+      "printed_pages": [
+        43
+      ],
+      "pdf_pages": [
+        43
+      ],
+      "source_record_ids": [
+        "REACH-TIV-32-3",
+        "REACH-TIV-32-3-c"
+      ],
+      "wording": "Suppliers shall update this information without delay on the following occasions: (c) once a restriction has been imposed.",
+      "applicability_conditions": "Article 32 applies; Restriction imposed",
+      "exceptions": [],
+      "required_product_evidence": "Trigger, dates and update records",
+      "required_sds_content": "Update Article 32 information without delay",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A32-REDISTRIBUTION",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 32(3)",
+      "table_references": [],
+      "printed_pages": [
+        43
+      ],
+      "pdf_pages": [
+        43
+      ],
+      "source_record_ids": [
+        "REACH-TIV-32-3-redistribution"
+      ],
+      "wording": "In addition, the updated information shall be provided free of charge on paper or electronically to all former recipients to whom they have supplied the substance or mixture within the preceding 12 months. Any updates following registration shall include the registration number.",
+      "applicability_conditions": "Article 32 update",
+      "exceptions": [],
+      "required_product_evidence": "Former recipient list and actual free delivery evidence",
+      "required_sds_content": "Updated information free to recipients supplied within preceding 12 months",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A32-UPDATE-REGISTRATION",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 32(3)",
+      "table_references": [],
+      "printed_pages": [
+        43
+      ],
+      "pdf_pages": [
+        43
+      ],
+      "source_record_ids": [
+        "REACH-TIV-32-3-redistribution"
+      ],
+      "wording": "In addition, the updated information shall be provided free of charge on paper or electronically to all former recipients to whom they have supplied the substance or mixture within the preceding 12 months. Any updates following registration shall include the registration number.",
+      "applicability_conditions": "Article 32 update following registration",
+      "exceptions": [],
+      "required_product_evidence": "Registration and update",
+      "required_sds_content": "Include registration number",
+      "assessment_methodology": "required_factual_information",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A33-ARTICLE-RECIPIENT",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 33(1)",
+      "table_references": [],
+      "printed_pages": [
+        43
+      ],
+      "pdf_pages": [
+        43
+      ],
+      "source_record_ids": [
+        "REACH-TIV-33-1"
+      ],
+      "wording": "Any supplier of an article containing a substance meeting the criteria in Article 57 and identified in accordance with Article 59(1) in a concentration above 0,1 % weight by weight (w/w) shall provide the recipient of the article with sufficient information, available to the supplier, to allow safe use of the article including, as a minimum, the name of that substance.",
+      "applicability_conditions": "Article contains identified Article 57/59(1) substance >0.1% w/w",
+      "exceptions": [
+        "Strictly above, not equal to 0.1%."
+      ],
+      "required_product_evidence": "Article-level composition, Candidate List date, supply evidence",
+      "required_sds_content": "Safe-use information, at minimum substance name; not an SDS obligation",
+      "assessment_methodology": "numeric_threshold",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A33-CONSUMER-REQUEST",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 33(2)",
+      "table_references": [],
+      "printed_pages": [
+        43
+      ],
+      "pdf_pages": [
+        43
+      ],
+      "source_record_ids": [
+        "REACH-TIV-33-2"
+      ],
+      "wording": "On request by a consumer any supplier of an article containing a substance meeting the criteria in Article 57 and identified in accordance with Article 59(1) in a concentration above 0,1 % weight by weight (w/w) shall provide the consumer with sufficient information, available to the supplier, to allow safe use of the article including, as a minimum, the name of that substance. The relevant information shall be provided, free of charge, within 45 days of receipt of the request.",
+      "applicability_conditions": "Article contains identified Article 57/59(1) substance >0.1% w/w; consumer requests information",
+      "exceptions": [
+        "Strictly above 0.1%."
+      ],
+      "required_product_evidence": "Article-level composition, Candidate List date, request and response",
+      "required_sds_content": "Safe-use information, at minimum substance name",
+      "assessment_methodology": "numeric_threshold",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A33-CONSUMER-DEADLINE",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 33(2)",
+      "table_references": [],
+      "printed_pages": [
+        43
+      ],
+      "pdf_pages": [
+        43
+      ],
+      "source_record_ids": [
+        "REACH-TIV-33-2"
+      ],
+      "wording": "On request by a consumer any supplier of an article containing a substance meeting the criteria in Article 57 and identified in accordance with Article 59(1) in a concentration above 0,1 % weight by weight (w/w) shall provide the consumer with sufficient information, available to the supplier, to allow safe use of the article including, as a minimum, the name of that substance. The relevant information shall be provided, free of charge, within 45 days of receipt of the request.",
+      "applicability_conditions": "Consumer request within Article 33(2) scope",
+      "exceptions": [],
+      "required_product_evidence": "Receipt date, response date and charges",
+      "required_sds_content": "Free response within 45 days",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A34-NEW-HAZARDS",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 34(a)",
+      "table_references": [],
+      "printed_pages": [
+        43
+      ],
+      "pdf_pages": [
+        43
+      ],
+      "source_record_ids": [
+        "REACH-TIV-34",
+        "REACH-TIV-34-a"
+      ],
+      "wording": "Any actor in the supply chain of a substance or a mixture shall communicate the following information to the next actor or distributor up the supply chain: (a) new information on hazardous properties, regardless of the uses concerned;",
+      "applicability_conditions": "Supply-chain actor obtains new hazard information",
+      "exceptions": [],
+      "required_product_evidence": "New hazard evidence and upstream communications",
+      "required_sds_content": "Communicate new hazard information regardless of uses",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A34-RMM-CHALLENGE",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 34(b)",
+      "table_references": [],
+      "printed_pages": [
+        43
+      ],
+      "pdf_pages": [
+        43
+      ],
+      "source_record_ids": [
+        "REACH-TIV-34",
+        "REACH-TIV-34-b"
+      ],
+      "wording": "Any actor in the supply chain of a substance or a mixture shall communicate the following information to the next actor or distributor up the supply chain: (b) any other information that might call into question the appropriateness of the risk management measures identified in a safety data sheet supplied to him, which shall be communicated only for identified uses.",
+      "applicability_conditions": "Information challenges SDS risk-management measures for identified uses",
+      "exceptions": [],
+      "required_product_evidence": "Supplied SDS, identified use and contrary evidence; communication records",
+      "required_sds_content": "Communicate information upstream for identified uses",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A34-DISTRIBUTOR-FORWARD",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 34",
+      "table_references": [],
+      "printed_pages": [
+        43
+      ],
+      "pdf_pages": [
+        43
+      ],
+      "source_record_ids": [
+        "REACH-TIV-34-distributors"
+      ],
+      "wording": "Distributors shall pass on that information to the next actor or distributor up the supply chain.",
+      "applicability_conditions": "Distributor receives Article 34 information",
+      "exceptions": [],
+      "required_product_evidence": "Received and forwarded communications",
+      "required_sds_content": "Pass information to next upstream actor/distributor",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A35-WORKER-ACCESS",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 35",
+      "table_references": [],
+      "printed_pages": [
+        43
+      ],
+      "pdf_pages": [
+        43
+      ],
+      "source_record_ids": [
+        "REACH-TIV-35"
+      ],
+      "wording": "Workers and their representatives shall be granted access by their employer to the information provided in accordance with Articles 31 and 32 in relation to substances or mixtures that they use or may be exposed to in the course of their work.",
+      "applicability_conditions": "Workers use or may be exposed to substances/mixtures",
+      "exceptions": [],
+      "required_product_evidence": "Workplace inventory, exposure context and information access arrangements",
+      "required_sds_content": "Employer grants workers/representatives access to Article 31/32 information",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A36-RETENTION",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 36(1)",
+      "table_references": [],
+      "printed_pages": [
+        44
+      ],
+      "pdf_pages": [
+        44
+      ],
+      "source_record_ids": [
+        "REACH-TIV-36-1"
+      ],
+      "wording": "Each manufacturer, importer, downstream user and distributor shall assemble and keep available all the information he requires to carry out his duties under this Regulation for a period of at least 10 years after he last manufactured, imported, supplied or used the substance or mixture. That manufacturer, importer, downstream user or distributor shall submit this information or make it available without delay upon request to any competent authority of the Member State in which he is established or to the Agency, without prejudice to Titles II and VI.",
+      "applicability_conditions": "Manufacturer, importer, downstream user or distributor",
+      "exceptions": [],
+      "required_product_evidence": "Last relevant activity, archive records and retention policy",
+      "required_sds_content": "Keep required information available ≥10 years after last specified activity",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A36-AUTHORITY-REQUEST",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 36(1)",
+      "table_references": [],
+      "printed_pages": [
+        44
+      ],
+      "pdf_pages": [
+        44
+      ],
+      "source_record_ids": [
+        "REACH-TIV-36-1"
+      ],
+      "wording": "Each manufacturer, importer, downstream user and distributor shall assemble and keep available all the information he requires to carry out his duties under this Regulation for a period of at least 10 years after he last manufactured, imported, supplied or used the substance or mixture. That manufacturer, importer, downstream user or distributor shall submit this information or make it available without delay upon request to any competent authority of the Member State in which he is established or to the Agency, without prejudice to Titles II and VI.",
+      "applicability_conditions": "Competent authority of establishment state or Agency requests information",
+      "exceptions": [
+        "Without prejudice to Titles II and VI."
+      ],
+      "required_product_evidence": "Request and response records",
+      "required_sds_content": "Submit or make information available without delay",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    },
+    {
+      "id": "EU-REACH-A36-SUCCESSOR",
+      "source_id": "reach",
+      "source_version": "2026-06-22",
+      "legal_authority_type": "binding_law_via_consolidation",
+      "clause": "Article 36(2)",
+      "table_references": [],
+      "printed_pages": [
+        44
+      ],
+      "pdf_pages": [
+        44
+      ],
+      "source_record_ids": [
+        "REACH-TIV-36-2"
+      ],
+      "wording": "In the event of a registrant, downstream user or distributor ceasing activity, or transferring part or all of his operations to a third party, the party responsible for liquidating the registrant, downstream user or distributor's undertaking or assuming responsibility for the placing on the market of the substance or mixture concerned shall be bound by the obligation in paragraph 1 in place of the registrant, downstream user or distributor.",
+      "applicability_conditions": "Registrant, downstream user or distributor ceases activity or transfers operations",
+      "exceptions": [],
+      "required_product_evidence": "Transfer/liquidation records, successor and retained information",
+      "required_sds_content": "Successor/liquidator bound by Article 36(1)",
+      "assessment_methodology": "external_supply_chain",
+      "related_requirements": [],
+      "effective_date": null,
+      "transition_rules": "Verify operative date of applicable original/amending act; Annex II format transition is separately governed by Regulation (EU) 2020/878; Article 31(10) historic transition only.",
+      "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+      "implementation_status": "manual_review_only",
+      "test_ids": [
+        "title-iv-schema",
+        "title-iv-source-trace",
+        "title-iv-threshold-distinction"
+      ],
+      "modality": "candidate_obligation"
+    }
+  ],
+  "legacy_author_index_mapping": [
+    {
+      "legacy_id": "RCH-002",
+      "clause": "Art.31(1)",
+      "requirement_ids": [
+        "EU-REACH-A31-SUPPLY-HAZARDOUS",
+        "EU-REACH-A31-SUPPLY-PBT-VPVB",
+        "EU-REACH-A31-SUPPLY-CANDIDATE"
+      ],
+      "disposition": "candidate_crosswalk_not_equivalent_approval"
+    },
+    {
+      "legacy_id": "RCH-003",
+      "clause": "Art.31(3)",
+      "requirement_ids": [
+        "EU-REACH-A31-REQUEST-HAZARD",
+        "EU-REACH-A31-REQUEST-CARC2",
+        "EU-REACH-A31-REQUEST-REPRO",
+        "EU-REACH-A31-REQUEST-SKIN-SENS",
+        "EU-REACH-A31-REQUEST-RESP-SENS",
+        "EU-REACH-A31-REQUEST-LACTATION",
+        "EU-REACH-A31-REQUEST-PBT",
+        "EU-REACH-A31-REQUEST-VPVB",
+        "EU-REACH-A31-REQUEST-CANDIDATE",
+        "EU-REACH-A31-REQUEST-OEL"
+      ],
+      "disposition": "candidate_crosswalk_not_equivalent_approval"
+    },
+    {
+      "legacy_id": "RCH-004",
+      "clause": "Art.31(4)",
+      "requirement_ids": [
+        "EU-REACH-A31-GENERAL-PUBLIC-EXCEPTION"
+      ],
+      "disposition": "candidate_crosswalk_not_equivalent_approval"
+    },
+    {
+      "legacy_id": "RCH-005",
+      "clause": "Art.31(5)",
+      "requirement_ids": [
+        "EU-REACH-A31-LANGUAGE"
+      ],
+      "disposition": "candidate_crosswalk_not_equivalent_approval"
+    },
+    {
+      "legacy_id": "RCH-006",
+      "clause": "Art.31(6)",
+      "requirement_ids": [
+        "EU-REACH-A31-DATE",
+        "EU-REACH-A31-HEADINGS"
+      ],
+      "disposition": "candidate_crosswalk_not_equivalent_approval"
+    },
+    {
+      "legacy_id": "RCH-007",
+      "clause": "Art.31(7)",
+      "requirement_ids": [
+        "EU-REACH-A31-ES-ANNEX",
+        "EU-REACH-A31-DU-ES",
+        "EU-REACH-A31-DISTRIBUTOR-ES"
+      ],
+      "disposition": "candidate_crosswalk_not_equivalent_approval"
+    },
+    {
+      "legacy_id": "RCH-008",
+      "clause": "Art.31(8)",
+      "requirement_ids": [
+        "EU-REACH-A31-FIRST-SUPPLY",
+        "EU-REACH-A31-FREE"
+      ],
+      "disposition": "candidate_crosswalk_not_equivalent_approval"
+    },
+    {
+      "legacy_id": "RCH-009",
+      "clause": "Art.31(9)",
+      "requirement_ids": [
+        "EU-REACH-A31-UPDATE-HAZARDS",
+        "EU-REACH-A31-UPDATE-AUTHORISATION",
+        "EU-REACH-A31-UPDATE-RESTRICTION",
+        "EU-REACH-A31-REDISTRIBUTION",
+        "EU-REACH-A31-UPDATE-REGISTRATION"
+      ],
+      "disposition": "candidate_crosswalk_not_equivalent_approval"
+    },
+    {
+      "legacy_id": "RCH-010",
+      "clause": "Art.32",
+      "requirement_ids": [
+        "EU-REACH-A32-REGISTRATION",
+        "EU-REACH-A32-AUTHORISATION",
+        "EU-REACH-A32-RESTRICTION",
+        "EU-REACH-A32-RISK-MANAGEMENT",
+        "EU-REACH-A32-FIRST-DELIVERY",
+        "EU-REACH-A32-FREE",
+        "EU-REACH-A32-UPDATE-HAZARDS",
+        "EU-REACH-A32-UPDATE-AUTHORISATION",
+        "EU-REACH-A32-UPDATE-RESTRICTION",
+        "EU-REACH-A32-REDISTRIBUTION",
+        "EU-REACH-A32-UPDATE-REGISTRATION"
+      ],
+      "disposition": "candidate_crosswalk_not_equivalent_approval"
+    },
+    {
+      "legacy_id": "RCH-011",
+      "clause": "Art.34",
+      "requirement_ids": [
+        "EU-REACH-A34-NEW-HAZARDS",
+        "EU-REACH-A34-RMM-CHALLENGE",
+        "EU-REACH-A34-DISTRIBUTOR-FORWARD"
+      ],
+      "disposition": "candidate_crosswalk_not_equivalent_approval"
+    },
+    {
+      "legacy_id": "RCH-012",
+      "clause": "Art.36",
+      "requirement_ids": [
+        "EU-REACH-A36-RETENTION",
+        "EU-REACH-A36-AUTHORITY-REQUEST",
+        "EU-REACH-A36-SUCCESSOR"
+      ],
+      "disposition": "candidate_crosswalk_not_equivalent_approval"
+    }
+  ]
+}

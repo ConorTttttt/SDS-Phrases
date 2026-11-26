@@ -84,11 +84,14 @@ def build(repo, sources, dest):
         refs[name] = content
         if "TEST_CASES" not in name:
             write(common,Path(path).name,content)
-    from canonical_requirements import load as load_canonical, requirement_version, coverage
+    from canonical_requirements import load as load_canonical, requirement_version, coverage, load_title_iv, title_iv_coverage
     pack, raw, _ = load_canonical(ROOT)
     records = pack["requirements"]
     write(common,"canonical-requirements.json",pack)
     write(common,"canonical-coverage.json",coverage(pack,raw))
+    title_iv = load_title_iv(ROOT,pack)
+    write(common,"canonical-title-iv.json",title_iv)
+    write(common,"canonical-title-iv-coverage.json",title_iv_coverage(title_iv))
     write(common,"ref11-canonical-crosswalk.json",pack.get("enforcement_crosswalk",[]))
     sections = re.split(r"(?m)(?=^## Section \d+ —)",refs["ECHA_SECTION_PLAYBOOK"])
     index = []
@@ -103,6 +106,8 @@ def build(repo, sources, dest):
             body.append(f"### {r['id']} · {anchor}\n\n{r['wording']}\n\nApplicability: {r['applicability_conditions']}\n\nEvidence: {r['required_product_evidence']}\n\nVersion: {requirement_version(r)}; {r['verification_status']}")
             index.append(f"{r['id']} | {r['clause']} | Section-{n:02}.md | PDF {r['pdf_pages']}")
         write(common,f"Section-{n:02}.md","\n\n".join(body))
+    for r in title_iv["requirements"]:
+        index.append(f"{r['id']} | {r['clause']} | canonical-title-iv.json | PDF {r['pdf_pages']} | manual candidate")
     for line in refs["REACH_RULE_INDEX"].splitlines():
         r=json.loads(line)
         index.append(f"{r['id']} | {r['legal_clause']} | {r['topic']} | {r['pdf_pages']}")

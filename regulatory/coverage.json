@@ -140,5 +140,14 @@
     "unresolved_source_records": 0,
     "ref11_crosswalk_records": 45,
     "ref11_linked_records": 17
+  },
+  "canonical_title_iv": {
+    "path": "regulatory/canonical/title_iv.json",
+    "release": "2026-11-26-title-iv-r1",
+    "articles": "31–36",
+    "source_records": 42,
+    "candidate_assessment_targets": 49,
+    "status": "candidate_manual_review_only",
+    "currentness": "unresolved"
   }
 }
