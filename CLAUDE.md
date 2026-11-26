@@ -235,8 +235,8 @@ and are never a second maintained copy.
 | `requirements.json` | `sds-canonical-requirements/v1`, `2026-11-26-annex-ii-expanded-r2` | 247 Annex II candidate targets (general provisions + all 16 sections), `migration` (597 legacy dispositions, 0 unresolved), `source_annotations`, `historical_versions` (1), `enforcement_crosswalk` (45 REF-11 refs, 17 linked) |
 | `title_iv.json` | `sds-canonical-title-iv/v1`, `2026-11-26-title-iv-r1` | REACH Arts. 31–36: 42 source records, 49 candidates, 11 legacy author-index mappings |
 | `clp.json` | `sds-canonical-clp/v1`, `2026-11-26-clp-label-pcn-r2` | CLP Arts. 4, 17–22, 24–29 and Annex VIII Parts A/B: 85 source records, 73 candidates, 1 reference-only table (Annex VIII Table 4), 9 explicit `coverage_gaps`, 6 historical versions, `source_text_check` 85/85 |
-| `requirements.jsonl` | generated export | 247 Annex II rows. Force-tracked because `*.jsonl` is gitignored |
-| `coverage_matrix.json` | snapshot | Per-section candidate coverage. **Not produced by the current builder and not read by code** |
+| `requirements.jsonl` | generated (`jsonl()`) | 247 Annex II rows in canonical JSONL: sorted keys, compact separators, UTF-8, LF. Force-tracked because `*.jsonl` is gitignored |
+| `coverage_matrix.json` | generated (`coverage_matrix()`) | Per-section candidate coverage derived from `coverage()`. Never hand-edit. Regenerate with `--sync-committed`; tests fail on drift |
 | `README.md`, `TITLE_IV.md`, `CLP.md`, `SOURCE_VERIFICATION.md` | docs | Method, official-source checks, executed source evidence |
 
 **Requirement record fields:** `id`, `source_id`, `source_version`, `legal_authority_type`, `clause`,
@@ -259,7 +259,7 @@ and either `legacy_ids` (Annex II) or `source_record_ids` (Title IV/CLP; CLP add
 
 **API:** `load(root)`, `load_title_iv`, `load_clp`, `all_requirements`, `requirement_version`,
 `resolve_requirement_version` / `resolve_any_requirement_version`, `resolve_legacy`, `retrieve_clause`,
-`search`, `coverage`, `title_iv_coverage`, `clp_coverage`, `verify_clp_pdf`, `evaluate_requirement`,
+`search`, `coverage`, `coverage_matrix`, `jsonl`, `committed_exports`, `sync_committed`, `knowledge_base_markdown`, `title_iv_coverage`, `clp_coverage`, `verify_clp_pdf`, `evaluate_requirement`,
 `inspection_link`, `build`.
 
 **Invariants:** stable semantic IDs; content-derived rule-version hashes; legacy rows immutable
@@ -321,6 +321,8 @@ for f in web/*.js; do node --input-type=module --check < "$f" || exit 1; done   
 ```sh
 python3 src/canonical_requirements.py /path/outside/repo/canonical-out                     # ✅ JSON/JSONL/SQLite FTS5
 python3 src/canonical_requirements.py /path/outside/repo/canonical-out --sources "$SDS_SOURCE_DIR"  # ✅ + 2,566 PDF pages
+python3 src/canonical_requirements.py --check-committed   # exit 1 if requirements.jsonl / coverage_matrix.json are stale
+python3 src/canonical_requirements.py --sync-committed    # regenerate them after any registry change, then commit
 PYTHONPATH=src python3 -c "import canonical_requirements as c; print(c.verify_clp_pdf(c.load_clp(), '$SDS_SOURCE_DIR/CELEX_02008R1272-20260701_EN_TXT.pdf'))"  # ✅ 85/85
 python3 src/reach_annex2_source.py "$SDS_SOURCE_DIR/Full REACH.pdf" --db data/reach_annex2_2026.sqlite    # ✅
 python3 src/guidance_pdf_verification.py "$SDS_SOURCE_DIR/sds_guidance.pdf" [--archive CLP_A_I-main.zip [--db data/echa_guidance_2020.sqlite]]  # ✅ (PDF only)
@@ -336,7 +338,7 @@ python3 scripts/build_gemini_package.py --sources "$SDS_SOURCE_DIR" --out /path/
 # Writer + Reviewer roles (needs git, pdftotext and an SDS_Author clone with both pinned commits fetched)
 git -C ../SDS_Author fetch origin feature/eu-sds-writing-only-v5 feature/eu-sds-compliance-reviewer-v1
 python3 gemini/roles/build.py --author ../SDS_Author --sources "$SDS_SOURCE_DIR" --out /path/outside/repo/gem-packages
-#   The role builder does NOT refuse an output path inside the repo. Always choose an external path.
+#   Both builders refuse output paths inside the repository (packages embed the PDFs).
 ```
 Offline exchange and blind evaluation:
 ```sh
@@ -422,9 +424,9 @@ post-snapshot amendments that must be reconciled before any date-specific execut
   `canonical-clp.json` and `canonical-title-iv.json` `requirements` arrays must equal the committed
   `regulatory/canonical/*.json` arrays. This was verified for both roles at `19efd59`. Changing a PIN or adding
   upstream references requires a ledger entry and regenerated packages.
-- The legacy `SINGLE_FILE_LLM_KNOWLEDGE_BASE.md` embeds the system prompt, coverage and author references
-  but **not** the canonical records. The canonical directory is copied alongside it. Use the role packages for
-  canonical-grounded work.
+- The legacy `SINGLE_FILE_LLM_KNOWLEDGE_BASE.md` embeds the system prompt, coverage, author references and,
+  via `knowledge_base_markdown()`, all 369 canonical records with source versions/SHA-256, rule versions,
+  verification status and limitations (scopes and CLP coverage gaps).
 - Generated packages contain the five PDFs (about 19.6 MB per role ZIP). Never commit them. No live Gemini
   output has been validated. Record blind-evaluation results using the protocol in `gemini/roles/README.md`
   (PASS / FAIL / NEEDS_MANUAL_REVIEW / NOT RUN counted separately).
@@ -433,7 +435,7 @@ post-snapshot amendments that must be reconciled before any date-specific execut
 
 ## 10. Tests and validation evidence
 
-### 10.1 Inventory (200 Python tests + 11 Node tests)
+### 10.1 Inventory (214 Python tests + 11 Node tests)
 
 | Test module | Tests | Notes |
 |---|---|---|
@@ -448,6 +450,7 @@ post-snapshot amendments that must be reconciled before any date-specific execut
 | `test_canonical_clp`, `test_canonical_requirements`, `test_catalogue_phase1`, `test_toolkit_integration` | 6 each | |
 | `test_stabilisation` | 4 | 1 needs `SDS_SOURCE_DIR` |
 | `test_canonical_title_iv`, `test_package_sources`, `test_regulatory_api` | 3 each | package: 1 needs `SDS_SOURCE_DIR` + `SDS_AUTHOR_DIR` |
+| `test_integration_fixes` | 14 | JSONL/matrix determinism, drift, legacy KB records, output guards, coverage evidence |
 | `test_import_catalogue` | 2 | |
 | `test_authoring_http` | 1 | HTTP round-trip |
 | `gemini/roles/test_exchange` | 2 | |
@@ -509,7 +512,7 @@ Statuses: **Done** means implemented with executed evidence (not legally verifie
 | L19 | Phrase recommendation packs (7/105/38/23) | Partial | Draft candidates only |
 | L20 | Evidence-led authoring workspace | Partial | Draft gates. Release workflow outstanding (L35) |
 | L21 | Page extraction | Partial | `unverified_layout`. Tables, footnotes and formulas need visual checks |
-| L22 | Documentation currency | Partial | See §12 drift list |
+| L22 | Documentation currency | Partial | README rewritten for the integration branch; older `docs/` notes remain historical |
 | L23 | GitHub Actions | **Blocked** | Every recorded run fails with no steps. Check Actions billing, runner and settings in the repo owner account |
 | L24 | Licensed catalogue verification (phrase verifiers, live wording) | **Blocked** | Requires the licensed eSDScom ZIP on the developer machine |
 | L25 | ECHA guidance Markdown archive import/cross-check | **Blocked** | `CLP_A_I-main.zip` not available |
@@ -521,11 +524,11 @@ Statuses: **Done** means implemented with executed evidence (not legally verifie
 | L31 | CLP classification engine (Arts. 5–16, Annex I) | Outstanding | Keep separate from disclosure (R10) |
 | L32 | CLP Annexes II–VI statements, pictograms, Annex VI entries | Outstanding | |
 | L33 | Browser end-to-end tests | Outstanding | Use local Playwright and no network |
-| L34 | `coverage.json` `validation_status` strings predate the 19efd59 run | Outstanding | Update with the next coverage change (R13 regeneration) |
+| L34 | `coverage.json` validation statuses reflect executed evidence | Done | `executed_validation` block cites `validation/full-19efd596.json`; tested for consistency |
 | L35 | Competent-person release record (sign-off, versioned) | Outstanding | No autonomous release (R14) |
-| L36 | Role builder: refuse output inside the repo (legacy builder already does) | Outstanding | Small guard + test |
-| L37 | Legacy single-file KB does not embed canonical records | Outstanding | Decide: embed or deprecate in favour of roles |
-| L38 | `coverage_matrix.json` has no generator; JSONL serialisation differs from the builder | Outstanding | Add a generator or regenerate-and-compare test |
+| L36 | Role builder refuses output inside the repo | Done | `check_output()` + tests |
+| L37 | Legacy single-file KB embeds canonical records | Done | `knowledge_base_markdown()` + tests |
+| L38 | Deterministic `coverage_matrix.json` and JSONL generation | Done | Root cause: committed JSONL was written with compact, insertion-order serialisation, while the builder used sorted keys and default separators. Unified under `jsonl()`; byte-reproducibility tests |
 
 ---
 
@@ -545,9 +548,8 @@ Statuses: **Done** means implemented with executed evidence (not legally verifie
 - **Byte-identical upstream copies:** `modules/section9/*`, `web/section9-rules.js`,
   `regulatory/author/tests/check_package.py`. Do not edit them. Change them upstream and re-pin.
 - **Python versions:** CI targets 3.12 and 3.14. Validated locally on 3.13. Avoid syntax newer than 3.10 in `src/`.
-- **Documentation drift:** the README sections are historical per-branch instructions (old feature branches,
-  `/mnt/holochain/...` paths, ports 8093–8098). `docs/toolkit_integration.md`, `TITLE_IV.md` and parts of
-  `VALIDATION.md` state that tests were not executed, which was accurate when written. The commands in §6 and the
+- **Documentation drift:** the README now describes the unified integration branch. Per-branch notes in `docs/`,
+  `TITLE_IV.md` and early `VALIDATION.md` entries state that tests were not executed, which was accurate when written. The commands in §6 and the
   evidence in §10 are current. Update the old documents rather than deleting their history.
 - **Commit messages:** imperative summary of the regulatory or evidence effect, for example "Add canonical
   CLP label … with UFI conditions and version gates". State any blocked or unexecuted checks in the body.

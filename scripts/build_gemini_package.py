@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"src"))
 from package_sources import verify_sources, extract_pages
+from canonical_requirements import knowledge_base_markdown
 def build(source_dir, out, extract=False):
     source_dir, out = Path(source_dir), Path(out)
     if out.exists(): raise ValueError("Output must not already exist")
@@ -46,6 +47,7 @@ def _build(source_dir, out, extract=False):
     text+="\n\n# Coverage\n"+(out/"coverage.json").read_text(encoding="utf-8")
     for r in sorted((out/"author/references").glob("*.md")):
         text+="\n\n# Reference: "+r.name+"\n"+r.read_text(encoding="utf-8")
+    text+="\n\n"+knowledge_base_markdown(ROOT)
     (out/"SINGLE_FILE_LLM_KNOWLEDGE_BASE.md").write_text(text,encoding="utf-8")
     subprocess.run([sys.executable, "-X", "utf8", str(out/"author/tests/check_package.py")], check=True)
     if extract:

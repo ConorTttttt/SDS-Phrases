@@ -65,6 +65,16 @@ def evaluations(refs):
     return cases+[dict(id=f"X{i:02}",prompt=cmd+" "+q,expected=a,source="extension") for i,(cmd,q,a) in enumerate(EXTRA,1)]
 
 
+def check_output(out):
+    """Refuse package locations inside the repository (packages embed the pinned PDFs)."""
+    out = Path(out)
+    if out.exists():
+        raise ValueError("Choose a new output directory")
+    if out.resolve().is_relative_to(ROOT.resolve()):
+        raise ValueError("Output must be outside repository")
+    return out
+
+
 def build(repo, sources, dest):
     if not shutil.which("git"):
         raise ValueError("Role generation requires Git on PATH and the pinned SDS_Author checkout")
@@ -179,8 +189,10 @@ if __name__=="__main__":
     for arg in ("author","sources","out"):
         p.add_argument("--"+arg,type=Path,required=True)
     a=p.parse_args()
-    if a.out.exists():
-        p.error("Choose a new output directory")
+    try:
+        check_output(a.out)
+    except ValueError as exc:
+        p.error(str(exc))
     a.out.parent.mkdir(parents=True,exist_ok=True)
     with tempfile.TemporaryDirectory(dir=a.out.parent) as tmp:
         stage=Path(tmp)/"packages"

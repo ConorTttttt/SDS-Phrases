@@ -70,6 +70,82 @@ def load(root=ROOT):
             raise ValueError("Unknown inspection crosswalk target")
     return pack, raw, sources
 
+def jsonl(rows):
+    """Canonical JSONL: one record per line, sorted keys, compact separators, UTF-8, LF."""
+    return "".join(json.dumps(r, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n" for r in rows)
+
+def json_text(value):
+    """Canonical pretty JSON used for committed generated snapshots."""
+    return json.dumps(value, ensure_ascii=False, indent=2) + "\n"
+
+MATRIX_WARNING = "Candidate target coverage only. No independent legal verification or exhaustive atomisation."
+
+def coverage_matrix(pack, raw):
+    """Committed per-section snapshot derived solely from coverage(); never hand-edited."""
+    sections = {}
+    for section, entry in sorted(coverage(pack, raw).items(), key=lambda item: int(item[0])):
+        sections[section] = {"source_records": entry["source_records"],
+            "mapped_source_records": entry["linked_source_records"],
+            "unmapped_source_records": entry["unmapped_source_records"],
+            "unresolved_source_records": entry["unresolved_source_records"],
+            "reference_only_records": entry["reference_only_records"],
+            "assessment_targets": [{k: r[k] for k in ("id", "verification_status", "implementation_status")}
+                                   for r in entry["requirements"]],
+            "verification": entry["coverage"]}
+    return {"release": pack["release"], "warning": MATRIX_WARNING, "sections": sections}
+
+COMMITTED_EXPORTS = ("regulatory/canonical/requirements.jsonl", "regulatory/canonical/coverage_matrix.json")
+
+def committed_exports(root=ROOT):
+    """Generated files that are committed for review; regenerate, do not edit by hand."""
+    pack, raw, _ = load(root)
+    return {COMMITTED_EXPORTS[0]: jsonl(pack["requirements"]),
+            COMMITTED_EXPORTS[1]: json_text(coverage_matrix(pack, raw))}
+
+def sync_committed(root=ROOT, check=False):
+    """Write (or, with check=True, only compare) committed exports. Returns stale paths."""
+    stale = []
+    for name, text in committed_exports(root).items():
+        path = Path(root) / name
+        if not path.is_file() or path.read_bytes() != text.encode("utf-8"):
+            stale.append(name)
+            if not check:
+                path.write_bytes(text.encode("utf-8"))
+    return stale
+
+def knowledge_base_markdown(root=ROOT):
+    """Render every canonical record with its source identity and limitations for a single-file LLM package."""
+    pack, raw, sources = load(root)
+    title = load_title_iv(root, pack)
+    clp = load_clp(root, pack, title)
+    out = ["# Canonical regulatory requirement registry",
+           "All records below are candidate assessment targets for manual review. None is an independently "
+           "verified legal obligation or an executable rule. Consolidated texts are documentation snapshots, "
+           "not the authentic Official Journal text, and their currentness after the snapshot date is not verified. "
+           "Missing or unextracted information is never evidence of absence of a hazard or of compliance.",
+           "## Source versions", "| id | version | authority | pages | sha256 | currentness |", "|---|---|---|---|---|---|"]
+    out += [f"| {s['id']} | {s['version']} | {s['authority']} | {s['pages']} | {s['sha256']} | {s['currentness']} |"
+            for s in sources.values()]
+    components = ((pack, "REACH Annex II", [pack["scope"]]),
+                  (title, "REACH Title IV", [title["scope"]]),
+                  (clp, "CLP label and PCN", [clp["scope"]] + ["Coverage gap: " + g for g in clp.get("coverage_gaps", [])]))
+    for component, label, limits in components:
+        rows = component["requirements"]
+        statuses = sorted({(r["verification_status"], r["implementation_status"]) for r in rows})
+        out += [f"## {label} — {component['schema']} release {component['release']}",
+                f"Records: {len(rows)}. Status: " + "; ".join(f"{v} / {i}" for v, i in statuses) + ".",
+                "Limitations:"] + ["- " + text for text in limits]
+        for r in rows:
+            out.append(f"### {r['id']}\n\n- Clause: {r['clause']}\n- Source: {r['source_id']} {r['source_version']}; "
+                       f"PDF pages {r['pdf_pages']}; printed pages {r['printed_pages']}\n"
+                       f"- Authority: {r['legal_authority_type']}; modality: {r.get('modality', '')}\n"
+                       f"- Verification: {r['verification_status']}; implementation: {r['implementation_status']}\n"
+                       f"- Rule version: {requirement_version(r)}\n- Effective date: {r['effective_date']}; "
+                       f"transition: {r['transition_rules']}\n- Applicability: {r['applicability_conditions']}\n"
+                       f"- Exceptions: {r['exceptions']}\n- Required product evidence: {r['required_product_evidence']}\n"
+                       f"- Assessment method: {r['assessment_methodology']}\n\nWording: {r['wording']}")
+    return "\n\n".join(out) + "\n"
+
 def requirement_version(row):
     return digest(row)
 
@@ -258,10 +334,11 @@ def build(out, root=ROOT, source_dir=None):
         "releases":{"annex_ii":pack["release"],"title_iv":title["release"],"clp":clp["release"]},
         "requirements":all_rows},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     (out/"title_iv.json").write_text(json.dumps(title,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    (out/"all_requirements.jsonl").write_text("".join(json.dumps(r,ensure_ascii=False,sort_keys=True)+"\n" for r in all_rows),encoding="utf-8")
+    (out/"all_requirements.jsonl").write_bytes(jsonl(all_rows).encode("utf-8"))
     (out/"title_iv_coverage.json").write_text(json.dumps(title_iv_coverage(title),ensure_ascii=False,indent=2),encoding="utf-8")
     (out/"requirements.json").write_text(json.dumps(pack,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    (out/"requirements.jsonl").write_text("".join(json.dumps(r,ensure_ascii=False,sort_keys=True)+"\n" for r in rows),encoding="utf-8")
+    (out/"requirements.jsonl").write_bytes(jsonl(rows).encode("utf-8"))
+    (out/"coverage_matrix.json").write_bytes(json_text(coverage_matrix(pack,raw)).encode("utf-8"))
     (out/"coverage.json").write_text(json.dumps(coverage(pack,raw),ensure_ascii=False,indent=2),encoding="utf-8")
     (out/"migration.json").write_text(json.dumps(pack["migration"],ensure_ascii=False,indent=2),encoding="utf-8")
     path = out/"requirements.sqlite"
@@ -336,7 +413,15 @@ def resolve_legacy(pack, legacy_id):
 
 if __name__ == "__main__":
     p=argparse.ArgumentParser()
-    p.add_argument("out",type=Path)
+    p.add_argument("out",type=Path,nargs="?",help="Empty output directory for generated exports and SQLite")
     p.add_argument("--sources",type=Path,help="Optional verified five-PDF directory; requires pdftotext")
+    p.add_argument("--sync-committed",action="store_true",help="Regenerate committed requirements.jsonl and coverage_matrix.json")
+    p.add_argument("--check-committed",action="store_true",help="Exit 1 if committed generated exports are stale")
     args=p.parse_args()
+    if args.check_committed or args.sync_committed:
+        stale=sync_committed(check=args.check_committed)
+        print(json.dumps({"stale" if args.check_committed else "regenerated":stale}))
+        raise SystemExit(1 if args.check_committed and stale else 0)
+    if args.out is None:
+        p.error("Provide an output directory, --sync-committed or --check-committed")
     print(build(args.out, source_dir=args.sources))

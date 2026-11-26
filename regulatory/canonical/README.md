@@ -6,7 +6,7 @@ This is a deliberately partial canonical registry. The legacy inventory remains 
 
 Pass `--sources /path/to/original-pdfs` to verify all five hashes and add raw layout-preserving PDF pages to FTS5. Printed pages remain unset for unreviewed extractions. The legacy Gemini generator also bundles the registry. New exchanges include a hash of assessed rule versions in the sources header; old exchanges retain their format.
 
-`retrieve_clause(path, clause)` provides exact clause lookup; source record clauses retain legacy syntax (e.g. `1.1`), canonical clauses include `Annex II Part A`. `resolve_legacy(pack, legacy_id)` returns the historical disposition. `coverage_matrix.json` is a generated snapshot, not an independent rule source.
+`retrieve_clause(path, clause)` provides exact clause lookup; source record clauses retain legacy syntax (e.g. `1.1`), canonical clauses include `Annex II Part A`. `resolve_legacy(pack, legacy_id)` returns the historical disposition. `coverage_matrix.json` and `requirements.jsonl` are generated from `requirements.json` by `coverage_matrix()` and `jsonl()` (canonical serialisation: sorted keys, compact separators, UTF-8, LF). Run `python src/canonical_requirements.py --sync-committed` after registry changes. `--check-committed` and `tests/test_integration_fixes.py` fail on drift. They are not independent rule sources, and their regeneration does not change any rule version.
 
 ## Expanded Annex II release
 

@@ -7,7 +7,7 @@
       "status": "partial",
       "implementation": "src/toolkit.py",
       "limits": "Article 31(1)/(4) positive trigger routing only; Article 31(3), 32 and special CLP triggers not executable.",
-      "validation_status": "unverified_runtime",
+      "validation_status": "6 toolkit integration tests passed at 19efd59 (validation/full-19efd596.json); independent regulatory validation pending",
       "implementation_status": "partially_implemented"
     },
     {
@@ -15,7 +15,7 @@
       "scope": "Annex II Part B and 0.4",
       "status": "implemented_structural_only",
       "implementation": "src/reach_annex2_audit.py",
-      "validation_status": "unverified_runtime",
+      "validation_status": "Annex II structural audit tests passed at 19efd59 (validation/full-19efd596.json); structural only; independent regulatory validation pending",
       "implementation_status": "implemented"
     },
     {
@@ -23,7 +23,7 @@
       "scope": "Annex II 3.1/3.2",
       "status": "knowledge_only",
       "implementation": "regulatory/author/references/REACH_SECTION3_DISCLOSURE_ENGINE.md",
-      "validation_status": "unverified_runtime",
+      "validation_status": "knowledge-only module; no executable engine to test; independent regulatory validation pending",
       "implementation_status": "partially_implemented"
     },
     {
@@ -32,14 +32,14 @@
       "status": "partial",
       "implementation": "modules/section9/rules.mjs",
       "limits": "9.1 applicability heuristic, 9.2 reference lists; independent legal validation pending",
-      "validation_status": "11 original upstream-identical Node tests passed at 36219aa2; independent regulatory validation pending",
+      "validation_status": "11 original upstream-identical Node tests passed at 36219aa2 and again at 19efd59 (validation/full-19efd596.json); independent regulatory validation pending",
       "implementation_status": "partially_implemented"
     },
     {
       "id": "section2",
       "scope": "CLP label and classification",
       "status": "not_assessed",
-      "validation_status": "unverified_runtime",
+      "validation_status": "not implemented; nothing executed",
       "implementation_status": "not_implemented"
     },
     {
@@ -47,21 +47,21 @@
       "scope": "Annex II 8",
       "status": "evidence_prompts_only",
       "implementation": "src/sds_readiness.py",
-      "validation_status": "unverified_runtime",
+      "validation_status": "readiness prompt tests passed at 19efd59 (validation/full-19efd596.json); independent regulatory validation pending",
       "implementation_status": "partially_implemented"
     },
     {
       "id": "ref11",
       "status": "partial",
       "implementation": "src/sds_assessment.py",
-      "validation_status": "synthetic tests present; integrated execution and independent regulatory review pending",
+      "validation_status": "synthetic assessment tests passed and REF-11 CLI run on synthetic fixture at 19efd59 (validation/full-19efd596.json); independent regulatory review pending",
       "implementation_status": "partially_implemented",
       "limits": "Question-indexed manual worksheet, source-linked questionnaire and legal references."
     },
     {
       "id": "cross_section",
       "status": "partial",
-      "validation_status": "synthetic tests present; integrated execution and independent regulatory review pending",
+      "validation_status": "synthetic assessment tests passed at 19efd59 (validation/full-19efd596.json); independent regulatory review pending",
       "implementation_status": "partially_implemented",
       "implementation": "src/sds_assessment.py",
       "limits": "Twelve relationships routed to review; selected conflicts tested deterministically."
@@ -69,7 +69,7 @@
     {
       "id": "multi_product",
       "status": "partial",
-      "validation_status": "synthetic tests present; integrated execution and independent regulatory review pending",
+      "validation_status": "synthetic assessment tests passed at 19efd59 (validation/full-19efd596.json); independent regulatory review pending",
       "implementation_status": "partially_implemented",
       "implementation": "src/sds_assessment.py",
       "limits": "Batch intake isolates each original by content hash; no automatic reconciliation across suppliers."
@@ -78,27 +78,27 @@
       "id": "clp",
       "scope": "Annexes I–VI and VIII",
       "status": "not_assessed",
-      "validation_status": "unverified_runtime",
+      "validation_status": "not implemented as an engine; canonical CLP candidate tests passed at 19efd59 (validation/full-19efd596.json)",
       "implementation_status": "not_implemented"
     },
     {
       "id": "phrases",
       "status": "draft_candidates_only",
       "implementation": "src/engine.py",
-      "validation_status": "unverified_runtime",
+      "validation_status": "synthetic phrase-engine tests passed at 19efd59 (validation/full-19efd596.json); live licensed catalogue verification blocked",
       "implementation_status": "partially_implemented"
     },
     {
       "id": "gemini",
-      "status": "legacy_and_separate_role_generators_implemented_unvalidated",
-      "validation_status": "generator runtime pending; exchange tests only",
+      "status": "legacy_and_separate_role_generators_implemented_build_executed",
+      "validation_status": "both generators executed with five pinned PDFs at 19efd59 (validation/full-19efd596.json); live Gemini behaviour not validated",
       "implementation_status": "partially_implemented",
       "implementation": "scripts/build_gemini_package.py; gemini/roles/build.py"
     },
     {
       "id": "pdf_ingestion",
       "status": "partial",
-      "validation_status": "five synthetic intake and two missing-dependency smoke tests passed on exact blobs at 36219aa2; integrated assessment pending",
+      "validation_status": "intake tests incl. PyMuPDF and Tesseract OCR passed at 19efd59 (validation/full-19efd596.json); visual verification of image candidates remains manual",
       "implementation_status": "partially_implemented",
       "implementation": "src/sds_intake.py",
       "limits": "Local PDF text, optional OCR, table extraction and image candidates require visual verification."
@@ -106,26 +106,26 @@
     {
       "id": "exchange_import",
       "status": "implemented_pending_human_review",
-      "validation_status": "two original exchange tests passed again at 36219aa2; full canonical exchange workflow pending",
+      "validation_status": "two original exchange tests passed at 19efd59 (validation/full-19efd596.json); full canonical exchange workflow with live Gemini pending",
       "implementation_status": "implemented",
       "implementation": "gemini/roles/exchange.py"
     },
     {
       "id": "source_integrity",
       "implementation_status": "partially_implemented",
-      "validation_status": "five supplied PDF hashes and page counts verified; source currency and extraction unverified"
+      "validation_status": "five pinned PDF hashes and page counts verified 2026-11-26 (validation/full-19efd596.json); source currency and extraction fidelity unverified"
     },
     {
       "id": "catalogue",
       "implementation_status": "implemented",
-      "validation_status": "licensed catalogue unavailable; live wording unverified"
+      "validation_status": "synthetic catalogue tests passed at 19efd59 (validation/full-19efd596.json); licensed catalogue unavailable; live wording unverified"
     },
     {
       "id": "authoring_workspace",
       "status": "implemented_draft_only",
       "implementation": "src/sds_authoring.py; src/authoring_api.py; web/authoring.html",
       "implementation_status": "implemented",
-      "validation_status": "existing tests present; integrated runtime pending",
+      "validation_status": "authoring unit and HTTP tests passed at 19efd59 (validation/full-19efd596.json); browser end-to-end pending",
       "limits": "Controlled phrases, review gates and revision history; no automated release or certification."
     }
   ],
@@ -169,5 +169,41 @@
       "Current applicability of amendments and stock transitions; national derogations and language rules"
     ],
     "source_text_check": "85/85 normalized spans matched supplied PDF after restoring paragraph numbers; no independent legal sign-off"
+  },
+  "executed_validation": {
+    "evidence": "validation/full-19efd596.json",
+    "commit": "19efd59653a9603c41eb70e889a84979527b4c6c",
+    "date": "2026-11-26",
+    "python_tests": {
+      "discovered": 200,
+      "passed": 200,
+      "skipped": 0,
+      "failed": 0,
+      "includes": [
+        "source-gated (SDS_SOURCE_DIR, SDS_AUTHOR_DIR)",
+        "optional PyMuPDF/Tesseract",
+        "gemini/roles exchange"
+      ]
+    },
+    "network_isolated_python_run": {
+      "passed": 200,
+      "method": "unshare --net with loopback only"
+    },
+    "javascript_tests": {
+      "passed": 11,
+      "failed": 0
+    },
+    "gemini_builders": [
+      "scripts/build_gemini_package.py --extract",
+      "gemini/roles/build.py (writer and reviewer)"
+    ],
+    "not_executed": [
+      "browser end-to-end",
+      "Windows",
+      "live licensed eSDScom catalogue",
+      "live Gemini evaluation",
+      "GitHub Actions (runs fail before any step)"
+    ],
+    "scope": "Software test execution only; no independent legal, regulatory or competent-person validation."
   }
 }
