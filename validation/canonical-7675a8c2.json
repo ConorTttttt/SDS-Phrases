@@ -1,0 +1,63 @@
+{
+  "schema": "canonical-registry-validation/v1",
+  "commit": "7675a8c24a4822af018726b9d8806aeb9e85f856",
+  "date": "2026-11-26",
+  "execution": "GitHub connector readback and JavaScript integrity checks; not Python runtime tests",
+  "checks": {
+    "unique_candidate_ids": true,
+    "legacy_records_597": true,
+    "source_wording_and_reverse_mapping": true,
+    "ref11_links_resolve": true,
+    "json_jsonl_parity": true,
+    "all_17_section_groups_have_candidates": true,
+    "all_candidates_manual_only": true,
+    "all_legacy_roles_assigned": true
+  },
+  "counts": {
+    "candidate_targets": 247,
+    "legacy_records": 597,
+    "linked_source_records": 449,
+    "unlinked_reference_records": 148,
+    "unclassified_source_records": 0,
+    "ref11_records": 45,
+    "ref11_linked": 17
+  },
+  "ci": {
+    "run_id": 45891341337,
+    "conclusion": "failure",
+    "jobs": [
+      {
+        "id": 140154514048,
+        "name": "test (ubuntu-latest, 3.14)",
+        "conclusion": "failure",
+        "recorded_steps": 0
+      },
+      {
+        "id": 140154514242,
+        "name": "test (windows-latest, 3.12)",
+        "conclusion": "failure",
+        "recorded_steps": 0
+      },
+      {
+        "id": 140154514280,
+        "name": "test (ubuntu-latest, 3.12)",
+        "conclusion": "failure",
+        "recorded_steps": 0
+      },
+      {
+        "id": 140154514593,
+        "name": "test (windows-latest, 3.14)",
+        "conclusion": "failure",
+        "recorded_steps": 0
+      }
+    ],
+    "log_retrieval": "NOT_FOUND: Error code: NOT_FOUND; Error: GitHub API error 404: ﻿<?xml version=\"1.0\" encoding=\"utf-8\"?><Error><Code>BlobNotFound</Code><Message>The specified blob does not exist.\nRequestId:80a824e8-c01e-0083-55e4-7dec0d000000\nTime:2026-11-26T20:29:14.3196266Z</Message></Error>"
+  },
+  "local_git": "DNS resolution failed",
+  "limitations": [
+    "No independent legal validation",
+    "No full integrated Python execution confirmed",
+    "Assigned source roles and candidate targets do not establish exhaustive legal coverage",
+    "Reference crosswalk partial"
+  ]
+}
