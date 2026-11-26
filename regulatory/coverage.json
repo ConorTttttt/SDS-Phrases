@@ -149,5 +149,24 @@
     "candidate_assessment_targets": 49,
     "status": "candidate_manual_review_only",
     "currentness": "unresolved"
+  },
+  "canonical_clp": {
+    "path": "regulatory/canonical/clp.json",
+    "release": "2026-11-26-clp-label-pcn-r1",
+    "source_records": 85,
+    "candidate_assessment_targets": 73,
+    "status": "partial_candidate_manual_review_only",
+    "currentness": "unresolved",
+    "gaps": [
+      "CLP scope/exemptions and Articles 5–16 classification methodology",
+      "Annex I hazard-class criteria and classification tables",
+      "Annex II supplemental trigger-by-trigger requirements",
+      "Annex III and IV exact statement tables, languages and selection criteria",
+      "Annex V pictogram image and applicability verification",
+      "Annex VI harmonised entry and note-level extraction",
+      "Articles 23, 24 remainder, 29 remainder and Articles 30–33 label format/update",
+      "Annex VIII Part A 2.4 definitions and Parts B–D complete PCN schema, concentration tables, MIM, ICG, standard formulas",
+      "Current applicability of amendments and stock transitions; national derogations and language rules"
+    ]
   }
 }

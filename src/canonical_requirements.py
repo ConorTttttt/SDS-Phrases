@@ -153,15 +153,85 @@ def load_title_iv(root=ROOT, annex_pack=None):
             raise ValueError("Unknown Title IV migration target")
     return pack
 
+def load_clp(root=ROOT, annex_pack=None, title_pack=None):
+    """Load CLP candidates with immutable IDs; no date-specific compliance conclusion."""
+    pack = read(root / "regulatory/canonical/clp.json")
+    source = next(s for s in read(root/"regulatory/source_manifest.json")["sources"] if s["id"]=="clp")
+    if pack["schema"]!="sds-canonical-clp/v1" or pack["source_id"]!="clp" or pack["source_version"]!=source["version"] or pack["source_sha256"]!=source["sha256"]:
+        raise ValueError("CLP source identity mismatch")
+    records = {r["id"]:r for r in pack["source_records"]}
+    rows = {r["id"]:r for r in pack["requirements"]}
+    if len(records)!=len(pack["source_records"]) or len(rows)!=len(pack["requirements"]):
+        raise ValueError("Duplicate CLP identifiers")
+    if annex_pack is None:
+        annex_pack, _, _ = load(root)
+    if title_pack is None:
+        title_pack = load_title_iv(root,annex_pack)
+    previous = {r["id"] for p in (annex_pack,title_pack) for r in p["requirements"]}
+    if previous & set(rows):
+        raise ValueError("Duplicate cross-component CLP identifiers")
+    known = previous | set(rows)
+    required = set("id source_id source_version legal_authority_type clause table_references printed_pages pdf_pages source_record_ids context_record_ids wording applicability_conditions exceptions required_product_evidence required_sds_content assessment_methodology related_requirements sds_section effective_date transition_rules verification_status implementation_status test_ids modality".split())
+    for record in records.values():
+        if not record["wording"].strip() or not record["pdf_pages"] or any(type(n) is not int or not 1<=n<=source["pages"] for n in record["pdf_pages"]):
+            raise ValueError("Invalid CLP source record "+record["id"])
+    for row in rows.values():
+        if not required <= set(row) or not row["id"].startswith("EU-CLP-"):
+            raise ValueError("Invalid CLP requirement schema")
+        refs = [records[k] for k in row["source_record_ids"]]
+        if (not refs or row["wording"]!=" ".join(r["wording"] for r in refs)
+                or row["source_id"]!="clp" or row["source_version"]!=source["version"]
+                or row["legal_authority_type"]!="binding_law_via_consolidation"
+                or row["pdf_pages"]!=list(dict.fromkeys(n for r in refs for n in r["pdf_pages"]))
+                or row["printed_pages"]!=list(dict.fromkeys(n for r in refs for n in r["printed_pages"]))
+                or not set(row["context_record_ids"])<=set(records)
+                or not set(row["related_requirements"])<=known
+                or row["assessment_methodology"] not in METHODS
+                or row["implementation_status"]!="manual_review_only"):
+            raise ValueError("Invalid CLP requirement "+row["id"])
+    for table in pack["reference_tables"]:
+        if table["id"] not in records or table["execution"]!="reference_only" or not set(table["related_requirements"])<=set(rows):
+            raise ValueError("Invalid CLP reference table")
+    return pack
+
+def clp_coverage(pack):
+    return {"release":pack["release"],"coverage":"candidate_partial",
+            "gaps":pack["coverage_gaps"],
+            "requirements":[{"id":r["id"],"clause":r["clause"],"version":requirement_version(r),
+                "verification_status":r["verification_status"],"implementation_status":r["implementation_status"]}
+                for r in pack["requirements"]]}
+
+def verify_clp_pdf(pack, source_pdf):
+    """Check supplied PDF identity and normalized text spans; this does not verify layout or legal applicability."""
+    source_pdf = Path(source_pdf)
+    if hashlib.sha256(source_pdf.read_bytes()).hexdigest()!=pack["source_sha256"]:
+        raise ValueError("Changed CLP source PDF")
+    pages = subprocess.check_output(["pdftotext","-layout",str(source_pdf),"-"]).decode("utf-8").split("\f")
+    def normalize(text):
+        text = re.sub(r"(?m)^.*02008R1272.*031\\.001.*$", "", text)
+        text = re.sub(r"[▼►]M?\\d*|[▼►]B|◄", "", text)
+        text = re.sub(r"\\u00ad\\s*", "", text)
+        return re.sub(r"\\s+", "", text).replace("’","'").replace("‘","'").replace("“",'"').replace("”",'"')
+    missing=[]
+    for row in pack["source_records"]:
+        source = normalize(" ".join(pages[n-1] for n in row["pdf_pages"]))
+        needle = normalize(row["wording"])
+        if needle not in source:
+            missing.append(row["id"])
+    return {"checked":len(pack["source_records"]),"unmatched":missing,
+            "status":"text_match_only" if not missing else "manual_reconciliation_required"}
+
 def all_requirements(root=ROOT):
     annex, _, _ = load(root)
-    return annex["requirements"] + load_title_iv(root,annex)["requirements"]
+    title = load_title_iv(root,annex)
+    return annex["requirements"] + title["requirements"] + load_clp(root,annex,title)["requirements"]
 
 def resolve_any_requirement_version(identifier, version, root=ROOT):
     annex, _, _ = load(root)
     title = load_title_iv(root,annex)
     return (resolve_requirement_version(annex,identifier,version)
-            or resolve_requirement_version(title,identifier,version))
+            or resolve_requirement_version(title,identifier,version)
+            or resolve_requirement_version(load_clp(root,annex,title),identifier,version))
 
 def title_iv_coverage(pack):
     return {str(n): {"requirements":[{"id":r["id"],"version":requirement_version(r),
@@ -174,9 +244,12 @@ def build(out, root=ROOT, source_dir=None):
     out.mkdir(parents=True, exist_ok=True)
     rows = pack["requirements"]
     title = load_title_iv(root,pack)
-    all_rows = rows + title["requirements"]
+    clp = load_clp(root,pack,title)
+    all_rows = rows + title["requirements"] + clp["requirements"]
+    (out/"clp.json").write_text(json.dumps(clp,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    (out/"clp_coverage.json").write_text(json.dumps(clp_coverage(clp),ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     (out/"all_requirements.json").write_text(json.dumps({"schema":"sds-canonical-combined/v1",
-        "releases":{"annex_ii":pack["release"],"title_iv":title["release"]},
+        "releases":{"annex_ii":pack["release"],"title_iv":title["release"],"clp":clp["release"]},
         "requirements":all_rows},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     (out/"title_iv.json").write_text(json.dumps(title,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     (out/"all_requirements.jsonl").write_text("".join(json.dumps(r,ensure_ascii=False,sort_keys=True)+"\n" for r in all_rows),encoding="utf-8")
@@ -195,18 +268,21 @@ def build(out, root=ROOT, source_dir=None):
         CREATE TABLE source_manifest(id TEXT PRIMARY KEY, payload TEXT);
         CREATE TABLE historical_requirement(id TEXT, version TEXT, payload TEXT, PRIMARY KEY(id,version));
         CREATE TABLE enforcement_crosswalk(id TEXT PRIMARY KEY, payload TEXT);
+        CREATE TABLE reference_table(id TEXT PRIMARY KEY, payload TEXT);
         CREATE VIRTUAL TABLE search USING fts5(id UNINDEXED, authority UNINDEXED, clause, body);""")
         for source in sources.values():
             db.execute("INSERT INTO source_manifest VALUES (?,?)",(source["id"],json.dumps(source,ensure_ascii=False)))
         for r in all_rows:
             db.execute("INSERT INTO requirement VALUES (?,?,?,?)",(r["id"],requirement_version(r),r["clause"],json.dumps(r,ensure_ascii=False)))
             db.execute("INSERT INTO search VALUES (?,?,?,?)",(r["id"],r["legal_authority_type"],r["clause"],r["wording"]))
+        for table in clp["reference_tables"]:
+            db.execute("INSERT INTO reference_table VALUES (?,?)",(table["id"],json.dumps(table,ensure_ascii=False)))
         for old in pack.get("historical_versions", []):
             r = old["record"]
             db.execute("INSERT INTO historical_requirement VALUES (?,?,?)",(r["id"],requirement_version(r),json.dumps(old,ensure_ascii=False)))
         for link in pack.get("enforcement_crosswalk", []):
             db.execute("INSERT INTO enforcement_crosswalk VALUES (?,?)",(link["id"],json.dumps(link,ensure_ascii=False)))
-        for r in title["source_records"]:
+        for r in title["source_records"] + clp["source_records"]:
             db.execute("INSERT INTO source_record VALUES (?,?,?,?,?)",(r["id"],"legislation_consolidation",r["clause"],r["pdf_pages"][0],json.dumps(r,ensure_ascii=False)))
             db.execute("INSERT INTO search VALUES (?,?,?,?)",(r["id"],"legislation_consolidation",r["clause"],r["wording"]))
         for i,r in enumerate(raw):

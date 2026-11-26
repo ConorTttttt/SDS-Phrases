@@ -11,7 +11,7 @@ from pathlib import Path
 from reach_annex2_audit import load_structure
 from toolkit import article31
 from sds_intake import blocks, extract
-from canonical_requirements import load as load_canonical, evaluate_requirement, coverage as canonical_coverage, inspection_link, load_title_iv
+from canonical_requirements import load as load_canonical, evaluate_requirement, coverage as canonical_coverage, inspection_link, load_title_iv, load_clp, clp_coverage
 
 ROOT = Path(__file__).resolve().parents[1]
 PASS, FAIL, SUSPECT, UNKNOWN, NA, SKIP, REVIEW = STATUSES = (
@@ -110,6 +110,21 @@ def assess(document, corrections=None):
                         assessment_method=item["assessment_methodology"],
                         verification_status=item["verification_status"],
                         applicability="requires product and supply-chain scope confirmation")
+    clp = load_clp(ROOT,pack,title_iv)
+    for item in clp["requirements"]:
+        codes = item["sds_section"]
+        # A label or PCN obligation cannot be confirmed merely from SDS text.
+        result = evaluate_requirement(item)
+        finding(item["id"], codes, item["required_sds_content"],
+                f"CLP 02008R1272-20260701 {item['clause']}, PDF pp. {item['pdf_pages']}",
+                result["status"], result["missing_information"])
+        rows[-1].update(rule_version=result["rule_version"], canonical_release=clp["release"],
+                        assessment_method=item["assessment_methodology"],
+                        verification_status=item["verification_status"],
+                        applicability="requires CLP scope, market date and product evidence confirmation")
+    finding("coverage/clp","2.2","CLP candidate requirement coverage incomplete",
+            "CLP 02008R1272-20260701",UNKNOWN,"Review outstanding CLP criteria, annex tables and date dependencies.")
+    rows[-1].update(canonical_release=clp["release"], coverage_gap=clp_coverage(clp))
     for section, summary in canonical_coverage(pack, raw).items():
         finding("coverage/annex-ii/"+section, section,
                 "Canonical legal decomposition and independent verification incomplete",
