@@ -1,0 +1,415 @@
+{
+  "schema": "sds-validation/v1",
+  "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+  "checkout": "partial exact Git blobs; no complete Git working tree",
+  "local_git_head": null,
+  "environment": {
+    "os": "Linux 6.18.57 x86_64 glibc 2.41",
+    "python": "3.13.5",
+    "node": "22.16.0",
+    "tesseract": "5.5.0",
+    "poppler": "25.06.0",
+    "pymupdf": "1.26.7",
+    "reportlab": "4.4.9",
+    "python_docx": "1.2.0"
+  },
+  "blob_hashes": {
+    "src/package_sources.py": "8bdc2b4779cec5289b939a141f0bcb3d698328a2",
+    "tests/test_intake_optional.py": "39cf378f68793d9d49d70a895c48b9f60464a5ff",
+    "tests/test_package_sources.py": "b8d5a9ae6784968f2ea1ddb45f1458244d4edb56",
+    "scripts/run_tests_checked.py": "84cb3453b8731dd6eab453b0977263250388376e",
+    "scripts/run_js_tests_checked.py": "e074e870cd49d28f2705e760ba6dd76c93fa8cda",
+    "src/sds_intake.py": "65d1670710e35bdb7c6f0d5561349ddb323ce3e3",
+    "gemini/roles/exchange.py": "3ea8a5a8fd7d60872ee44030faa20ff7e96c2c07",
+    "gemini/roles/test_exchange.py": "7177547709ad68dab401f21368d288cec27ba217",
+    "regulatory/source_manifest.json": "dca0f3e34720c612dcfd8a0856414b7c1f83ba3c",
+    "modules/section9/rules.mjs": "0dd00c1dea218da02c080bdec7bddd97cd662546",
+    "modules/section9/tests/rules.test.mjs": "84438e243abfa5f2347f0ad3d5d371baa288945a"
+  },
+  "suites": [
+    {
+      "name": "intake_optional",
+      "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+      "environment": {
+        "os": "Linux 6.18.57 x86_64 glibc 2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "pymupdf": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": "python -m unittest discover -s tests -p test_intake_optional.py -v",
+      "passed": 7,
+      "failed": 0,
+      "skipped": 0,
+      "execution_limitations": [
+        "Synthetic files and mocked missing optional dependencies; not full application"
+      ]
+    },
+    {
+      "name": "package_sources",
+      "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+      "environment": {
+        "os": "Linux 6.18.57 x86_64 glibc 2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "pymupdf": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": "python -m unittest discover -s tests -p test_package_sources.py -v",
+      "passed": 2,
+      "failed": 0,
+      "skipped": 1,
+      "execution_limitations": [
+        "Actual role build skipped: pinned SDS_Author checkout and required environment variables unavailable"
+      ]
+    },
+    {
+      "name": "original_gemini_exchange",
+      "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+      "environment": {
+        "os": "Linux 6.18.57 x86_64 glibc 2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "pymupdf": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": "python scripts/run_tests_checked.py --manifest /tmp/sds-partial-python.json",
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "execution_limitations": [
+        "Separate discovery under gemini/roles in partial exact-blob tree"
+      ]
+    },
+    {
+      "name": "python_runner_aggregate",
+      "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+      "environment": {
+        "os": "Linux 6.18.57 x86_64 glibc 2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "pymupdf": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": "python scripts/run_tests_checked.py --manifest /tmp/sds-partial-python.json",
+      "passed": 11,
+      "failed": 0,
+      "skipped": 1,
+      "execution_limitations": [
+        "Only two test files in root tests directory (9 pass, 1 skip), plus original exchange (2 pass). Git HEAD unavailable. Aggregate, not additional tests."
+      ],
+      "aggregate_of": [
+        "intake_optional",
+        "package_sources",
+        "original_gemini_exchange"
+      ],
+      "sqlite_resource_warnings": 0
+    },
+    {
+      "name": "original_eu_sds_js",
+      "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+      "environment": {
+        "os": "Linux 6.18.57 x86_64 glibc 2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "pymupdf": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": "python scripts/run_js_tests_checked.py --manifest /tmp/sds-partial-js.json",
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0,
+      "execution_limitations": [
+        "Original source and tests match pinned EU_SDS commit 3e4272df30979d3793f77ecefe511c425ae30629; no full app checkout"
+      ]
+    },
+    {
+      "name": "pdf_source_integrity",
+      "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+      "environment": {
+        "os": "Linux 6.18.57 x86_64 glibc 2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "pymupdf": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": "Python: package_sources.verify_sources(manifest, /mnt/data); package_sources.extract_pages for each of five PDFs",
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "execution_limitations": [
+        "Hash and extracted page-boundary checks only; not extraction fidelity or legal review"
+      ]
+    },
+    {
+      "name": "complete_python_suite",
+      "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+      "environment": {
+        "os": "Linux 6.18.57 x86_64 glibc 2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "pymupdf": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Full git clone failed DNS resolution; only named component tests executed"
+      ],
+      "status": "not_run"
+    },
+    {
+      "name": "legacy_gemini_package_generator_and_original_integrity_checker",
+      "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+      "environment": {
+        "os": "Linux 6.18.57 x86_64 glibc 2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "pymupdf": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Full checkout and upstream package inputs unavailable; original checker preserved"
+      ],
+      "status": "not_run"
+    },
+    {
+      "name": "dual_role_gemini_package_generator",
+      "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+      "environment": {
+        "os": "Linux 6.18.57 x86_64 glibc 2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "pymupdf": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Pinned SDS_Author checkout not available; integration test explicitly skipped"
+      ],
+      "status": "not_run"
+    },
+    {
+      "name": "phrase_approval_rejection_revision_and_export",
+      "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+      "environment": {
+        "os": "Linux 6.18.57 x86_64 glibc 2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "pymupdf": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Full authoring HTTP regression test added but not executed"
+      ],
+      "status": "not_run"
+    },
+    {
+      "name": "all_server_api_endpoints",
+      "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+      "environment": {
+        "os": "Linux 6.18.57 x86_64 glibc 2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "pymupdf": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Full checkout and server execution unavailable"
+      ],
+      "status": "not_run"
+    },
+    {
+      "name": "network_disabled_application",
+      "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+      "environment": {
+        "os": "Linux 6.18.57 x86_64 glibc 2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "pymupdf": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "OS network namespace isolation failed with operation not permitted"
+      ],
+      "status": "not_run"
+    },
+    {
+      "name": "application_without_licensed_catalogue",
+      "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+      "environment": {
+        "os": "Linux 6.18.57 x86_64 glibc 2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "pymupdf": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Full application test added but not executed"
+      ],
+      "status": "not_run"
+    },
+    {
+      "name": "windows_and_ci_python_3_12_3_14",
+      "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+      "environment": {
+        "os": "Linux 6.18.57 x86_64 glibc 2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "pymupdf": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Hosted jobs did not receive runners"
+      ],
+      "status": "not_run"
+    },
+    {
+      "name": "browser_rendering_and_end_to_end",
+      "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+      "environment": {
+        "os": "Linux 6.18.57 x86_64 glibc 2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "pymupdf": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "No complete runnable application checkout"
+      ],
+      "status": "not_run"
+    }
+  ],
+  "unique_executed_test_totals": {
+    "passed": 22,
+    "failed": 0,
+    "skipped": 1,
+    "additional_pdf_checks_passed": 5
+  },
+  "ci": {
+    "run_id": 45889767263,
+    "commit": "86785ad7e004a65142eb263e336ef4e0222d50c6",
+    "conclusion": "failure",
+    "classification": "pre-execution infrastructure failure; root cause unknown",
+    "jobs": [
+      {
+        "id": 140149234290,
+        "os": "ubuntu-latest",
+        "python": "3.14",
+        "runner_id": 0,
+        "steps": [],
+        "passed": null,
+        "failed": null,
+        "skipped": null
+      },
+      {
+        "id": 140149234625,
+        "os": "windows-latest",
+        "python": "3.12",
+        "runner_id": 0,
+        "steps": [],
+        "passed": null,
+        "failed": null,
+        "skipped": null
+      },
+      {
+        "id": 140149234639,
+        "os": "windows-latest",
+        "python": "3.14",
+        "runner_id": 0,
+        "steps": [],
+        "passed": null,
+        "failed": null,
+        "skipped": null
+      },
+      {
+        "id": 140149234670,
+        "os": "ubuntu-latest",
+        "python": "3.12",
+        "runner_id": 0,
+        "steps": [],
+        "passed": null,
+        "failed": null,
+        "skipped": null
+      }
+    ]
+  }
+}

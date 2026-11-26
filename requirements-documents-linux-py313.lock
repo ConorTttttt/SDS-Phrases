@@ -1,0 +1,9 @@
+# Observed optional dependency closure, Linux CPython 3.13.5.
+# Exact versions from the component execution environment; not a clean-install or hash-verified lock.
+PyMuPDF==1.26.7
+reportlab==4.4.9
+python-docx==1.2.0
+Pillow==12.3.0
+charset-normalizer==3.4.7
+lxml==6.1.1
+typing-extensions==4.16.0
