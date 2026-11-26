@@ -135,6 +135,18 @@ def search(path, query, limit=30):
     with closing(sqlite3.connect(path)) as db:
         return db.execute("SELECT id,authority,clause,body FROM search WHERE search MATCH ? LIMIT ?",(query,limit)).fetchall()
 
+def retrieve_clause(path, clause):
+    """Exact clause matches, including original extraction records."""
+    with closing(sqlite3.connect(path)) as db:
+        return {
+            "requirements":[json.loads(x[0]) for x in db.execute("SELECT payload FROM requirement WHERE clause = ? ORDER BY id",(clause,))],
+            "source_records":[json.loads(x[0]) for x in db.execute("SELECT payload FROM source_record WHERE clause = ? ORDER BY page,id",(clause,))],
+        }
+
+def resolve_legacy(pack, legacy_id):
+    """Return migration disposition; never auto-approve a replacement."""
+    return next((m for m in pack["migration"] if m["legacy_id"] == legacy_id), None)
+
 if __name__ == "__main__":
     p=argparse.ArgumentParser()
     p.add_argument("out",type=Path)

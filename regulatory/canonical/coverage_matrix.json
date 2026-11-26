@@ -1,0 +1,394 @@
+{
+  "release": "2026-11-26-initial",
+  "warning": "Generated summary of candidate assessment targets, not independently verified regulatory coverage.",
+  "sections": {
+    "0": {
+      "source_records": 24,
+      "mapped_source_records": 7,
+      "unmapped_source_records": 17,
+      "assessment_targets": [
+        {
+          "id": "EU-REACH-AII-CSR-CONSISTENCY",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-CSR-EXPOSURE-SCENARIO",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-NANOFORM-LINK",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-COMPETENT-PERSON",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-TRAINING",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-CLEAR-CONCISE",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-COMPILATION-DATE",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-REVISION-CHANGES",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-REVISION-IDENTIFIER",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PAGINATION",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-RELEVANT-CONTENT",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-NO-BLANK",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        }
+      ],
+      "verification": "incomplete"
+    },
+    "1": {
+      "source_records": 25,
+      "mapped_source_records": 16,
+      "unmapped_source_records": 9,
+      "assessment_targets": [
+        {
+          "id": "EU-REACH-AII-PRODUCT-IDENTIFIER",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-REGISTERED-IDENTIFIER",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-REGISTRATION-REQUEST",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-MULTI-PRODUCT",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-SUBSTANCE-FORMS",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-NANOFORM-WORD",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-UFI-LOCATION",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-IDENTIFIED-USES",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-USES-ADVISED-AGAINST",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-USES-CSR",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-SUPPLIER-IDENTITY",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-SUPPLIER-ADDRESS",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-SUPPLIER-TELEPHONE",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-COMPETENT-EMAIL",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-LOCAL-RESPONSIBLE-PERSON",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-SUPPLIER-REGISTRATION",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-EMERGENCY-SERVICE",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-EMERGENCY-OFFICIAL-BODY",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-EMERGENCY-LIMITS",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        }
+      ],
+      "verification": "incomplete"
+    },
+    "2": {
+      "source_records": 15,
+      "mapped_source_records": 0,
+      "unmapped_source_records": 15,
+      "assessment_targets": [],
+      "verification": "incomplete"
+    },
+    "3": {
+      "source_records": 81,
+      "mapped_source_records": 38,
+      "unmapped_source_records": 43,
+      "assessment_targets": [
+        {
+          "id": "EU-REACH-AII-CLASSIFIED-LOWEST-THRESHOLD",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-CLASSIFIED-UNION-OEL",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-CLASSIFIED-PBT-ED",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        }
+      ],
+      "verification": "incomplete"
+    },
+    "4": {
+      "source_records": 14,
+      "mapped_source_records": 0,
+      "unmapped_source_records": 14,
+      "assessment_targets": [],
+      "verification": "incomplete"
+    },
+    "5": {
+      "source_records": 11,
+      "mapped_source_records": 0,
+      "unmapped_source_records": 11,
+      "assessment_targets": [],
+      "verification": "incomplete"
+    },
+    "6": {
+      "source_records": 26,
+      "mapped_source_records": 0,
+      "unmapped_source_records": 26,
+      "assessment_targets": [],
+      "verification": "incomplete"
+    },
+    "7": {
+      "source_records": 41,
+      "mapped_source_records": 0,
+      "unmapped_source_records": 41,
+      "assessment_targets": [],
+      "verification": "incomplete"
+    },
+    "8": {
+      "source_records": 44,
+      "mapped_source_records": 0,
+      "unmapped_source_records": 44,
+      "assessment_targets": [],
+      "verification": "incomplete"
+    },
+    "9": {
+      "source_records": 182,
+      "mapped_source_records": 80,
+      "unmapped_source_records": 102,
+      "assessment_targets": [
+        {
+          "id": "EU-REACH-AII-PROPERTY-AVAILABILITY",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-A",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-B",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-C",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-D",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-E",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-F",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-G",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-H",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-I",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-J",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-K",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-L",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-M",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-N",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-O",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-P",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-Q",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        },
+        {
+          "id": "EU-REACH-AII-PROPERTY-R",
+          "verification_status": "candidate_pending_independent_legal_and_extraction_review",
+          "implementation_status": "manual_review_only"
+        }
+      ],
+      "verification": "incomplete"
+    },
+    "10": {
+      "source_records": 15,
+      "mapped_source_records": 0,
+      "unmapped_source_records": 15,
+      "assessment_targets": [],
+      "verification": "incomplete"
+    },
+    "11": {
+      "source_records": 43,
+      "mapped_source_records": 0,
+      "unmapped_source_records": 43,
+      "assessment_targets": [],
+      "verification": "incomplete"
+    },
+    "12": {
+      "source_records": 26,
+      "mapped_source_records": 0,
+      "unmapped_source_records": 26,
+      "assessment_targets": [],
+      "verification": "incomplete"
+    },
+    "13": {
+      "source_records": 11,
+      "mapped_source_records": 0,
+      "unmapped_source_records": 11,
+      "assessment_targets": [],
+      "verification": "incomplete"
+    },
+    "14": {
+      "source_records": 23,
+      "mapped_source_records": 0,
+      "unmapped_source_records": 23,
+      "assessment_targets": [],
+      "verification": "incomplete"
+    },
+    "15": {
+      "source_records": 8,
+      "mapped_source_records": 0,
+      "unmapped_source_records": 8,
+      "assessment_targets": [],
+      "verification": "incomplete"
+    },
+    "16": {
+      "source_records": 8,
+      "mapped_source_records": 0,
+      "unmapped_source_records": 8,
+      "assessment_targets": [],
+      "verification": "incomplete"
+    }
+  }
+}
