@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Evidence-led SDS authoring</title>
+<style>body{font:16px system-ui;max-width:1200px;margin:24px auto;padding:0 18px}textarea{width:100%;box-sizing:border-box;font:13px monospace}button,select,input{padding:6px;margin:4px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eee;padding:12px}label{display:block}summary{cursor:pointer}fieldset{margin:12px 0} .warn{color:#8b2600}</style></head>
+<body><h1>Evidence-led SDS authoring</h1><p class="warn">Draft only — not for supply. Local competent-person review required.</p>
+<p><a href="/">Phrase toolkit</a> · <a href="/catalogue.html">Original catalogue</a></p>
+<label>Case ID <input id="case" value="new-case"></label><label>Expected revision <input id="version" type="number" min="0" value="0"></label>
+<details open><summary>Product dossier and source provenance (JSON)</summary><textarea id="dossier" rows="20"></textarea></details>
+<button id="evaluate">Revalidate all sections</button><button id="save">Save new revision</button><button id="history">Load latest revision / history</button>
+<label>Product <select id="product"></select> Subsection <select id="section"></select></label>
+<div id="view"></div>
+<fieldset><legend>Draft content block</legend><label>Block ID <input id="blockid"></label><label>Type <select id="kind"><option>fact</option><option>proposed</option><option>catalogue</option><option>internal</option><option>legal</option></select></label>
+<label>Product IDs (comma separated) <input id="targets"></label><label>Text <textarea id="wording" rows="4"></textarea></label>
+<label>Approval ID <input id="aid"> Version <input id="av" type="number"> Legal code <input id="legal"></label>
+<label>Evidence domains (comma separated) <input id="domains"></label><label>Reviewer <input id="reviewer"></label><label>Rationale <input id="reason"></label>
+<button id="pending">Add / edit pending</button><button id="approved">Approve block</button><button id="rejected">Reject block</button></fieldset>
+<details><summary>Controlled phrase approval database</summary><label>Search catalogue <input id="query"><button id="search">Search current section</button></label><pre id="results"></pre><p>Approval record JSON: original entry key, exact wording, subsection, kind, conditions, jurisdiction, language, reviewer, reason, status. For changes include ID and expected_version.</p><textarea id="phrase" rows="12"></textarea><button id="approve">Save phrase approval version</button><button id="list">List approvals</button></details>
+<details><summary>Review record (snapshot-bound JSON)</summary><textarea id="reviews" rows="12">{}</textarea></details>
+<button id="compare">Compare revisions</button><input id="left" type="number" value="1"><input id="right" type="number" value="2">
+<label>Draft export <select id="fmt"><option>json</option><option>docx</option><option>pdf</option></select><button id="export">Export saved revision</button></label>
+<pre id="status"></pre><script src="/authoring.js"></script></body></html>

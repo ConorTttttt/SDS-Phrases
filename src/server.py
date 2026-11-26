@@ -29,7 +29,7 @@ REGULATORY_PACK = ROOT / "rules" / "regulatory-demo-v0.2.json"
 GUIDANCE_DB = ROOT / "data" / "echa_guidance_2020.sqlite"
 REACH_DB = ROOT / "data" / "reach_annex2_2026.sqlite"
 REACH_CONTENT = ROOT / "rules" / "eu_reach_annex2_content_inventory_draft.json"
-STATIC = {"/section9-workspace.html": "section9-workspace.html", "/section9-workspace.js": "section9-workspace.js", "/section9-rules.js": "section9-rules.js", "/": "index.html", "/index.html": "index.html", "/app.js": "app.js", "/styles.css": "styles.css",
+STATIC = {"/authoring.html": "authoring.html", "/authoring.js": "authoring.js", "/section9-workspace.html": "section9-workspace.html", "/section9-workspace.js": "section9-workspace.js", "/section9-rules.js": "section9-rules.js", "/": "index.html", "/index.html": "index.html", "/app.js": "app.js", "/styles.css": "styles.css",
           "/catalogue.html": "catalogue.html", "/catalogue.js": "catalogue.js", "/catalogue.css": "catalogue.css",
           "/regulatory.html": "regulatory.html", "/regulatory.js": "regulatory.js",
           "/guidance.html": "guidance.html", "/guidance.js": "guidance.js",
@@ -199,6 +199,9 @@ def create_handler(db_path):
             self.wfile.write(data)
 
         def do_POST(self):
+            if urlparse(self.path).path.startswith("/api/authoring/"):
+                from authoring_api import dispatch
+                return dispatch(self, db_path)
             if urlparse(self.path).path == "/api/profile-recommendations/evaluate":
                 try:
                     if not self.headers.get("Content-Type","").startswith("application/json"):
