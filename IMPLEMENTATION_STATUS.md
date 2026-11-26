@@ -1,17 +1,20 @@
 # Implementation status — 26 November 2026
-Baseline: c9da6bb2abf47d9e6bc337f28f17030034bff5d5 on integration/offline-eu-gemini. All ten SDS-Phrases feature tips are ancestors (compare behind_by=0). Main baseline f2dd4a4524b6e4bb9ac1be83676b29aff6999790. EU_SDS 3e4272df30979d3793f77ecefe511c425ae30629 rules and tests have identical Git blob IDs to inherited copies. SDS_Author pinned ba0014655372a56c855b46b85fb6fd0f002d09c0; missing v4 references and static checker restored. Separate writer/reviewer packages identified but not integrated. Korean toolkit 60d378dc98f384d9ac9e1fbde965bb04ebecdb05 is design reference only.
+
+Inspected remote baseline: 2d2e7f03aa6b6ab593a08f705ecee82bd00897e8. The prior baseline remains historical evidence in Git. Implementation is distinct from executed verification and independent legal review.
 
 | Capability | Implementation | Verification |
 |---|---|---|
-| Catalogue importer/index/browser/reviews, finder | Implemented | Runtime pending; licensed catalogue unavailable |
-| Phrase selection, section/profile/family suggestions | Partial/draft | Runtime pending |
-| Demo regulatory engine | Partial | Unverified rule pack |
-| ECHA/REACH local source browser | Implemented indexing | Full REACH page markers checked; runtime pending |
-| Article 31 CLI | Partial | Runtime pending; 31(3)/32 absent |
-| Annex II heading audit | Implemented structural only | Runtime pending |
-| Section 9 | Partial | Original rules/tests identical by Git blob; runtime pending |
-| Gemini generator | Implemented manual export | Runtime pending; no Gemini execution |
-| CLP calculation, ingredient disclosure, REF-11 automation | Not implemented executable; some knowledge only | Unverified |
-| PDF SDS intake, exchange import, release workflow | Not implemented | Not tested |
+| Catalogue importer/index/browser/reviews, finder | Implemented | Licensed catalogue unavailable; runtime pending |
+| Phrase selection and recommendations | Draft candidates | Runtime pending |
+| Regulatory engine, Article 31 | Partial | 31(3)/32 and comprehensive Section 3 decision logic not established |
+| Annex II source browser and structural audit | Implemented indexing and headings | PDF identity verified; extraction fidelity/runtime pending |
+| Section 9 | Original applicability heuristic and local Node integration | Original blob parity previously recorded; runtime pending |
+| Supplier intake | PDF, OCR, DOCX, TXT, JSON | Five isolated format smoke tests passed at inspected baseline |
+| Assessment | Requirement inventory, selected deterministic conflicts, REF-11 worksheet, corrections and reports | Integrated execution and independent regulatory validation pending |
+| Evidence-led authoring | Controlled phrase approval/revocation, review gates, revisions, draft JSON/PDF/DOCX export, local endpoints | Implementation and tests present; integrated execution pending |
+| Gemini | Legacy generator and separate writer/reviewer generator | Build execution pending |
+| Gemini exchange | Selective export and staged review import | Two original tests passed at inspected baseline |
+| Comprehensive CLP classification and Section 3 engine | Not established as executable | Pending |
+| Release | Draft gates only; no autonomous certification | Pending competent-person review |
 
-See regulatory/coverage.json, VALIDATION.md, KNOWN_LIMITATIONS.md and ROADMAP.md. Implementation does not mean verified compliance.
+See regulatory/coverage.json, VALIDATION.md, KNOWN_LIMITATIONS.md and ROADMAP.md. No application-wide runtime or regulatory sign-off is implied.

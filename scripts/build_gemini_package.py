@@ -20,6 +20,8 @@ def build(source_dir, out, extract=False):
         target.rename(out)
 
 def _build(source_dir, out, extract=False):
+    if extract and not shutil.which("pdftotext"):
+        raise ValueError("Page extraction requires Poppler pdftotext on PATH; install poppler-utils or omit --extract")
     manifest=json.loads((ROOT/"regulatory/source_manifest.json").read_text())
     for field in ("id", "filename", "package_filename"):
         values = [s[field] for s in manifest["sources"]]

@@ -33,11 +33,11 @@ def write(folder, name, value):
 
 
 def upstream(repo, ref, path):
-    return subprocess.check_output(["git","-C",str(repo),"show",ref+":"+path]).decode()
+    return subprocess.check_output(["git","-C",str(repo),"show",ref+":"+path]).decode("utf-8")
 
 
 def files(repo, ref, prefix):
-    return subprocess.check_output(["git","-C",str(repo),"ls-tree","-r","--name-only",ref,prefix]).decode().splitlines()
+    return subprocess.check_output(["git","-C",str(repo),"ls-tree","-r","--name-only",ref,prefix]).decode("utf-8").splitlines()
 
 
 def evaluations(refs):
@@ -66,6 +66,10 @@ def evaluations(refs):
 
 
 def build(repo, sources, dest):
+    if not shutil.which("git"):
+        raise ValueError("Role generation requires Git on PATH and the pinned SDS_Author checkout")
+    if not shutil.which("pdftotext"):
+        raise ValueError("Role generation requires Poppler pdftotext on PATH")
     manifest = read(REG/"source_manifest.json")
     common = dest/"shared"
     common.mkdir()
@@ -74,7 +78,7 @@ def build(repo, sources, dest):
     for path in files(repo,pin,"references"):
         name = Path(path).stem
         canonical = REG/"author"/path
-        content = canonical.read_text() if canonical.exists() else upstream(repo,pin,path)
+        content = canonical.read_text(encoding="utf-8") if canonical.exists() else upstream(repo,pin,path)
         refs[name] = content
         if "TEST_CASES" not in name:
             write(common,Path(path).name,content)
@@ -100,7 +104,7 @@ def build(repo, sources, dest):
     write(common,"REQUIREMENTS.md","# Requirement lookup\n\n"+"\n\n".join(index))
     write(common,"SOURCE_CITATION.md",CITE)
     write(common,"MISSING_INFORMATION.md",GAPS)
-    write(common,"WORKFLOWS.md",(HERE/"WORKFLOWS.md").read_text())
+    write(common,"WORKFLOWS.md",(HERE/"WORKFLOWS.md").read_text(encoding="utf-8"))
     for name in ("source_manifest.json","coverage.json"):
         shutil.copy(REG/name,common/name)
     write(common,"product-intake.schema.json",INTAKE)
@@ -114,7 +118,7 @@ def build(repo, sources, dest):
             raise ValueError("Changed source: "+s["id"])
         (common/"sources").mkdir(exist_ok=True)
         shutil.copyfile(path,common/"sources"/s["package_filename"])
-        pages=subprocess.check_output(["pdftotext","-layout",str(path),"-"]).decode().split("\f")
+        pages=subprocess.check_output(["pdftotext","-layout",str(path),"-"]).decode("utf-8").split("\f")
         if pages[-1].strip() or len(pages)-1!=s["pages"]:
             raise ValueError("Unexpected page boundaries "+s["id"])
         for start in range(0,s["pages"],12):
@@ -141,13 +145,13 @@ def build(repo, sources, dest):
             "internal consistency and expert judgement. Separate observed evidence from interpretation. "
             "Give a testable corrective action. For authoring commands review a proposed change."
         )
-        instruction="\n\n".join((role_text, COMMON, GAPS, CITE, (common/"WORKFLOWS.md").read_text()))
+        instruction="\n\n".join((role_text, COMMON, GAPS, CITE, (common/"WORKFLOWS.md").read_text(encoding="utf-8")))
         write(folder,"GEM_INSTRUCTIONS.md",instruction)
         write(folder,"SKILL.md",f"---\nname: eu-sds-{role}\ndescription: Evidence-led EU SDS {role}\n---\n\n"+instruction)
         single=[instruction]
         for path in sorted(folder.iterdir()):
             if path.is_file() and path.suffix in (".json",".md",".jsonl") and path.name not in ("evaluation.json","GEM_INSTRUCTIONS.md"):
-                single.append("# "+path.name+"\n\n"+path.read_text())
+                single.append("# "+path.name+"\n\n"+path.read_text(encoding="utf-8"))
         write(folder,"SINGLE_FILE_LLM_KNOWLEDGE_BASE.md","\n\n".join(single))
         shutil.copy(HERE/"evaluate.py", folder/"evaluate.py")
         shutil.copy(HERE/"README.md",folder/"INSTALL.md")

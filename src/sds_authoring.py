@@ -410,7 +410,10 @@ def export_draft(record, fmt):
                            "review_blockers":record["blockers"]},ensure_ascii=False,indent=2).encode()
     out=BytesIO()
     if fmt=="docx":
-        from docx import Document
+        try:
+            from docx import Document
+        except ImportError as exc:
+            raise ValueError("DOCX export requires python-docx; install requirements-documents.txt or export JSON") from exc
         doc=Document()
         doc.add_heading(title,0)
         doc.sections[0].header.paragraphs[0].text=title
@@ -423,8 +426,11 @@ def export_draft(record, fmt):
                 doc.add_paragraph(line)
         doc.save(out)
     elif fmt=="pdf":
-        from reportlab.platypus import SimpleDocTemplate, Paragraph
-        from reportlab.lib.styles import getSampleStyleSheet
+        try:
+            from reportlab.platypus import SimpleDocTemplate, Paragraph
+            from reportlab.lib.styles import getSampleStyleSheet
+        except ImportError as exc:
+            raise ValueError("PDF export requires ReportLab; install requirements-documents.txt or export JSON") from exc
         from xml.sax.saxutils import escape
         styles=getSampleStyleSheet()
         flow=[Paragraph(escape(line),styles["Heading2" if line.startswith("SECTION ") else "BodyText"])

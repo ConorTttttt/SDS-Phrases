@@ -183,12 +183,21 @@ def assess(document, corrections=None):
             profile.get("kind") not in ("substance","mixture") or type(profile.get("aerosol")) is not bool):
             raise ValueError("Section 9 requires state, product kind and boolean aerosol evidence")
         program="import {evaluate} from './modules/section9/rules.mjs'; console.log(JSON.stringify(evaluate(JSON.parse(process.argv[1]))))"
-        run=subprocess.run(["node","--input-type=module","-e",program,json.dumps(profile)],cwd=ROOT,
-                           capture_output=True,text=True,check=True)
-        for i,result in enumerate(json.loads(run.stdout)):
-            finding(f"section9/{i}","9.1",result["name"]+" — "+result["reason"], LAW+" "+result["basis"],
-                    REVIEW,result["guidance"])
-            rows[-1]["applicability"]=result["status"]
+        try:
+            executable = shutil.which("node")
+            if not executable:
+                raise FileNotFoundError("Node.js not on PATH")
+            run=subprocess.run([executable,"--input-type=module","-e",program,json.dumps(profile)],cwd=ROOT,
+                               capture_output=True,text=True,encoding="utf-8",check=True,timeout=60)
+            results=json.loads(run.stdout)
+        except (OSError, subprocess.SubprocessError, ValueError) as exc:
+            finding("section9/unavailable","9.1","Section 9 calculator could not execute",LAW,SKIP,
+                    "Install Node.js 22+ on PATH and retry; check calculator inputs and installation: "+str(exc))
+        else:
+            for i,result in enumerate(results):
+                finding(f"section9/{i}","9.1",result["name"]+" — "+result["reason"], LAW+" "+result["basis"],
+                        REVIEW,result["guidance"])
+                rows[-1]["applicability"]=result["status"]
     for question in json.loads((ROOT/"regulatory/assessment/ref11.json").read_text()):
         key,topic,codes,law,page=question
         finding("REF11/"+key,codes,topic,law or "Administrative inspection record",SKIP if not law else UNKNOWN,

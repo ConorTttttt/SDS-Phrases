@@ -1,6 +1,7 @@
 # Roadmap
-1. Obtain actual CI results and correct failures. Exercise every page interactively and positive API paths using permitted local catalogue/source databases.
-2. Run full source/package build including optional extraction and original upstream checks. Migrate pinned independent author/reviewer roles and validate their contracts; verify legacy excerpt and guidance archive separately.
-3. Expand evidence-gated Article 31(3)/32 and ingredient disclosure from pinned playbooks; independently validate thresholds and date transitions.
-4. Implement CLP calculation/label coverage, full Section 9 UI parity, exposure controls, cross-section and REF-11 checks.
-5. Add SDS import/export and controlled competent-person release. Validate live Gemini results separately; keep offline deterministic rules shared.
+
+1. Restore CI runner scheduling and obtain a complete checkout; execute all suites on Linux and Windows and capture actual per-suite results.
+2. Exercise positive and negative API routes, browser workflows, offline network isolation, no-catalogue operation and missing optional dependency cases.
+3. Provision the five hash-pinned PDFs and pinned SDS_Author history to execute both existing builders, extraction and original package checker. Validate live Gemini independently.
+4. Extend partial Article 31/32 and Section 3 decision coverage and CLP calculation/label modules; independently review thresholds, exceptions and dates.
+5. Expand assessment beyond structural and selected deterministic checks, verify REF-11 interpretation and document extraction fidelity. Independently review controlled authoring and any future release workflow.

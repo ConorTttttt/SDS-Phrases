@@ -9,3 +9,6 @@ CI configured to run checked Python discovery, all web JavaScript syntax checks,
 
 ## Observed GitHub Actions result
 Run 45779620380 (https://github.com/ConorTttttt/SDS-Phrases/actions/runs/45779620380), exact commit 2930a360367f2b75503e93ee6e70c0cf26264370: completed with conclusion failure. Both Python 3.12 and 3.14 jobs reported failure, runner_id=0, empty step lists, and job log retrieval returned BlobNotFound (404). No evidence that tests started; no pass counts or application failure diagnosis available. Treat CI as blocked/unverified, not a successful run. Check repository Actions runner availability and billing/settings; root cause not established.
+
+## 26 November 2026 follow-up
+Inspected remote commit 2d2e7f03aa6b6ab593a08f705ecee82bd00897e8. Run 45883058905 at 22b388fb5718c565b422b7a6575074f11dffa64a: both Ubuntu jobs completed with runner_id=0, empty steps, logs 404 BlobNotFound. Root cause unknown; no test execution evidence. Local clone failed DNS. Five PDF hashes/page counts matched; isolated exchange (2 tests) and five synthetic intake smoke tests executed on exact Git blobs. See validation/baseline-2d2e7f03.json for counts, commands and limitations. Subsequent patches are not covered by these baseline results. CI runner updated for separate exchange discovery, Python manifests and Windows matrix; no success asserted until actual execution.

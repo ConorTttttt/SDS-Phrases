@@ -4,6 +4,7 @@ import hashlib
 import io
 import json
 import re
+import shutil
 import subprocess
 import zipfile
 from pathlib import Path
@@ -36,15 +37,26 @@ def extract(path, ocr=False):
     pages = []
     context = {}
     if suffix == ".pdf":
-        import fitz
+        try:
+            import fitz
+        except ImportError as exc:
+            raise ValueError("PDF intake requires PyMuPDF; install requirements-documents.txt or use TXT/JSON intake") from exc
+        if not hasattr(fitz.Page, "find_tables"):
+            raise ValueError("PDF table extraction requires a supported PyMuPDF version; install requirements-documents.txt")
         with fitz.open(stream=raw, filetype="pdf") as pdf:
             for number, page in enumerate(pdf, 1):
                 text = page.get_text(sort=True)
                 method = "PDF text layer"
                 if ocr and not text.strip():
                     pix = page.get_pixmap(matrix=fitz.Matrix(2, 2), alpha=False)
-                    text = subprocess.run(["tesseract", "stdin", "stdout"], input=pix.tobytes("png"),
-                                          capture_output=True, check=True).stdout.decode()
+                    executable = shutil.which("tesseract")
+                    if not executable:
+                        raise ValueError("OCR requires Tesseract on PATH; install tesseract-ocr on Linux or Tesseract on Windows, or supply corrected text")
+                    try:
+                        text = subprocess.run([executable, "stdin", "stdout"], input=pix.tobytes("png"),
+                                              capture_output=True, check=True, timeout=120).stdout.decode("utf-8")
+                    except (OSError, subprocess.SubprocessError) as exc:
+                        raise ValueError("Local OCR failed; check Tesseract installation and language data, or supply corrected text") from exc
                     method = "local OCR"
                 pages.append(dict(page=number, text=text, method=method,
                                   tables=[t.extract() for t in page.find_tables().tables],

@@ -6,10 +6,11 @@ on:
   workflow_dispatch:
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
+        os: [ubuntu-latest, windows-latest]
         python-version: ["3.12", "3.14"]
     steps:
       - uses: actions/checkout@v4
@@ -19,13 +20,29 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Install optional Python document dependencies
+        run: python -m pip install -r requirements-documents.txt
+      - name: Install local OCR and PDF tools
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y tesseract-ocr tesseract-ocr-eng poppler-utils
       - name: Verify Python source
-        run: python -m compileall -q src tests scripts regulatory/author
-      - name: Check all browser JavaScript syntax
+        run: python -m compileall -q src tests scripts regulatory/author gemini/roles
+      - name: Check browser JavaScript syntax
+        shell: bash
         run: |
           for file in web/*.js; do node --input-type=module --check < "$file" || exit 1; done
       - name: Run original Section 9 tests
-        run: node --test modules/section9/tests/*.test.mjs
+        run: node --test modules/section9/tests/rules.test.mjs
       - name: Run all Python tests in network namespace (loopback only)
+        if: runner.os == 'Linux'
         run: |
-          sudo unshare --net -- bash -c 'ip link set lo up; exec "$1" scripts/run_tests_checked.py' _ "$(command -v python)"
+          sudo unshare --net -- bash -c 'ip link set lo up; exec "$1" scripts/run_tests_checked.py --manifest "$2"' _ "$(command -v python)" "$RUNNER_TEMP/python-validation.json"
+      - name: Run all Python tests on Windows (network isolation not verified)
+        if: runner.os == 'Windows'
+        run: python scripts/run_tests_checked.py --manifest "${{ runner.temp }}/python-validation.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validation-${{ matrix.os }}-${{ matrix.python-version }}
+          path: ${{ runner.temp }}/python-validation.json
+          if-no-files-found: warn

@@ -54,14 +54,14 @@
       "id": "ref11",
       "status": "partial",
       "implementation": "src/sds_assessment.py",
-      "validation_status": "synthetic assessment tests; independent regulatory validation pending",
+      "validation_status": "synthetic tests present; integrated execution and independent regulatory review pending",
       "implementation_status": "partially_implemented",
       "limits": "Question-indexed manual worksheet, source-linked questionnaire and legal references."
     },
     {
       "id": "cross_section",
       "status": "partial",
-      "validation_status": "synthetic assessment tests; independent regulatory validation pending",
+      "validation_status": "synthetic tests present; integrated execution and independent regulatory review pending",
       "implementation_status": "partially_implemented",
       "implementation": "src/sds_assessment.py",
       "limits": "Twelve relationships routed to review; selected conflicts tested deterministically."
@@ -69,14 +69,14 @@
     {
       "id": "multi_product",
       "status": "partial",
-      "validation_status": "synthetic assessment tests; independent regulatory validation pending",
+      "validation_status": "synthetic tests present; integrated execution and independent regulatory review pending",
       "implementation_status": "partially_implemented",
       "implementation": "src/sds_assessment.py",
       "limits": "Batch intake isolates each original by content hash; no automatic reconciliation across suppliers."
     },
     {
       "id": "clp",
-      "scope": "Annexes I\u2013VI and VIII",
+      "scope": "Annexes I–VI and VIII",
       "status": "not_assessed",
       "validation_status": "unverified_runtime",
       "implementation_status": "not_implemented"
@@ -90,23 +90,25 @@
     },
     {
       "id": "gemini",
-      "status": "manual_package_generator_unvalidated",
-      "validation_status": "unverified_runtime",
-      "implementation_status": "partially_implemented"
+      "status": "legacy_and_separate_role_generators_implemented_unvalidated",
+      "validation_status": "generator runtime pending; exchange tests only",
+      "implementation_status": "partially_implemented",
+      "implementation": "scripts/build_gemini_package.py; gemini/roles/build.py"
     },
     {
       "id": "pdf_ingestion",
       "status": "partial",
-      "validation_status": "synthetic assessment tests; independent regulatory validation pending",
+      "validation_status": "five isolated synthetic format smoke tests passed at 2d2e7f03; full assessment integration pending",
       "implementation_status": "partially_implemented",
       "implementation": "src/sds_intake.py",
       "limits": "Local PDF text, optional OCR, table extraction and image candidates require visual verification."
     },
     {
       "id": "exchange_import",
-      "status": "not_assessed",
-      "validation_status": "unverified_runtime",
-      "implementation_status": "not_implemented"
+      "status": "implemented_pending_human_review",
+      "validation_status": "two original exchange tests passed against exact blobs at 2d2e7f03",
+      "implementation_status": "implemented",
+      "implementation": "gemini/roles/exchange.py"
     },
     {
       "id": "source_integrity",
@@ -117,6 +119,14 @@
       "id": "catalogue",
       "implementation_status": "implemented",
       "validation_status": "licensed catalogue unavailable; live wording unverified"
+    },
+    {
+      "id": "authoring_workspace",
+      "status": "implemented_draft_only",
+      "implementation": "src/sds_authoring.py; src/authoring_api.py; web/authoring.html",
+      "implementation_status": "implemented",
+      "validation_status": "existing tests present; integrated runtime pending",
+      "limits": "Controlled phrases, review gates and revision history; no automated release or certification."
     }
   ]
 }

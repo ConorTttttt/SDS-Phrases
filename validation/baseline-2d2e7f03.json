@@ -1,0 +1,356 @@
+{
+  "schema": "sds-validation/v1",
+  "commit": "2d2e7f03aa6b6ab593a08f705ecee82bd00897e8",
+  "checkout": "partial_exact_git_blobs",
+  "environment": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.13.5",
+    "node": "22.16.0",
+    "tesseract": "5.5.0",
+    "poppler": "25.06.0",
+    "PyMuPDF": "1.26.7",
+    "reportlab": "4.4.9",
+    "python_docx": "1.2.0"
+  },
+  "suites": [
+    {
+      "suite": "regulatory_pdf_identity",
+      "environment": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "PyMuPDF": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": "sha256sum *.pdf; pdfinfo each file",
+      "commit": "2d2e7f03aa6b6ab593a08f705ecee82bd00897e8",
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "execution_limitations": [
+        "Identity and page counts only; no legal currentness or extraction fidelity"
+      ],
+      "status": "executed"
+    },
+    {
+      "suite": "original_gemini_exchange",
+      "environment": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "PyMuPDF": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": "python -m unittest discover -s gemini/roles -p test_exchange.py -v",
+      "commit": "2d2e7f03aa6b6ab593a08f705ecee82bd00897e8",
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "execution_limitations": [
+        "Exact exchange.py, test_exchange.py, source_manifest.json blobs only"
+      ],
+      "status": "executed"
+    },
+    {
+      "suite": "synthetic_intake",
+      "environment": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "PyMuPDF": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": "python intake_smoke.py",
+      "commit": "2d2e7f03aa6b6ab593a08f705ecee82bd00897e8",
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "execution_limitations": [
+        "Exact sds_intake.py blob, synthetic fixtures; no integrated assessment"
+      ],
+      "status": "executed"
+    },
+    {
+      "suite": "full_python",
+      "environment": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "PyMuPDF": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "commit": "2d2e7f03aa6b6ab593a08f705ecee82bd00897e8",
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Complete checkout unavailable (DNS); no execution claimed. OS network namespace denied."
+      ],
+      "status": "not_run"
+    },
+    {
+      "suite": "original_EU_SDS_JS",
+      "environment": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "PyMuPDF": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "commit": "2d2e7f03aa6b6ab593a08f705ecee82bd00897e8",
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Complete checkout unavailable (DNS); no execution claimed. OS network namespace denied."
+      ],
+      "status": "not_run"
+    },
+    {
+      "suite": "legacy_generator",
+      "environment": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "PyMuPDF": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "commit": "2d2e7f03aa6b6ab593a08f705ecee82bd00897e8",
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Complete checkout unavailable (DNS); no execution claimed. OS network namespace denied."
+      ],
+      "status": "not_run"
+    },
+    {
+      "suite": "role_generator",
+      "environment": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "PyMuPDF": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "commit": "2d2e7f03aa6b6ab593a08f705ecee82bd00897e8",
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Complete checkout unavailable (DNS); no execution claimed. OS network namespace denied."
+      ],
+      "status": "not_run"
+    },
+    {
+      "suite": "original_SDS_Author_checker",
+      "environment": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "PyMuPDF": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "commit": "2d2e7f03aa6b6ab593a08f705ecee82bd00897e8",
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Complete checkout unavailable (DNS); no execution claimed. OS network namespace denied."
+      ],
+      "status": "not_run"
+    },
+    {
+      "suite": "phrase_approval_rejection_revision_export",
+      "environment": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "PyMuPDF": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "commit": "2d2e7f03aa6b6ab593a08f705ecee82bd00897e8",
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Complete checkout unavailable (DNS); no execution claimed. OS network namespace denied."
+      ],
+      "status": "not_run"
+    },
+    {
+      "suite": "local_server_API",
+      "environment": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "PyMuPDF": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "commit": "2d2e7f03aa6b6ab593a08f705ecee82bd00897e8",
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Complete checkout unavailable (DNS); no execution claimed. OS network namespace denied."
+      ],
+      "status": "not_run"
+    },
+    {
+      "suite": "network_isolation",
+      "environment": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "PyMuPDF": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "commit": "2d2e7f03aa6b6ab593a08f705ecee82bd00897e8",
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Complete checkout unavailable (DNS); no execution claimed. OS network namespace denied."
+      ],
+      "status": "not_run"
+    },
+    {
+      "suite": "no_licensed_catalogue",
+      "environment": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "PyMuPDF": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "commit": "2d2e7f03aa6b6ab593a08f705ecee82bd00897e8",
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Complete checkout unavailable (DNS); no execution claimed. OS network namespace denied."
+      ],
+      "status": "not_run"
+    },
+    {
+      "suite": "Windows_compatibility",
+      "environment": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "PyMuPDF": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "commit": "2d2e7f03aa6b6ab593a08f705ecee82bd00897e8",
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Complete checkout unavailable (DNS); no execution claimed. OS network namespace denied."
+      ],
+      "status": "not_run"
+    },
+    {
+      "suite": "browser_E2E",
+      "environment": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "python": "3.13.5",
+        "node": "22.16.0",
+        "tesseract": "5.5.0",
+        "poppler": "25.06.0",
+        "PyMuPDF": "1.26.7",
+        "reportlab": "4.4.9",
+        "python_docx": "1.2.0"
+      },
+      "command": null,
+      "commit": "2d2e7f03aa6b6ab593a08f705ecee82bd00897e8",
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "execution_limitations": [
+        "Complete checkout unavailable (DNS); no execution claimed. OS network namespace denied."
+      ],
+      "status": "not_run"
+    }
+  ],
+  "ci": {
+    "run_id": 45883058905,
+    "commit": "22b388fb5718c565b422b7a6575074f11dffa64a",
+    "status": "blocked_before_execution",
+    "jobs": [
+      {
+        "id": 140126894900,
+        "python": "3.12",
+        "runner_id": 0,
+        "steps": []
+      },
+      {
+        "id": 140126895241,
+        "python": "3.14",
+        "runner_id": 0,
+        "steps": []
+      }
+    ],
+    "passed": null,
+    "failed": null,
+    "skipped": null,
+    "execution_limitations": [
+      "Job logs 404 BlobNotFound; root cause unknown"
+    ]
+  },
+  "verified_blobs": {
+    "gemini/roles/exchange.py": "97c2f7d938cbd2e96494bb9b2e79918083c60fb6",
+    "gemini/roles/test_exchange.py": "7177547709ad68dab401f21368d288cec27ba217",
+    "regulatory/source_manifest.json": "dca0f3e34720c612dcfd8a0856414b7c1f83ba3c",
+    "src/sds_intake.py": "d2c25bd17be8301f77a6f3966f2be70fc6ab11a3"
+  }
+}
