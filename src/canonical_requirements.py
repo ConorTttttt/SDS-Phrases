@@ -126,10 +126,23 @@ def load_title_iv(root=ROOT, annex_pack=None):
     known = set(rows) | {r["id"] for r in annex_pack["requirements"]}
     if len(known)!=len(rows)+len(annex_pack["requirements"]):
         raise ValueError("Duplicate cross-component requirement identifiers")
+    required = {"id","source_id","source_version","legal_authority_type","clause",
+        "table_references","printed_pages","pdf_pages","source_record_ids","wording",
+        "applicability_conditions","exceptions","required_product_evidence","required_sds_content",
+        "assessment_methodology","related_requirements","effective_date","transition_rules",
+        "verification_status","implementation_status","test_ids","modality"}
+    for record in records.values():
+        if (not record["wording"].strip() or not record["pdf_pages"]
+                or any(not 1<=n<=source["pages"] for n in record["pdf_pages"])):
+            raise ValueError("Invalid Title IV source record "+record["id"])
     for row in rows.values():
+        if not required<=set(row) or not row["id"].startswith("EU-REACH-A"):
+            raise ValueError("Invalid Title IV schema")
         refs = [records[k] for k in row["source_record_ids"]]
         if (not refs or row["wording"]!=" ".join(r["wording"] for r in refs)
                 or row["source_id"]!="reach" or row["source_version"]!=source["version"]
+                or row["pdf_pages"]!=list(dict.fromkeys(n for r in refs for n in r["pdf_pages"]))
+                or row["printed_pages"]!=list(dict.fromkeys(n for r in refs for n in r["printed_pages"]))
                 or row["assessment_methodology"] not in METHODS
                 or row["implementation_status"]!="manual_review_only"
                 or not set(row["related_requirements"])<=known
@@ -144,6 +157,12 @@ def all_requirements(root=ROOT):
     annex, _, _ = load(root)
     return annex["requirements"] + load_title_iv(root,annex)["requirements"]
 
+def resolve_any_requirement_version(identifier, version, root=ROOT):
+    annex, _, _ = load(root)
+    title = load_title_iv(root,annex)
+    return (resolve_requirement_version(annex,identifier,version)
+            or resolve_requirement_version(title,identifier,version))
+
 def title_iv_coverage(pack):
     return {str(n): {"requirements":[{"id":r["id"],"version":requirement_version(r),
         "verification_status":r["verification_status"],"implementation_status":r["implementation_status"]}
@@ -156,6 +175,9 @@ def build(out, root=ROOT, source_dir=None):
     rows = pack["requirements"]
     title = load_title_iv(root,pack)
     all_rows = rows + title["requirements"]
+    (out/"all_requirements.json").write_text(json.dumps({"schema":"sds-canonical-combined/v1",
+        "releases":{"annex_ii":pack["release"],"title_iv":title["release"]},
+        "requirements":all_rows},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     (out/"title_iv.json").write_text(json.dumps(title,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     (out/"all_requirements.jsonl").write_text("".join(json.dumps(r,ensure_ascii=False,sort_keys=True)+"\n" for r in all_rows),encoding="utf-8")
     (out/"title_iv_coverage.json").write_text(json.dumps(title_iv_coverage(title),ensure_ascii=False,indent=2),encoding="utf-8")
@@ -192,7 +214,7 @@ def build(out, root=ROOT, source_dir=None):
             key="source/reach/"+digest(raw[i])
             if db.execute("INSERT OR IGNORE INTO source_record VALUES (?,?,?,?,?)",(key,"legislation_consolidation",r["annotation"].get("corrected_clause",r["clause"]),r["page"],json.dumps(r,ensure_ascii=False))).rowcount:
                 db.execute("INSERT INTO search VALUES (?,?,?,?)",(key,"legislation_consolidation",r["annotation"].get("corrected_clause",r["clause"]),r["text"]))
-        for m in pack["migration"]:
+        for m in pack["migration"] + title["legacy_author_index_mapping"]:
             db.execute("INSERT INTO migration VALUES (?,?)",(m["legacy_id"],json.dumps(m,ensure_ascii=False)))
         for key,r in read(root/"regulatory/assessment/clp_english.json").items():
             db.execute("INSERT INTO search VALUES (?,?,?,?)",("wording/"+key,"legislation_consolidation","CLP statement reference",r["wording"]))

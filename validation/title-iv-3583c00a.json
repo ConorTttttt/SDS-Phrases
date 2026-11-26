@@ -1,0 +1,16 @@
+{
+  "commit": "3583c00ac6a8d4c21eb9e27eab9fbc96a20787be",
+  "scope": "connector readback only",
+  "annex_ii_candidates": 247,
+  "title_iv_candidates": 49,
+  "combined_unique_ids": 296,
+  "title_iv_source_spans": 42,
+  "title_iv_legacy_author_links": 11,
+  "source_reconstruction": "all matched",
+  "related_requirement_ids": "all resolved",
+  "workflow_run": 45891669026,
+  "workflow_conclusion": "failure",
+  "jobs_with_recorded_steps": 0,
+  "python_suite": "not confirmed executed",
+  "independent_legal_verification": "pending"
+}

@@ -27,5 +27,9 @@ class TitleIVTests(unittest.TestCase):
             db=c.build(out)
             rows=[json.loads(l) for l in (out/"all_requirements.jsonl").read_text(encoding="utf-8").splitlines()]
             self.assertEqual(rows,c.all_requirements())
+            self.assertEqual(c.read(out/"all_requirements.json")["requirements"],rows)
+            r=next(r for r in rows if r["id"]=="EU-REACH-A31-REQUEST-OEL")
+            self.assertEqual(c.resolve_any_requirement_version(r["id"],c.requirement_version(r)),r)
+            self.assertIsNone(c.resolve_any_requirement_version(r["id"],"invalid"))
             self.assertTrue(c.retrieve_clause(db,"Article 31(3)(c)")["requirements"])
             self.assertTrue(c.retrieve_clause(db,"Article 31(3)(c)")["source_records"])
