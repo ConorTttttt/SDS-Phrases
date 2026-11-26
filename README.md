@@ -1,3 +1,7 @@
+# SDS toolkit integration (partial draft)
+
+See [offline and Gemini integration instructions](docs/toolkit_integration.md) and [coverage register](regulatory/coverage.json). Original application documentation follows.
+
 # SDS Phrase Selection Engine
 
 An offline, English-language SDS phrase authoring assistant using the **eSDScom 5.5** phrase catalogue. Python 3.10+ standard library only.

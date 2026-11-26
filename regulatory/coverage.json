@@ -4,8 +4,9 @@
   "modules": [
     {
       "id": "article31",
-      "status": "knowledge_only",
-      "implementation": "regulatory/author/references/REACH_ARTICLES_DECISION_ENGINE.md"
+      "status": "partial",
+      "implementation": "src/toolkit.py",
+      "limits": "Article 31(1)/(4) positive trigger routing only; Article 31(3), 32 and special CLP triggers not executable."
     },
     {
       "id": "structure",
