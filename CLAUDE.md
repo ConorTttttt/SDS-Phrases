@@ -546,7 +546,17 @@ output, not from the repo tree, because it expects bundled PDFs.
 | Gemini rebuild + sync check | All canonical components, coverage register and manifest identical to the repo |
 | CI history | Runs 45908436704 (be0524e) and 45909764858 (9130ba5): Ubuntu passed, Windows failed from CRLF checkout. **Run 45910715379 (27feb1c): all four jobs passed, Windows included** |
 
-Evidence files: `validation/full-19efd596.json`, `validation/integration-fixes-81656862.json`, `validation/integration-fixes-a76511c0.json`. These results cover only commit `19efd59`. Later commits
+### 10.5 Executed at `31869ca` (executable evaluator pilot)
+
+| Check | Result |
+|---|---|
+| Checked Python runner, full optional dependencies + sources | **237/237 + 2/2 passed** (includes 22 evaluator tests) |
+| Same inside `unshare --net` | **239/239 passed** |
+| Default environment / Node | 233 passed, 6 skipped / 11/11 |
+| Gemini rebuild + sync check | Canonical components, `canonical-evaluators.json`, evaluator and Title IV coverage, coverage register and manifest identical to the repository |
+| Toolkit example | 16 evaluations, all advisory (review or insufficient evidence); gate open for 0 |
+
+Evidence files: `validation/full-19efd596.json`, `validation/integration-fixes-81656862.json`, `validation/integration-fixes-a76511c0.json`, `validation/executable-evaluators-31869ca7.json`. These results cover only commit `19efd59`. Later commits
 need their own runs. None of this is legal or regulatory validation.
 
 ---

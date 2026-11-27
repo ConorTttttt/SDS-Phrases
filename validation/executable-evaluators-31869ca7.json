@@ -1,0 +1,192 @@
+{
+  "schema": "sds-validation/v1",
+  "commit": "31869ca774c044d55b66e47be9aca3349912c178",
+  "date": "2026-11-27",
+  "scope": "Task 24 controlled executable evaluator architecture and advisory pilot. Canonical records, rule versions and historical versions unchanged; no regulatory promotion.",
+  "checkout": "complete git clone, clean working tree",
+  "environment": {
+    "platform": "Linux x86_64 (glibc 2.39)",
+    "python": "CPython 3.13.18",
+    "node": "v22.23.5",
+    "optional_python": "PyMuPDF 1.26.7, reportlab 4.4.9, python-docx",
+    "tesseract": "5.3.4"
+  },
+  "command": "python3 scripts/run_tests_checked.py --manifest <outside-repo>/python-validation.json",
+  "python_runs": [
+    {
+      "run": "default environment",
+      "conditions": "no PyMuPDF/Tesseract; sources unset",
+      "suites": [
+        {
+          "suite": "tests",
+          "discovered": 237,
+          "passed": 231,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 6,
+          "execution_limitations": [
+            "PyMuPDF unavailable",
+            "PyMuPDF unavailable",
+            "PyMuPDF unavailable",
+            "Pinned PDF directory and SDS_Author Git checkout not provisioned",
+            "Local pinned PDFs not provisioned",
+            "PyMuPDF optional dependency unavailable"
+          ],
+          "success": true
+        },
+        {
+          "suite": "gemini/roles",
+          "discovered": 2,
+          "passed": 2,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "execution_limitations": [],
+          "success": true
+        }
+      ],
+      "sqlite_resource_warnings": 0,
+      "success": true
+    },
+    {
+      "run": "full optional dependencies",
+      "conditions": "PyMuPDF, Tesseract, five pinned PDFs, both pinned SDS_Author revisions",
+      "suites": [
+        {
+          "suite": "tests",
+          "discovered": 237,
+          "passed": 237,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "execution_limitations": [],
+          "success": true
+        },
+        {
+          "suite": "gemini/roles",
+          "discovered": 2,
+          "passed": 2,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "execution_limitations": [],
+          "success": true
+        }
+      ],
+      "sqlite_resource_warnings": 0,
+      "success": true
+    },
+    {
+      "run": "network namespace",
+      "conditions": "as full; unshare --net, loopback only; external HTTPS probe failed as intended",
+      "suites": [
+        {
+          "suite": "tests",
+          "discovered": 237,
+          "passed": 237,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "execution_limitations": [],
+          "success": true
+        },
+        {
+          "suite": "gemini/roles",
+          "discovered": 2,
+          "passed": 2,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "execution_limitations": [],
+          "success": true
+        }
+      ],
+      "sqlite_resource_warnings": 0,
+      "success": true
+    }
+  ],
+  "javascript": {
+    "passed": 11,
+    "failed": 0,
+    "skipped": 0
+  },
+  "static_checks": {
+    "web_js_syntax": "12/12 passed",
+    "compileall": "OK",
+    "check_committed": "no stale committed exports"
+  },
+  "new_tests": {
+    "module": "tests/test_regulatory_evaluators.py",
+    "tests": 22,
+    "result": "22/22 passed in every run above"
+  },
+  "evaluator_registry": {
+    "path": "regulatory/canonical/evaluators.json",
+    "registry_version": "2026-11-27-pilot-r1",
+    "bindings": 16,
+    "manual_review_only": 353,
+    "promotion_gate_open": 0
+  },
+  "toolkit_example": {
+    "evaluations": 16,
+    "statuses": [
+      "Insufficient evidence",
+      "Requires competent-person review"
+    ],
+    "legal_compliance_determined": false
+  },
+  "gemini_packages": {
+    "writer": {
+      "canonical-requirements.json": true,
+      "canonical-title-iv.json": true,
+      "canonical-clp.json": true,
+      "canonical-evaluators.json": true,
+      "rule_versions_equal": true,
+      "evaluator_coverage_equal": true,
+      "title_iv_coverage_equal": true,
+      "coverage_register_equal": true,
+      "source_manifest_equal": true,
+      "evaluation_cases": 134,
+      "embedded_pdfs_match": true
+    },
+    "reviewer": {
+      "canonical-requirements.json": true,
+      "canonical-title-iv.json": true,
+      "canonical-clp.json": true,
+      "canonical-evaluators.json": true,
+      "rule_versions_equal": true,
+      "evaluator_coverage_equal": true,
+      "title_iv_coverage_equal": true,
+      "coverage_register_equal": true,
+      "source_manifest_equal": true,
+      "evaluation_cases": 134,
+      "embedded_pdfs_match": true
+    },
+    "legacy": {
+      "kb_generator_section": true,
+      "requirements.json": true,
+      "title_iv.json": true,
+      "clp.json": true,
+      "coverage_matrix.json": true,
+      "evaluators.json": true,
+      "coverage_register_equal": true
+    }
+  },
+  "ci_reference": {
+    "run_id": 45910715379,
+    "commit": "27feb1c6adfc3e879d5714386537cd2b2d27be64",
+    "conclusion": "success on all four jobs (Ubuntu and Windows, Python 3.12/3.14)"
+  },
+  "not_executed": [
+    "CI for this commit",
+    "browser end-to-end",
+    "licensed eSDScom catalogue",
+    "live Gemini evaluation",
+    "independent legal verification of any evaluator"
+  ],
+  "limitations": [
+    "Applies to commit 31869ca774c044d55b66e47be9aca3349912c178 only.",
+    "All evaluator outcomes advisory; R9 gate closed for every binding.",
+    "Software tests are not independent legal, regulatory or competent-person validation."
+  ]
+}
